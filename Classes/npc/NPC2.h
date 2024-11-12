@@ -1,0 +1,26 @@
+﻿#pragma once
+#include "cocos2d.h"
+#include "Common.h"
+#include "SlashEnemy.h"
+#include "item/Gem.h"
+using namespace common;
+using namespace cocos2d;
+class NPC2
+{
+private:
+	Sprite* sprite;
+	SpriteBatchNode* spriteNode;
+	b2Body* body;
+	void displayMessage(const std::string& message, Scene* scene);
+	std::string _characterName; // Tên nhân vật
+	cocos2d::Label* _nameLabel; // Label hiển thị tên
+public:
+	
+	void idle();
+	Sprite* getSprite();
+	b2Body* getBody();
+	SpriteBatchNode* getSpriteNode();
+	NPC2(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap);
+	void startConversation(Scene* scene);
+};
+

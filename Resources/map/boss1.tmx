@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="24" tileheight="24" infinite="0" nextlayerid="8" nextobjectid="6">
+ <tileset firstgid="1" name="sprites" tilewidth="24" tileheight="24" tilecount="7225" columns="85">
+  <image source="sprites.png" width="2048" height="2048"/>
+ </tileset>
+ <layer id="1" name="bg" width="80" height="45">
+  <data encoding="base64" compression="zlib">
+   eJzt1tlOwlAURuGWQWY6gM/mPEFpwWdznoC24Ku5mmDihQKHRGuTfyXfhaHHbnc8UctSSimllFJKKaWUUkoppZRSSimllAcfPfSxn+84hStEhDEmuM53nMKVIMUCS7znO07hcm3uMHz00LfznqhYjdhXiAhjTLQ/o2L2lSDFAkvtzyinxB2GBx+9Ut4TFauAfY0QIsJY+zNqzr5iJEix0P6M6pa5w3DhwS/nPVGxGrKvACOEiLQ/o2bsa44YCVLtz6hOhTsMBy68St4TFasB+xoiwAih9mfUlH3NMEeMRPszql3lDqMLB24174mKVfbvXvYnI/u1y1a3hxrqaKCJFtrooAtn9bzOWtYBDnGEY5zgFGc4xwUucYUBhqtnP/3l2WD1/H+a+Qa3uMM9HvCIJzzjBa94yz63v7fN2SlmP32PHd/71W/NvOmszdcllFFBFXuooY4GmmihvWb+TWe32cG6s50d3rvuXdv8vJvmzc5+AEXGj9A=
+  </data>
+ </layer>
+ <objectgroup id="2" name="wall">
+  <object id="1" x="-0.666667" y="1007.33" width="1920.33" height="26"/>
+  <object id="4" x="-5" y="271" width="7" height="742"/>
+  <object id="5" x="25" y="622" width="79" height="313"/>
+ </objectgroup>
+ <layer id="3" name="boss" width="80" height="45" opacity="0">
+  <data encoding="base64" compression="zlib">
+   eJztzjENAAAIA7AFofiXMRMkPK2CJgAAAAAAAAAAAAAAAOx8DwDgVgHK3ABh
+  </data>
+ </layer>
+ <layer id="4" name="limit" width="80" height="45" opacity="0">
+  <data encoding="base64" compression="zlib">
+   eJztzTENADAIADDYhX8nOMTDDg7SGmgEAAAAAAAAAAAAAADAHZ07T72dBwB+DWcoAL0=
+  </data>
+ </layer>
+ <layer id="5" name="player" width="80" height="45" opacity="0">
+  <data encoding="base64" compression="zlib">
+   eJztzkENADAIALELNuffByZI9mkVtAAAAAAAAAAAAAAAoN78HgAAcGkBzssAXg==
+  </data>
+ </layer>
+ <objectgroup id="6" name="endgate">
+  <object id="3" x="1916" y="359" width="7" height="658"/>
+ </objectgroup>
+</map>

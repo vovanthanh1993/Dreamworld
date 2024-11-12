@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>Mossy - Decorations&Hazards.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,897},{781,809}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{13,1},{781,809}}</string>
+				<key>sourceSize</key>
+				<string>{819,819}</string>
+			</dict>
+
+			<key>Mossy - FloatingPlatformsrz.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{782,897},{506,497}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{5,8},{506,497}}</string>
+				<key>sourceSize</key>
+				<string>{512,512}</string>
+			</dict>
+
+			<key>Mossy - TileSet.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{896,896}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{0,0},{896,896}}</string>
+				<key>sourceSize</key>
+				<string>{896,896}</string>
+			</dict>
+
+		</dict>
+
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>2</integer>
+			<key>size</key>
+			<string>{2048,2048}</string>
+			<key>textureFileName</key>
+			<string>sprites.png</string>
+			</dict>
+		</dict>
+</plist>

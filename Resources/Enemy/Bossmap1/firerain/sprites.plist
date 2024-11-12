@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>fire_rain_0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{169,0},{48,78}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{100,99},{48,78}}</string>
+				<key>sourceSize</key>
+				<string>{50,100}</string>
+			</dict>
+
+			<key>fire_rain_1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{169,0},{48,78}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{100,99},{48,78}}</string>
+				<key>sourceSize</key>
+				<string>{50,100}</string>
+			</dict>
+
+			<key>fire_rain_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{115,0},{53,81}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{94,96},{53,81}}</string>
+				<key>sourceSize</key>
+				<string>{50,100}</string>
+			</dict>
+
+			<key>fire_rain_3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{60,0},{54,89}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{91,88},{54,89}}</string>
+				<key>sourceSize</key>
+				<string>{50,100}</string>
+			</dict>
+
+			<key>fire_rain_4.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{59,106},{57,98}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{90,79},{57,98}}</string>
+				<key>sourceSize</key>
+				<string>{50,100}</string>
+			</dict>
+
+			<key>fire_rain_5.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,106},{58,100}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{90,77},{58,100}}</string>
+				<key>sourceSize</key>
+				<string>{50,100}</string>
+			</dict>
+
+			<key>fire_rain_6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{59,105}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{94,72},{59,105}}</string>
+				<key>sourceSize</key>
+				<string>{50,100}</string>
+			</dict>
+
+			<key>fire_rain_7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{117,82},{51,126}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{98,51},{51,126}}</string>
+				<key>sourceSize</key>
+				<string>{50,100}</string>
+			</dict>
+
+			<key>fire_rain_8.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{169,79},{48,105}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{89,67},{48,105}}</string>
+				<key>sourceSize</key>
+				<string>{50,100}</string>
+			</dict>
+
+		</dict>
+
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>2</integer>
+			<key>size</key>
+			<string>{256,256}</string>
+			<key>textureFileName</key>
+			<string>sprites.png</string>
+			</dict>
+		</dict>
+</plist>

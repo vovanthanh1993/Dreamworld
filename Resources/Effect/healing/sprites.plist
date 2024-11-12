@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>healing_effect 0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,233},{13,12}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{128,126},{13,12}}</string>
+				<key>sourceSize</key>
+				<string>{248,248}</string>
+			</dict>
+
+			<key>healing_effect 1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,233},{13,12}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{128,126},{13,12}}</string>
+				<key>sourceSize</key>
+				<string>{248,248}</string>
+			</dict>
+
+			<key>healing_effect 10.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{85,225},{24,28}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{123,117},{24,28}}</string>
+				<key>sourceSize</key>
+				<string>{248,248}</string>
+			</dict>
+
+			<key>healing_effect 2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{89,83}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{80,83},{89,83}}</string>
+				<key>sourceSize</key>
+				<string>{248,248}</string>
+			</dict>
+
+			<key>healing_effect 3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,84},{88,78}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{80,84},{88,78}}</string>
+				<key>sourceSize</key>
+				<string>{248,248}</string>
+			</dict>
+
+			<key>healing_effect 4.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,163},{84,69}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{82,90},{84,69}}</string>
+				<key>sourceSize</key>
+				<string>{248,248}</string>
+			</dict>
+
+			<key>healing_effect 5.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{85,163},{71,61}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{90,98},{71,61}}</string>
+				<key>sourceSize</key>
+				<string>{248,248}</string>
+			</dict>
+
+			<key>healing_effect 6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{144,0},{50,64}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{109,96},{50,64}}</string>
+				<key>sourceSize</key>
+				<string>{248,248}</string>
+			</dict>
+
+			<key>healing_effect 7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{90,0},{53,58}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{107,102},{53,58}}</string>
+				<key>sourceSize</key>
+				<string>{248,248}</string>
+			</dict>
+
+			<key>healing_effect 8.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{89,84},{58,58}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{106,102},{58,58}}</string>
+				<key>sourceSize</key>
+				<string>{248,248}</string>
+			</dict>
+
+			<key>healing_effect 9.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{148,65},{38,38}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{115,112},{38,38}}</string>
+				<key>sourceSize</key>
+				<string>{248,248}</string>
+			</dict>
+
+		</dict>
+
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>2</integer>
+			<key>size</key>
+			<string>{256,256}</string>
+			<key>textureFileName</key>
+			<string>sprites.png</string>
+			</dict>
+		</dict>
+</plist>

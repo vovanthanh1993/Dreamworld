@@ -1,0 +1,21 @@
+﻿#pragma once
+#include "cocos2d.h"
+#include "Common.h"
+using namespace common;
+using namespace cocos2d;
+class SlashEnemy
+{
+private:
+	Sprite* sprite;
+	b2Body* body;
+	float duration = 0.01; // Thời gian tồn tại tính bằng giây
+	std::chrono::steady_clock::time_point startTime;
+	bool visible = true;
+public:
+	void init(b2World* world, Scene* scene, Vec2 position);
+	Sprite* getSprite();
+	b2Body* getBody();
+	void update(Scene* scene);
+	bool IsVisible();
+};
+

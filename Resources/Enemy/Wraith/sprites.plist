@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>Wraith_3_Attack_0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{995,616},{108,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,15},{108,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Attack_1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{666,740},{109,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{67,13},{109,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Attack_10.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{225,596},{110,154}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{74,13},{110,154}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Attack_11.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{557,297},{109,151}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{72,14},{109,151}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Attack_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{995,318},{108,147}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{65,12},{108,147}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Attack_3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{911,0},{108,146}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{63,11},{108,146}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Attack_4.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{448,297},{108,146}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{62,11},{108,146}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Attack_5.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1104,734},{107,146}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{62,11},{107,146}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Attack_6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1104,589},{107,144}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{61,12},{107,144}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Attack_7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{886,588},{108,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{65,12},{108,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Attack_8.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{556,603},{109,153}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,13},{109,153}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Attack_9.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{776,739},{109,155}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{76,13},{109,155}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{995,616},{108,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,15},{108,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{556,757},{109,151}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,15},{109,151}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_10.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{157,0},{111,140}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{60,21},{111,140}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_11.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{113,597},{111,140}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{60,21},{111,140}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_12.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,879},{112,141}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{59,20},{112,141}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_13.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{113,879},{111,142}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{61,19},{111,142}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_14.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{227,359},{110,144}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{62,18},{110,144}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_15.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1104,296},{108,146}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{64,16},{108,146}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_16.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1212,737},{107,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{65,15},{107,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_17.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{996,147},{108,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{67,15},{108,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{776,588},{109,150}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{68,16},{109,150}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1212,589},{107,147}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{64,17},{107,147}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_4.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{225,751},{110,143}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{62,19},{110,143}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_5.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,738},{112,140}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{60,21},{112,140}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,597},{112,140}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{60,21},{112,140}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{113,738},{111,140}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{60,21},{111,140}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_8.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{115,455},{111,140}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{60,21},{111,140}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Casting Spells_9.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{139,218},{111,140}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{60,21},{111,140}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{995,765},{108,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,15},{108,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{251,141},{110,152}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{68,13},{110,152}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_10.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,110},{154,107}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{28,70},{154,107}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_11.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{156,109}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{26,79},{156,109}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_12.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{156,109}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{26,79},{156,109}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_13.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{156,109}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{26,79},{156,109}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_14.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{156,109}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{26,79},{156,109}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{336,504},{110,155}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{67,11},{110,155}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{447,444},{109,158}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{66,9},{109,158}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_4.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{887,158},{108,159}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{64,13},{108,159}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_5.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{802,0},{108,157}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{61,18},{108,157}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1129,0},{107,153}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{60,23},{107,153}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,455},{114,141}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{57,35},{114,141}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_8.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,330},{122,124}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{51,48},{122,124}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Dying_9.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,218},{138,111}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{43,58},{138,111}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Idle_0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{995,616},{108,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,15},{108,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Idle_1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{362,0},{109,150}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,14},{109,150}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Idle_10.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{886,737},{108,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{69,14},{108,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Idle_11.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{472,0},{109,149}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{69,14},{109,149}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Idle_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{446,660},{109,149}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,14},{109,149}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Idle_3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{446,810},{109,150}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,13},{109,150}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Idle_4.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{336,660},{109,149}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{69,13},{109,149}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Idle_5.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{886,437},{108,150}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{69,12},{108,150}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Idle_6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{336,810},{109,149}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{68,12},{109,149}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Idle_7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{995,466},{108,149}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{68,12},{108,149}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Idle_8.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{777,437},{108,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{68,13},{108,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Idle_9.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{338,294},{109,149}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{68,13},{109,149}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Moving Forward_0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{448,151},{109,145}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{71,15},{109,145}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Moving Forward_1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{667,442},{109,145}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{72,15},{109,145}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Moving Forward_10.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{557,449},{109,144}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,15},{109,144}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Moving Forward_11.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{582,0},{109,145}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{71,15},{109,145}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Moving Forward_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{558,150},{109,146}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{72,14},{109,146}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Moving Forward_3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{777,291},{109,145}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{71,14},{109,145}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Moving Forward_4.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{666,594},{109,145}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{71,14},{109,145}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Moving Forward_5.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{692,0},{109,145}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,14},{109,145}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Moving Forward_6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1104,443},{108,145}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,14},{108,145}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Moving Forward_7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{668,146},{109,144}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{69,15},{109,144}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Moving Forward_8.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{667,297},{109,144}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{69,15},{109,144}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Wraith_3_Moving Forward_9.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1020,0},{108,144}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,15},{108,144}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+		</dict>
+
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>2</integer>
+			<key>size</key>
+			<string>{2048,1024}</string>
+			<key>textureFileName</key>
+			<string>sprites.png</string>
+			</dict>
+		</dict>
+</plist>

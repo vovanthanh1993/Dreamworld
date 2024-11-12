@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>Elemental_1_Casting Spells_0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1054,148},{96,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{74,15},{96,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1054,596},{96,150}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{75,16},{96,150}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_10.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,833},{120,137}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{51,24},{120,137}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_11.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,557},{120,137}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{51,24},{120,137}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_12.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,695},{120,137}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{51,24},{120,137}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_13.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{163,0},{117,138}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{55,23},{117,138}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_14.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{241,832},{112,139}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{60,23},{112,139}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_15.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{242,466},{109,141}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{63,21},{109,141}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_16.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{356,616},{105,144}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{66,19},{105,144}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_17.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{496,0},{99,146}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{70,17},{99,146}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{860,0},{97,149}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{72,18},{97,149}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{354,832},{106,142}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{65,22},{106,142}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_4.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{241,693},{114,138}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{58,24},{114,138}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_5.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{121,419},{120,136}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{52,25},{120,136}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{121,556},{120,136}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{52,25},{120,136}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{121,693},{119,137}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{52,24},{119,137}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_8.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{121,831},{119,137}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{52,24},{119,137}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Casting Spells_9.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,419},{120,137}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{51,24},{120,137}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1151,597},{96,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{74,15},{96,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{664,143},{97,152}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{73,13},{97,152}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_10.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{162,94}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{20,76},{162,94}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_11.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,95},{160,95}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{22,86},{160,95}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_12.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,95},{160,95}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{22,86},{160,95}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_13.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,95},{160,95}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{22,86},{160,95}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_14.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,95},{160,95}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{22,86},{160,95}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{859,592},{97,155}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{72,11},{97,155}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{663,596},{97,158}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{71,9},{97,158}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_4.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{661,437},{98,158}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{68,15},{98,158}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_5.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{391,0},{104,155}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{63,21},{104,155}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{352,466},{107,149}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{60,28},{107,149}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{153,191},{119,138}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{49,39},{119,138}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_8.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,296},{136,122}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{37,51},{136,122}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Dying_9.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,191},{152,104}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{29,62},{152,104}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Hurt_0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1151,597},{96,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{74,15},{96,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Hurt_1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1151,441},{96,155}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{77,13},{96,155}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Hurt_10.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{461,761},{102,142}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{63,19},{102,142}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Hurt_11.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{462,556},{99,145}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{68,17},{99,145}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Hurt_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{957,440},{97,155}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{74,14},{97,155}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Hurt_3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{956,291},{97,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{66,18},{97,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Hurt_4.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{460,414},{104,141}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{57,22},{104,141}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Hurt_5.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{273,139},{109,136}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{48,24},{109,136}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Hurt_6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{242,330},{110,135}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{46,24},{110,135}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Hurt_7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{281,0},{109,136}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{48,23},{109,136}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Hurt_8.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{353,276},{107,137}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{52,22},{107,137}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Hurt_9.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{461,156},{103,139}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{58,21},{103,139}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Idle_0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1054,148},{96,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{74,15},{96,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Idle_1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{957,596},{96,149}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{75,15},{96,149}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Idle_10.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{958,0},{96,147}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{73,15},{96,147}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Idle_11.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{760,445},{97,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{73,15},{97,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Idle_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{957,746},{96,149}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{75,14},{96,149}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Idle_3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{858,442},{97,149}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{74,14},{97,149}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Idle_4.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{858,293},{97,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{73,14},{97,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Idle_5.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{762,143},{97,149}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{73,13},{97,149}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Idle_6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{761,737},{97,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{72,13},{97,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Idle_7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{565,147},{98,147}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{71,14},{98,147}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Idle_8.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{564,840},{98,147}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{71,14},{98,147}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Idle_9.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{760,296},{97,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{72,14},{97,148}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Moving Forward_0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1054,747},{96,144}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{76,15},{96,144}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Moving Forward_1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1055,297},{96,143}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{77,15},{96,143}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Moving Forward_10.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{596,0},{97,142}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{74,16},{97,142}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Moving Forward_11.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{694,0},{97,142}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{75,16},{97,142}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Moving Forward_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{859,748},{97,144}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{76,14},{97,144}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Moving Forward_3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1055,0},{96,143}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{76,15},{96,143}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Moving Forward_4.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{663,755},{97,143}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{75,15},{97,143}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Moving Forward_5.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{761,594},{97,142}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{74,15},{97,142}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Moving Forward_6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{565,295},{98,141}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{73,16},{98,141}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Moving Forward_7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{860,150},{97,140}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{73,17},{97,140}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Moving Forward_8.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{562,556},{98,141}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{72,17},{98,141}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+			<key>Elemental_1_Moving Forward_9.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{564,698},{98,141}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{73,17},{98,141}}</string>
+				<key>sourceSize</key>
+				<string>{260,210}</string>
+			</dict>
+
+		</dict>
+
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>2</integer>
+			<key>size</key>
+			<string>{2048,1024}</string>
+			<key>textureFileName</key>
+			<string>sprites.png</string>
+			</dict>
+		</dict>
+</plist>
