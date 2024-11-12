@@ -1,422 +1,2570 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="D:\Cocos\DoAn\DreamWorld\proj.win32\main.cpp">
+    <ClCompile Include="D:\Git\dreamxx\Classes\base\BaseCharacter.cpp">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\base\BaseItem.cpp">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\enemy\Acher.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\enemy\BossMap2.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\enemy\Elemental.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\enemy\Wraith.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\gui\Setting.cpp">
+      <Filter>Source Files\Classes\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\item\Gem.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\item\Heart.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\item\MapItem.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\map\Box.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\map\EndGate.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\map\Limit.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\map\Port.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\map\SizeLimit.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\map\Wall.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\npc\DialogueBox.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\npc\GUILayer.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\npc\NPC1.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\npc\NPC2.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\npc\NPC3.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\npc\NPCMonkey.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\npc\ShopLayer.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\npc\SkillShopLayer.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\player\Player.cpp">
+      <Filter>Source Files\Classes\player</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\player\skill\Copy.cpp">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\player\skill\Eagle.cpp">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\scene\boss\Boss1Scene.cpp">
+      <Filter>Source Files\Classes\scene\boss</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\scene\boss\Boss2Scene.cpp">
+      <Filter>Source Files\Classes\scene\boss</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\skill\BoneRain.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\skill\FireRain.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\Classes\skill\Skull.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Git\dreamxx\proj.win32\main.cpp">
       <Filter>Source Files\proj.win32</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Cocos\DoAn\DreamWorld\cocos2d\cocos\precheader.cpp">
+    <ClCompile Include="D:\Git\dreamxx\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Warrior.cpp">
-      <Filter>Source Files\Classes\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\enemy\Acher.cpp">
-      <Filter>Source Files\Classes\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\item\Gem.cpp">
-      <Filter>Source Files\Classes\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\item\Heart.cpp">
-      <Filter>Source Files\Classes\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\BossMap1.cpp">
-      <Filter>Source Files\Classes\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Arrow.cpp">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Bridge.cpp">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Box.cpp">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\BridgeBreak.cpp">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Chest.cpp">
-      <Filter>Source Files\Classes\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Effect.cpp">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Fire.cpp">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\GameOver.cpp">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\MenuScene.cpp">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Map1Scene.cpp">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Slash.cpp">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\SlashEnemy.cpp">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Stick.cpp">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Rain.cpp">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>Source Files\Classes\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Common.cpp">
-      <Filter>Source Files\Classes\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\MyContactListener.cpp">
-      <Filter>Source Files\Classes\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\npc\NPC1.cpp">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\map\Port.cpp">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Map2Scene.cpp">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\VillageScene.cpp">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\npc\DialogueBox.cpp">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\npc\ShopLayer.cpp">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\enemy\Wraith.cpp">
-      <Filter>Source Files\Classes\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\npc\NPC2.cpp">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\npc\GUILayer.cpp">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\PauseMenu.cpp">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\npc\NPCMonkey.cpp">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\enemy\BossMap2.cpp">
-      <Filter>Source Files\Classes\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\skill\Skull.cpp">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\skill\BoneRain.cpp">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Map3Scene.cpp">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\enemy\Elemental.cpp">
-      <Filter>Source Files\Classes\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\SettingScene.cpp">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\GUIScene.cpp">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ShopScene.cpp">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\gui\Setting.cpp">
-      <Filter>Source Files\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\npc\NPC3.cpp">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\npc\SkillShopLayer.cpp">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\scene\boss\Boss1Scene.cpp">
-      <Filter>Source Files\Classes\Scene\Boss</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\map\EndGate.cpp">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\scene\boss\Boss2Scene.cpp">
-      <Filter>Source Files\Classes\Scene\Boss</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\item\MapItem.cpp">
-      <Filter>Source Files\Classes\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\player\skill\Eagle.cpp">
-      <Filter>Source Files\Classes\Player\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\skill\FireRain.cpp">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\map\Wall.cpp">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\map\Limit.cpp">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\base\BaseCharacter.cpp">
-      <Filter>Source Files\Classes\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\player\Player.cpp">
-      <Filter>Source Files\Classes\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\base\BaseItem.cpp">
-      <Filter>Source Files\Classes\Base</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\Cocos\DoAn\DreamWorld\proj.win32\main.h">
+    <ClInclude Include="D:\Git\dreamxx\Classes\base\BaseCharacter.h">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\base\BaseItem.h">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\enemy\Acher.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\enemy\BossMap2.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\enemy\Elemental.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\enemy\Wraith.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\gui\Setting.h">
+      <Filter>Source Files\Classes\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\item\Gem.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\item\Heart.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\item\MapItem.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\map\Box.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\map\EndGate.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\map\Limit.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\map\Port.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\map\SizeLimit.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\map\Wall.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\npc\DialogueBox.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\npc\GUILayer.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\npc\NPC1.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\npc\NPC2.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\npc\NPC3.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\npc\NPCMonkey.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\npc\ShopLayer.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\npc\SkillShopLayer.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\player\Player.h">
+      <Filter>Source Files\Classes\player</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\player\skill\Copy.h">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\player\skill\Eagle.h">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\scene\boss\Boss1Scene.h">
+      <Filter>Source Files\Classes\scene\boss</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\scene\boss\Boss2Scene.h">
+      <Filter>Source Files\Classes\scene\boss</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\skill\BoneRain.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\skill\FireRain.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Classes\skill\Skull.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\proj.win32\main.h">
       <Filter>Source Files\proj.win32</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Cocos\DoAn\DreamWorld\proj.win32\resource.h">
+    <ClInclude Include="D:\Git\dreamxx\proj.win32\resource.h">
       <Filter>Source Files\proj.win32</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Cocos\DoAn\DreamWorld\Resources\fonts\Marker Felt.ttf">
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\arrow\sprites.plist">
+      <Filter>Resources\Effect\arrow</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\arrow\sprites.png">
+      <Filter>Resources\Effect\arrow</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\fire_rain\sprites.plist">
+      <Filter>Resources\Effect\fire_rain</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\fire_rain\sprites.png">
+      <Filter>Resources\Effect\fire_rain</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\healing\sprites.plist">
+      <Filter>Resources\Effect\healing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\healing\sprites.png">
+      <Filter>Resources\Effect\healing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\rain\sprites.plist">
+      <Filter>Resources\Effect\rain</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\rain\sprites.png">
+      <Filter>Resources\Effect\rain</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\smoke\sprites.plist">
+      <Filter>Resources\Effect\smoke</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\smoke\sprites.png">
+      <Filter>Resources\Effect\smoke</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\stick\sprites.plist">
+      <Filter>Resources\Effect\stick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\stick\sprites.png">
+      <Filter>Resources\Effect\stick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\stick\t0.png">
+      <Filter>Resources\Effect\stick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\stick\t1.png">
+      <Filter>Resources\Effect\stick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\stick\t2.png">
+      <Filter>Resources\Effect\stick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\stick\t3.png">
+      <Filter>Resources\Effect\stick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\stick\t4.png">
+      <Filter>Resources\Effect\stick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\stick\t5.png">
+      <Filter>Resources\Effect\stick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Effect\stick\t6.png">
+      <Filter>Resources\Effect\stick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Acher\Arrow.png">
+      <Filter>Resources\Enemy\Acher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Acher\sprites.plist">
+      <Filter>Resources\Enemy\Acher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Acher\sprites.png">
+      <Filter>Resources\Enemy\Acher</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap1\fire\fire.png">
+      <Filter>Resources\Enemy\Bossmap1\fire</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap1\fire\sprites.plist">
+      <Filter>Resources\Enemy\Bossmap1\fire</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap1\fire\sprites.png">
+      <Filter>Resources\Enemy\Bossmap1\fire</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap1\firerain\sprites.plist">
+      <Filter>Resources\Enemy\Bossmap1\firerain</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap1\firerain\sprites.png">
+      <Filter>Resources\Enemy\Bossmap1\firerain</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap1\rain\rain.png">
+      <Filter>Resources\Enemy\Bossmap1\rain</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap1\sound\bg.mp3">
+      <Filter>Resources\Enemy\Bossmap1\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap1\sound\boss1hurt.mp3">
+      <Filter>Resources\Enemy\Bossmap1\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap1\sound\laughter.mp3">
+      <Filter>Resources\Enemy\Bossmap1\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap1\sound\magic-fire.mp3">
+      <Filter>Resources\Enemy\Bossmap1\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap1\sprites.plist">
+      <Filter>Resources\Enemy\Bossmap1</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap1\sprites.png">
+      <Filter>Resources\Enemy\Bossmap1</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap2\BoneRain\bonerain.png">
+      <Filter>Resources\Enemy\Bossmap2\BoneRain</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap2\skull\skull.png">
+      <Filter>Resources\Enemy\Bossmap2\skull</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap2\sound\bg.mp3">
+      <Filter>Resources\Enemy\Bossmap2\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap2\sound\creepy-laughter.mp3">
+      <Filter>Resources\Enemy\Bossmap2\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap2\sound\dark-magic.mp3">
+      <Filter>Resources\Enemy\Bossmap2\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap2\sprites.plist">
+      <Filter>Resources\Enemy\Bossmap2</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Bossmap2\sprites.png">
+      <Filter>Resources\Enemy\Bossmap2</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Elemental\sprites.plist">
+      <Filter>Resources\Enemy\Elemental</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Elemental\sprites.png">
+      <Filter>Resources\Enemy\Elemental</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Wraith\sprites.plist">
+      <Filter>Resources\Enemy\Wraith</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\Wraith\sprites.png">
+      <Filter>Resources\Enemy\Wraith</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\warrior\die.mp3">
+      <Filter>Resources\Enemy\warrior</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\warrior\sprites.plist">
+      <Filter>Resources\Enemy\warrior</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Enemy\warrior\sprites.png">
+      <Filter>Resources\Enemy\warrior</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Item\BackStick.png">
+      <Filter>Resources\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Item\Stick.png">
+      <Filter>Resources\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Item\backstick\BackStick2.png">
+      <Filter>Resources\Item\backstick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Item\backstick\BackStick3.png">
+      <Filter>Resources\Item\backstick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Item\backstick\Stick.png">
+      <Filter>Resources\Item\backstick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Item\backstick\stick2.png">
+      <Filter>Resources\Item\backstick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Item\chest\closeChest.png">
+      <Filter>Resources\Item\chest</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Item\gem\gem.png">
+      <Filter>Resources\Item\gem</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Item\gourd\gourd.png">
+      <Filter>Resources\Item\gourd</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Item\gourd\heart.png">
+      <Filter>Resources\Item\gourd</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Item\heart\health.png">
+      <Filter>Resources\Item\heart</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Item\heart\health2.png">
+      <Filter>Resources\Item\heart</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Item\stick2.png">
+      <Filter>Resources\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\NPC\NPC1\sprites.plist">
+      <Filter>Resources\NPC\NPC1</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\NPC\NPC1\sprites.png">
+      <Filter>Resources\NPC\NPC1</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\NPC\NPC2\sprites.plist">
+      <Filter>Resources\NPC\NPC2</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\NPC\NPC2\sprites.png">
+      <Filter>Resources\NPC\NPC2</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\NPC\NPC3\sprites.plist">
+      <Filter>Resources\NPC\NPC3</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\NPC\NPC3\sprites.png">
+      <Filter>Resources\NPC\NPC3</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\NPC\NPCMonkey\sprites.plist">
+      <Filter>Resources\NPC\NPCMonkey</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\NPC\NPCMonkey\sprites.png">
+      <Filter>Resources\NPC\NPCMonkey</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Slash.png">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\Stick.png">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\BackStick.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\GameOver\bg.png">
+      <Filter>Resources\UI\GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\GameOver\bg2.png">
+      <Filter>Resources\UI\GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\GameOver\sprites.plist">
+      <Filter>Resources\UI\GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\GameOver\sprites.png">
+      <Filter>Resources\UI\GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\Icon_SquareStraight.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\Item6.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\arrow.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\backgroundwk.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\button2.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\continue.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\guide.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\head.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\head2.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\header_fight.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\header_shop.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\header_upgrade.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\health.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\health_bar2.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\health_bar3.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\health_bar_bg.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\health_bar_bg3.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\health_bar_bg4.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\loadingbar.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\mana_bar.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\mana_bar2.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\mana_bar_bg.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\menu.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\name.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\play.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\quit.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\arrow.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\bar.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\bar2.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\bar_bg.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\bar_bg2.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\bg.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\bg2.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\button.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\button3.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\button4.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\button_close.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\button_down.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\button_minus.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\button_off.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\button_on.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\button_plus.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\cancel.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\dec.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\header_settings.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\ok.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\preview_settings.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\table.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\scale\window.png">
+      <Filter>Resources\UI\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\setting.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\settingbg.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\shop.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\shopbg.png">
+      <Filter>Resources\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\yellow\continue.png">
+      <Filter>Resources\UI\yellow</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\yellow\guide.png">
+      <Filter>Resources\UI\yellow</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\yellow\menu.png">
+      <Filter>Resources\UI\yellow</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\yellow\play.png">
+      <Filter>Resources\UI\yellow</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\yellow\quit.png">
+      <Filter>Resources\UI\yellow</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\yellow\setting.png">
+      <Filter>Resources\UI\yellow</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\UI\yellow\shop.png">
+      <Filter>Resources\UI\yellow</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\fonts\Marker Felt.ttf">
       <Filter>Resources\fonts</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Cocos\DoAn\DreamWorld\Resources\fonts\arial.ttf">
+    <ClInclude Include="D:\Git\dreamxx\Resources\fonts\arial.ttf">
       <Filter>Resources\fonts</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Cocos\DoAn\DreamWorld\Resources\res\.gitkeep">
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\Cave - Platforms.png">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\Mossy - Decorations&amp;Hazards.png">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\Mossy - FloatingPlatformsrz.png">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\Mossy - FloatingPlatformsrz.tsx">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\Mossy - TileSet.png">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\Mossy - TileSet.tsx">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\Mossy Tileset\Mossy - BackgroundDecoration.png">
+      <Filter>Resources\map\Mossy Tileset</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\Mossy Tileset\Mossy - Decorations&amp;Hazards.png">
+      <Filter>Resources\map\Mossy Tileset</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\Mossy Tileset\Mossy - FloatingPlatforms.png">
+      <Filter>Resources\map\Mossy Tileset</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\Mossy Tileset\Mossy - FloatingPlatformsrz.png">
+      <Filter>Resources\map\Mossy Tileset</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\Mossy Tileset\Mossy - Hanging Plants.png">
+      <Filter>Resources\map\Mossy Tileset</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\Mossy Tileset\Mossy - MossyHills.png">
+      <Filter>Resources\map\Mossy Tileset</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\Mossy Tileset\Mossy - TileSet.png">
+      <Filter>Resources\map\Mossy Tileset</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\backup\map1.tmx">
+      <Filter>Resources\map\backup</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\backup\map2.tmx">
+      <Filter>Resources\map\backup</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\backup\village.tmx">
+      <Filter>Resources\map\backup</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\bg2.png">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\bgl2.png">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\bglv1.png">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\bglv3.png">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\boss1.tmx">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\boss1map.tmx">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\boss2.tmx">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\bridge.png">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\bridgebreak.png">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\map1.tmx">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\map2.tmx">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\map3.tmx">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\port\sprites.plist">
+      <Filter>Resources\map\port</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\port\sprites.png">
+      <Filter>Resources\map\port</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\sprites.plist">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\sprites.png">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\stone.png">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\map\village.tmx">
+      <Filter>Resources\map</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_0.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_1.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_10.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_11.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_12.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_13.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_2.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_3.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_4.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_5.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_6.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_7.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_8.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Celebrates\Wukong-Celebrates_9.png">
+      <Filter>Resources\player\PNG\Celebrates</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_0.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_1.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_10.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_11.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_12.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_13.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_14.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_15.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_16.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_17.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_18.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_19.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_2.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_20.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_21.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_22.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_23.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_24.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_25.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_3.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_4.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_5.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_6.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_7.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_8.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\Wukong-Death_9.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\sprites.plist">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Die\sprites.png">
+      <Filter>Resources\player\PNG\Die</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fall\Wukong-Fall_0.png">
+      <Filter>Resources\player\PNG\Fall</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fall\Wukong-Fall_1.png">
+      <Filter>Resources\player\PNG\Fall</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fall\Wukong-Fall_2.png">
+      <Filter>Resources\player\PNG\Fall</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fall\Wukong-Fall_3.png">
+      <Filter>Resources\player\PNG\Fall</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fall\Wukong-Fall_4.png">
+      <Filter>Resources\player\PNG\Fall</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fall\Wukong-Fall_5.png">
+      <Filter>Resources\player\PNG\Fall</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fall\Wukong-Fall_6.png">
+      <Filter>Resources\player\PNG\Fall</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fall\Wukong-Fall_7.png">
+      <Filter>Resources\player\PNG\Fall</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fall\Wukong-Fall_8.png">
+      <Filter>Resources\player\PNG\Fall</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fall\Wukong-Fall_9.png">
+      <Filter>Resources\player\PNG\Fall</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly\Wukong-Fly_0.png">
+      <Filter>Resources\player\PNG\Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly\Wukong-Fly_1.png">
+      <Filter>Resources\player\PNG\Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly\Wukong-Fly_2.png">
+      <Filter>Resources\player\PNG\Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly\Wukong-Fly_3.png">
+      <Filter>Resources\player\PNG\Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly\Wukong-Fly_4.png">
+      <Filter>Resources\player\PNG\Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly\Wukong-Fly_5.png">
+      <Filter>Resources\player\PNG\Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly\Wukong-Fly_6.png">
+      <Filter>Resources\player\PNG\Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly\Wukong-Fly_7.png">
+      <Filter>Resources\player\PNG\Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly\Wukong-Fly_8.png">
+      <Filter>Resources\player\PNG\Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly\Wukong-Fly_9.png">
+      <Filter>Resources\player\PNG\Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick\Wukong-FlyOnStick_0.png">
+      <Filter>Resources\player\PNG\FlyOnStick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick\Wukong-FlyOnStick_1.png">
+      <Filter>Resources\player\PNG\FlyOnStick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick\Wukong-FlyOnStick_2.png">
+      <Filter>Resources\player\PNG\FlyOnStick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick\Wukong-FlyOnStick_3.png">
+      <Filter>Resources\player\PNG\FlyOnStick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick\Wukong-FlyOnStick_4.png">
+      <Filter>Resources\player\PNG\FlyOnStick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick\Wukong-FlyOnStick_5.png">
+      <Filter>Resources\player\PNG\FlyOnStick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick\Wukong-FlyOnStick_6.png">
+      <Filter>Resources\player\PNG\FlyOnStick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick\Wukong-FlyOnStick_7.png">
+      <Filter>Resources\player\PNG\FlyOnStick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick\Wukong-FlyOnStick_8.png">
+      <Filter>Resources\player\PNG\FlyOnStick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick\Wukong-FlyOnStick_9.png">
+      <Filter>Resources\player\PNG\FlyOnStick</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick_GetHit\Wukong-FlyOnStick_GetHit_0.png">
+      <Filter>Resources\player\PNG\FlyOnStick_GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick_GetHit\Wukong-FlyOnStick_GetHit_1.png">
+      <Filter>Resources\player\PNG\FlyOnStick_GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick_GetHit\Wukong-FlyOnStick_GetHit_2.png">
+      <Filter>Resources\player\PNG\FlyOnStick_GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick_GetHit\Wukong-FlyOnStick_GetHit_3.png">
+      <Filter>Resources\player\PNG\FlyOnStick_GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick_GetHit\Wukong-FlyOnStick_GetHit_4.png">
+      <Filter>Resources\player\PNG\FlyOnStick_GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick_GetHit\Wukong-FlyOnStick_GetHit_5.png">
+      <Filter>Resources\player\PNG\FlyOnStick_GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick_GetHit\Wukong-FlyOnStick_GetHit_6.png">
+      <Filter>Resources\player\PNG\FlyOnStick_GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick_GetHit\Wukong-FlyOnStick_GetHit_7.png">
+      <Filter>Resources\player\PNG\FlyOnStick_GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick_GetHit\Wukong-FlyOnStick_GetHit_8.png">
+      <Filter>Resources\player\PNG\FlyOnStick_GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\FlyOnStick_GetHit\Wukong-FlyOnStick_GetHit_9.png">
+      <Filter>Resources\player\PNG\FlyOnStick_GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly_getHit\Wukong-Fly_getHit_0.png">
+      <Filter>Resources\player\PNG\Fly_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly_getHit\Wukong-Fly_getHit_1.png">
+      <Filter>Resources\player\PNG\Fly_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly_getHit\Wukong-Fly_getHit_2.png">
+      <Filter>Resources\player\PNG\Fly_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly_getHit\Wukong-Fly_getHit_3.png">
+      <Filter>Resources\player\PNG\Fly_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly_getHit\Wukong-Fly_getHit_4.png">
+      <Filter>Resources\player\PNG\Fly_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly_getHit\Wukong-Fly_getHit_5.png">
+      <Filter>Resources\player\PNG\Fly_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly_getHit\Wukong-Fly_getHit_6.png">
+      <Filter>Resources\player\PNG\Fly_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly_getHit\Wukong-Fly_getHit_7.png">
+      <Filter>Resources\player\PNG\Fly_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly_getHit\Wukong-Fly_getHit_8.png">
+      <Filter>Resources\player\PNG\Fly_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Fly_getHit\Wukong-Fly_getHit_9.png">
+      <Filter>Resources\player\PNG\Fly_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_0.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_1.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_10.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_11.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_12.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_13.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_2.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_3.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_4.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_5.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_6.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_7.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_8.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\GetHit\Wukong-GetHit_9.png">
+      <Filter>Resources\player\PNG\GetHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Glide\Wukong-Glide_0.png">
+      <Filter>Resources\player\PNG\Glide</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Glide\Wukong-Glide_1.png">
+      <Filter>Resources\player\PNG\Glide</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Glide\Wukong-Glide_2.png">
+      <Filter>Resources\player\PNG\Glide</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Glide\Wukong-Glide_3.png">
+      <Filter>Resources\player\PNG\Glide</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Glide\Wukong-Glide_4.png">
+      <Filter>Resources\player\PNG\Glide</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Glide\Wukong-Glide_5.png">
+      <Filter>Resources\player\PNG\Glide</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Glide\Wukong-Glide_6.png">
+      <Filter>Resources\player\PNG\Glide</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Glide\Wukong-Glide_7.png">
+      <Filter>Resources\player\PNG\Glide</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Glide\Wukong-Glide_8.png">
+      <Filter>Resources\player\PNG\Glide</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Glide\Wukong-Glide_9.png">
+      <Filter>Resources\player\PNG\Glide</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_0.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_1.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_10.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_11.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_12.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_13.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_14.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_15.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_16.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_17.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_18.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_19.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_2.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_20.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_21.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_3.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_4.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_5.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_6.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_7.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_8.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Hit\Wukong-Hit_9.png">
+      <Filter>Resources\player\PNG\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_0.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_1.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_10.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_11.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_12.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_13.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_14.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_15.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_16.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_17.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_18.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_19.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_2.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_20.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_21.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_22.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_23.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_24.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_25.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_3.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_4.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_5.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_6.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_7.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_8.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Death_9.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_0.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_1.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_10.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_11.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_12.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_13.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_14.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_15.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_16.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_17.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_18.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_19.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_2.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_20.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_21.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_3.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_4.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_5.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_6.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_7.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_8.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Hit_9.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Idle_0.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Idle_1.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Idle_2.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Idle_3.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Idle_4.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Idle_5.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Idle_6.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Idle_7.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Idle_8.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Idle_9.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Jump_0.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Jump_1.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Jump_2.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Jump_3.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Jump_4.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Jump_5.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Jump_6.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Jump_7.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Jump_8.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Jump_9.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_0.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_1.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_10.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_11.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_12.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_13.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_14.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_15.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_16.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_17.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_18.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_19.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_2.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_20.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_3.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_4.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_5.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_6.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_7.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_8.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Throw_9.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_0.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_1.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_10.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_11.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_12.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_13.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_14.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_15.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_16.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_17.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_2.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_3.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_4.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_5.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_6.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_7.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_8.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\Wukong-Walk_9.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\sprites.plist">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Idle\sprites.png">
+      <Filter>Resources\player\PNG\Idle</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Jump\Wukong-Jump_0.png">
+      <Filter>Resources\player\PNG\Jump</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Jump\Wukong-Jump_1.png">
+      <Filter>Resources\player\PNG\Jump</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Jump\Wukong-Jump_2.png">
+      <Filter>Resources\player\PNG\Jump</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Jump\Wukong-Jump_3.png">
+      <Filter>Resources\player\PNG\Jump</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Jump\Wukong-Jump_4.png">
+      <Filter>Resources\player\PNG\Jump</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Jump\Wukong-Jump_5.png">
+      <Filter>Resources\player\PNG\Jump</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Jump\Wukong-Jump_6.png">
+      <Filter>Resources\player\PNG\Jump</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Jump\Wukong-Jump_7.png">
+      <Filter>Resources\player\PNG\Jump</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Jump\Wukong-Jump_8.png">
+      <Filter>Resources\player\PNG\Jump</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Jump\Wukong-Jump_9.png">
+      <Filter>Resources\player\PNG\Jump</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Roll\Wukong-Roll_0.png">
+      <Filter>Resources\player\PNG\Roll</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Roll\Wukong-Roll_1.png">
+      <Filter>Resources\player\PNG\Roll</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Roll\Wukong-Roll_10.png">
+      <Filter>Resources\player\PNG\Roll</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Roll\Wukong-Roll_11.png">
+      <Filter>Resources\player\PNG\Roll</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Roll\Wukong-Roll_2.png">
+      <Filter>Resources\player\PNG\Roll</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Roll\Wukong-Roll_3.png">
+      <Filter>Resources\player\PNG\Roll</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Roll\Wukong-Roll_4.png">
+      <Filter>Resources\player\PNG\Roll</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Roll\Wukong-Roll_5.png">
+      <Filter>Resources\player\PNG\Roll</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Roll\Wukong-Roll_6.png">
+      <Filter>Resources\player\PNG\Roll</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Roll\Wukong-Roll_7.png">
+      <Filter>Resources\player\PNG\Roll</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Roll\Wukong-Roll_8.png">
+      <Filter>Resources\player\PNG\Roll</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Roll\Wukong-Roll_9.png">
+      <Filter>Resources\player\PNG\Roll</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_0.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_1.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_10.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_11.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_12.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_13.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_14.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_15.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_16.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_17.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_2.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_3.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_4.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_5.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_6.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_7.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_8.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\Wukong-Swimp_9.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\sprites.plist">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp\sprites.png">
+      <Filter>Resources\player\PNG\Swimp</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_0.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_1.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_10.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_11.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_12.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_13.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_14.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_15.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_16.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_17.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_2.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_3.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_4.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_5.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_6.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_7.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_8.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Swimp_getHit\Wukong-Swimp_GetHit_9.png">
+      <Filter>Resources\player\PNG\Swimp_getHit</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_0.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_1.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_10.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_11.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_12.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_13.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_14.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_15.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_16.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_17.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_18.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_19.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_2.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_20.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_3.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_4.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_5.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_6.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_7.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_8.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Throw\Wukong-Throw_9.png">
+      <Filter>Resources\player\PNG\Throw</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_0.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_1.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_10.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_11.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_12.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_13.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_14.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_15.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_16.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_17.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_2.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_3.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_4.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_5.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_6.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_7.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_8.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\Walk\Wukong-Walk_9.png">
+      <Filter>Resources\player\PNG\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_0.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_1.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_10.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_11.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_12.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_13.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_14.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_15.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_16.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_17.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_18.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_19.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_2.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_20.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_21.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_22.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_23.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_24.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_25.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_3.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_4.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_5.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_6.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_7.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_8.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Death_9.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_0.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_1.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_10.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_11.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_12.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_13.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_2.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_3.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_4.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_5.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_6.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_7.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_8.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-GetHit_9.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Healing_0.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Healing_1.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Healing_2.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Healing_3.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_0.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_1.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_10.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_11.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_12.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_13.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_14.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_15.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_16.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_17.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_18.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_19.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_2.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_20.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_21.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_3.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_4.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_5.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_6.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_7.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_8.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Hit_9.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Idle_0.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Idle_1.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Idle_2.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Idle_3.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Idle_4.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Idle_5.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Idle_6.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Idle_7.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Idle_8.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Idle_9.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Jump_0.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Jump_1.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Jump_2.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Jump_3.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Jump_4.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Jump_5.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Jump_6.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Jump_7.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Jump_8.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Jump_9.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_0.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_1.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_10.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_11.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_12.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_13.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_14.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_15.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_16.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_17.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_18.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_19.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_2.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_20.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_3.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_4.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_5.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_6.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_7.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_8.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Throw_9.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_0.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_1.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_10.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_11.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_12.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_13.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_14.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_15.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_16.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_17.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_2.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_3.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_4.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_5.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_6.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_7.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_8.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\Wukong-Walk_9.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\sprites.plist">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\all\sprites.png">
+      <Filter>Resources\player\PNG\all</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_0.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_1.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_10.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_11.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_12.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_13.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_14.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_15.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_16.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_17.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_2.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_3.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_4.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_5.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_6.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_7.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_8.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\PNG\onLadder\Wukong-onLadder_9.png">
+      <Filter>Resources\player\PNG\onLadder</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\skill\YellowEyes.png">
+      <Filter>Resources\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\skill\banana\sprites.plist">
+      <Filter>Resources\player\skill\banana</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\skill\banana\sprites.png">
+      <Filter>Resources\player\skill\banana</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\skill\bear\sprites.plist">
+      <Filter>Resources\player\skill\bear</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\skill\bear\sprites.png">
+      <Filter>Resources\player\skill\bear</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\skill\cloud.png">
+      <Filter>Resources\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\skill\cloud2.png">
+      <Filter>Resources\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\skill\cloud3.png">
+      <Filter>Resources\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\skill\copy.png">
+      <Filter>Resources\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\skill\copy\sprites.plist">
+      <Filter>Resources\player\skill\copy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\skill\copy\sprites.png">
+      <Filter>Resources\player\skill\copy</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\skill\fly.png">
+      <Filter>Resources\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\sound\eagle.mp3">
+      <Filter>Resources\player\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\sound\hurt.mp3">
+      <Filter>Resources\player\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\sound\jump.mp3">
+      <Filter>Resources\player\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\sound\ki.mp3">
+      <Filter>Resources\player\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\sound\slash.mp3">
+      <Filter>Resources\player\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\sprites.plist">
+      <Filter>Resources\player</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\player\sprites.png">
+      <Filter>Resources\player</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\dreamxx\Resources\res\.gitkeep">
       <Filter>Resources\res</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Warrior.h">
-      <Filter>Source Files\Classes\Enemy</Filter>
+    <ClInclude Include="D:\Git\dreamxx\Resources\shop\mana.png">
+      <Filter>Resources\shop</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\enemy\Acher.h">
-      <Filter>Source Files\Classes\Enemy</Filter>
+    <ClInclude Include="D:\Git\dreamxx\Resources\skill\ball\ball.png">
+      <Filter>Resources\skill\ball</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\item\Gem.h">
-      <Filter>Source Files\Classes\Item</Filter>
+    <ClInclude Include="D:\Git\dreamxx\Resources\skill\fire\25.png">
+      <Filter>Resources\skill\fire</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\item\Heart.h">
-      <Filter>Source Files\Classes\Item</Filter>
+    <ClInclude Include="D:\Git\dreamxx\Resources\skill\fire\sprites.plist">
+      <Filter>Resources\skill\fire</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BossMap1.h">
-      <Filter>Source Files\Classes\Enemy</Filter>
+    <ClInclude Include="D:\Git\dreamxx\Resources\skill\fire\sprites.png">
+      <Filter>Resources\skill\fire</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Arrow.h">
-      <Filter>Source Files\Classes\Skill</Filter>
+    <ClInclude Include="D:\Git\dreamxx\Resources\sound\background2.mp3">
+      <Filter>Resources\sound</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Box.h">
-      <Filter>Source Files\Classes\Map</Filter>
+    <ClInclude Include="D:\Git\dreamxx\Resources\sound\chest.mp3">
+      <Filter>Resources\sound</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Bridge.h">
-      <Filter>Source Files\Classes\Map</Filter>
+    <ClInclude Include="D:\Git\dreamxx\Resources\sound\error.mp3">
+      <Filter>Resources\sound</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BridgeBreak.h">
-      <Filter>Source Files\Classes\Map</Filter>
+    <ClInclude Include="D:\Git\dreamxx\Resources\sound\get_stick.mp3">
+      <Filter>Resources\sound</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Chest.h">
-      <Filter>Source Files\Classes\Item</Filter>
+    <ClInclude Include="D:\Git\dreamxx\Resources\sound\health.mp3">
+      <Filter>Resources\sound</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Effect.h">
-      <Filter>Source Files\Classes\Skill</Filter>
+    <ClInclude Include="D:\Git\dreamxx\Resources\sound\health.wav">
+      <Filter>Resources\sound</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Fire.h">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\GameOver.h">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\MenuScene.h">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Map1Scene.h">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Slash.h">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\SlashEnemy.h">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Stick.h">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Rain.h">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>Source Files\Classes\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Common.h">
-      <Filter>Source Files\Classes\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\MyContactListener.h">
-      <Filter>Source Files\Classes\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\npc\NPC1.h">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\map\Port.h">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Map2Scene.h">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\VillageScene.h">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\npc\DialogueBox.h">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\npc\ShopLayer.h">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\enemy\Wraith.h">
-      <Filter>Source Files\Classes\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\npc\NPC2.h">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\npc\GUILayer.h">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\PauseMenu.h">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\npc\NPCMonkey.h">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\enemy\BossMap2.h">
-      <Filter>Source Files\Classes\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\skill\Skull.h">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\skill\BoneRain.h">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Map3Scene.h">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\enemy\Elemental.h">
-      <Filter>Source Files\Classes\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\SettingScene.h">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\GUIScene.h">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ShopScene.h">
-      <Filter>Source Files\Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\gui\Setting.h">
-      <Filter>Source Files\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\npc\NPC3.h">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\npc\SkillShopLayer.h">
-      <Filter>Source Files\Classes\NPC</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\scene\boss\Boss1Scene.h">
-      <Filter>Source Files\Classes\Scene\Boss</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\map\EndGate.h">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\scene\boss\Boss2Scene.h">
-      <Filter>Source Files\Classes\Scene\Boss</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\item\MapItem.h">
-      <Filter>Source Files\Classes\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\player\skill\Eagle.h">
-      <Filter>Source Files\Classes\Player\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\skill\FireRain.h">
-      <Filter>Source Files\Classes\Skill</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\map\Wall.h">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\map\Limit.h">
-      <Filter>Source Files\Classes\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\base\BaseCharacter.h">
-      <Filter>Source Files\Classes\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\player\Player.h">
-      <Filter>Source Files\Classes\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\base\BaseItem.h">
-      <Filter>Source Files\Classes\Base</Filter>
+    <ClInclude Include="D:\Git\dreamxx\Resources\sound\ting.mp3">
+      <Filter>Resources\sound</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Cocos\DoAn\DreamWorld\CMakeLists.txt" />
+    <CustomBuild Include="D:\Git\dreamxx\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="D:\Cocos\DoAn\DreamWorld\proj.win32\game.rc">
+    <ResourceCompile Include="D:\Git\dreamxx\proj.win32\game.rc">
       <Filter>Source Files\proj.win32</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resources">
-      <UniqueIdentifier>{D8DDE1AC-A2D0-3338-AB09-EEEC5E401B80}</UniqueIdentifier>
+      <UniqueIdentifier>{39524604-D008-3690-A605-0C548015115F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Effect">
+      <UniqueIdentifier>{683EF0F2-3C00-3D01-AA81-1467667E905C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Effect\arrow">
+      <UniqueIdentifier>{6A6BF6BF-44DA-3D5A-A612-6528D36AE1C1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Effect\fire_rain">
+      <UniqueIdentifier>{E30C454C-2E64-3E14-9E47-7FA725CFB328}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Effect\healing">
+      <UniqueIdentifier>{DEC653C9-91DD-30AD-A948-CAC1BDF8EA26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Effect\rain">
+      <UniqueIdentifier>{3CDA5F8D-0965-3CEB-9786-8038B0E5346B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Effect\smoke">
+      <UniqueIdentifier>{50E5E981-389F-3DF2-BC05-FE6422B23221}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Effect\stick">
+      <UniqueIdentifier>{B8537EDA-1EE5-3AFD-B0EF-ECD3530F3182}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy">
+      <UniqueIdentifier>{44398FEA-9FCF-3582-890E-E5BE35E390CD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy\Acher">
+      <UniqueIdentifier>{A517A7B6-DF59-3F87-97D5-47833A45E9BA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy\Bossmap1">
+      <UniqueIdentifier>{524E61BB-0E68-36B9-AEE5-B570D96DB1C4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy\Bossmap1\fire">
+      <UniqueIdentifier>{B7885430-23B4-3E69-B07A-E96107A3930D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy\Bossmap1\firerain">
+      <UniqueIdentifier>{C6962F92-4671-3455-BCC7-813042DEB641}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy\Bossmap1\rain">
+      <UniqueIdentifier>{E337295C-B160-3196-82A0-97EBE694EA9B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy\Bossmap1\sound">
+      <UniqueIdentifier>{73A2477D-5792-3C24-B421-B2521F6C2E97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy\Bossmap2">
+      <UniqueIdentifier>{825C55C0-5E80-3F18-805E-91A8CC2ACA49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy\Bossmap2\BoneRain">
+      <UniqueIdentifier>{938F385F-F839-39E9-BDBD-381F4D5B0189}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy\Bossmap2\skull">
+      <UniqueIdentifier>{9E7BA44B-2025-37CD-8400-0AF1DF0EAC24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy\Bossmap2\sound">
+      <UniqueIdentifier>{8465C6F6-C4C9-3120-A589-751AF1AE13BD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy\Elemental">
+      <UniqueIdentifier>{70B6441C-8FFB-3AB4-8366-5846517A5C7D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy\Wraith">
+      <UniqueIdentifier>{D8D63DD0-792E-33CA-96E7-E89BDDDF6485}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Enemy\warrior">
+      <UniqueIdentifier>{BC7F0B64-9723-3B31-8D8D-F077C3BD01D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Item">
+      <UniqueIdentifier>{514ECA0B-AD1A-3129-94B7-A96EE33C3695}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Item\backstick">
+      <UniqueIdentifier>{85F3EFD5-90C8-33B7-8F1F-0059F9D963B9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Item\chest">
+      <UniqueIdentifier>{C92D2F86-F606-3A12-9442-31B226BDB129}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Item\gem">
+      <UniqueIdentifier>{73F7E82F-5FC1-3205-92A9-953CF6BE55D1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Item\gourd">
+      <UniqueIdentifier>{F862D9E8-0552-3C80-85FE-00E3A03E7C3B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Item\heart">
+      <UniqueIdentifier>{F0803887-91E6-31A7-AECE-7D6381BDDE7D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\NPC">
+      <UniqueIdentifier>{84E2C7F1-A071-32DD-A043-6CB6537F599B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\NPC\NPC1">
+      <UniqueIdentifier>{F2A08590-CAD7-399B-AC4D-E4623824BE95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\NPC\NPC2">
+      <UniqueIdentifier>{6F982979-6193-3DE2-B734-2784466BC827}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\NPC\NPC3">
+      <UniqueIdentifier>{278E70B1-9D43-3D4E-8BC1-FA076A0B7F17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\NPC\NPCMonkey">
+      <UniqueIdentifier>{A46D87A0-41D0-3FBA-AEF5-51CCA0206716}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\UI">
+      <UniqueIdentifier>{A608299C-5BF9-3ED1-B54B-B12135FB5EF5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\UI\GameOver">
+      <UniqueIdentifier>{93CC679D-D6B0-34E3-A3AB-97D9FA1CBD43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\UI\scale">
+      <UniqueIdentifier>{550106AD-F7D2-3C04-881E-67488DA6C17E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\UI\yellow">
+      <UniqueIdentifier>{41F31EE8-4900-337C-9E99-F81AB5AC8657}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\fonts">
-      <UniqueIdentifier>{AD8CEE93-1F18-3804-8EAB-565C4C73A763}</UniqueIdentifier>
+      <UniqueIdentifier>{8B61C903-6E79-3073-AE66-975A0E8CEBAF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\map">
+      <UniqueIdentifier>{9108D5C8-BB51-3431-A6FC-5A8892650228}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\map\Mossy Tileset">
+      <UniqueIdentifier>{B8CC650F-8386-319E-B6D7-6FC54C458CFE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\map\backup">
+      <UniqueIdentifier>{62527EAD-D346-321F-B4ED-6D19496C799F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\map\port">
+      <UniqueIdentifier>{84B8045C-7F27-3D4D-BB8C-68C99C76D53B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player">
+      <UniqueIdentifier>{E338F50A-0097-384D-A208-5513C3D2B180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG">
+      <UniqueIdentifier>{8FE7FC2A-9E86-35FC-8138-C35C68C99C91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Celebrates">
+      <UniqueIdentifier>{2E10984C-D44B-32FF-BE5F-7B9FF5EA40BB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Die">
+      <UniqueIdentifier>{80A7F5B2-1CA6-3493-AC10-2E9A39C1D21F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Fall">
+      <UniqueIdentifier>{ECAE94E3-02A9-3C12-86FE-C50F9FED1914}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Fly">
+      <UniqueIdentifier>{CE0CEF77-B484-320C-A721-7AABDA2A3516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\FlyOnStick">
+      <UniqueIdentifier>{02EC0A5A-13CE-3382-B5DC-7C11D16882E2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\FlyOnStick_GetHit">
+      <UniqueIdentifier>{36A711FB-5AAF-3D2D-8E59-B6E9B6D0166B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Fly_getHit">
+      <UniqueIdentifier>{4C2D61F8-7DC9-3436-AA16-029F7154A645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\GetHit">
+      <UniqueIdentifier>{525B941F-00A9-31FE-AEE3-B4ECE18DDE47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Glide">
+      <UniqueIdentifier>{D8062FD0-5243-31B6-B30B-D6666A86CB54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Hit">
+      <UniqueIdentifier>{41C36396-82EA-3D4B-8F95-4D8711B7C702}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Idle">
+      <UniqueIdentifier>{2237F584-C54A-38CC-AEF9-7C726C6DB670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Jump">
+      <UniqueIdentifier>{B512C9A2-AF65-3E39-85F7-9092C6A7B63D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Roll">
+      <UniqueIdentifier>{566E57C2-6BC2-30D3-B61F-291D09312E12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Swimp">
+      <UniqueIdentifier>{2BC4A108-F835-35B1-85AB-88887663F840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Swimp_getHit">
+      <UniqueIdentifier>{A140F174-0114-3E49-98AE-4518676F1A45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Throw">
+      <UniqueIdentifier>{C554B731-05CB-3E42-97AE-4004C27BB4F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\Walk">
+      <UniqueIdentifier>{095E5E64-575D-3B63-B1B2-FBE22457A53A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\all">
+      <UniqueIdentifier>{602D7D73-A714-3AF2-A327-E1D84C43A58D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\PNG\onLadder">
+      <UniqueIdentifier>{EF29B7CC-99DB-349C-AB9D-BF49BA65BC99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\skill">
+      <UniqueIdentifier>{EB5EC202-616E-3623-B052-8B97982BC501}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\skill\banana">
+      <UniqueIdentifier>{F2CD99F3-6E31-3A73-84D5-23751455265E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\skill\bear">
+      <UniqueIdentifier>{43676690-00AA-3F94-A359-A688653D4FA2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\skill\copy">
+      <UniqueIdentifier>{D67F16AB-358D-3176-9037-AEC86C14CD75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\player\sound">
+      <UniqueIdentifier>{31C7D587-9B44-3017-AB6D-0E3FA8351F75}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\res">
-      <UniqueIdentifier>{9EDFCD52-D1D1-3ACF-8B9F-35347F898117}</UniqueIdentifier>
+      <UniqueIdentifier>{EE253A5F-3AEA-38B7-9896-9799180FAFAA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\shop">
+      <UniqueIdentifier>{264E18E5-BC3B-3CBD-9F95-387AE065FD38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\skill">
+      <UniqueIdentifier>{D225E847-B4B7-3222-81D9-6BE2BC39BE7E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\skill\ball">
+      <UniqueIdentifier>{96CE1DCF-8A80-3233-869C-E279AA1B5499}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\skill\fire">
+      <UniqueIdentifier>{A69C5330-7141-305C-BD22-2544FB98A1DF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\sound">
+      <UniqueIdentifier>{9CA08EC8-F3D9-3702-9834-E58B7634EEB2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{6D543C7D-A349-33EA-AFBD-EAE4D7B6E191}</UniqueIdentifier>
+      <UniqueIdentifier>{6EC23ECE-9AD1-3802-8BAE-0B6EBC4E5F80}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Classes">
-      <UniqueIdentifier>{7D761D53-E9D5-39C9-838A-B063892002C1}</UniqueIdentifier>
+      <UniqueIdentifier>{D87D0301-131D-3BFA-9C0B-49D8A0015756}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\base">
+      <UniqueIdentifier>{A689A8B0-7556-3321-98D0-9452890B9B3E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\enemy">
+      <UniqueIdentifier>{1BBB292F-9A22-35E9-BFDF-D1C06A673816}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\gui">
+      <UniqueIdentifier>{5893568A-B72E-32E7-91A1-74F7508780EA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\item">
+      <UniqueIdentifier>{137993DC-5484-36FB-AF39-04F5890721EA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\map">
+      <UniqueIdentifier>{FA6652A4-119C-3037-82E9-37B255084CCB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\npc">
+      <UniqueIdentifier>{74B6A4EA-BC94-3455-8F11-FD9AFD4A0115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\player">
+      <UniqueIdentifier>{C8D814F5-D990-3504-A0AF-1FD68587A576}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\player\skill">
+      <UniqueIdentifier>{AA983E36-A169-39BC-BCEF-32B7605B16FE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\scene">
+      <UniqueIdentifier>{571C4055-4DF7-3CE2-897A-5B5327832CF0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\scene\boss">
+      <UniqueIdentifier>{FA64B352-6BB6-3C2C-A014-D5D32EE3FF3A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\skill">
+      <UniqueIdentifier>{73E3A889-E411-3A1B-BA35-17252D4B4ECB}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\proj.win32">
-      <UniqueIdentifier>{3ECDAE97-C6C4-39E4-A451-BF2DB5363F57}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\Enemy">
-      <UniqueIdentifier>{60207a1f-e1f4-4579-a14b-0b34cfabea9b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\Item">
-      <UniqueIdentifier>{b06b1021-e3c5-43b6-857e-9bbd5934194a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\Skill">
-      <UniqueIdentifier>{4c154a5b-2fc6-49bf-9af0-bb91c8c1414c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\Map">
-      <UniqueIdentifier>{d483a00e-a06b-4a01-84ff-8b5f53f7249f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\Scene">
-      <UniqueIdentifier>{df1d5c81-9a1a-4f23-bab0-18c2459916e6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\Player">
-      <UniqueIdentifier>{25ab14dc-ce20-49c4-ab53-3da12fefa3fc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\Main">
-      <UniqueIdentifier>{236958e3-4912-44ba-861d-edb144f7df31}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\NPC">
-      <UniqueIdentifier>{1e3e670e-49b1-417c-a927-2b8c84996c9c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GUI">
-      <UniqueIdentifier>{429853c8-49db-4323-a658-c0b1e554282f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\Scene\Boss">
-      <UniqueIdentifier>{3cf0cd90-a638-4e5d-84cd-b1b79184fff2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\Player\Skill">
-      <UniqueIdentifier>{054d6c82-6a71-47f2-ac75-25752cc11e56}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\Base">
-      <UniqueIdentifier>{86c4bc0b-2a1a-4bae-8a03-8e3d692d47eb}</UniqueIdentifier>
+      <UniqueIdentifier>{90C6995C-0881-3AD1-8336-D2E49E3F52CF}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

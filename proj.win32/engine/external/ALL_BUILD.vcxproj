@@ -25,7 +25,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D81A9951-FC2B-3AD1-AE22-26B483F1DE41}</ProjectGuid>
+    <ProjectGuid>{3CC6A5DB-5608-3700-9F58-4C2CC9BBB555}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>Win32</Platform>
@@ -108,11 +108,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Cocos\DoAn\DreamWorld\cocos2d\external\CMakeLists.txt">
+    <CustomBuild Include="D:\Git\dreamxx\cocos2d\external\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/Cocos/DoAn/DreamWorld/cocos2d/external/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/Git/dreamxx/cocos2d/external/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Cocos/DoAn/DreamWorld -BD:/Cocos/DoAn/DreamWorld/proj.win32 --check-stamp-file D:/Cocos/DoAn/DreamWorld/proj.win32/engine/external/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Git/dreamxx -BD:/Git/dreamxx/proj.win32 --check-stamp-file D:/Git/dreamxx/proj.win32/engine/external/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -121,11 +121,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Git\dreamxx\proj.win32\engine\external\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/Cocos/DoAn/DreamWorld/cocos2d/external/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/Git/dreamxx/cocos2d/external/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Cocos/DoAn/DreamWorld -BD:/Cocos/DoAn/DreamWorld/proj.win32 --check-stamp-file D:/Cocos/DoAn/DreamWorld/proj.win32/engine/external/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Git/dreamxx -BD:/Git/dreamxx/proj.win32 --check-stamp-file D:/Git/dreamxx/proj.win32/engine/external/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -134,11 +134,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Git\dreamxx\proj.win32\engine\external\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/Cocos/DoAn/DreamWorld/cocos2d/external/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/Git/dreamxx/cocos2d/external/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Cocos/DoAn/DreamWorld -BD:/Cocos/DoAn/DreamWorld/proj.win32 --check-stamp-file D:/Cocos/DoAn/DreamWorld/proj.win32/engine/external/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Git/dreamxx -BD:/Git/dreamxx/proj.win32 --check-stamp-file D:/Git/dreamxx/proj.win32/engine/external/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -147,11 +147,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\Git\dreamxx\proj.win32\engine\external\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/Cocos/DoAn/DreamWorld/cocos2d/external/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/Git/dreamxx/cocos2d/external/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Cocos/DoAn/DreamWorld -BD:/Cocos/DoAn/DreamWorld/proj.win32 --check-stamp-file D:/Cocos/DoAn/DreamWorld/proj.win32/engine/external/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Git/dreamxx -BD:/Git/dreamxx/proj.win32 --check-stamp-file D:/Git/dreamxx/proj.win32/engine/external/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -160,61 +160,61 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\Git\dreamxx\proj.win32\engine\external\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\Cocos\DoAn\DreamWorld\proj.win32\ZERO_CHECK.vcxproj">
-      <Project>{D7A35C5D-D36B-327C-8489-7C1C3F0C6BB7}</Project>
+    <ProjectReference Include="D:\Git\dreamxx\proj.win32\ZERO_CHECK.vcxproj">
+      <Project>{649AD847-E999-3714-8455-65ED2BE0AF83}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\clipper\ext_clipper.vcxproj">
-      <Project>{9CDCB22B-DC0D-39AB-8340-3CD0F3F5F341}</Project>
+    <ProjectReference Include="D:\Git\dreamxx\proj.win32\engine\external\clipper\ext_clipper.vcxproj">
+      <Project>{9572A176-698D-33AA-943D-C3E32B2700F6}</Project>
       <Name>ext_clipper</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\ConvertUTF\ext_convertUTF.vcxproj">
-      <Project>{77C430D6-1D2F-3696-8BD0-D12DB6AC990D}</Project>
+    <ProjectReference Include="D:\Git\dreamxx\proj.win32\engine\external\ConvertUTF\ext_convertUTF.vcxproj">
+      <Project>{C5947152-95EC-3B11-BD54-75E014A941B8}</Project>
       <Name>ext_convertUTF</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\edtaa3func\ext_edtaa3func.vcxproj">
-      <Project>{B3947C62-ED91-3425-8633-28BD3F66434E}</Project>
+    <ProjectReference Include="D:\Git\dreamxx\proj.win32\engine\external\edtaa3func\ext_edtaa3func.vcxproj">
+      <Project>{071FAE42-FBF2-3738-BC1F-4400F8E8118E}</Project>
       <Name>ext_edtaa3func</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\md5\ext_md5.vcxproj">
-      <Project>{500EF439-51CA-357C-875A-D9056F23B254}</Project>
+    <ProjectReference Include="D:\Git\dreamxx\proj.win32\engine\external\md5\ext_md5.vcxproj">
+      <Project>{9B0EFADA-81D3-3718-B1DD-40FCDFBCE135}</Project>
       <Name>ext_md5</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\poly2tri\ext_poly2tri.vcxproj">
-      <Project>{F5537F4B-62E9-32EA-8DB0-F2B4AA76C2DE}</Project>
+    <ProjectReference Include="D:\Git\dreamxx\proj.win32\engine\external\poly2tri\ext_poly2tri.vcxproj">
+      <Project>{1CEECC30-C328-3F42-B9F7-58BFEDB16E32}</Project>
       <Name>ext_poly2tri</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\recast\ext_recast.vcxproj">
-      <Project>{374FC74D-B631-31EE-9904-5D3B7A86873D}</Project>
+    <ProjectReference Include="D:\Git\dreamxx\proj.win32\engine\external\recast\ext_recast.vcxproj">
+      <Project>{5687738E-BA42-3317-9657-E5DCBCDC9421}</Project>
       <Name>ext_recast</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\tinyxml2\ext_tinyxml2.vcxproj">
-      <Project>{601AD910-C7FB-3FB0-A3C0-A3258FA5EA48}</Project>
+    <ProjectReference Include="D:\Git\dreamxx\proj.win32\engine\external\tinyxml2\ext_tinyxml2.vcxproj">
+      <Project>{19AA5408-52CC-38D0-93BD-4635FED40C62}</Project>
       <Name>ext_tinyxml2</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\unzip\ext_unzip.vcxproj">
-      <Project>{45DCF316-6D5F-397A-8F8A-7F168E739E67}</Project>
+    <ProjectReference Include="D:\Git\dreamxx\proj.win32\engine\external\unzip\ext_unzip.vcxproj">
+      <Project>{E249B41D-A880-3233-A03B-D314B1A120FB}</Project>
       <Name>ext_unzip</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\xxhash\ext_xxhash.vcxproj">
-      <Project>{9CE8D63E-1CBB-344F-BAFE-83CEEF7FF168}</Project>
+    <ProjectReference Include="D:\Git\dreamxx\proj.win32\engine\external\xxhash\ext_xxhash.vcxproj">
+      <Project>{578E0FAF-04FA-310A-98AD-0648C758E9D8}</Project>
       <Name>ext_xxhash</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\xxtea\ext_xxtea.vcxproj">
-      <Project>{CFE84F6D-6628-3513-ACE3-37A87CB597D8}</Project>
+    <ProjectReference Include="D:\Git\dreamxx\proj.win32\engine\external\xxtea\ext_xxtea.vcxproj">
+      <Project>{8E956237-3504-394F-9A82-927EEF19FFFE}</Project>
       <Name>ext_xxtea</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Cocos\DoAn\DreamWorld\proj.win32\engine\external\external.vcxproj">
-      <Project>{2470C412-5D21-333E-857D-3583A38D1D60}</Project>
+    <ProjectReference Include="D:\Git\dreamxx\proj.win32\engine\external\external.vcxproj">
+      <Project>{6063C146-96A3-3300-B84E-7EE913FF70FC}</Project>
       <Name>external</Name>
     </ProjectReference>
   </ItemGroup>

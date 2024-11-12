@@ -6,7 +6,7 @@ Sprite* Box::getSprite() {
 b2Body* Box::getBody() {
     return body;
 }
-void Box::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>& _bodyToSpriteMap) {
+void Box::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
     sprite = Sprite::create("map/stone.png");
     sprite->setPosition(position);
     sprite->setScale(Common::BOX_SCALE);
@@ -39,5 +39,5 @@ void Box::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body
 
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-    _bodyToSpriteMap[body] = sprite;
+    (*_bodyToSpriteMap)[body] = sprite;
 }

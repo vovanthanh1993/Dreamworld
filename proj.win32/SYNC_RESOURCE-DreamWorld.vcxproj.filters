@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="D:\Cocos\DoAn\DreamWorld\proj.win32\CMakeFiles\d1c05ddf47094d3580d3a098775c2efe\SYNC_RESOURCE-DreamWorld.rule">
+    <CustomBuild Include="D:\Git\dreamxx\proj.win32\CMakeFiles\19cedc3e1c91c5b4f0e4d24c14d4c736\SYNC_RESOURCE-DreamWorld.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="D:\Cocos\DoAn\DreamWorld\CMakeLists.txt" />
+    <CustomBuild Include="D:\Git\dreamxx\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="D:\Cocos\DoAn\DreamWorld\proj.win32\CMakeFiles\SYNC_RESOURCE-DreamWorld" />
+    <None Include="D:\Git\dreamxx\proj.win32\CMakeFiles\SYNC_RESOURCE-DreamWorld" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{714BB464-813E-36C1-9AF9-8A816F7CB647}</UniqueIdentifier>
+      <UniqueIdentifier>{00100447-F2BD-35B9-8DAD-4D91A106F980}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
