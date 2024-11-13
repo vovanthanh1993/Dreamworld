@@ -1,10 +1,10 @@
 ﻿#pragma once
 #include "cocos2d.h"
-#include "Common.h"
+#include "main/Common.h"
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include <Slash.h>
+#include "skill/Slash.h"
 #include <npc/NPC1.h>
 
 using namespace common;

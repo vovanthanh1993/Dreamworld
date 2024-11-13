@@ -1,5 +1,5 @@
 ﻿#include "Eagle.h"
-#include "Effect.h"
+#include "main/Effect.h"
 void Eagle::init(b2World* world, Scene* scene, Vec2 position,
     unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
 

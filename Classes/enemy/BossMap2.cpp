@@ -3,7 +3,7 @@
 #include "map/port.h"
 #include "skill/skull.h"
 #include "skill/BoneRain.h"
-#include "Effect.h"
+#include "main/Effect.h"
 
 BossMap2::BossMap2(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) :BaseCharacter(world, scene, position, _bodyToSpriteMap) {
 };

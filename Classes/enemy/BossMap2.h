@@ -1,10 +1,10 @@
 ﻿#pragma once
 #include "cocos2d.h"
-#include "Common.h"
+#include "main/Common.h"
 #include "player/Player.h"
-#include "SlashEnemy.h"
-#include "Fire.h"
-#include "Rain.h"
+#include "skill/SlashEnemy.h"
+#include "skill/Fire.h"
+#include "skill/Rain.h"
 #include "item/Gem.h"
 
 

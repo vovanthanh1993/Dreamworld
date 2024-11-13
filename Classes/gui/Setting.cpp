@@ -1,6 +1,6 @@
 ﻿#include "Setting.h"
-#include <Stick.h>
-#include <GameOver.h>
+#include "skill/Stick.h"
+#include "scene/GameOver.h"
 #include <iostream>
 #include <fstream>
 #include <npc/ShopLayer.h>

@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "cocos2d.h"
-#include "Common.h"
+#include "main/Common.h"
 using namespace common;
 using namespace cocos2d;
 class Heart

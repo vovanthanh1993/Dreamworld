@@ -26,21 +26,21 @@
 #include <string>
 #include "cocos2d.h"
 #include "box2d/Box2D.h"
-#include "MyContactListener.h"
+#include "main/MyContactListener.h"
 
 #include "player/Player.h"
-#include "Warrior.h"
-#include "Stick.h"
-#include "SlashEnemy.h"
-#include "Chest.h"
+#include "enemy/Warrior.h"
+#include "skill/Stick.h"
+#include "skill/SlashEnemy.h"
+#include "item/Chest.h"
 #include "Item/heart.h"
 #include "enemy/Acher.h"
-#include <Bridge.h>
-#include "BridgeBreak.h"
+#include "map/Bridge.h"
+#include "map/BridgeBreak.h"
 #include "map/Box.h"
-#include "BossMap1.h"
-#include "Map2Scene.h"
-#include "Common.h"
+#include "enemy/BossMap1.h"
+#include "scene/Map2Scene.h"
+#include "main/Common.h"
 #include "gui/Setting.h"
 
 using namespace common;

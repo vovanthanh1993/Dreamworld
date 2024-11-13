@@ -1,101 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="D:\Git\dreamxx\Classes\base\BaseCharacter.cpp">
-      <Filter>Source Files\Classes\base</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\base\BaseItem.cpp">
-      <Filter>Source Files\Classes\base</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\enemy\Acher.cpp">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\enemy\BossMap2.cpp">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\enemy\Elemental.cpp">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\enemy\Wraith.cpp">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\gui\Setting.cpp">
-      <Filter>Source Files\Classes\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\item\Gem.cpp">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\item\Heart.cpp">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\item\MapItem.cpp">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\map\Box.cpp">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\map\EndGate.cpp">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\map\Limit.cpp">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\map\Port.cpp">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\map\SizeLimit.cpp">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\map\Wall.cpp">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\npc\DialogueBox.cpp">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\npc\GUILayer.cpp">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\npc\NPC1.cpp">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\npc\NPC2.cpp">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\npc\NPC3.cpp">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\npc\NPCMonkey.cpp">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\npc\ShopLayer.cpp">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\npc\SkillShopLayer.cpp">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\player\Player.cpp">
-      <Filter>Source Files\Classes\player</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\player\skill\Copy.cpp">
-      <Filter>Source Files\Classes\player\skill</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\player\skill\Eagle.cpp">
-      <Filter>Source Files\Classes\player\skill</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Git\dreamxx\Classes\scene\boss\Boss1Scene.cpp">
       <Filter>Source Files\Classes\scene\boss</Filter>
     </ClCompile>
     <ClCompile Include="D:\Git\dreamxx\Classes\scene\boss\Boss2Scene.cpp">
       <Filter>Source Files\Classes\scene\boss</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\skill\BoneRain.cpp">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\skill\FireRain.cpp">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\dreamxx\Classes\skill\Skull.cpp">
-      <Filter>Source Files\Classes\skill</Filter>
     </ClCompile>
     <ClCompile Include="D:\Git\dreamxx\proj.win32\main.cpp">
       <Filter>Source Files\proj.win32</Filter>
@@ -103,103 +13,178 @@
     <ClCompile Include="D:\Git\dreamxx\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\player\Player.cpp">
+      <Filter>Source Files\Classes\player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\player\skill\Copy.cpp">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\player\skill\Eagle.cpp">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\base\BaseCharacter.cpp">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\base\BaseItem.cpp">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\enemy\Acher.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\enemy\BossMap1.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\enemy\BossMap2.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\enemy\Elemental.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\enemy\Warrior.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\enemy\Wraith.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\gui\Setting.cpp">
+      <Filter>Source Files\Classes\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\item\Chest.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\item\Gem.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\item\Heart.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\item\MapItem.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\map\Box.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\map\Bridge.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\map\BridgeBreak.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\map\EndGate.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\map\Limit.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\map\Port.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\map\SizeLimit.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\map\Wall.cpp">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\main\AppDelegate.cpp">
+      <Filter>Source Files\Classes\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\main\Common.cpp">
+      <Filter>Source Files\Classes\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\main\Effect.cpp">
+      <Filter>Source Files\Classes\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\main\MyContactListener.cpp">
+      <Filter>Source Files\Classes\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\npc\DialogueBox.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\npc\GUILayer.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\npc\NPC1.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\npc\NPC2.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\npc\NPC3.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\npc\NPCMonkey.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\npc\ShopLayer.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\npc\SkillShopLayer.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\Map1Scene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\Map2Scene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\Map3Scene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\MenuScene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\PauseMenu.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\SettingScene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\ShopScene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\VillageScene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\GameOver.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\GUIScene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\SlashEnemy.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\Stick.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\Arrow.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\BoneRain.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\Fire.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\FireRain.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\Rain.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\Skull.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\Slash.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\Git\dreamxx\Classes\base\BaseCharacter.h">
-      <Filter>Source Files\Classes\base</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\base\BaseItem.h">
-      <Filter>Source Files\Classes\base</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\enemy\Acher.h">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\enemy\BossMap2.h">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\enemy\Elemental.h">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\enemy\Wraith.h">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\gui\Setting.h">
-      <Filter>Source Files\Classes\gui</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\item\Gem.h">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\item\Heart.h">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\item\MapItem.h">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\map\Box.h">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\map\EndGate.h">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\map\Limit.h">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\map\Port.h">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\map\SizeLimit.h">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\map\Wall.h">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\npc\DialogueBox.h">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\npc\GUILayer.h">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\npc\NPC1.h">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\npc\NPC2.h">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\npc\NPC3.h">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\npc\NPCMonkey.h">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\npc\ShopLayer.h">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\npc\SkillShopLayer.h">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\player\Player.h">
-      <Filter>Source Files\Classes\player</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\player\skill\Copy.h">
-      <Filter>Source Files\Classes\player\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\player\skill\Eagle.h">
-      <Filter>Source Files\Classes\player\skill</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Git\dreamxx\Classes\scene\boss\Boss1Scene.h">
       <Filter>Source Files\Classes\scene\boss</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\dreamxx\Classes\scene\boss\Boss2Scene.h">
       <Filter>Source Files\Classes\scene\boss</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\skill\BoneRain.h">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\skill\FireRain.h">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\dreamxx\Classes\skill\Skull.h">
-      <Filter>Source Files\Classes\skill</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\dreamxx\proj.win32\main.h">
       <Filter>Source Files\proj.win32</Filter>
@@ -2292,6 +2277,171 @@
     <ClInclude Include="D:\Git\dreamxx\Resources\sound\ting.mp3">
       <Filter>Resources\sound</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\player\Player.h">
+      <Filter>Source Files\Classes\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\player\skill\Copy.h">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\player\skill\Eagle.h">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\base\BaseCharacter.h">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\base\BaseItem.h">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\Acher.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\BossMap1.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\BossMap2.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\Elemental.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\Warrior.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\Wraith.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\gui\Setting.h">
+      <Filter>Source Files\Classes\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\item\Chest.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\item\Gem.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\item\Heart.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\item\MapItem.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\map\Box.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\map\Bridge.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\map\BridgeBreak.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\map\EndGate.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\map\Limit.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\map\Port.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\map\SizeLimit.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\map\Wall.h">
+      <Filter>Source Files\Classes\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\main\AppDelegate.h">
+      <Filter>Source Files\Classes\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\main\Common.h">
+      <Filter>Source Files\Classes\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\main\Effect.h">
+      <Filter>Source Files\Classes\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\main\MyContactListener.h">
+      <Filter>Source Files\Classes\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\npc\DialogueBox.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\npc\GUILayer.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\npc\NPC1.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\npc\NPC2.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\npc\NPC3.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\npc\NPCMonkey.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\npc\ShopLayer.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\npc\SkillShopLayer.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\Map1Scene.h">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\Map2Scene.h">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\Map3Scene.h">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\MenuScene.h">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\PauseMenu.h">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\SettingScene.h">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\ShopScene.h">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\VillageScene.h">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\GameOver.h">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\GUIScene.h">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\SlashEnemy.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\Stick.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\Arrow.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\BoneRain.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\Fire.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\FireRain.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\Rain.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\Skull.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\Slash.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\Git\dreamxx\CMakeLists.txt" />
@@ -2565,6 +2715,9 @@
     </Filter>
     <Filter Include="Source Files\proj.win32">
       <UniqueIdentifier>{90C6995C-0881-3AD1-8336-D2E49E3F52CF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\main">
+      <UniqueIdentifier>{b18c4f5a-2fb0-42cf-a587-29bd309fc612}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

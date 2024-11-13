@@ -1,6 +1,6 @@
 ﻿#include "ShopLayer.h"
-#include "Effect.h"
-#include "MenuScene.h"
+#include "main/Effect.h"
+#include "scene/MenuScene.h"
 
 USING_NS_CC;
 

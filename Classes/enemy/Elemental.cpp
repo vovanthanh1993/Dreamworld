@@ -1,6 +1,6 @@
 ﻿#include "Elemental.h"
-#include "Effect.h"
-#include "Rain.h"
+#include "main/Effect.h"
+#include "skill/Rain.h"
 Elemental::Elemental(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) :BaseCharacter(world, scene, position, _bodyToSpriteMap) {
 };
 

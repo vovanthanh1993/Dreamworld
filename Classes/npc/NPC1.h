@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "cocos2d.h"
-#include "Common.h"
-#include "SlashEnemy.h"
+#include "main/Common.h"
+#include "skill/SlashEnemy.h"
 #include "item/Gem.h"
 using namespace common;
 using namespace cocos2d;

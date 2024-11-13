@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include "cocos2d.h"
-#include "Common.h"
+#include "main/Common.h"
 #include "player/Player.h"
-#include "Arrow.h"
+#include "skill/Arrow.h"
 #include "item/Gem.h"
 
 using namespace common;

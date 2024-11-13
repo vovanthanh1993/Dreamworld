@@ -1,5 +1,5 @@
 ﻿#include "NPC3.h"
-#include "Effect.h"
+#include "main/Effect.h"
 #include "npc/DialogueBox.h"
 
 NPC3::NPC3(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {

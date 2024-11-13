@@ -1,7 +1,7 @@
 ﻿#include "player/Player.h"
-#include <Stick.h>
+#include "skill/Stick.h"
 #include <player/skill/Eagle.h>
-#include <GameOver.h>
+#include "scene/GameOver.h"
 #include <iostream>
 #include <fstream>
 

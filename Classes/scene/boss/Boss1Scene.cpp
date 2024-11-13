@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include "audio/include/AudioEngine.h"
-#include "Map2Scene.h"
+#include "scene/Map2Scene.h"
 
 using namespace std;
 USING_NS_CC;

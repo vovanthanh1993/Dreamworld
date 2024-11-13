@@ -4,7 +4,7 @@
 #include <vector>
 #include "audio/include/AudioEngine.h"
 #include "enemy/Wraith.h"
-#include "Map3Scene.h"
+#include "scene/Map3Scene.h"
 #include "item/MapItem.h"
 
 using namespace std;

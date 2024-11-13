@@ -1,5 +1,5 @@
 ﻿#include "Copy.h"
-#include "Effect.h"
+#include "main/Effect.h"
 Sprite* Copy::getSprite() {
     return sprite;
 }

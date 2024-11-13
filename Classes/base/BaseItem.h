@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "cocos2d.h"
-#include "Common.h"
+#include "main/Common.h"
 #include <iostream>
 #include <thread>
 #include <chrono>
