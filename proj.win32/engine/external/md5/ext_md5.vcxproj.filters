@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="D:\Git\dreamxx\cocos2d\external\md5\md5.c">
+    <ClCompile Include="D:\Git\13112024\cocos2d\external\md5\md5.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Git\dreamxx\cocos2d\external\md5\CMakeLists.txt" />
+    <CustomBuild Include="D:\Git\13112024\cocos2d\external\md5\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{6EC23ECE-9AD1-3802-8BAE-0B6EBC4E5F80}</UniqueIdentifier>
+      <UniqueIdentifier>{9456862C-355D-36A7-857F-95233674D616}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
