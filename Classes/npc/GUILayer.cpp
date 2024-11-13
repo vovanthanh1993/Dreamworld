@@ -76,7 +76,7 @@ bool GUILayer::init() {
     auto menu = Menu::create(okItem, nullptr);
     menu->setPosition(Vec2::ZERO);
     shopFrame->addChild(menu); // Thêm menu vào khung
-    shopFrame->setName("GUI");
+    shopFrame->setName("SHOP");
 
     return true; // Khởi tạo thành công
 }

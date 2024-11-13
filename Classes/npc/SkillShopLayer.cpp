@@ -29,6 +29,7 @@ bool SkillShopLayer::init() {
 
     int skillPostX = 50 * Common::scaleXSprite();
     int pricePostX = 100 * Common::scaleXSprite();
+
     // Skill 1
     Sprite* skill1 = Sprite::create("player/skill/YellowEyes.png");
     skill1->setPosition(skillPostX, 300 * Common::scaleYSprite());
@@ -53,7 +54,7 @@ bool SkillShopLayer::init() {
     itemLabel1->setPosition(Vec2(pricePostX, 260 * Common::scaleYSprite()));
     
     // ----------------------------------------skill 2
-    Sprite* skill2 = Sprite::create("player/skill/healing.png");
+    Sprite* skill2 = Sprite::create("Item/gourd/gourd.png");
     skill2->setPosition(skillPostX, 180* Common::scaleYSprite());
     skill2->setScale(0.5 * Common::scaleSprite());
     shopFrame->addChild(skill2, 10);

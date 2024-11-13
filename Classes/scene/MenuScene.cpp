@@ -32,6 +32,7 @@
 #include "main/Common.h"
 #include "scene/boss/Boss1Scene.h"
 #include "scene/boss/Boss2Scene.h"
+#include "scene/Map3Scene.h"
 
 using namespace common;
 
@@ -172,7 +173,7 @@ void MenuScene::loadingbar() {
             this->unschedule("updateLoadingBar");// ngung lai
             std::this_thread::sleep_for(std::chrono::milliseconds(30));
             // chuyen scene
-            auto villageScene = Map1Scene::createScene();
+            auto villageScene = VillageScene::createScene();
            // auto villageScene = Boss1Scene::createScene();
             Director::getInstance()->replaceScene(villageScene);
         }

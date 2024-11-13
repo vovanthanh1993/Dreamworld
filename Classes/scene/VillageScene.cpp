@@ -87,10 +87,13 @@ bool VillageScene::init()
 // update
 void VillageScene::update(float dt) {
 
-    if (this->getChildByName("Menu") == nullptr) {
+    if (this->getChildByName("Menu") == nullptr && this->getChildByName("SHOP") == nullptr) {
         isEnable = true;
     }
-    if (shopLayer != nullptr) {
+    /*if () {
+        isEnable = true;
+    }*/
+    /*if (shopLayer != nullptr) {
         isEnable = shopLayer->isEnable;
     }
     if (guiLayer != nullptr) {
@@ -98,7 +101,7 @@ void VillageScene::update(float dt) {
     }
     if (skillShopLayer != nullptr) {
         isEnable = skillShopLayer->isEnable;
-    }
+    }*/
 
     world->Step(dt, 8, 3); // Cập nhật thế giới Box2D
     player->isEnable = isEnable;
