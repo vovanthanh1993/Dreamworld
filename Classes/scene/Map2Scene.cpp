@@ -43,7 +43,7 @@ bool Map2Scene::init()
    
 
     // Khởi tạo thế giới vật lý với trọng lực
-    b2Vec2 gravity(0.0f, Common::GRAVITY *Common::scaleSprite()); // Trọng lực theo chiều dương Y -400
+    b2Vec2 gravity(0.0f, Constants::GRAVITY * Common::scaleSizeXY()); // Trọng lực theo chiều dương Y -400
     world = new b2World(gravity);
     
 
@@ -51,11 +51,11 @@ bool Map2Scene::init()
     auto background = cocos2d::Sprite::create("map/bglv1.png");
     background->setAnchorPoint(cocos2d::Vec2(0, 0));
     background->setPosition(cocos2d::Vec2(0, 0));
-    Common::scaleSprite(background, 1);
+    Common::scaleAll(background, 1);
     this->addChild(background, 0);
 
     map = TMXTiledMap::create("map/map2.tmx");
-    map->setScale(Common::scaleSprite());
+    map->setScale(Common::scaleSizeXY());
     map->setAnchorPoint(Vec2(0, 0));
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     map->setPosition(origin);
@@ -78,11 +78,6 @@ bool Map2Scene::init()
 
 // update
 void Map2Scene::update(float dt) {
-
-    // return game
-    if (this->getChildByName("Menu") == nullptr) {
-        isEnable = true;
-    }
     world->Step(dt, 8, 3); // Cập nhật thế giới Box2D
 
     for (size_t i = 0; i < warriorVector->size(); i++ /* no increment here */) {
@@ -116,13 +111,13 @@ void Map2Scene::update(float dt) {
     {
         // Cập nhật vị trí của Camera để theo dõi nhân vật
         // Bạn có thể thêm một khoảng offset để điều chỉnh
-        if (player->getSprite()->getPositionX() > origin.x + screenWidth / 2 && player->getSprite()->getPositionX() < 14376 * Common::scaleSprite() - screenWidth / 2 + origin.x) {
+        if (player->getSprite()->getPositionX() > origin.x + screenWidth / 2 && player->getSprite()->getPositionX() < 14376 * Common::scaleSizeXY() - screenWidth / 2 + origin.x) {
             Vec2 cameraPosition = player->getSprite()->getPosition();
             camera->setPosition3D(Vec3(cameraPosition.x, camera->getPositionY(), camera->getPosition3D().z));
 
             player->uiNode->setPositionX(cameraPosition.x - screenWidth / 2 - origin.x);
-            boundaryBodyStart->SetTransform(b2Vec2((cameraPosition.x - origin.x - screenWidth / 2 - 120 * Common::scaleSprite()) / Common::PIXELS_PER_METER, camera->getPositionY()), 0.0f);
-            boundaryBodyEnd->SetTransform(b2Vec2((cameraPosition.x + origin.x + screenWidth / 2 + 120 * Common::scaleSprite()) / Common::PIXELS_PER_METER, camera->getPositionY()), 0.0f);
+            boundaryBodyStart->SetTransform(b2Vec2((cameraPosition.x - origin.x - screenWidth / 2 - 120 * Common::scaleSizeXY()) / Constants::PIXELS_PER_METER, camera->getPositionY()), 0.0f);
+            boundaryBodyEnd->SetTransform(b2Vec2((cameraPosition.x + origin.x + screenWidth / 2 + 120 * Common::scaleSizeXY()) / Constants::PIXELS_PER_METER, camera->getPositionY()), 0.0f);
         }
     }
 
@@ -174,7 +169,7 @@ void Map2Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = layerAcher->getTileAt(Vec2(x, y));
             if (tile) {
-                Acher* w = new Acher(world, this, Vec2(origin.x / Common::scaleSprite() + x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE) * Common::scaleSprite(), _bodyToSpriteMap);
+                Acher* w = new Acher(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
                 w->init();
                 acherVector->push_back(w);
             }
@@ -187,7 +182,7 @@ void Map2Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = wallLayerEnemy->getTileAt(Vec2(x, y));
             if (tile) {
-                Warrior* w = new Warrior(world, this, Vec2(origin.x / Common::scaleSprite() + x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE) * Common::scaleSprite(), _bodyToSpriteMap);
+                Warrior* w = new Warrior(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
                 w->init();
                 w->walk();
                 warriorVector->push_back(w);
@@ -201,7 +196,7 @@ void Map2Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = playerLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                player = new Player(world, this, Vec2(origin.x + x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE) * Common::scaleSprite(), _bodyToSpriteMap);
+                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
                 player->init(false);
            
             }
@@ -214,7 +209,7 @@ void Map2Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = wraithLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                Wraith* w = new Wraith(world, this, Vec2(origin.x / Common::scaleSprite() + x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE) * Common::scaleSprite(), _bodyToSpriteMap);
+                Wraith* w = new Wraith(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
                 w->init();
                 w->walk();
                 wraithVector->push_back(w);

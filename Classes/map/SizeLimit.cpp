@@ -15,10 +15,10 @@ SizeLimit::SizeLimit(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite
         auto object = obj.asValueMap();
 
         // Lấy thông tin đối tượng
-        float x = object["x"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
-        float y = object["y"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
-        float width = object["width"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
-        float height = object["height"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
+        float x = object["x"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float y = object["y"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float width = object["width"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float height = object["height"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
 
         // Tạo body definition
         b2BodyDef bodyDef;
@@ -37,13 +37,13 @@ SizeLimit::SizeLimit(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite
         fixtureDef.density = 1.0f;
         fixtureDef.friction = 0.0f;
         fixtureDef.restitution = 0.0f;
-        fixtureDef.filter.categoryBits = Common::CATEGORY_WALL;
-        fixtureDef.filter.maskBits = Common::CATEGORY_ARROW | Common::CATEGORY_STICK;
+        fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
+        fixtureDef.filter.maskBits = Constants::CATEGORY_ARROW | Constants::CATEGORY_STICK;
 
         body->CreateFixture(&fixtureDef);
 
         Sprite* sprite = new Sprite();
-        sprite->setTag(Common::TAG_PORT);
+        sprite->setTag(Constants::TAG_PORT);
         body->SetUserData(sprite);
     }
 }

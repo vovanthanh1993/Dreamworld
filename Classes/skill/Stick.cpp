@@ -5,13 +5,13 @@ void Stick::init(b2World* world, Scene* scene, Vec2 position,
     Effect::playerSlash();
     sprite = Sprite::create("Stick.png");
     sprite->setPosition(position);
-    Common::scaleSprite(sprite, 0.017);
-    sprite->setTag(Common::TAG_STICK);
+    Common::scaleAll(sprite, 0.017);
+    sprite->setTag(Constants::TAG_STICK);
     scene->addChild(sprite);
     
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-    bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+    bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
     bodyDef.bullet = true;
 
@@ -20,16 +20,16 @@ void Stick::init(b2World* world, Scene* scene, Vec2 position,
     body->SetUserData(sprite);
 
     b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
     fixtureDef.density = 0.01f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
-    fixtureDef.filter.categoryBits = Common::CATEGORY_STICK;
-    fixtureDef.filter.maskBits = Common::CATEGORY_ENEMY| Common::CATEGORY_WALL | Common::CATEGORY_BLOCK;
+    fixtureDef.filter.categoryBits = Constants::CATEGORY_STICK;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_ENEMY| Constants::CATEGORY_WALL | Constants::CATEGORY_BLOCK;
 
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);

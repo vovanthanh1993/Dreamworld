@@ -49,35 +49,35 @@ bool ShopScene::init()
     // Background
     auto background = Sprite::create("UI/backgroundwk.png");
     background->setPosition(Common::getCenter());
-    Common::scaleSprite(background, 1);
+    Common::scaleAll(background, 1);
     addChild(background, 0);
     // Background
     auto backgroundSetting = Sprite::create("UI/scale/bg2.png");
     backgroundSetting->setPosition(Common::getCenter());
-    Common::scaleSprite(backgroundSetting, 0.4);
+    Common::scaleAll(backgroundSetting, 0.4);
     addChild(backgroundSetting, 0);
 
     // Tạo tiêu đề
-    auto headerLabel = Label::createWithTTF("SHOP", "fonts/Marker Felt.ttf", 60 * Common::scaleSprite());
-    headerLabel->setPosition(Vec2(Common::getCenter().x, visibleSize.height - headerLabel->getContentSize().height - 150 * Common::scaleYSprite()));
+    auto headerLabel = Label::createWithTTF("SHOP", "fonts/Marker Felt.ttf", 60 * Common::scaleSizeXY());
+    headerLabel->setPosition(Vec2(Common::getCenter().x, visibleSize.height - headerLabel->getContentSize().height - 150 * Common::scaleSizeY()));
     this->addChild(headerLabel);
 
-    int space = 80 * Common::scaleSprite();
+    int space = 80 * Common::scaleSizeXY();
 
     // Tạo các mục shop
     auto itemLabel0 = MenuItemLabel::create(
-        Label::createWithSystemFont("The store is under maintenance!", "fonts/Marker Felt.ttf", 35 * Common::scaleSprite())
+        Label::createWithSystemFont("The store is under maintenance!", "fonts/Marker Felt.ttf", 35 * Common::scaleSizeXY())
     );
-    itemLabel0->setPosition(Vec2(Common::getCenter().x, headerLabel->getPositionY() - 100 * Common::scaleYSprite()));
+    itemLabel0->setPosition(Vec2(Common::getCenter().x, headerLabel->getPositionY() - 100 * Common::scaleSizeY()));
 
     // Tạo các mục shop
     auto itemLabel1 = MenuItemLabel::create(
-        Label::createWithSystemFont("Skin A - 3$", "fonts/Marker Felt.ttf", 30 * Common::scaleSprite())
+        Label::createWithSystemFont("Skin A - 3$", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel1->setPosition(Vec2(itemLabel0->getPositionX(), itemLabel0->getPositionY() - space * 1));
 
     auto itemLabel2 = MenuItemLabel::create(
-        Label::createWithSystemFont("1000 Gem - 1$", "fonts/Marker Felt.ttf", 30 * Common::scaleSprite())
+        Label::createWithSystemFont("1000 Gem - 1$", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel2->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 2));
 
@@ -85,12 +85,12 @@ bool ShopScene::init()
     auto menuImages1 = MenuItemImage::create("UI/scale/ok.png", "UI/scale/ok.png",
         CC_CALLBACK_1(ShopScene::goBack, this));
     menuImages1->setPosition(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 6);
-    Common::scaleSprite(menuImages1, 0.05);
+    Common::scaleAll(menuImages1, 0.05);
     // Cancel
     auto menuImages2 = MenuItemImage::create("UI/scale/cancel.png", "UI/scale/cancel.png",
         CC_CALLBACK_1(ShopScene::goBack, this));
-    menuImages2->setPosition(Common::getCenter().x + 250 * Common::scaleSprite(), headerLabel->getPositionY());
-    Common::scaleSprite(menuImages2,0.04);
+    menuImages2->setPosition(Common::getCenter().x + 250 * Common::scaleSizeXY(), headerLabel->getPositionY());
+    Common::scaleAll(menuImages2,0.04);
     // Tạo menu
     auto menu = Menu::create(itemLabel0, itemLabel1, itemLabel2, menuImages1, menuImages2, nullptr);
     menu->setPosition(Vec2::ZERO);

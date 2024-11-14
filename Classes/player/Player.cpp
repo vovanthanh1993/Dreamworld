@@ -11,16 +11,16 @@ void Player::init(bool isNew) {
     spriteNode = SpriteBatchNode::create("player/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("player/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Wukong-Idle_0.png");
-    sprite->setScale(Common::PLAYER_SCALE*Common::scaleSprite());
+    sprite->setScale(Constants::PLAYER_SCALE* Common::scaleSizeXY());
     sprite->setPosition(position);
-    sprite->setTag(Common::TAG_PLAYER);
+    sprite->setTag(Constants::PLAYER_SCALE);
     
     spriteNode->addChild(sprite);
     scene->addChild(spriteNode, 1);
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-    bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+    bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
     bodyDef.bullet = true;
 
@@ -28,16 +28,16 @@ void Player::init(bool isNew) {
     body->SetUserData(sprite);
 
     b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
     fixtureDef.density = 10.0f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
-    fixtureDef.filter.categoryBits = Common::CATEGORY_PLAYER;
-    fixtureDef.filter.maskBits = Common::CATEGORY_SLASH_ENEMY | Common::CATEGORY_WALL| Common::CATEGORY_ITEM| Common::CATEGORY_CHEST| Common::CATEGORY_ARROW | Common::CATEGORY_BOX| Common::CATEGORY_GEM; //  Không va chạm với CATEGORY_B
+    fixtureDef.filter.categoryBits = Constants::CATEGORY_PLAYER;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_SLASH_ENEMY | Constants::CATEGORY_WALL| Constants::CATEGORY_ITEM| Constants::CATEGORY_CHEST| Constants::CATEGORY_ARROW | Constants::CATEGORY_BOX| Constants::CATEGORY_GEM; //  Không va chạm với CATEGORY_B
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
 
@@ -82,7 +82,7 @@ void Player::jump() {
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("Wukong-Jump_", 9, 0.0001));
     Effect::playerJump();
-    b2Vec2 velocity(body->GetLinearVelocity().x, Common::JUMP_PLAYER * Common::scaleSprite());
+    b2Vec2 velocity(body->GetLinearVelocity().x, Constants::JUMP_PLAYER * Common::scaleSizeXY());
     body->SetLinearVelocity(velocity);
     auto repeatAnimate = RepeatForever::create(animate);
     repeatAnimate->setTag(3);
@@ -109,9 +109,9 @@ Slash* Player::hit() {
                 check = -1;
             }
 
-            slash->init(world, scene, Vec2(sprite->getPositionX() + check * 100 * Common::PLAYER_SCALE * Common::scaleSprite(), sprite->getPositionY()));
+            slash->init(world, scene, Vec2(sprite->getPositionX() + check * 100 * Constants::PLAYER_SCALE * Common::scaleSizeXY(), sprite->getPositionY()));
             auto sprite = slash->getSprite();
-            sprite->setScaleX(check * Common::STICK_SCALE * Common::scaleXSprite());
+            sprite->setScaleX(check * Constants::STICK_SCALE * Common::scaleSizeX());
             };
 
         
@@ -135,10 +135,10 @@ void Player::throwStick() {
             check = -1;
         }
 
-        stick->init(world, scene, Vec2(sprite->getPositionX() + check * 10 * Common::PLAYER_SCALE * Common::scaleSprite(), sprite->getPositionY()),
+        stick->init(world, scene, Vec2(sprite->getPositionX() + check * 10 * Constants::PLAYER_SCALE * Common::scaleSizeXY(), sprite->getPositionY()),
             _bodyToSpriteMap);
         stick->getSprite()->setScaleX(check * stick->getSprite()->getScale());
-        b2Vec2 velocity(40 * check * Common::scaleSprite(), 0);
+        b2Vec2 velocity(40 * check * Common::scaleSizeXY(), 0);
         stick->getBody()->SetLinearVelocity(velocity);
         updateStickNum(-1);
     }
@@ -163,16 +163,16 @@ void Player::eagle() {
     }
 
     int y = 0;
-    int x = -100 * Common::scaleXSprite();
+    int x = -100 * Common::scaleSizeX();
     for (int i = 1; i <= 3; i++) {
         Eagle* eagle = new Eagle();
-        eagle->init(world, scene, Vec2(sprite->getPositionX() + check * x + check * 10 * Common::PLAYER_SCALE * Common::scaleSprite(), sprite->getPositionY() + y),
+        eagle->init(world, scene, Vec2(sprite->getPositionX() + check * x + check * 10 * Constants::PLAYER_SCALE * Common::scaleSizeXY(), sprite->getPositionY() + y),
             _bodyToSpriteMap);
-        eagle->getSprite()->setScaleX(check * Common::STICK_SCALE * Common::scaleXSprite());
-        b2Vec2 velocity(30 * check * Common::scaleSprite(), 0);
+        eagle->getSprite()->setScaleX(check * Constants::STICK_SCALE * Common::scaleSizeX());
+        b2Vec2 velocity(30 * check * Common::scaleSizeXY(), 0);
         eagle->getBody()->SetLinearVelocity(velocity);
-        y += 20 * Common::scaleYSprite();
-        x += 100 * Common::scaleXSprite();
+        y += 20 * Common::scaleSizeY();
+        x += 100 * Common::scaleSizeX();
     }
     animate->setTag(4);
     sprite->runAction(animate);
@@ -225,46 +225,46 @@ void Player::initItem() {
     Sprite* head = Sprite::create("ui/head2.png");
     head->setPosition(origin.x, y);
     head->setAnchorPoint(Vec2(0, 1));
-    head->setScale(0.8* Common::scaleSprite());
+    head->setScale(0.8* Common::scaleSizeXY());
     uiNode->addChild(head);
 
-    int xs = origin.x + 160*Common::scaleSprite();
+    int xs = origin.x + 160* Common::scaleSizeXY();
     //int xs = origin.x + head->getContentSize().width* head->getScale();
     Sprite* backStick = Sprite::create("ui/BackStick.png");
-    backStick->setPosition(xs, y - 90 * Common::scaleSprite());
+    backStick->setPosition(xs, y - 90 * Common::scaleSizeXY());
     backStick->setAnchorPoint(Vec2(0, 1));
     uiNode->addChild(backStick);
-    backStick->setScale(0.2* Common::scaleSprite());
+    backStick->setScale(0.2* Common::scaleSizeXY());
 
-    xs += 50 * Common::scaleSprite();
+    xs += 50 * Common::scaleSizeXY();
     //stickNum = maxStickNum;
     stickLabel = Label::createWithTTF("x" + to_string(stickNum), "fonts/Marker Felt.ttf", 30);
-    stickLabel->setPosition(xs, y - 130 * Common::scaleSprite());
-    stickLabel->setScale(Common::scaleSprite());
+    stickLabel->setPosition(xs, y - 130 * Common::scaleSizeXY());
+    stickLabel->setScale(Common::scaleSizeXY());
     uiNode->addChild(stickLabel);
     
-    xs += 50* Common::scaleSprite();
+    xs += 50* Common::scaleSizeXY();
     Sprite* gourd = Sprite::create("Item/gourd/gourd.png");
     gourd->setAnchorPoint(Vec2(0, 0.5));
-    gourd->setPosition(xs, y - 115 * Common::scaleSprite());
-    gourd->setScale(0.35* Common::scaleSprite());
+    gourd->setPosition(xs, y - 115 * Common::scaleSizeXY());
+    gourd->setScale(0.35* Common::scaleSizeXY());
     uiNode->addChild(gourd);
-    xs += 60 *Common::scaleSprite();
+    xs += 60 * Common::scaleSizeXY();
     gourdLabel = Label::createWithTTF("x" + to_string(gourdNum), "fonts/Marker Felt.ttf", 30);
     gourdLabel->setPosition(xs, stickLabel->getPositionY());
-    gourdLabel->setScale(Common::scaleSprite());
+    gourdLabel->setScale(Common::scaleSizeXY());
     uiNode->addChild(gourdLabel);
 
-    xs += 40 * Common::scaleSprite();
+    xs += 40 * Common::scaleSizeXY();
     Sprite* gemSprite = Sprite::create("item/gem/gem.png");
-    gemSprite->setPosition(xs, y - 100 * Common::scaleSprite());
+    gemSprite->setPosition(xs, y - 100 * Common::scaleSizeXY());
     gemSprite->setAnchorPoint(Vec2(0, 1));
     uiNode->addChild(gemSprite);
-    gemSprite->setScale(0.1* Common::scaleSprite());
-    xs += 70 * Common::scaleSprite();
+    gemSprite->setScale(0.1* Common::scaleSizeXY());
+    xs += 70 * Common::scaleSizeXY();
     gemLabel = Label::createWithTTF("x" + to_string(gem), "fonts/Marker Felt.ttf", 30);
     gemLabel->setPosition(xs, stickLabel->getPositionY());
-    gemLabel->setScale(Common::scaleSprite());
+    gemLabel->setScale(Common::scaleSizeXY());
     uiNode->addChild(gemLabel);
 }
 
@@ -378,53 +378,53 @@ void Player::updateHealthBar(float health) {
     // Tính toán tỷ lệ máu hiện tại
     float healthRatio = health / maxHealth;
     // Cập nhật kích thước của thanh máu
-    healthBar->setScaleX(health/ 15* Common::scaleXSprite()); // Điều chỉnh chiều rộng thanh máu
-    healthBarBg->setScaleX(maxHealth / 15* Common::scaleXSprite());
+    healthBar->setScaleX(health/ 15* Common::scaleSizeX()); // Điều chỉnh chiều rộng thanh máu
+    healthBarBg->setScaleX(maxHealth / 15* Common::scaleSizeX());
 }
 void Player::createHealthBar() {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    int y = 1075 * Common::scaleYSprite();
-    int x = origin.x+140 * Common::scaleSprite();
+    int y = 1075 * Common::scaleSizeY();
+    int x = origin.x+140 * Common::scaleSizeXY();
 
     // Tạo nền thanh máu
     healthBarBg = Sprite::create("ui/health_bar_bg3.png");
     healthBarBg->setPosition(Vec2(x,y)); // Đặt vị trí của nền thanh máu
     uiNode->addChild(healthBarBg);
     healthBarBg->setAnchorPoint(Vec2(0, 1));
-    healthBarBg->setScale(Common::HEALTH_BAR_SCALE* Common::scaleSprite());
-    healthBarBg->setScaleX(maxHealth / 15* Common::scaleXSprite());
+    healthBarBg->setScale(Constants::HEALTH_BAR_SCALE* Common::scaleSizeXY());
+    healthBarBg->setScaleX(maxHealth / 15* Common::scaleSizeX());
 
     // Tạo thanh máu
     healthBar = Sprite::create("ui/health_bar3.png");
     healthBar->setPosition(healthBarBg->getPosition()); // Đặt cùng vị trí với nền
     uiNode->addChild(healthBar);
     healthBar->setAnchorPoint(Vec2(0, 1));
-    healthBar->setScale(Common::HEALTH_BAR_SCALE* Common::scaleSprite());
-    healthBar->setScaleX(maxHealth/15* Common::scaleXSprite());
+    healthBar->setScale(Constants::HEALTH_BAR_SCALE* Common::scaleSizeXY());
+    healthBar->setScaleX(maxHealth/15* Common::scaleSizeX());
     updateHealthBar(health);
 }
 
 // Mana
 void Player::createManaBar() {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    int y = 1040 * Common::scaleYSprite();
-    int x = origin.x+140 * Common::scaleSprite();
+    int y = 1040 * Common::scaleSizeY();
+    int x = origin.x+140 * Common::scaleSizeXY();
     // Tạo nền thanh máu
     manaBarBg = Sprite::create("ui/health_bar_bg3.png");
     manaBarBg->setPosition(Vec2(x, y)); // Đặt vị trí của nền thanh máu
     uiNode->addChild(manaBarBg);
     manaBarBg->setAnchorPoint(Vec2(0, 1));
-    manaBarBg->setScale(Common::HEALTH_BAR_SCALE* Common::scaleSprite());
-    manaBarBg->setScaleX(maxMana / 15* Common::scaleXSprite());
+    manaBarBg->setScale(Constants::HEALTH_BAR_SCALE* Common::scaleSizeXY());
+    manaBarBg->setScaleX(maxMana / 15* Common::scaleSizeX());
 
     // Tạo thanh máu
     manaBar = Sprite::create("ui/mana_bar.png");
     manaBar->setPosition(manaBarBg->getPosition()); // Đặt cùng vị trí với nền
     uiNode->addChild(manaBar);
     manaBar->setAnchorPoint(Vec2(0, 1));
-    manaBar->setScale(Common::HEALTH_BAR_SCALE * Common::scaleSprite());
-    manaBar->setScaleX(maxMana/15 * Common::scaleXSprite());
+    manaBar->setScale(Constants::HEALTH_BAR_SCALE * Common::scaleSizeXY());
+    manaBar->setScaleX(maxMana/15 * Common::scaleSizeX());
     updateManaBar(mana);
 }
 
@@ -445,8 +445,8 @@ void Player::updateManaBar(float mana) {
     // Tính toán tỷ lệ máu hiện tại
     float manaRatio = mana / maxMana;
     // Cập nhật kích thước của thanh máu
-    manaBar->setScaleX(mana / 15 *Common::scaleXSprite()); // Điều chỉnh chiều rộng thanh máu
-    manaBarBg->setScaleX(maxMana / 15 * Common::scaleXSprite()); // Điều chỉnh chiều rộng thanh máu
+    manaBar->setScaleX(mana / 15 * Common::scaleSizeX()); // Điều chỉnh chiều rộng thanh máu
+    manaBarBg->setScaleX(maxMana / 15 * Common::scaleSizeX()); // Điều chỉnh chiều rộng thanh máu
 }
 
 // Getter cho maxMana
@@ -484,20 +484,20 @@ float Player::getMaxHealth() const {
 }
 
 void Player::updateMove() {
-    if (!isInVillage  && scene->getChildByName("Menu") == nullptr) {
+    if (scene->getChildByName("shop") == nullptr) {
         isEnable = true;
     }
     if (!isEnable||!isAlive) return;
     if (keys[EventKeyboard::KeyCode::KEY_A]) {
-        body->SetLinearVelocity(b2Vec2(-Common::SPEED_PLAYER *Common::scaleSprite(), body->GetLinearVelocity().y)); // Di chuyển sang trái
-        sprite->setScaleX(-Common::PLAYER_SCALE * Common::scaleSprite());
+        body->SetLinearVelocity(b2Vec2(-Constants::SPEED_PLAYER * Common::scaleSizeXY(), body->GetLinearVelocity().y)); // Di chuyển sang trái
+        sprite->setScaleX(-Constants::PLAYER_SCALE * Common::scaleSizeXY());
         if (!sprite->getActionByTag(4) && !sprite->getActionByTag(1)) { // Kiểm tra nếu hoạt ảnh chưa chạy
             walk();
         }
     }
     else if (keys[EventKeyboard::KeyCode::KEY_D]) {
-        body->SetLinearVelocity(b2Vec2(Common::SPEED_PLAYER * Common::scaleSprite(), body->GetLinearVelocity().y)); // Di chuyển sang phải
-        sprite->setScaleX(Common::PLAYER_SCALE * Common::scaleSprite());
+        body->SetLinearVelocity(b2Vec2(Constants::SPEED_PLAYER * Common::scaleSizeXY(), body->GetLinearVelocity().y)); // Di chuyển sang phải
+        sprite->setScaleX(Constants::PLAYER_SCALE * Common::scaleSizeXY());
         if (!sprite->getActionByTag(4) && !sprite->getActionByTag(1)) { // Kiểm tra nếu hoạt ảnh chưa chạy
             walk();
         }

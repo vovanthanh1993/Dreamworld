@@ -57,10 +57,10 @@ bool GameOver::init()
     // Background
     auto background = Sprite::create("UI/GameOver/bg.png");
     background->setPosition(Common::getCenter());
-    Common::scaleSprite(background, 1);
+    Common::scaleAll(background, 1);
     this->addChild(background, 0);
 
-    createGameOver(Vec2(Common::getCenter().x, visibleSize.height / 2 + 290 * Common::scaleSprite()));
+    createGameOver(Vec2(Common::getCenter().x, visibleSize.height / 2 + 290 * Common::scaleSizeXY()));
     
 
     // Create menu
@@ -79,7 +79,7 @@ bool GameOver::init()
 
     // Tạo menu và thêm nút vào menu
     auto menu = Menu::create(menuImages1, menuImages2 , menuImages3, nullptr);
-    menu->setScale(0.25 * Common::scaleSprite());
+    menu->setScale(0.25 * Common::scaleSizeXY());
     menu->setAnchorPoint(Vec2::ZERO);
     menu->setPosition(Common::getCenter());
     menu->alignItemsVerticallyWithPadding(70);
@@ -103,9 +103,9 @@ void GameOver::createGameOver(Vec2 pos) {
     auto spriteNode = SpriteBatchNode::create("UI/GameOver/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("UI/GameOver/sprites.plist");
     auto sprite = Sprite::createWithSpriteFrameName("YouLose_0.png");
-    sprite->setScale(1 * Common::scaleSprite());
+    sprite->setScale(1 * Common::scaleSizeXY());
     sprite->setPosition(pos);
-    sprite->setTag(Common::TAG_PLAYER);
+    sprite->setTag(Constants::TAG_PLAYER);
     auto animate = Animate::create(Common::createAnimation("YouLose_", 29, 0.04));
     animate->retain();
     sprite->runAction(RepeatForever::create(animate));

@@ -6,7 +6,9 @@
 #include "item/Gem.h"
 #include "audio/include/AudioEngine.h"
 #include "gui/Setting.h"
+#include "main/Constants.h"
 
+using namespace constants;
 using namespace common;
 using namespace cocos2d;
 namespace common {

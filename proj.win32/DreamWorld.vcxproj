@@ -833,6 +833,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\main\Constants.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\base\BaseCharacter.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\base\BaseItem.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h" />
@@ -892,6 +893,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\Git\Dreamworld\Classes\skill\Stick.h" />
     <ClInclude Include="D:\Git\Dreamworld\proj.win32\main.h" />
     <ClInclude Include="D:\Git\Dreamworld\proj.win32\resource.h" />
+    <ClCompile Include="..\Classes\main\Constants.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\base\BaseCharacter.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\base\BaseItem.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\Acher.cpp" />

@@ -45,8 +45,9 @@
 #include "gui/Setting.h"
 #include "npc/NPC3.h"
 #include "npc/SkillShopLayer.h"
+#include "main/Constants.h"
 
-
+using namespace constants;
 using namespace common;
 using namespace cocos2d;
 using namespace std;
@@ -56,9 +57,6 @@ public:
     static cocos2d::Scene* createScene();
 
     virtual bool init();
-
-    bool onMouseDown(Event* event);
-    bool onMouseUp(Event* event);
     std::map<EventKeyboard::KeyCode, bool> keys;
    CREATE_FUNC(VillageScene);
 private:

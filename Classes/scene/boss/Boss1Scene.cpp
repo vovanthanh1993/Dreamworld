@@ -36,7 +36,7 @@ bool Boss1Scene::init()
    
 
     // Khởi tạo thế giới vật lý với trọng lực
-    b2Vec2 gravity(0.0f, Common::GRAVITY* Common::scaleSprite()); // Trọng lực theo chiều dương Y -400
+    b2Vec2 gravity(0.0f, Constants::GRAVITY* Common::scaleSizeXY()); // Trọng lực theo chiều dương Y -400
     world = new b2World(gravity);
     
 
@@ -44,11 +44,11 @@ bool Boss1Scene::init()
     auto background = cocos2d::Sprite::create("map/bglv1.png");
     background->setAnchorPoint(cocos2d::Vec2(0, 0));
     background->setPosition(cocos2d::Vec2(0, 0));
-    Common::scaleSprite(background, 1);
+    Common::scaleAll(background, 1);
     this->addChild(background, 0);
 
     map = TMXTiledMap::create("map/boss1map.tmx");
-    map->setScale(Common::scaleSprite());
+    map->setScale(Common::scaleSizeXY());
     map->setAnchorPoint(Vec2(0, 0));
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     map->setPosition(origin);
@@ -71,11 +71,6 @@ bool Boss1Scene::init()
 // update
 void Boss1Scene::update(float dt) {
     if (!player->isAlive) return;
-
-    if (this->getChildByName("Menu") == nullptr) {
-        isEnable = true;
-    }
-
     world->Step(dt, 8, 3); // Cập nhật thế giới Box2D
 
     player->updateMove();
@@ -123,7 +118,7 @@ void Boss1Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = playerLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                player = new Player(world, this, Vec2(origin.x / Common::scaleSprite() +x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE)* Common::scaleSprite(), _bodyToSpriteMap);
+                player = new Player(world, this, Vec2(origin.x / Common::scaleSizeXY() +x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE)* Common::scaleSizeXY(), _bodyToSpriteMap);
                 player->init(false);
                 break;
             }
@@ -136,7 +131,7 @@ void Boss1Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = bossLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                bossmap1 = new BossMap1(world, this, Vec2(origin.x / Common::scaleSprite() + x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE) * Common::scaleSprite(), _bodyToSpriteMap);
+                bossmap1 = new BossMap1(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
                 bossmap1->init();
                 break;
             }

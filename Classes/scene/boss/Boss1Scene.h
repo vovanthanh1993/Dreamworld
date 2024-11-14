@@ -42,7 +42,9 @@
 #include "scene/Map2Scene.h"
 #include "main/Common.h"
 #include "gui/Setting.h"
+#include "main/Constants.h"
 
+using namespace constants;
 using namespace common;
 using namespace cocos2d;
 using namespace std;

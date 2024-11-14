@@ -6,8 +6,9 @@
 #include "skill/Fire.h"
 #include "skill/FireRain.h"
 #include "item/Gem.h"
+#include "main/Constants.h"
 
-
+using namespace constants;
 using namespace common;
 using namespace cocos2d;
 class BossMap1:public BaseCharacter

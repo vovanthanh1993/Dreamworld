@@ -6,11 +6,10 @@
 
 class ShopLayer : public cocos2d::Layer {
 public:
-    virtual bool init(); // Khởi tạo layer
-    
-    bool isEnable = false;
+    LayerColor* shopFrame;
     CREATE_FUNC(ShopLayer); // Macro tạo lớp
     Player* player;
+    ShopLayer();
 private:
     void menuCloseCallback(cocos2d::Ref* pSender); // Callback cho nút trở về
     void menuOKCallback(cocos2d::Ref* pSender);

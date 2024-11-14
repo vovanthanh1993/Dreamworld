@@ -8,8 +8,8 @@ void Warrior::init() {
     spriteNode = SpriteBatchNode::create("enemy/warrior/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/warrior/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Idle_0.png");
-    sprite->setScale(Common::WARRIOR_SCALE* Common::scaleSprite());
-    sprite->setTag(Common::TAG_ENEMY);
+    sprite->setScale(Constants::WARRIOR_SCALE* Common::scaleSizeXY());
+    sprite->setTag(Constants::TAG_ENEMY);
     
     int* userData = new int(-1);
     sprite->setUserData(userData);
@@ -19,7 +19,7 @@ void Warrior::init() {
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-    bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+    bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
     //bodyDef.bullet = true;
 
@@ -27,21 +27,21 @@ void Warrior::init() {
     body->SetUserData(sprite);
 
     b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
-    fixtureDef.filter.categoryBits = Common::CATEGORY_ENEMY;
-    fixtureDef.filter.maskBits = Common::CATEGORY_STICK| Common::CATEGORY_WALL| Common::CATEGORY_LIMIT| Common::CATEGORY_PLAYER| Common::CATEGORY_SLASH;
+    fixtureDef.filter.categoryBits = Constants::CATEGORY_ENEMY;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_STICK| Constants::CATEGORY_WALL| Constants::CATEGORY_LIMIT| Constants::CATEGORY_PLAYER| Constants::CATEGORY_SLASH;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-    b2Vec2 velocity(Common::SPEED_ENEMY* Common::scaleSprite(), 0);
+    b2Vec2 velocity(Constants::SPEED_ENEMY* Common::scaleSizeXY(), 0);
     body->SetLinearVelocity(velocity);
-    sprite->setScaleX(-Common::WARRIOR_SCALE* Common::scaleSprite());
+    sprite->setScaleX(-Constants::WARRIOR_SCALE* Common::scaleSizeXY());
     (*_bodyToSpriteMap)[body] = sprite;
 }
 void Warrior::idle() {
@@ -76,8 +76,8 @@ void Warrior::die() {
         b2Filter filter = fixture->GetFilterData();
 
         // Cập nhật categoryBits và maskBits
-        filter.categoryBits = Common::CATEGORY_ENEMY;
-        filter.maskBits = Common::CATEGORY_WALL;
+        filter.categoryBits = Constants::CATEGORY_ENEMY;
+        filter.maskBits = Constants::CATEGORY_WALL;
 
         // Thiết lập lại dữ liệu bộ lọc
         fixture->SetFilterData(filter);
@@ -116,8 +116,8 @@ SlashEnemy* Warrior::hit() {
                     check = -1;
                 }
 
-                slashEnemy->init(world, scene, Vec2(sprite->getPositionX() + check * 120 * Common::PLAYER_SCALE* Common::scaleSprite(), sprite->getPositionY()));
-                slashEnemy->getSprite()->setScaleX(check * Common::STICK_SCALE* Common::scaleSprite());
+                slashEnemy->init(world, scene, Vec2(sprite->getPositionX() + check * 120 * Constants::PLAYER_SCALE* Common::scaleSizeXY(), sprite->getPositionY()));
+                slashEnemy->getSprite()->setScaleX(check * Constants::STICK_SCALE* Common::scaleSizeXY());
                 walk();
             }
             };
@@ -139,7 +139,7 @@ void Warrior::updateAttack(vector<SlashEnemy*> &slashEnemyVector, Player* player
             canAttack = true;
         }
         if (canAttack) {
-            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Common::ATTACK_RANGE_WAR* Common::scaleSprite()) {
+            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_WAR* Common::scaleSizeXY()) {
 
                 // Attack logic
                 slashEnemyVector.push_back(hit());

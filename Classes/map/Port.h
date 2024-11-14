@@ -1,6 +1,9 @@
 ﻿#pragma once
 #include "cocos2d.h"
 #include "main/Common.h"
+#include "main/Constants.h"
+
+using namespace constants;
 using namespace common;
 using namespace cocos2d;
 class Port

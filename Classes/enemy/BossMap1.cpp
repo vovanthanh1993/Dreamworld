@@ -10,8 +10,8 @@ void BossMap1::init() {
     spriteNode = SpriteBatchNode::create("Enemy/Bossmap1/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Bossmap1/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("0_boss_idle_0.png");
-    sprite->setScale(Common::BOSSMAP1_SCALE * Common::scaleSprite());
-    sprite->setTag(Common::TAG_BOSSMAP1);
+    sprite->setScale(Constants::BOSSMAP1_SCALE * Common::scaleSizeXY());
+    sprite->setTag(Constants::TAG_BOSSMAP1);
     
     int* userData = new int(-1);
     sprite->setUserData(userData);
@@ -21,7 +21,7 @@ void BossMap1::init() {
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-    bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+    bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
     //bodyDef.bullet = true;
 
@@ -29,21 +29,21 @@ void BossMap1::init() {
     body->SetUserData(sprite);
 
     b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
     fixtureDef.density = 10000.0f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
-    fixtureDef.filter.categoryBits = Common::CATEGORY_ENEMY;
-    fixtureDef.filter.maskBits = Common::CATEGORY_STICK| Common::CATEGORY_WALL| Common::CATEGORY_LIMIT| Common::CATEGORY_PLAYER| Common::CATEGORY_SLASH;
+    fixtureDef.filter.categoryBits = Constants::CATEGORY_ENEMY;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_STICK| Constants::CATEGORY_WALL| Constants::CATEGORY_LIMIT| Constants::CATEGORY_PLAYER| Constants::CATEGORY_SLASH;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-    b2Vec2 velocity(Common::SPEED_BOSS1 * Common::scaleSprite(), 0);
+    b2Vec2 velocity(Constants::SPEED_BOSS1 * Common::scaleSizeXY(), 0);
     body->SetLinearVelocity(velocity);
-    sprite->setScaleX(-Common::BOSSMAP1_SCALE * Common::scaleSprite());
+    sprite->setScaleX(-Constants::BOSSMAP1_SCALE * Common::scaleSizeXY());
     (*_bodyToSpriteMap)[body] = sprite;
     createHealthBar();
     walk();
@@ -75,7 +75,7 @@ void BossMap1::die() {
     sprite->stopAllActions();
     Effect::soundLaughter();
 
-    int round = Common::loadRound(); 
+    int round = Common::loadRound();
     if (round == 1) {
         Common::showBossText(scene, "Hmm. It really reminds me of the way you killed me back then...");
     }
@@ -96,8 +96,8 @@ void BossMap1::die() {
         b2Filter filter = fixture->GetFilterData();
 
         // Cập nhật categoryBits và maskBits
-        filter.categoryBits = Common::CATEGORY_ENEMY;
-        filter.maskBits = Common::CATEGORY_WALL;
+        filter.categoryBits = Constants::CATEGORY_ENEMY;
+        filter.maskBits = Constants::CATEGORY_WALL;
 
         // Thiết lập lại dữ liệu bộ lọc
         fixture->SetFilterData(filter);
@@ -139,10 +139,10 @@ void BossMap1::hit() {
                     check = -1;
                 }
 
-                fire->init(world, scene, Vec2(sprite->getPositionX() + check * 120 * Common::BOSSMAP1_SCALE * Common::scaleSprite(), sprite->getPositionY()-80 * Common::scaleYSprite()), _bodyToSpriteMap);
+                fire->init(world, scene, Vec2(sprite->getPositionX() + check * 120 * Constants::BOSSMAP1_SCALE * Common::scaleSizeXY(), sprite->getPositionY()-80 * Common::scaleSizeY()), _bodyToSpriteMap);
                 fire->getSprite()->setScaleX(check * fire->getSprite()->getScale());
                 walk();
-                b2Vec2 velocity(20 * check * Common::scaleSprite(), 0);
+                b2Vec2 velocity(20 * check * Common::scaleSizeXY(), 0);
                 fire->getBody()->SetLinearVelocity(velocity);
             }
             };
@@ -171,10 +171,10 @@ void BossMap1::phase2() {
                         check = -1;
                     }
 
-                    rain->init(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY() + 800 * Common::scaleYSprite()), _bodyToSpriteMap);
+                    rain->init(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY() + 800 * Common::scaleSizeY()), _bodyToSpriteMap);
                     rain->getSprite()->setScaleX(check * rain->getSprite()->getScale());
 
-                    b2Vec2 velocity(start * Common::scaleSprite(), -20 * Common::scaleSprite());
+                    b2Vec2 velocity(start * Common::scaleSizeXY(), -20 * Common::scaleSizeXY());
                     rain->getBody()->SetLinearVelocity(velocity);
                     start += 10;
                 }
@@ -201,7 +201,7 @@ void BossMap1::updateAttack(Player* player, float dt) {
             canAttack = true;
         }
         if (canAttack) {
-            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Common::ATTACK_RANGE_BOSS_MAP1 * Common::scaleSprite()) {
+            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_BOSS_MAP1 * Common::scaleSizeXY()) {
 
                 // Attack logic
                 if(count++ % 5 != 0)
@@ -239,7 +239,7 @@ void BossMap1::updateHealthBar(float health) {
     // Tính toán tỷ lệ máu hiện tại
     float healthRatio = health / maxHealth;
     // Cập nhật kích thước của thanh máu
-    healthBar->setScaleX(healthRatio*Common::HEALTH_BAR_SCALE * Common::scaleSprite()); // Điều chỉnh chiều rộng thanh máu
+    healthBar->setScaleX(healthRatio*Constants::HEALTH_BAR_SCALE * Common::scaleSizeXY()); // Điều chỉnh chiều rộng thanh máu
 }
 void BossMap1::createHealthBar() {
     // Tạo nền thanh máu
@@ -247,14 +247,14 @@ void BossMap1::createHealthBar() {
     healthBarBg->setPosition(position); // Đặt vị trí của nền thanh máu
     scene->addChild(healthBarBg);
     healthBarBg->setAnchorPoint(Vec2(0, 0));
-    healthBarBg->setScale(Common::HEALTH_BAR_SCALE * Common::scaleSprite());
+    healthBarBg->setScale(Constants::HEALTH_BAR_SCALE * Common::scaleSizeXY());
 
     // Tạo thanh máu
     healthBar = Sprite::create("ui/health_bar2.png");
     healthBar->setPosition(position); // Đặt cùng vị trí với nền
     scene->addChild(healthBar);
     healthBar->setAnchorPoint(Vec2(0,0));
-    healthBar->setScale(Common::HEALTH_BAR_SCALE * Common::scaleSprite());
+    healthBar->setScale(Constants::HEALTH_BAR_SCALE * Common::scaleSizeXY());
 }
 void BossMap1::updateHealthBarPosition() {
     // Cập nhật sprite
@@ -264,8 +264,8 @@ void BossMap1::updateHealthBarPosition() {
         check = -1;
     }
     //healthBar->setAnchorPoint(Vec2(0.5,0.5));
-    healthBar->setPosition(position.x * Common::PIXELS_PER_METER - healthBar->getContentSize().width/4*Common::scaleSprite(), position.y* Common::PIXELS_PER_METER + sprite->getContentSize().height/2 * Common::scaleSprite());
-    healthBarBg->setPosition(position.x * Common::PIXELS_PER_METER - healthBar->getContentSize().width/4 * Common::scaleSprite(), position.y * Common::PIXELS_PER_METER + sprite->getContentSize().height/2 * Common::scaleSprite());
+    healthBar->setPosition(position.x * Constants::PIXELS_PER_METER - healthBar->getContentSize().width/4* Common::scaleSizeXY(), position.y* Constants::PIXELS_PER_METER + sprite->getContentSize().height/2 * Common::scaleSizeXY());
+    healthBarBg->setPosition(position.x * Constants::PIXELS_PER_METER - healthBar->getContentSize().width/4 * Common::scaleSizeXY(), position.y * Constants::PIXELS_PER_METER + sprite->getContentSize().height/2 * Common::scaleSizeXY());
 }
 
 void BossMap1::hurt() {

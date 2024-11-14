@@ -19,16 +19,16 @@ Limit::Limit(b2World* world, Scene* scene, TMXTiledMap* map) {
                 // Tạo body definition
                 b2BodyDef bodyDef;
                 bodyDef.type = b2_kinematicBody; // Body tinh
-                bodyDef.position.Set(origin.x / Common::PIXELS_PER_METER +tile->getPositionX() / Common::PIXELS_PER_METER * Common::scaleSprite(), tile->getPositionY() / Common::PIXELS_PER_METER * Common::scaleSprite());
+                bodyDef.position.Set(origin.x / Constants::PIXELS_PER_METER +tile->getPositionX() / Constants::PIXELS_PER_METER * Common::scaleSizeXY(), tile->getPositionY() / Constants::PIXELS_PER_METER * Common::scaleSizeXY());
 
                 b2Body* body = world->CreateBody(&bodyDef);
-                tile->setTag(Common::TAG_LIMIT);
+                tile->setTag(Constants::TAG_LIMIT);
                 body->SetUserData(tile);
 
                 // Tạo shape definition
                 b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox((tile->getContentSize().width / 2) / Common::PIXELS_PER_METER * Common::scaleSprite(),
-                    (tile->getContentSize().height / 2) / Common::PIXELS_PER_METER * Common::scaleSprite());
+                dynamicBox.SetAsBox((tile->getContentSize().width / 2) / Constants::PIXELS_PER_METER * Common::scaleSizeXY(),
+                    (tile->getContentSize().height / 2) / Constants::PIXELS_PER_METER * Common::scaleSizeXY());
 
                 //// Tạo fixture definition
                 b2FixtureDef fixtureDef;
@@ -36,8 +36,8 @@ Limit::Limit(b2World* world, Scene* scene, TMXTiledMap* map) {
                 fixtureDef.density = 1.0f; // Mật độ của vật thể
                 fixtureDef.friction = 0.0f; // Ma sát
                 fixtureDef.restitution = 0; // Độ hồi phục (bouncing)
-                fixtureDef.filter.categoryBits = Common::CATEGORY_LIMIT;
-                fixtureDef.filter.maskBits = Common::CATEGORY_NPC | Common::CATEGORY_ENEMY | Common::CATEGORY_WALL | Common::CATEGORY_BOX;
+                fixtureDef.filter.categoryBits = Constants::CATEGORY_LIMIT;
+                fixtureDef.filter.maskBits = Constants::CATEGORY_NPC | Constants::CATEGORY_ENEMY | Constants::CATEGORY_WALL | Constants::CATEGORY_BOX;
 
                 //// Gán fixture cho body
                 body->CreateFixture(&fixtureDef);

@@ -58,7 +58,7 @@ bool Map3Scene::init()
    
 
     // Khởi tạo thế giới vật lý với trọng lực
-    b2Vec2 gravity(0.0f, Common::GRAVITY * Common::scaleSprite()); // Trọng lực theo chiều dương Y -400
+    b2Vec2 gravity(0.0f, Constants::GRAVITY * Common::scaleSizeXY()); // Trọng lực theo chiều dương Y -400
     world = new b2World(gravity);
     
 
@@ -67,12 +67,12 @@ bool Map3Scene::init()
     background->setAnchorPoint(cocos2d::Vec2(0, 0));
     background->setPosition(cocos2d::Vec2(0, 0));
     background->setOpacity(128);
-    Common::scaleSprite(background, 1);
+    Common::scaleAll(background, 1);
     this->addChild(background, 0);
     
 
     map = TMXTiledMap::create("map/map3.tmx");
-    map->setScale(Common::scaleSprite());
+    map->setScale(Common::scaleSizeXY());
     map->setAnchorPoint(Vec2(0, 0));
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     map->setPosition(origin);
@@ -96,10 +96,6 @@ bool Map3Scene::init()
 // update
 void Map3Scene::update(float dt) {
 
-    // return game
-    if (this->getChildByName("Menu") == nullptr) {
-        isEnable = true;
-    }
     world->Step(dt, 8, 3); // Cập nhật thế giới Box2D
 
     for (size_t i = 0; i < warriorVector->size(); i++ /* no increment here */) {
@@ -133,7 +129,7 @@ void Map3Scene::update(float dt) {
     {
         // Cập nhật vị trí của Camera để theo dõi nhân vật
         // Bạn có thể thêm một khoảng offset để điều chỉnh
-        if (player->getSprite()->getPositionX() > screenWidth / 2 && player->getSprite()->getPositionX() < 14376 * Common::scaleSprite() - screenWidth / 2) {
+        if (player->getSprite()->getPositionX() > screenWidth / 2 && player->getSprite()->getPositionX() < 14376 * Common::scaleSizeXY() - screenWidth / 2) {
             Vec2 cameraPosition = player->getSprite()->getPosition() + origin;
             camera->setPosition3D(Vec3(cameraPosition.x, camera->getPositionY(), camera->getPosition3D().z));
 
@@ -191,130 +187,30 @@ void Map3Scene::spawnObject() {
 
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    //auto wallLayerChest = map->getLayer("chest");
-    //for (int x = 0; x < map->getMapSize().width; ++x) {
-    //    for (int y = 0; y < map->getMapSize().height; ++y) {
-    //        auto tile = wallLayerChest->getTileAt(Vec2(x, y));
-    //        if (tile) {
-    //            Chest* w = new Chest();
-    //            w->init(world, this, Vec2(x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE), _bodyToSpriteMap);
-    //        }
-    //    }
-    //}
-
-    //// spawn heart
-    //auto wallLayerHeart = map->getLayer("heart");
-    //for (int x = 0; x < map->getMapSize().width; ++x) {
-    //    for (int y = 0; y < map->getMapSize().height; ++y) {
-    //        auto tile = wallLayerHeart->getTileAt(Vec2(x, y));
-    //        if (tile) {
-    //            Heart* w = new Heart();
-    //            w->init(world, this, Vec2(x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE), _bodyToSpriteMap);
-    //            heartVector.push_back(w);
-    //        }
-    //    }
-    //}
-
     // spawn acher
     auto layerElemental = map->getLayer("elemental");
     for (int x = 0; x < map->getMapSize().width; ++x) {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = layerElemental->getTileAt(Vec2(x, y));
             if (tile) {
-                Elemental* w = new Elemental(world, this, Vec2(origin.x / Common::scaleSprite() + x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE) * Common::scaleSprite(), _bodyToSpriteMap);
+                Elemental* w = new Elemental(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
                 w->init();
                 elementalVector->push_back(w);
             }
         }
     }
 
-    ////Set enemy
-    //auto wallLayerEnemy = map->getLayer("warrior");
-    //for (int x = 0; x < map->getMapSize().width; ++x) {
-    //    for (int y = 0; y < map->getMapSize().height; ++y) {
-    //        auto tile = wallLayerEnemy->getTileAt(Vec2(x, y));
-    //        if (tile) {
-    //            Warrior* w = new Warrior();
-    //            w->init(world, this, Vec2(x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE), _bodyToSpriteMap);
-    //            w->walk();
-    //            warriorVector->push_back(w);
-    //        }
-    //    }
-    //}
-
-    //// spawn bridge
-    //auto wallBridge = map->getLayer("bridge");
-    //for (int x = 0; x < map->getMapSize().width; ++x) {
-    //    for (int y = 0; y < map->getMapSize().height; ++y) {
-    //        auto tile = wallBridge->getTileAt(Vec2(x, y));
-    //        if (tile) {
-    //            Bridge* w = new Bridge();
-    //            w->init(world, this, Vec2(x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE), _bodyToSpriteMap);
-    //        }
-    //    }
-    //}
-
-    //// spawn bridge break
-    //auto wallBridgeBreak = map->getLayer("bridgebreak");
-    //for (int x = 0; x < map->getMapSize().width; ++x) {
-    //    for (int y = 0; y < map->getMapSize().height; ++y) {
-    //        auto tile = wallBridgeBreak->getTileAt(Vec2(x, y));
-    //        if (tile) {
-    //            BridgeBreak* w = new BridgeBreak();
-    //            w->init(world, this, Vec2(x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE), _bodyToSpriteMap);
-    //        }
-    //    }
-    //}
-
-    //// spawn bridge break
-    //auto box = map->getLayer("box");
-    //for (int x = 0; x < map->getMapSize().width; ++x) {
-    //    for (int y = 0; y < map->getMapSize().height; ++y) {
-    //        auto tile = box->getTileAt(Vec2(x, y));
-    //        if (tile) {
-    //            Box* w = new Box();
-    //            w->init(world, this, Vec2(x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE), _bodyToSpriteMap);
-    //        }
-    //    }
-    //}
-
-    //// spawn boss
-    //auto bossLayer = map->getLayer("boss");
-    //for (int x = 0; x < map->getMapSize().width; ++x) {
-    //    for (int y = 0; y < map->getMapSize().height; ++y) {
-    //        auto tile = bossLayer->getTileAt(Vec2(x, y));
-    //        if (tile) {
-    //            bossmap2->init(world, this, Vec2(x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE), _bodyToSpriteMap);
-    //            
-    //        }
-    //    }
-    //}
     // Spawn player
     auto playerLayer = map->getLayer("player");
     for (int x = 0; x < map->getMapSize().width; ++x) {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = playerLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                player = new Player(world, this, Vec2(origin.x + x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE) * Common::scaleSprite(), _bodyToSpriteMap);
+                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
                 player->init(false);
             }
         }
     }
-
-    //// spwan rain
-    //auto wraithLayer = map->getLayer("Wraith");
-    //for (int x = 0; x < map->getMapSize().width; ++x) {
-    //    for (int y = 0; y < map->getMapSize().height; ++y) {
-    //        auto tile = wraithLayer->getTileAt(Vec2(x, y));
-    //        if (tile) {
-    //            Wraith* w = new Wraith();
-    //            w->init(world, this, Vec2(x* Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y)* Common::TITLE_SIZE), _bodyToSpriteMap);
-    //            w->walk();
-    //            wraithVector->push_back(w);
-    //        }
-    //    }
-    //}
-   
     Port* port = new Port(world, this, _bodyToSpriteMap, map);
 }
 

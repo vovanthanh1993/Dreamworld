@@ -5,11 +5,10 @@
 
 class SkillShopLayer : public cocos2d::Layer {
 public:
-    virtual bool init(); // Khởi tạo layer
-    
-    bool isEnable = false;
     CREATE_FUNC(SkillShopLayer); // Macro tạo lớp
     Player* player;
+    LayerColor* shopFrame;
+    SkillShopLayer();
 private:
     void menuCloseCallback(cocos2d::Ref* pSender); // Callback cho nút trở về
     void menuOKCallback(cocos2d::Ref* pSender);

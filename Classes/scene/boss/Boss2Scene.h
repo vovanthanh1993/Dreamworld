@@ -42,9 +42,9 @@
 #include "enemy/BossMap2.h"
 #include "enemy/Wraith.h"
 #include "gui/Setting.h"
+#include "main/Constants.h"
 
-
-
+using namespace constants;
 using namespace common;
 using namespace cocos2d;
 using namespace std;

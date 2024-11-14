@@ -46,7 +46,9 @@
 #include "gui/Setting.h"
 #include "map/SizeLimit.h"
 #include "item/MapItem.h"
+#include "main/Constants.h"
 
+using namespace constants;
 using namespace common;
 using namespace cocos2d;
 using namespace std;

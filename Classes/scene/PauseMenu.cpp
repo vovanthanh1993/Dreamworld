@@ -27,7 +27,7 @@ PauseMenu::PauseMenu(Vec2 position) {
 
     // Tạo menu và thêm nút vào menu
     menu = Menu::create(menuImages1, menuImages2,menuImages3, menuImages4, nullptr);
-    menu->setScale(0.25* Common::scaleSprite());
+    menu->setScale(0.25* Common::scaleSizeXY());
     menu->setAnchorPoint(Vec2::ZERO);
     menu->alignItemsVerticallyWithPadding(70);
     menu->setPosition(position); // Đặt menu ở giữa màn hình

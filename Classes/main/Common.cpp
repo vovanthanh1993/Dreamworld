@@ -35,7 +35,7 @@ namespace common {
             float angle = body->GetAngle();
 
             // Cập nhật sprite
-            sprite->setPosition(position.x*Common::PIXELS_PER_METER, position.y * Common::PIXELS_PER_METER);
+            sprite->setPosition(position.x*Constants::PIXELS_PER_METER, position.y * Constants::PIXELS_PER_METER);
             sprite->setRotation(angle * (180.0f / b2_pi)); // Chuyển đổi radian sang độ
         }
     }
@@ -80,7 +80,7 @@ namespace common {
             setting.loadSettingData();
             //playBackgroundMusic(setting.getVolume(), "sound/background2.mp3");
             scene->removeChildByName("Menu"); // Xóa menu pause
-            isEnable = true;
+            if (scene->getChildByName("shop") == nullptr) isEnable = true;
         }
     }
     void Common::zoomAction(MenuItemLabel* item) {
@@ -164,7 +164,7 @@ namespace common {
     }
 
     Vec2 Common::scalePos(Vec2 pos) {
-        return Vec2(pos.x * scaleXSprite(), pos.y * scaleYSprite());
+        return Vec2(pos.x * scaleSizeX(), pos.y * scaleSizeY());
     }
 
     void Common::checkAndRemoveSprite(cocos2d::Sprite* sprite, cocos2d::Camera* camera) {
@@ -184,15 +184,15 @@ namespace common {
         }
     }
 
-    float Common::scaleXSprite() {
+    float Common::scaleSizeX() {
         // Lấy kích thước màn hình
         return cocos2d::Director::getInstance()->getVisibleSize().width/1920;   
     }
-    float Common::scaleYSprite() {
+    float Common::scaleSizeY() {
         // Lấy kích thước màn hình
         return cocos2d::Director::getInstance()->getVisibleSize().height / 1080;
     }
-    float Common::scaleSprite() {
+    float Common::scaleSizeXY() {
         // Tính toán tỷ lệ
         auto screenSize = Director::getInstance()->getVisibleSize();
         float scaleX = screenSize.width / 1920;
@@ -210,9 +210,9 @@ namespace common {
         Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
         if (!isFirst)
-            boundaryBodyDef.position.Set((origin.x+screenWidth + 100) / Common::PIXELS_PER_METER, 0.0f);
+            boundaryBodyDef.position.Set((origin.x+screenWidth + 100) / Constants::PIXELS_PER_METER, 0.0f);
         else
-            boundaryBodyDef.position.Set((origin.x-100) / Common::PIXELS_PER_METER, 0.0f);
+            boundaryBodyDef.position.Set((origin.x-100) / Constants::PIXELS_PER_METER, 0.0f);
         boundaryBody = world->CreateBody(&boundaryBodyDef);
 
         // Tạo fixture definition
@@ -220,8 +220,8 @@ namespace common {
         fixtureDef.density = 1.0f;
         fixtureDef.friction = 0.0f;
         fixtureDef.restitution = 0.0f;
-        fixtureDef.filter.categoryBits = Common::CATEGORY_BLOCK;
-        fixtureDef.filter.maskBits = Common::CATEGORY_ARROW | Common::CATEGORY_STICK;
+        fixtureDef.filter.categoryBits = Constants::CATEGORY_BLOCK;
+        fixtureDef.filter.maskBits = Constants::CATEGORY_ARROW | Constants::CATEGORY_STICK;
 
         // Tạo các hình chữ nhật cho các bức tường
         b2PolygonShape boundaryShape;
@@ -229,7 +229,7 @@ namespace common {
 
         // Bức tường phải
         Sprite* sprite = new Sprite();
-        sprite->setTag(Common::TAG_WALL);
+        sprite->setTag(Constants::TAG_WALL);
         boundaryShape.SetAsBox(1.0f, screenHeight / 2.0f);
         fixtureDef.shape = &boundaryShape;
         boundaryBody->CreateFixture(&fixtureDef);
@@ -241,14 +241,6 @@ namespace common {
         Vec2 origin = Director::getInstance()->getVisibleOrigin();
         return Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2);
     }
-
-    
-
-    /*auto backgroundSize = background->getContentSize();
-    float scaleX = visibleSize.width / backgroundSize.width;
-    float scaleY = visibleSize.height / backgroundSize.height;
-    float scale = std::max(scaleX, scaleY);
-    background->setScale(scale);*/
 }
 
 

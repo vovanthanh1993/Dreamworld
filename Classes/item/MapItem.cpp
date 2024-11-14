@@ -11,17 +11,17 @@ void MapItem::spawnBackStick() {
             auto tile = backStickLayer->getTileAt(Vec2(x, y));
             if (tile) {
                 sprite = Sprite::create("Item/backstick/backstick2.png");
-                sprite->setPosition(Vec2(origin.x / Common::scaleSprite() + x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE) * Common::scaleSprite());
-                sprite->setScale(0.35 * Common::scaleSprite());
+                sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                sprite->setScale(0.35 * Common::scaleSizeXY());
                 //sprite->setScaleX(2);
-                sprite->setTag(Common::TAG_STICK_ITEM);
+                sprite->setTag(Constants::TAG_STICK_ITEM);
                 scene->addChild(sprite);
                 auto rotateAction = RotateBy::create(2.0f, 360); // Thời gian 2 giây, góc 360 độ
                 sprite->runAction(RepeatForever::create(rotateAction)); // Lặp lại mãi mãi
 
                 b2BodyDef bodyDef;
                 bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-                bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+                bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
                 bodyDef.fixedRotation = true;
                 bodyDef.bullet = true;
 
@@ -29,16 +29,16 @@ void MapItem::spawnBackStick() {
                 body->SetUserData(sprite);
 
                 b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-                    ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+                dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+                    ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
                 b2FixtureDef fixtureDef;
                 fixtureDef.shape = &dynamicBox;
                 fixtureDef.density = 0.00001f;
                 fixtureDef.friction = 0.0f;
                 fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Common::CATEGORY_ITEM;
-                fixtureDef.filter.maskBits = Common::CATEGORY_PLAYER;
+                fixtureDef.filter.categoryBits = Constants::CATEGORY_ITEM;
+                fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER;
 
                 // Gán fixture cho body
                 body->SetGravityScale(0.0f);
@@ -57,14 +57,14 @@ void MapItem::spawnChest() {
             auto tile = wallLayerChest->getTileAt(Vec2(x, y));
             if (tile) {
                 sprite = Sprite::create("Item/chest/closeChest.png");
-                sprite->setPosition(Vec2(origin.x / Common::scaleSprite() + x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE) * Common::scaleSprite());
-                sprite->setScale(0.15 * Common::scaleSprite());
-                sprite->setTag(Common::TAG_CHEST);
+                sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                sprite->setScale(0.15 * Common::scaleSizeXY());
+                sprite->setTag(Constants::TAG_CHEST);
                 scene->addChild(sprite);
 
                 b2BodyDef bodyDef;
                 bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-                bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+                bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
                 bodyDef.fixedRotation = true;
                 bodyDef.bullet = true;
 
@@ -72,16 +72,16 @@ void MapItem::spawnChest() {
                 body->SetUserData(sprite);
 
                 b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-                    ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+                dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+                    ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
                 b2FixtureDef fixtureDef;
                 fixtureDef.shape = &dynamicBox;
                 fixtureDef.density = 1.0f;
                 fixtureDef.friction = 0.0f;
                 fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Common::CATEGORY_CHEST;
-                fixtureDef.filter.maskBits = Common::CATEGORY_WALL | Common::CATEGORY_SLASH;// Common::CATEGORY_PLAYER;
+                fixtureDef.filter.categoryBits = Constants::CATEGORY_CHEST;
+                fixtureDef.filter.maskBits = Constants::CATEGORY_WALL | Constants::CATEGORY_SLASH;// Constants::CATEGORY_PLAYER;
 
                 // Gán fixture cho body
                 body->CreateFixture(&fixtureDef);
@@ -99,16 +99,16 @@ void MapItem::spawnHeart() {
             auto tile = wallLayerHeart->getTileAt(Vec2(x, y));
             if (tile) {
                 sprite = Sprite::create("Item/gourd/heart.png");
-                sprite->setPosition(Vec2(origin.x / Common::scaleSprite() + x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE) * Common::scaleSprite());
-                sprite->setScale(0.08 * Common::scaleSprite());
-                sprite->setTag(Common::TAG_HEART);
+                sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                sprite->setScale(0.08 * Common::scaleSizeXY());
+                sprite->setTag(Constants::TAG_HEART);
                 scene->addChild(sprite);
                 auto rotateAction = RotateBy::create(2.0f, 360); // Thời gian 2 giây, góc 360 độ
                 sprite->runAction(RepeatForever::create(rotateAction)); // Lặp lại mãi mãi
 
                 b2BodyDef bodyDef;
                 bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-                bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+                bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
                 bodyDef.fixedRotation = true;
                 bodyDef.bullet = true;
 
@@ -116,16 +116,16 @@ void MapItem::spawnHeart() {
                 body->SetUserData(sprite);
 
                 b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-                    ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+                dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+                    ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
                 b2FixtureDef fixtureDef;
                 fixtureDef.shape = &dynamicBox;
                 fixtureDef.density = 0.00001f;
                 fixtureDef.friction = 0.0f;
                 fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Common::CATEGORY_ITEM;
-                fixtureDef.filter.maskBits = Common::CATEGORY_WALL | Common::CATEGORY_PLAYER;
+                fixtureDef.filter.categoryBits = Constants::CATEGORY_ITEM;
+                fixtureDef.filter.maskBits = Constants::CATEGORY_WALL | Constants::CATEGORY_PLAYER;
 
                 // Gán fixture cho body
                 body->SetGravityScale(0.0f);
@@ -145,16 +145,16 @@ void MapItem::spawnBridge() {
             auto tile = wallBridge->getTileAt(Vec2(x, y));
             if (tile) {
                 sprite = Sprite::create("map/Bridge.png");
-                sprite->setPosition(Vec2(origin.x / Common::scaleSprite() + x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE) * Common::scaleSprite());
-                sprite->setScale(Common::BRIDGE_SCALE * Common::scaleSprite());
-                sprite->setTag(Common::TAG_BRIDGE);
+                sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                sprite->setScale(Constants::BRIDGE_SCALE * Common::scaleSizeXY());
+                sprite->setTag(Constants::TAG_BRIDGE);
                 scene->addChild(sprite);
                 int* userData = new int(-1);
                 sprite->setUserData(userData);
 
                 b2BodyDef bodyDef;
                 bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-                bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+                bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
                 bodyDef.fixedRotation = true;
                 bodyDef.bullet = true;
 
@@ -163,22 +163,22 @@ void MapItem::spawnBridge() {
                 body->SetUserData(sprite);
 
                 b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox(((sprite->getContentSize().width - 20) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-                    ((sprite->getContentSize().height - 20) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+                dynamicBox.SetAsBox(((sprite->getContentSize().width - 20) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+                    ((sprite->getContentSize().height - 20) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
                 b2FixtureDef fixtureDef;
                 fixtureDef.shape = &dynamicBox;
                 fixtureDef.density = 1000.0f;
                 fixtureDef.friction = 0.0f;
                 fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Common::CATEGORY_WALL;
-                fixtureDef.filter.maskBits = Common::CATEGORY_PLAYER | Common::CATEGORY_ARROW | Common::CATEGORY_LIMIT | Common::CATEGORY_STICK;
+                fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
+                fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER | Constants::CATEGORY_ARROW | Constants::CATEGORY_LIMIT | Constants::CATEGORY_STICK;
 
                 // Gán fixture cho body
                 body->CreateFixture(&fixtureDef);
                 body->SetGravityScale(0.0f);
                 (*_bodyToSpriteMap)[body] = sprite;
-                b2Vec2 velocity(0, Common::SPEED_BRIDGE * Common::scaleSprite());
+                b2Vec2 velocity(0, Constants::SPEED_BRIDGE * Common::scaleSizeXY());
                 body->SetLinearVelocity(velocity);
             }
         }
@@ -193,14 +193,14 @@ void MapItem::spawnBridgeBreak() {
             auto tile = wallBridgeBreak->getTileAt(Vec2(x, y));
             if (tile) {
                 sprite = Sprite::create("map/BridgeBreak.png");
-                sprite->setPosition(Vec2(origin.x / Common::scaleSprite() + x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE) * Common::scaleSprite());
-                sprite->setScale(Common::BRIDGE_SCALE * Common::scaleSprite());
-                sprite->setTag(Common::TAG_BRIDGE_BREAK);
+                sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                sprite->setScale(Constants::BRIDGE_SCALE * Common::scaleSizeXY());
+                sprite->setTag(Constants::TAG_BRIDGE_BREAK);
                 scene->addChild(sprite);
 
                 b2BodyDef bodyDef;
                 bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-                bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+                bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
                 bodyDef.fixedRotation = true;
                 bodyDef.bullet = true;
 
@@ -209,16 +209,16 @@ void MapItem::spawnBridgeBreak() {
                 body->SetUserData(sprite);
 
                 b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox(((sprite->getContentSize().width - 40) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-                    ((sprite->getContentSize().height - 40) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+                dynamicBox.SetAsBox(((sprite->getContentSize().width - 40) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+                    ((sprite->getContentSize().height - 40) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
                 b2FixtureDef fixtureDef;
                 fixtureDef.shape = &dynamicBox;
                 fixtureDef.density = 1000000.0f;
                 fixtureDef.friction = 0.0f;
                 fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Common::CATEGORY_WALL;
-                fixtureDef.filter.maskBits = Common::TAG_PLAYER | Common::CATEGORY_ARROW | Common::CATEGORY_LIMIT;
+                fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
+                fixtureDef.filter.maskBits = Constants::TAG_PLAYER | Constants::CATEGORY_ARROW | Constants::CATEGORY_LIMIT;
 
                 // Gán fixture cho body
                 body->CreateFixture(&fixtureDef);
@@ -236,16 +236,16 @@ void MapItem::spawnBox() {
             auto tile = box->getTileAt(Vec2(x, y));
             if (tile) {
                 sprite = Sprite::create("map/stone.png");
-                sprite->setPosition(Vec2(origin.x / Common::scaleSprite() + x * Common::TITLE_SIZE + Common::TITLE_SIZE / 2, (map->getMapSize().height - y) * Common::TITLE_SIZE) * Common::scaleSprite());
-                sprite->setScale(Common::BOX_SCALE * Common::scaleSprite());
-                sprite->setTag(Common::TAG_BOX);
+                sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                sprite->setScale(Constants::BOX_SCALE * Common::scaleSizeXY());
+                sprite->setTag(Constants::TAG_BOX);
                 scene->addChild(sprite, 0);
                 int* userData = new int(-1);
                 sprite->setUserData(userData);
 
                 b2BodyDef bodyDef;
                 bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-                bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+                bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
                 bodyDef.fixedRotation = true;
                 bodyDef.bullet = true;
 
@@ -254,16 +254,16 @@ void MapItem::spawnBox() {
                 body->SetUserData(sprite);
 
                 b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox(((sprite->getContentSize().width - 20) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-                    ((sprite->getContentSize().height - 20) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+                dynamicBox.SetAsBox(((sprite->getContentSize().width - 20) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+                    ((sprite->getContentSize().height - 20) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
                 b2FixtureDef fixtureDef;
                 fixtureDef.shape = &dynamicBox;
                 fixtureDef.density = 30.0f;
                 fixtureDef.friction = 1.0f;
                 fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Common::CATEGORY_BOX;
-                fixtureDef.filter.maskBits = Common::CATEGORY_PLAYER | Common::CATEGORY_ARROW | Common::CATEGORY_LIMIT | Common::CATEGORY_WALL;
+                fixtureDef.filter.categoryBits = Constants::CATEGORY_BOX;
+                fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER | Constants::CATEGORY_ARROW | Constants::CATEGORY_LIMIT | Constants::CATEGORY_WALL;
 
                 // Gán fixture cho body
                 body->CreateFixture(&fixtureDef);
@@ -280,10 +280,10 @@ void MapItem::spawnWallAndLimit() {
         auto object = obj.asValueMap();
 
         // Lấy thông tin đối tượng
-        float x = origin.x / Common::PIXELS_PER_METER + object["x"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
-        float y = object["y"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
-        float width = object["width"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
-        float height = object["height"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
+        float x = origin.x / Constants::PIXELS_PER_METER + object["x"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float y = object["y"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float width = object["width"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float height = object["height"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
 
         // Tạo body definition
         b2BodyDef bodyDef;
@@ -302,13 +302,13 @@ void MapItem::spawnWallAndLimit() {
         fixtureDef.density = 1.0f;
         fixtureDef.friction = 0.0f;
         fixtureDef.restitution = 0.0f;
-        fixtureDef.filter.categoryBits = Common::CATEGORY_WALL;
-        fixtureDef.filter.maskBits = Common::CATEGORY_NPC | Common::CATEGORY_GEM | Common::CATEGORY_ARROW | Common::CATEGORY_STICK | Common::CATEGORY_ENEMY | Common::CATEGORY_PLAYER | Common::CATEGORY_LIMIT | Common::CATEGORY_CHEST | Common::CATEGORY_BOX | Common::CATEGORY_ITEM;
+        fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
+        fixtureDef.filter.maskBits = Constants::CATEGORY_NPC | Constants::CATEGORY_GEM | Constants::CATEGORY_ARROW | Constants::CATEGORY_STICK | Constants::CATEGORY_ENEMY | Constants::CATEGORY_PLAYER | Constants::CATEGORY_LIMIT | Constants::CATEGORY_CHEST | Constants::CATEGORY_BOX | Constants::CATEGORY_ITEM;
 
         body->CreateFixture(&fixtureDef);
 
         Sprite* sprite = new Sprite();
-        sprite->setTag(Common::TAG_WALL);
+        sprite->setTag(Constants::TAG_WALL);
         body->SetUserData(sprite);
     }
 
@@ -322,16 +322,16 @@ void MapItem::spawnWallAndLimit() {
                 // Tạo body definition
                 b2BodyDef bodyDef;
                 bodyDef.type = b2_kinematicBody; // Body tinh
-                bodyDef.position.Set(origin.x / Common::PIXELS_PER_METER + tile->getPositionX() / Common::PIXELS_PER_METER * Common::scaleSprite(), tile->getPositionY() / Common::PIXELS_PER_METER * Common::scaleSprite());
+                bodyDef.position.Set(origin.x / Constants::PIXELS_PER_METER + tile->getPositionX() / Constants::PIXELS_PER_METER * Common::scaleSizeXY(), tile->getPositionY() / Constants::PIXELS_PER_METER * Common::scaleSizeXY());
 
                 b2Body* body = world->CreateBody(&bodyDef);
-                tile->setTag(Common::TAG_LIMIT);
+                tile->setTag(Constants::TAG_LIMIT);
                 body->SetUserData(tile);
 
                 // Tạo shape definition
                 b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox((tile->getContentSize().width / 2) / Common::PIXELS_PER_METER * Common::scaleSprite(),
-                    (tile->getContentSize().height / 2) / Common::PIXELS_PER_METER * Common::scaleSprite());
+                dynamicBox.SetAsBox((tile->getContentSize().width / 2) / Constants::PIXELS_PER_METER * Common::scaleSizeXY(),
+                    (tile->getContentSize().height / 2) / Constants::PIXELS_PER_METER * Common::scaleSizeXY());
 
                 //// Tạo fixture definition
                 b2FixtureDef fixtureDef;
@@ -339,8 +339,8 @@ void MapItem::spawnWallAndLimit() {
                 fixtureDef.density = 1.0f; // Mật độ của vật thể
                 fixtureDef.friction = 0.0f; // Ma sát
                 fixtureDef.restitution = 0; // Độ hồi phục (bouncing)
-                fixtureDef.filter.categoryBits = Common::CATEGORY_LIMIT;
-                fixtureDef.filter.maskBits = Common::CATEGORY_NPC | Common::CATEGORY_ENEMY | Common::CATEGORY_WALL | Common::CATEGORY_BOX;
+                fixtureDef.filter.categoryBits = Constants::CATEGORY_LIMIT;
+                fixtureDef.filter.maskBits = Constants::CATEGORY_NPC | Constants::CATEGORY_ENEMY | Constants::CATEGORY_WALL | Constants::CATEGORY_BOX;
 
                 //// Gán fixture cho body
                 body->CreateFixture(&fixtureDef);
@@ -356,10 +356,10 @@ void MapItem::spawnEndGate() {
         auto object = obj.asValueMap();
 
         // Lấy thông tin đối tượng
-        float x = (origin.x / Common::scaleSprite() + object["x"].asFloat()) / Common::PIXELS_PER_METER * Common::scaleSprite();
-        float y = object["y"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
-        float width = object["width"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
-        float height = object["height"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
+        float x = (origin.x / Common::scaleSizeXY() + object["x"].asFloat()) / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float y = object["y"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float width = object["width"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float height = object["height"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
 
         // Tạo body definition
         b2BodyDef bodyDef;
@@ -368,7 +368,7 @@ void MapItem::spawnEndGate() {
         auto origin = cocos2d::Director::getInstance()->getVisibleOrigin();
         auto visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
         float posX = x + width / 2;
-        if (posX < (origin.x + visibleSize.width) / Common::PIXELS_PER_METER + width / 2) posX = (origin.x + visibleSize.width) / Common::PIXELS_PER_METER + width / 2;
+        if (posX < (origin.x + visibleSize.width) / Constants::PIXELS_PER_METER + width / 2) posX = (origin.x + visibleSize.width) / Constants::PIXELS_PER_METER + width / 2;
         bodyDef.position.Set(posX, y + height / 2);
 
         b2Body* body = world->CreateBody(&bodyDef);
@@ -383,13 +383,13 @@ void MapItem::spawnEndGate() {
         fixtureDef.density = 1.0f;
         fixtureDef.friction = 0.0f;
         fixtureDef.restitution = 0.0f;
-        fixtureDef.filter.categoryBits = Common::CATEGORY_WALL;
-        fixtureDef.filter.maskBits = Common::CATEGORY_GEM | Common::CATEGORY_ARROW | Common::CATEGORY_STICK | Common::CATEGORY_ENEMY | Common::CATEGORY_PLAYER | Common::CATEGORY_LIMIT | Common::CATEGORY_CHEST | Common::CATEGORY_BOX | Common::CATEGORY_ITEM;
+        fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
+        fixtureDef.filter.maskBits = Constants::CATEGORY_GEM | Constants::CATEGORY_ARROW | Constants::CATEGORY_STICK | Constants::CATEGORY_ENEMY | Constants::CATEGORY_PLAYER | Constants::CATEGORY_LIMIT | Constants::CATEGORY_CHEST | Constants::CATEGORY_BOX | Constants::CATEGORY_ITEM;
 
         body->CreateFixture(&fixtureDef);
 
         Sprite* sprite = new Sprite();
-        sprite->setTag(Common::TAG_PORT);
+        sprite->setTag(Constants::TAG_PORT);
         body->SetUserData(sprite);
     }
 }

@@ -178,6 +178,9 @@
     <ClCompile Include="D:\Git\Dreamworld\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\main\Constants.cpp">
+      <Filter>Source Files\Classes\main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Git\Dreamworld\Classes\base\BaseCharacter.h">
@@ -2441,6 +2444,9 @@
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Resources\sound\ting.mp3">
       <Filter>Resources\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\main\Constants.h">
+      <Filter>Source Files\Classes\main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

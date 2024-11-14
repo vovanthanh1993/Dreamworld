@@ -43,9 +43,9 @@
 #include "enemy/Wraith.h"
 #include "enemy/Elemental.h"
 #include "gui/Setting.h"
+#include "main/Constants.h"
 
-
-
+using namespace constants;
 using namespace common;
 using namespace cocos2d;
 using namespace std;

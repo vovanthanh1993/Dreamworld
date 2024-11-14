@@ -8,8 +8,8 @@ void Acher::init() {
     spriteNode = SpriteBatchNode::create("Enemy/Acher/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Acher/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("0_Archer_Idle_0.png");
-    sprite->setScale(Common::ACHER_SCALE * Common::scaleSprite());
-    sprite->setTag(Common::TAG_ENEMY);
+    sprite->setScale(Constants::ACHER_SCALE * Common::scaleSizeXY());
+    sprite->setTag(Constants::TAG_ENEMY);
 
     sprite->setPosition(position);
     spriteNode->addChild(sprite);
@@ -17,7 +17,7 @@ void Acher::init() {
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-    bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+    bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
     //bodyDef.bullet = true;
 
@@ -25,19 +25,19 @@ void Acher::init() {
     body->SetUserData(sprite);
 
     b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
-    fixtureDef.filter.categoryBits = Common::CATEGORY_ENEMY;
-    fixtureDef.filter.maskBits = Common::CATEGORY_STICK| Common::CATEGORY_WALL| Common::CATEGORY_LIMIT| Common::CATEGORY_PLAYER| Common::CATEGORY_SLASH;
+    fixtureDef.filter.categoryBits = Constants::CATEGORY_ENEMY;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_STICK| Constants::CATEGORY_WALL| Constants::CATEGORY_LIMIT| Constants::CATEGORY_PLAYER| Constants::CATEGORY_SLASH;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-    sprite->setScaleX(-Common::ACHER_SCALE * Common::scaleSprite());
+    sprite->setScaleX(-Constants::ACHER_SCALE * Common::scaleSizeXY());
     (*_bodyToSpriteMap)[body] = sprite;
     idle();
 }
@@ -76,9 +76,9 @@ Arrow* Acher::hit() {
                     check = -1;
                 }
 
-                arrow->init(world, scene, Vec2(sprite->getPositionX() + check * 120 * Common::PLAYER_SCALE, sprite->getPositionY()), _bodyToSpriteMap);
-                arrow->getSprite()->setScaleX(check * Common::ARROW_SCALE * Common::scaleXSprite());
-                b2Vec2 velocity(40 * check * Common::scaleSprite(), 0);
+                arrow->init(world, scene, Vec2(sprite->getPositionX() + check * 120 * Constants::PLAYER_SCALE, sprite->getPositionY()), _bodyToSpriteMap);
+                arrow->getSprite()->setScaleX(check * Constants::ARROW_SCALE * Common::scaleSizeX());
+                b2Vec2 velocity(40 * check * Common::scaleSizeXY(), 0);
                 arrow->getBody()->SetLinearVelocity(velocity);
                 idle();
             }
@@ -101,7 +101,7 @@ void Acher::updateAttack(Player* player, float dt) {
             canAttack = true;
         }
         if (canAttack) {
-            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Common::ATTACK_RANGE_ACHER*Common::scaleSprite()) {
+            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_ACHER* Common::scaleSizeXY()) {
 
                 // Attack logic
                 hit();
@@ -126,8 +126,8 @@ void Acher::die() {
         b2Filter filter = fixture->GetFilterData();
 
         // Cập nhật categoryBits và maskBits
-        filter.categoryBits = Common::CATEGORY_ENEMY;
-        filter.maskBits = Common::CATEGORY_WALL;
+        filter.categoryBits = Constants::CATEGORY_ENEMY;
+        filter.maskBits = Constants::CATEGORY_WALL;
 
         // Thiết lập lại dữ liệu bộ lọc
         fixture->SetFilterData(filter);

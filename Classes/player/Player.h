@@ -6,16 +6,18 @@
 #include <chrono>
 #include "skill/Slash.h"
 #include <base/BaseCharacter.h>
+#include "main/Constants.h"
 
+using namespace constants;
 using namespace common;
 using namespace cocos2d;
 using namespace std;
 class Player : public BaseCharacter
 {
 private:
-	float health = Common::MAX_HEALTH;
-	float maxHealth = Common::MAX_HEALTH;
-	float maxMana = Common::MAX_MANA;
+	float health = Constants::MAX_HEALTH;
+	float maxHealth = Constants::MAX_HEALTH;
+	float maxMana = Constants::MAX_MANA;
 	float mana = 5;
 	int stickNum = 5;
 	int gourdNum = 1;

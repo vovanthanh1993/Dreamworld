@@ -8,8 +8,8 @@ void Wraith::init() {
     spriteNode = SpriteBatchNode::create("Enemy/Wraith/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Wraith/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Wraith_3_Idle_0.png");
-    sprite->setScale(Common::WRAITH_SCALE * Common::scaleSprite());
-    sprite->setTag(Common::TAG_ENEMY);
+    sprite->setScale(Constants::WRAITH_SCALE * Common::scaleSizeXY());
+    sprite->setTag(Constants::TAG_ENEMY);
 
     sprite->setPosition(position);
     spriteNode->addChild(sprite);
@@ -17,7 +17,7 @@ void Wraith::init() {
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-    bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+    bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
     //bodyDef.bullet = true;
 
@@ -25,20 +25,20 @@ void Wraith::init() {
     body->SetUserData(sprite);
 
     b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
-    fixtureDef.filter.categoryBits = Common::CATEGORY_ENEMY;
-    fixtureDef.filter.maskBits = Common::CATEGORY_WALL | Common::CATEGORY_LIMIT | Common::CATEGORY_PLAYER | Common::CATEGORY_SLASH;//Common::CATEGORY_STICK| ;
+    fixtureDef.filter.categoryBits = Constants::CATEGORY_ENEMY;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_WALL | Constants::CATEGORY_LIMIT | Constants::CATEGORY_PLAYER | Constants::CATEGORY_SLASH;//Constants::CATEGORY_STICK| ;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
-    sprite->setScaleX(-Common::WRAITH_SCALE * Common::scaleSprite());
+    sprite->setScaleX(-Constants::WRAITH_SCALE * Common::scaleSizeXY());
     (*_bodyToSpriteMap)[body] = sprite;
     idle();
     
@@ -80,7 +80,7 @@ void Wraith::hit() {
                     rain->init(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), _bodyToSpriteMap);
                     rain->getSprite()->setScaleX(check * rain->getSprite()->getScale());
 
-                    b2Vec2 velocity(start * Common::scaleSprite(), -20 * Common::scaleSprite());
+                    b2Vec2 velocity(start * Common::scaleSizeXY(), -20 * Common::scaleSizeXY());
                     rain->getBody()->SetLinearVelocity(velocity);
                     start += 10;
                 }
@@ -104,7 +104,7 @@ void Wraith::updateAttack(Player* player, float dt) {
             canAttack = true;
         }
         if (canAttack) {
-            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Common::ATTACK_RANGE_WRAITH * Common::scaleSprite()) {
+            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_WRAITH * Common::scaleSizeXY()) {
 
                 // Attack logic
                 hit();
@@ -129,8 +129,8 @@ void Wraith::die() {
         b2Filter filter = fixture->GetFilterData();
 
         // Cập nhật categoryBits và maskBits
-        filter.categoryBits = Common::CATEGORY_ENEMY;
-        filter.maskBits = Common::CATEGORY_WALL;
+        filter.categoryBits = Constants::CATEGORY_ENEMY;
+        filter.maskBits = Constants::CATEGORY_WALL;
 
         // Thiết lập lại dữ liệu bộ lọc
         fixture->SetFilterData(filter);

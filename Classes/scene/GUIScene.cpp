@@ -49,69 +49,69 @@ bool GUIScene::init()
     // Background
     auto background = Sprite::create("UI/backgroundwk.png");
     background->setPosition(Common::getCenter());
-    Common::scaleSprite(background, 1);
+    Common::scaleAll(background, 1);
     addChild(background, 0);
 
     // Background
     auto backgroundSetting = Sprite::create("UI/scale/bg2.png");
     backgroundSetting->setPosition(Common::getCenter());
-    Common::scaleSprite(backgroundSetting, 0.4);
+    Common::scaleAll(backgroundSetting, 0.4);
     addChild(backgroundSetting, 0);
 
     // Tạo tiêu đề
-    auto headerLabel = Label::createWithTTF("GUIDE", "fonts/Marker Felt.ttf", 60 * Common::scaleSprite());
-    headerLabel->setPosition(Vec2(Common::getCenter().x, visibleSize.height - (headerLabel->getContentSize().height+150) * Common::scaleYSprite()));
+    auto headerLabel = Label::createWithTTF("GUIDE", "fonts/Marker Felt.ttf", 60 * Common::scaleSizeXY());
+    headerLabel->setPosition(Vec2(Common::getCenter().x, visibleSize.height - (headerLabel->getContentSize().height+150) * Common::scaleSizeY()));
     this->addChild(headerLabel);
 
-    int space = 80 * Common::scaleYSprite();
+    int space = 80 * Common::scaleSizeY();
 
     // Tạo các mục shop
     auto itemLabel0 = MenuItemLabel::create(
-        Label::createWithSystemFont("The journey ahead is fraught with challenges!", "fonts/Marker Felt.ttf", 28 * Common::scaleSprite())
+        Label::createWithSystemFont("The journey ahead is fraught with challenges!", "fonts/Marker Felt.ttf", 28 * Common::scaleSizeXY())
     );
-    itemLabel0->setPosition(Vec2(Common::getCenter().x, headerLabel->getPositionY()- 100 * Common::scaleYSprite()));
+    itemLabel0->setPosition(Vec2(Common::getCenter().x, headerLabel->getPositionY()- 100 * Common::scaleSizeY()));
 
     // Tạo các mục shop
     auto itemLabel1 = MenuItemLabel::create(
-        Label::createWithSystemFont("A D to Move", "fonts/Marker Felt.ttf", 30 * Common::scaleSprite())
+        Label::createWithSystemFont("A D to Move", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel1->setPosition(Vec2(itemLabel0->getPositionX(), itemLabel0->getPositionY() - space * 1));
 
     auto itemLabel2 = MenuItemLabel::create(
-        Label::createWithSystemFont("Space to Jump", "fonts/Marker Felt.ttf", 30 * Common::scaleSprite())
+        Label::createWithSystemFont("Space to Jump", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel2->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 2));
 
     auto itemLabel3 = MenuItemLabel::create(
-        Label::createWithSystemFont("E to throw Stick", "fonts/Marker Felt.ttf", 30 * Common::scaleSprite())
+        Label::createWithSystemFont("E to throw Stick", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel3->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 3));
 
     auto itemLabel4 = MenuItemLabel::create(
-        Label::createWithSystemFont("R to use Gourd", "fonts/Marker Felt.ttf", 30 * Common::scaleSprite())
+        Label::createWithSystemFont("R to use Gourd", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     
     itemLabel4->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 4));
 
     auto itemLabel5 = MenuItemLabel::create(
-        Label::createWithSystemFont("Left mouse to Slash", "fonts/Marker Felt.ttf", 30 * Common::scaleSprite())
+        Label::createWithSystemFont("Left mouse to Slash", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel5->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 5));
     auto itemLabel6 = MenuItemLabel::create(
-        Label::createWithSystemFont("1 2 3 4 to use Skill", "fonts/Marker Felt.ttf", 30 * Common::scaleSprite())
+        Label::createWithSystemFont("1 2 3 4 to use Skill", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel6->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 6));
     // Ok
     auto menuImages1 = MenuItemImage::create("UI/scale/ok.png", "UI/scale/ok.png",
         CC_CALLBACK_1(GUIScene::goBack, this));
     menuImages1->setPosition(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 7);
-    Common::scaleSprite(menuImages1, 0.05);
+    Common::scaleAll(menuImages1, 0.05);
 
     // Cancel
     auto menuImages2 = MenuItemImage::create("UI/scale/cancel.png", "UI/scale/cancel.png",
         CC_CALLBACK_1(GUIScene::goBack, this));
-    menuImages2->setPosition(Common::getCenter().x + 250 * Common::scaleSprite(), headerLabel->getPositionY());
-    Common::scaleSprite(menuImages2, 0.04);
+    menuImages2->setPosition(Common::getCenter().x + 250 * Common::scaleSizeXY(), headerLabel->getPositionY());
+    Common::scaleAll(menuImages2, 0.04);
 
     // Tạo menu
     auto menu = Menu::create(itemLabel0, itemLabel1, itemLabel2, itemLabel3, itemLabel4, itemLabel5, itemLabel6, menuImages1, menuImages2, nullptr);

@@ -5,9 +5,9 @@ NPCMonkey::NPCMonkey(b2World* world, Scene* scene, Vec2 position,  unordered_map
     spriteNode = SpriteBatchNode::create("npc/NPCMonkey/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("npc/NPCMonkey/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("MonkeyNPCRun_0.png");
-    //sprite->setScale(0.25 * Common::scaleSprite());
-    Common::scaleSprite(sprite, 0.03);
-    sprite->setTag(Common::TAG_NPC);
+    //sprite->setScale(0.25 * Constants::scaleSprite());
+    Common::scaleAll(sprite, 0.03);
+    sprite->setTag(Constants::TAG_NPC);
     
     int* userData = new int(-1);
     sprite->setUserData(userData);
@@ -17,7 +17,7 @@ NPCMonkey::NPCMonkey(b2World* world, Scene* scene, Vec2 position,  unordered_map
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-    bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+    bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
     //bodyDef.bullet = true;
 
@@ -25,21 +25,21 @@ NPCMonkey::NPCMonkey(b2World* world, Scene* scene, Vec2 position,  unordered_map
     body->SetUserData(sprite);
 
     b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
-    fixtureDef.filter.categoryBits = Common::CATEGORY_NPC;
-    fixtureDef.filter.maskBits = Common::CATEGORY_WALL | Common::CATEGORY_LIMIT;
+    fixtureDef.filter.categoryBits = Constants::CATEGORY_NPC;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_WALL | Constants::CATEGORY_LIMIT;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-    b2Vec2 velocity(Common::SPEED_ENEMY* Common::scaleSprite(), 0);
+    b2Vec2 velocity(Constants::SPEED_ENEMY* Common::scaleSizeXY(), 0);
     body->SetLinearVelocity(velocity);
-    //sprite->setScaleX(-Common::NPC_SCALE* Common::scaleSprite());
+    //sprite->setScaleX(-Constants::NPC_SCALE* Constants::scaleSprite());
     sprite->setScaleX(-sprite->getScale());
     (*_bodyToSpriteMap)[body] = sprite;
     walk();

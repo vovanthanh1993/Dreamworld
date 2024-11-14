@@ -11,7 +11,9 @@
 #include "enemy/BossMap2.h"
 #include "main/Effect.h"
 #include "player/Player.h"
+#include "main/Constants.h"
 
+using namespace constants;
 using namespace common;
 
 class MyContactListener : public b2ContactListener {

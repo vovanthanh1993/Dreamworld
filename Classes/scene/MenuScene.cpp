@@ -71,7 +71,7 @@ bool MenuScene::init()
     // Background
     auto background = Sprite::create("UI/backgroundwk.png");
     background->setPosition(Common::getCenter());
-    Common::scaleSprite(background, 1);
+    Common::scaleAll(background, 1);
     addChild(background, 0);
 
     //Tao menu
@@ -98,8 +98,8 @@ bool MenuScene::init()
     menuImages5->setTag(5);
 
     auto mainMenu = Menu::create(menuImages1, menuImages2, menuImages3, menuImages4, menuImages5,nullptr);
-    //Common::scaleSprite(mainMenu, 0.25);
-    mainMenu->setScale(0.25 * Common::scaleSprite());
+    //Constants::scaleSprite(mainMenu, 0.25);
+    mainMenu->setScale(0.25 * Common::scaleSizeXY());
     mainMenu->setAnchorPoint(Vec2::ZERO);
     mainMenu->setPosition(Common::getCenter());
     mainMenu->alignItemsVerticallyWithPadding(70);
@@ -115,10 +115,10 @@ bool MenuScene::init()
     }
     else
     {
-        label->setScale(Common::scaleSprite());
+        label->setScale(Common::scaleSizeXY());
         // position the label on the center of the screen
         label->setPosition(Vec2(origin.x + visibleSize.width / 2,
-            origin.y + visibleSize.height - (label->getContentSize().height + 50) * Common::scaleYSprite()));
+            origin.y + visibleSize.height - (label->getContentSize().height + 50) * Common::scaleSizeY()));
         //label->setPosition(Vec2(origin.x + visibleSize.width / 2, menuImages1->getPositionY() +10));
 
         // add the label as a child to this layer
@@ -158,8 +158,8 @@ void MenuScene::loadingbar() {
     auto loadingBar = ui::LoadingBar::create("stick.png");
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    loadingBar->setPosition(Vec2(Common::getCenter().x, 100 * Common::scaleYSprite()));
-    Common::scaleSprite(loadingBar, 0.07);
+    loadingBar->setPosition(Vec2(Common::getCenter().x, 100 * Common::scaleSizeY()));
+    Common::scaleAll(loadingBar, 0.07);
     loadingBar->setDirection(ui::LoadingBar::Direction::LEFT);// set huong chay
     loadingBar->setPercent(0);
     addChild(loadingBar);

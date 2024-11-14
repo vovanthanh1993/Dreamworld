@@ -15,10 +15,10 @@ Wall::Wall(b2World* world, Scene* scene, TMXTiledMap* map) {
         auto object = obj.asValueMap();
 
         // Lấy thông tin đối tượng
-        float x = origin.x / Common::PIXELS_PER_METER + object["x"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
-        float y = object["y"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
-        float width = object["width"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
-        float height = object["height"].asFloat() / Common::PIXELS_PER_METER * Common::scaleSprite();
+        float x = origin.x / Constants::PIXELS_PER_METER + object["x"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float y = object["y"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float width = object["width"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float height = object["height"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
 
         // Tạo body definition
         b2BodyDef bodyDef;
@@ -37,13 +37,13 @@ Wall::Wall(b2World* world, Scene* scene, TMXTiledMap* map) {
         fixtureDef.density = 1.0f;
         fixtureDef.friction = 0.0f;
         fixtureDef.restitution = 0.0f;
-        fixtureDef.filter.categoryBits = Common::CATEGORY_WALL;
-        fixtureDef.filter.maskBits = Common::CATEGORY_NPC | Common::CATEGORY_GEM | Common::CATEGORY_ARROW | Common::CATEGORY_STICK | Common::CATEGORY_ENEMY | Common::CATEGORY_PLAYER | Common::CATEGORY_LIMIT | Common::CATEGORY_CHEST | Common::CATEGORY_BOX | Common::CATEGORY_ITEM;
+        fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
+        fixtureDef.filter.maskBits = Constants::CATEGORY_NPC | Constants::CATEGORY_GEM | Constants::CATEGORY_ARROW | Constants::CATEGORY_STICK | Constants::CATEGORY_ENEMY | Constants::CATEGORY_PLAYER | Constants::CATEGORY_LIMIT | Constants::CATEGORY_CHEST | Constants::CATEGORY_BOX | Constants::CATEGORY_ITEM;
 
         body->CreateFixture(&fixtureDef);
 
         Sprite* sprite = new Sprite();
-        sprite->setTag(Common::TAG_WALL);
+        sprite->setTag(Constants::TAG_WALL);
         body->SetUserData(sprite);
     }
 }

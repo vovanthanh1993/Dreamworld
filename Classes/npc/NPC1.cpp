@@ -6,7 +6,7 @@ NPC1::NPC1(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, S
     spriteNode = SpriteBatchNode::create("NPC/NPC1/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("NPC/NPC1/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Druid_1_Idle_0.png");
-    sprite->setScale(Common::scaleSprite());
+    sprite->setScale(Common::scaleSizeXY());
     
     int* userData = new int(-1);
     sprite->setUserData(userData);
@@ -16,7 +16,7 @@ NPC1::NPC1(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, S
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-    bodyDef.position.Set(sprite->getPositionX() / Common::PIXELS_PER_METER, sprite->getPositionY() / Common::PIXELS_PER_METER);
+    bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
     //bodyDef.bullet = true;
 
@@ -24,16 +24,16 @@ NPC1::NPC1(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, S
     body->SetUserData(sprite);
 
     b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER,
-        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Common::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
+    dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
+        ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
     fixtureDef.density = 1.0f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
-    fixtureDef.filter.categoryBits = Common::CATEGORY_ENEMY;
-    fixtureDef.filter.maskBits = Common::CATEGORY_WALL;
+    fixtureDef.filter.categoryBits = Constants::CATEGORY_ENEMY;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_WALL;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     (*_bodyToSpriteMap)[body] = sprite;
@@ -67,7 +67,7 @@ void NPC1::startConversation(Scene* scene) {
 }
 void NPC1::displayMessage(const std::string& message, Scene* scene) {
     // Khởi tạo NPC
-    _nameLabel = Label::createWithTTF("Master", "fonts/Marker Felt.ttf", 30* Common::scaleSprite());
-    _nameLabel->setPosition(sprite->getPositionX(), sprite->getPositionY()+ sprite->getContentSize().height/2* sprite->getScale() + 15 * Common::scaleSprite()); // Vị trí có thể thay đổi
+    _nameLabel = Label::createWithTTF("Master", "fonts/Marker Felt.ttf", 30* Common::scaleSizeXY());
+    _nameLabel->setPosition(sprite->getPositionX(), sprite->getPositionY()+ sprite->getContentSize().height/2* sprite->getScale() + 15 * Common::scaleSizeXY()); // Vị trí có thể thay đổi
     scene->addChild(_nameLabel);
 }

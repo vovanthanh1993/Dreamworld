@@ -3,6 +3,9 @@
 #include "main/Common.h"
 #include "skill/SlashEnemy.h"
 #include "item/Gem.h"
+#include "main/Constants.h"
+
+using namespace constants;
 using namespace common;
 using namespace cocos2d;
 class NPC2
