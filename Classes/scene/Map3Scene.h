@@ -31,7 +31,7 @@
 #include "main/Common.h"
 #include "player/Player.h"
 #include "enemy/Warrior.h"
-#include "skill/Stick.h"
+#include "player/skill/Stick.h"
 #include "skill/SlashEnemy.h"
 #include "item/Chest.h"
 #include "Item/heart.h"
@@ -55,9 +55,6 @@ public:
     static cocos2d::Scene* createScene();
 
     virtual bool init();
-
-    bool onMouseDown(Event* event);
-    bool onMouseUp(Event* event);
     std::set<EventKeyboard::KeyCode> _keysPressed;
     CREATE_FUNC(Map3Scene);
     
@@ -69,26 +66,14 @@ private:
             world = m_world;
         }
         void update(float dt) override;
-        Sprite* wizardSprite;
-        Size vis;
-        SpriteBatchNode* wizardSpriteNode;
-        bool isJumping = false;
         
         std::unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap = new unordered_map<b2Body*, Sprite*>();
-        void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
-        void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
         
         TMXTiledMap* map;
-        TMXLayer* wallLayer;
-        Label* label;
-        Label* label2;
-        Label* label3;
-        Label* label4;
         MyContactListener* contactListener;
        
         float time = 1.0 / 60.0f;
         Player* player;
-        int status = 1;
         std::vector<Slash*> slashVector;
         std::vector<SlashEnemy*> slashEnemyVector;
         std::vector<Warrior*>* warriorVector = new std::vector<Warrior*>();

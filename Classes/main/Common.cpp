@@ -210,9 +210,9 @@ namespace common {
         Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
         if (!isFirst)
-            boundaryBodyDef.position.Set((origin.x+screenWidth + 100) / Constants::PIXELS_PER_METER, 0.0f);
+            boundaryBodyDef.position.Set((origin.x+screenWidth + 140) / Constants::PIXELS_PER_METER, 0.0f);
         else
-            boundaryBodyDef.position.Set((origin.x-100) / Constants::PIXELS_PER_METER, 0.0f);
+            boundaryBodyDef.position.Set((origin.x- 140) / Constants::PIXELS_PER_METER, 0.0f);
         boundaryBody = world->CreateBody(&boundaryBodyDef);
 
         // Tạo fixture definition

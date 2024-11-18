@@ -29,15 +29,7 @@
 #include "main/MyContactListener.h"
 
 #include "player/Player.h"
-#include "enemy/Warrior.h"
-#include "skill/Stick.h"
-#include "skill/SlashEnemy.h"
-#include "item/Chest.h"
-#include "Item/heart.h"
-#include "enemy/Acher.h"
-#include "map/Bridge.h"
-#include "map/BridgeBreak.h"
-#include "map/Box.h"
+#include "base/BaseScene.h"
 #include "enemy/BossMap1.h"
 #include "scene/Map2Scene.h"
 #include "main/Common.h"
@@ -48,44 +40,14 @@ using namespace constants;
 using namespace common;
 using namespace cocos2d;
 using namespace std;
-class Boss1Scene : public cocos2d::Scene
+class Boss1Scene : public BaseScene
 {
 public:
-    static cocos2d::Scene* createScene();
-
-    virtual bool init();
-
-    bool onMouseDown(Event* event);
-    bool onMouseUp(Event* event);
-    std::set<EventKeyboard::KeyCode> _keysPressed;
-    
-    CREATE_FUNC(Boss1Scene);
-
+    static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
+    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera) override;
 private:
-        bool isEnable = true;
-        b2World* world;
-        void setWorld(b2World* m_world) {
-            world = m_world;
-        }
         void update(float dt) override;
-        Sprite* wizardSprite;
-        Size vis;
-        SpriteBatchNode* wizardSpriteNode;
-        bool isJumping = false;
-        
-        std::unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap = new unordered_map<b2Body*, Sprite*>();
-        void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
-        void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
-        
-       
-        TMXTiledMap* map;
-        TMXLayer* wallLayer;
-        MyContactListener* contactListener;
-        Player* player;
-        std::vector<Slash*> slashVector;
         BossMap1* bossmap1;
         void spawnObject();
-        Setting* settingInit = new Setting();
 };
-
 #endif // __Boss1Scene_H__

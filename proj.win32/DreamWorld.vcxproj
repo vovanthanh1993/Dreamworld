@@ -833,7 +833,12 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\base\BaseScene.h" />
+    <ClInclude Include="..\Classes\item\Gem.h" />
     <ClInclude Include="..\Classes\main\Constants.h" />
+    <ClInclude Include="..\Classes\player\skill\Slash.h" />
+    <ClInclude Include="..\Classes\player\skill\Stick.h" />
+    <ClInclude Include="..\Classes\scene\Map1Scene.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\base\BaseCharacter.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\base\BaseItem.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h" />
@@ -843,9 +848,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Warrior.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Wraith.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\gui\Setting.h" />
-    <ClInclude Include="D:\Git\Dreamworld\Classes\item\Chest.h" />
-    <ClInclude Include="D:\Git\Dreamworld\Classes\item\Gem.h" />
-    <ClInclude Include="D:\Git\Dreamworld\Classes\item\Heart.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\item\MapItem.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\main\AppDelegate.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\main\Common.h" />
@@ -857,7 +859,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\Git\Dreamworld\Classes\map\EndGate.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\map\Limit.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\map\Port.h" />
-    <ClInclude Include="D:\Git\Dreamworld\Classes\map\SizeLimit.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\map\Wall.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\npc\DialogueBox.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\npc\GUILayer.h" />
@@ -868,11 +869,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\Git\Dreamworld\Classes\npc\ShopLayer.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\npc\SkillShopLayer.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\player\Player.h" />
-    <ClInclude Include="D:\Git\Dreamworld\Classes\player\skill\Copy.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\player\skill\Eagle.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\GUIScene.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\GameOver.h" />
-    <ClInclude Include="D:\Git\Dreamworld\Classes\scene\Map1Scene.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\Map2Scene.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\Map3Scene.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\MenuScene.h" />
@@ -888,12 +887,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\Git\Dreamworld\Classes\skill\FireRain.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\skill\Rain.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\skill\Skull.h" />
-    <ClInclude Include="D:\Git\Dreamworld\Classes\skill\Slash.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\skill\SlashEnemy.h" />
-    <ClInclude Include="D:\Git\Dreamworld\Classes\skill\Stick.h" />
     <ClInclude Include="D:\Git\Dreamworld\proj.win32\main.h" />
     <ClInclude Include="D:\Git\Dreamworld\proj.win32\resource.h" />
+    <ClCompile Include="..\Classes\base\BaseScene.cpp" />
+    <ClCompile Include="..\Classes\item\Gem.cpp" />
     <ClCompile Include="..\Classes\main\Constants.cpp" />
+    <ClCompile Include="..\Classes\player\skill\Slash.cpp" />
+    <ClCompile Include="..\Classes\player\skill\Stick.cpp" />
+    <ClCompile Include="..\Classes\scene\Map1Scene.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\base\BaseCharacter.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\base\BaseItem.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\Acher.cpp" />
@@ -903,9 +905,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\Warrior.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\Wraith.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\gui\Setting.cpp" />
-    <ClCompile Include="D:\Git\Dreamworld\Classes\item\Chest.cpp" />
-    <ClCompile Include="D:\Git\Dreamworld\Classes\item\Gem.cpp" />
-    <ClCompile Include="D:\Git\Dreamworld\Classes\item\Heart.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\item\MapItem.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\main\AppDelegate.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\main\Common.cpp" />
@@ -917,7 +916,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\Git\Dreamworld\Classes\map\EndGate.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\map\Limit.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\map\Port.cpp" />
-    <ClCompile Include="D:\Git\Dreamworld\Classes\map\SizeLimit.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\map\Wall.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\npc\DialogueBox.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\npc\GUILayer.cpp" />
@@ -928,11 +926,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\Git\Dreamworld\Classes\npc\ShopLayer.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\npc\SkillShopLayer.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\player\Player.cpp" />
-    <ClCompile Include="D:\Git\Dreamworld\Classes\player\skill\Copy.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\player\skill\Eagle.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\GUIScene.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\GameOver.cpp" />
-    <ClCompile Include="D:\Git\Dreamworld\Classes\scene\Map1Scene.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\Map2Scene.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\Map3Scene.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\MenuScene.cpp" />
@@ -948,9 +944,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\Git\Dreamworld\Classes\skill\FireRain.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\skill\Rain.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\skill\Skull.cpp" />
-    <ClCompile Include="D:\Git\Dreamworld\Classes\skill\Slash.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\skill\SlashEnemy.cpp" />
-    <ClCompile Include="D:\Git\Dreamworld\Classes\skill\Stick.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\proj.win32\main.cpp" />
     <ResourceCompile Include="D:\Git\Dreamworld\proj.win32\game.rc" />
     <ClInclude Include="D:\Git\Dreamworld\Resources\Effect\arrow\sprites.plist" />

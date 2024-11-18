@@ -1,5 +1,4 @@
 ﻿#include "Gem.h"
-#include "player/Player.h"
 Sprite* Gem::getSprite() {
     return sprite;
 }

@@ -10,7 +10,7 @@
 #include "npc/DialogueBox.h"
 #include "npc/ShopLayer.h"
 #include "map/EndGate.h"
-#include "Map1Scene.h"
+#include "scene/Map1Scene.h"
 #include "npc/NPCMonkey.h"
 
 
@@ -96,7 +96,7 @@ void VillageScene::update(float dt) {
 
     if (contactListener->isNext) {
         player->savePlayerDataInit();
-        auto newScene = Map1Scene::create();
+        auto newScene = Map1Scene::createScene("map/bglv1.png", "sound/background2.mp3", "map1", true);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
         contactListener->isNext = false;
     }

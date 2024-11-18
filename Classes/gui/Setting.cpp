@@ -1,5 +1,5 @@
 ﻿#include "Setting.h"
-#include "skill/Stick.h"
+#include "player/skill/Stick.h"
 #include "scene/GameOver.h"
 #include <iostream>
 #include <fstream>

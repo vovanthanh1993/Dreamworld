@@ -4,7 +4,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include "skill/Slash.h"
+#include "player/skill/Slash.h"
 #include <npc/NPC1.h>
 
 using namespace common;

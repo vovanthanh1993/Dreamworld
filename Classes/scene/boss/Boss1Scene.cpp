@@ -7,86 +7,37 @@
 
 using namespace std;
 USING_NS_CC;
-Scene* Boss1Scene::createScene()
+
+Scene* Boss1Scene::createScene(string bg, string bgMusic, string mapName, bool isMoveCamera)
 {
-    
-    return Boss1Scene::create();
+    Boss1Scene* ret = new Boss1Scene();
+    if (ret && ret->init(bg, bgMusic, mapName, isMoveCamera)) {
+        ret->autorelease();  // Tự động giải phóng bộ nhớ
+        return ret;
+    }
+    else {
+        delete ret;
+        return nullptr;
+    }
 }
 
 //on "init" you need to initialize your instance
-bool Boss1Scene::init()
+bool Boss1Scene::init(string bg, string bgMusic, string mapName, bool isMoveCamera)
 {
-    // Phát nhạc nền
-    settingInit->loadSettingData();
-    settingInit->setBgMusicId(Common::playBackgroundMusic(settingInit->getVolume(),"Enemy/Bossmap1/sound/bg.mp3"));
-    
-    
-    //////////////////////////////
-    // 1. super init first
-    if (!Scene::init())
-    {
+    if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
         return false;
     }
-    //cocos2d::AudioEngine::preload("sound/ting.wav");
 
-    // Tạo một Camera
-    auto camera = Camera::create();
-    camera->setCameraFlag(CameraFlag::USER1);
-    this->addChild(camera);
-   
-
-    // Khởi tạo thế giới vật lý với trọng lực
-    b2Vec2 gravity(0.0f, Constants::GRAVITY* Common::scaleSizeXY()); // Trọng lực theo chiều dương Y -400
-    world = new b2World(gravity);
-    
-
-    // Thêm lớp ảnh (hình nền)
-    auto background = cocos2d::Sprite::create("map/bglv1.png");
-    background->setAnchorPoint(cocos2d::Vec2(0, 0));
-    background->setPosition(cocos2d::Vec2(0, 0));
-    Common::scaleAll(background, 1);
-    this->addChild(background, 0);
-
-    map = TMXTiledMap::create("map/boss1map.tmx");
-    map->setScale(Common::scaleSizeXY());
-    map->setAnchorPoint(Vec2(0, 0));
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    map->setPosition(origin);
-    addChild(map, 0, 99);
-    spawnObject();
-
-    // va cham
-    contactListener =  new MyContactListener(player, this, world);
-    contactListener->_bodyToSpriteMap = _bodyToSpriteMap;
     contactListener->bossmap1 = bossmap1;
-    world->SetContactListener(contactListener);
-    
-
-    // Schedule the update method
-    this->scheduleUpdate();
-
     return true;
 }
 
 // update
 void Boss1Scene::update(float dt) {
     if (!player->isAlive) return;
-    world->Step(dt, 8, 3); // Cập nhật thế giới Box2D
-
-    player->updateMove();
-    player->updateSlashVector(dt);
-    //// Đồng bộ hóa vị trí sprite với vị trí body
-    Common::updatePosition(world, _bodyToSpriteMap);
-
-    // xoa cac vat the duoc danh dau
-    contactListener->removeObject();
+    BaseScene::update(dt);
 
     //-------------------CAP NHAT LAI SPRITE--------------------------
-    if (player->getSprite()->getPositionY() < 0) {
-        cocos2d::AudioEngine::stopAll();
-        Director::getInstance()->replaceScene(Boss1Scene::createScene());
-    }
-    
     // Boss map 1
     if (bossmap1->isALive) {
         bossmap1->updateAttack(player, dt);
@@ -98,7 +49,7 @@ void Boss1Scene::update(float dt) {
     }
     if (contactListener->isNext && !bossmap1->isALive) {
         player->savePlayerDataInit();
-        auto newScene = Map2Scene::create();
+        auto newScene = Map2Scene::createScene("map/bglv1.png", "sound/background2.mp3", "map2", true);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
     }
     contactListener->isNext = false;
@@ -107,7 +58,8 @@ void Boss1Scene::update(float dt) {
 }
 
 void Boss1Scene::spawnObject() {
-    MapItem* item = new MapItem(world, this, _bodyToSpriteMap, map);
+    //BaseScene::spawnObject();
+    item = new MapItem(world, this, _bodyToSpriteMap, map);
     item->spawnWallAndLimit();
     item->spawnEndGate();
 
@@ -118,13 +70,11 @@ void Boss1Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = playerLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                player = new Player(world, this, Vec2(origin.x / Common::scaleSizeXY() +x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE)* Common::scaleSizeXY(), _bodyToSpriteMap);
+                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
                 player->init(false);
-                break;
             }
         }
     }
-
     // spawn boss
     auto bossLayer = map->getLayer("boss");
     for (int x = 0; x < map->getMapSize().width; ++x) {

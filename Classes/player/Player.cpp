@@ -1,5 +1,6 @@
 ﻿#include "player/Player.h"
-#include "skill/Stick.h"
+#include "main/Effect.h"
+#include "player/skill/Stick.h"
 #include <player/skill/Eagle.h>
 #include "scene/GameOver.h"
 #include <iostream>
@@ -13,7 +14,7 @@ void Player::init(bool isNew) {
     sprite = Sprite::createWithSpriteFrameName("Wukong-Idle_0.png");
     sprite->setScale(Constants::PLAYER_SCALE* Common::scaleSizeXY());
     sprite->setPosition(position);
-    sprite->setTag(Constants::PLAYER_SCALE);
+    sprite->setTag(Constants::TAG_PLAYER);
     
     spriteNode->addChild(sprite);
     scene->addChild(spriteNode, 1);

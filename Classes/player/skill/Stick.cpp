@@ -1,20 +1,12 @@
-﻿#include "Copy.h"
+﻿#include "player/skill/Stick.h"
 #include "main/Effect.h"
-Sprite* Copy::getSprite() {
-    return sprite;
-}
-
-b2Body* Copy::getBody() {
-    return body;
-}
-void Copy::init(b2World* world, Scene* scene, Vec2 position,
+void Stick::init(b2World* world, Scene* scene, Vec2 position, 
     unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
     Effect::playerSlash();
-    sprite = Sprite::create("player/skill/cloud.png");
+    sprite = Sprite::create("Stick.png");
     sprite->setPosition(position);
-    sprite->setScale(0.2 * Common::scaleSizeXY());
-   // sprite->setAnchorPoint(Vec2(0,0));
-    sprite->setTag(Constants::TAG_COPY);
+    Common::scaleAll(sprite, 0.017);
+    sprite->setTag(Constants::TAG_STICK);
     scene->addChild(sprite);
     
     b2BodyDef bodyDef;
@@ -37,11 +29,11 @@ void Copy::init(b2World* world, Scene* scene, Vec2 position,
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_STICK;
-    fixtureDef.filter.maskBits = Constants::CATEGORY_ENEMY | Constants::CATEGORY_BLOCK;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_ENEMY| Constants::CATEGORY_WALL | Constants::CATEGORY_BLOCK;
 
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
     (*_bodyToSpriteMap)[body] = sprite;
-
 }
+Stick::Stick(){}

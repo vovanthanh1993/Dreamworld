@@ -10,70 +10,33 @@
 using namespace std;
 USING_NS_CC;
 
-Scene* Boss2Scene::createScene()
+Scene* Boss2Scene::createScene(string bg, string bgMusic, string mapName, bool isMoveCamera)
 {
-    return Boss2Scene::create();
+    Boss2Scene* ret = new Boss2Scene();
+    if (ret && ret->init(bg, bgMusic, mapName, isMoveCamera)) {
+        ret->autorelease();  // Tự động giải phóng bộ nhớ
+        return ret;
+    }
+    else {
+        delete ret;
+        return nullptr;
+    }
 }
 
 //on "init" you need to initialize your instance
-bool Boss2Scene::init()
+bool Boss2Scene::init(string bg, string bgMusic, string mapName, bool isMoveCamera)
 {
-    
-    // Phát nhạc nền
-    settingInit->loadSettingData();
-    settingInit->setBgMusicId(Common::playBackgroundMusic(settingInit->getVolume(), "Enemy/Bossmap2/sound/bg.mp3"));
-    
-    //////////////////////////////
-    // 1. super init first
-    if (!Scene::init())
-    {
+    if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
         return false;
     }
-
-    // Tạo một Camera
-    auto camera = Camera::create();
-    camera->setCameraFlag(CameraFlag::USER1);
-    this->addChild(camera);
-   
-
-    // Khởi tạo thế giới vật lý với trọng lực
-    b2Vec2 gravity(0.0f, Constants::GRAVITY* Common::scaleSizeXY()); // Trọng lực theo chiều dương Y -400
-    world = new b2World(gravity);
-    
-
-    // Thêm lớp ảnh (hình nền)
-    auto background = cocos2d::Sprite::create("map/bglv1.png");
-    background->setAnchorPoint(cocos2d::Vec2(0, 0));
-    background->setPosition(cocos2d::Vec2(0, 0));
-    Common::scaleAll(background, 1);
-    this->addChild(background, 0);
-
-    map = TMXTiledMap::create("map/boss2.tmx");
-    map->setScale(Common::scaleSizeXY());
-    map->setAnchorPoint(Vec2(0, 0));
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    map->setPosition(origin);
-    addChild(map, 0, 99);
-    spawnObject();
-
-    // va cham
-    contactListener =  new MyContactListener(player, this, world);
-    contactListener->_bodyToSpriteMap = _bodyToSpriteMap;
     contactListener->bossmap2 = bossmap2;
-    world->SetContactListener(contactListener);
-    
-
-    // Schedule the update method
-    this->scheduleUpdate();
-
     return true;
 }
 
 // update
 void Boss2Scene::update(float dt) {
     if (!player->isAlive) return;
-
-    world->Step(dt, 8, 3); // Cập nhật thế giới Box2D
+    BaseScene::update(dt);
 
     if (bossmap2->isALive) {
         bossmap2->updateAttack(player, dt, map);
@@ -83,14 +46,6 @@ void Boss2Scene::update(float dt) {
     else {
         AudioEngine::setVolume(settingInit->getBgMusicId(), settingInit->getVolume()*0.2);
     }
-    player->updateMove();
-    player->updateSlashVector(dt);
-
-    //// Đồng bộ hóa vị trí sprite với vị trí body
-    Common::updatePosition(world, _bodyToSpriteMap);
-
-    // xoa cac vat the duoc danh dau
-    contactListener->removeObject();
 
     //-------------------CAP NHAT LAI SPRITE--------------------------
     if (contactListener->isNext && !bossmap2->isALive) {

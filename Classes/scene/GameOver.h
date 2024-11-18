@@ -23,14 +23,12 @@
  ****************************************************************************/
 
 #include "cocos2d.h"
-#include "Map1Scene.h"
 using namespace cocos2d;
 
 class GameOver : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
-
     virtual bool init();
     void restartCallback(Ref* sender);
     void createGameOver(Vec2 pos);

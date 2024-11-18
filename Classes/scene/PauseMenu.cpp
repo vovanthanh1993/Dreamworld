@@ -1,6 +1,4 @@
 ﻿#include "scene/PauseMenu.h"
-
-#include "Map1Scene.h"
 #include "SettingScene.h"
 
 USING_NS_CC;
@@ -14,7 +12,6 @@ PauseMenu::PauseMenu(Vec2 position) {
     auto menuImages2 = MenuItemImage::create("UI/setting.png", "UI/yellow/setting.png",
         CC_CALLBACK_1(PauseMenu::setting, this));
     menuImages2->setTag(1);
-
 
     auto menuImages3 = MenuItemImage::create("UI/menu.png", "UI/yellow/menu.png",
         CC_CALLBACK_1(PauseMenu::returnMenu, this));
@@ -47,9 +44,8 @@ void PauseMenu::resumeGame(Ref* sender) {
 
 void PauseMenu::setting(Ref* sender) {
     Director::getInstance()->pushScene(SettingScene::createScene());
-    //menu->removeFromParentAndCleanup(true);
 }
 
 void PauseMenu::quitGame(Ref* sender) {
-    Director::getInstance()->end(); // Hoặc chuyển đến menu chính
+    Director::getInstance()->end();
 }

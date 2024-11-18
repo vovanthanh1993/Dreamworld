@@ -3,8 +3,8 @@
 MapItem::MapItem(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap, TMXTiledMap* map) : BaseItem(world, scene, _bodyToSpriteMap, map) {
 };
 
+// spawn stick
 void MapItem::spawnBackStick() {
-    // spawn stick
     auto backStickLayer = map->getLayer("backstick");
     for (int x = 0; x < map->getMapSize().width; ++x) {
         for (int y = 0; y < map->getMapSize().height; ++y) {
@@ -47,7 +47,7 @@ void MapItem::spawnBackStick() {
                 Common::zoomAction(sprite);
             }
         }
-    } 
+    }
 }
 
 void MapItem::spawnChest() {
@@ -259,7 +259,7 @@ void MapItem::spawnBox() {
 
                 b2FixtureDef fixtureDef;
                 fixtureDef.shape = &dynamicBox;
-                fixtureDef.density = 30.0f;
+                fixtureDef.density = 500.0f;
                 fixtureDef.friction = 1.0f;
                 fixtureDef.restitution = 0.0f;
                 fixtureDef.filter.categoryBits = Constants::CATEGORY_BOX;

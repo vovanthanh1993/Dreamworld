@@ -27,75 +27,32 @@
 #include <string>
 #include "cocos2d.h"
 #include "box2d/Box2D.h"
-#include "main/MyContactListener.h"
+#include "base/BaseScene.h"
 #include "main/Common.h"
 #include "player/Player.h"
 #include "enemy/Warrior.h"
-#include "skill/Stick.h"
 #include "skill/SlashEnemy.h"
-#include "item/Chest.h"
-#include "Item/heart.h"
-#include "enemy/Acher.h"
-#include "map/Bridge.h"
-#include "map/BridgeBreak.h"
-#include "map/Box.h"
 #include "enemy/BossMap2.h"
 #include "enemy/Wraith.h"
-#include "gui/Setting.h"
-#include "item/MapItem.h"
 #include "main/Constants.h"
+#include "enemy/Acher.h"
 
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
 using namespace std;
-class Map2Scene : public cocos2d::Scene
+class Map2Scene : public BaseScene
 {
 public:
-    static cocos2d::Scene* createScene();
-
-    virtual bool init();
-
-    bool onMouseDown(Event* event);
-    bool onMouseUp(Event* event);
-    std::map<EventKeyboard::KeyCode, bool> keys;
-    CREATE_FUNC(Map2Scene);
-    
-
+    static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
+    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera) override;
 private:
-        bool isEnable = true;
-        b2World* world;
-        void setWorld(b2World* m_world) {
-            world = m_world;
-        }
-        void update(float dt) override;
-        Sprite* wizardSprite;
-        Size vis;
-        SpriteBatchNode* wizardSpriteNode;
-        bool isJumping = false;
-        
-        std::unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap = new unordered_map<b2Body*, Sprite*>();
-        void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
-        void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
-        
-        TMXTiledMap* map;
-        TMXLayer* wallLayer;
-        MyContactListener* contactListener;
-       
-        float time = 1.0 / 60.0f;
-        Player* player;
-        int status = 1;
-        std::vector<Slash*> slashVector;
         std::vector<SlashEnemy*> slashEnemyVector;
         std::vector<Warrior*>* warriorVector = new std::vector<Warrior*>();
-        std::vector<Heart*> heartVector;
         std::vector<Acher*>* acherVector = new std::vector<Acher*>();
         std::vector<Wraith*>* wraithVector = new std::vector<Wraith*>();
         void spawnObject();
-        bool isEndMap = true;
-        Setting* settingInit = new Setting();
-        b2Body* boundaryBodyStart;
-        b2Body* boundaryBodyEnd;
+        void update(float dt) override;
 };
 
 #endif // __Map2Scene_H__

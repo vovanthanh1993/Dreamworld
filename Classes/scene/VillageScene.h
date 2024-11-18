@@ -30,7 +30,7 @@
 #include "main/Common.h"
 #include "player/Player.h"
 #include "enemy/Warrior.h"
-#include "skill/Stick.h"
+#include "player/skill/Stick.h"
 #include "skill/SlashEnemy.h"
 #include "item/Chest.h"
 #include "Item/heart.h"
@@ -73,12 +73,8 @@ private:
         bool isJumping = false;
         
         std::unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap = new unordered_map<b2Body*, Sprite*>();
-        void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
-        void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
-        
-       
+
         TMXTiledMap* map;
-        TMXLayer* wallLayer;
         MyContactListener* contactListener;
        
         float time = 1.0 / 60.0f;
@@ -95,5 +91,6 @@ private:
         GUILayer* guiLayer;
         Setting* settingInit = new Setting();
         SkillShopLayer* skillShopLayer;
+        void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
 };
 

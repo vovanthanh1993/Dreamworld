@@ -28,15 +28,6 @@
     <ClCompile Include="D:\Git\Dreamworld\Classes\gui\Setting.cpp">
       <Filter>Source Files\Classes\gui</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\item\Chest.cpp">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\item\Gem.cpp">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\item\Heart.cpp">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\item\MapItem.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
@@ -70,9 +61,6 @@
     <ClCompile Include="D:\Git\Dreamworld\Classes\map\Port.cpp">
       <Filter>Source Files\Classes\map</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\map\SizeLimit.cpp">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\map\Wall.cpp">
       <Filter>Source Files\Classes\map</Filter>
     </ClCompile>
@@ -103,9 +91,6 @@
     <ClCompile Include="D:\Git\Dreamworld\Classes\player\Player.cpp">
       <Filter>Source Files\Classes\player</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\player\skill\Copy.cpp">
-      <Filter>Source Files\Classes\player\skill</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\player\skill\Eagle.cpp">
       <Filter>Source Files\Classes\player\skill</Filter>
     </ClCompile>
@@ -113,9 +98,6 @@
       <Filter>Source Files\Classes\scene</Filter>
     </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\GameOver.cpp">
-      <Filter>Source Files\Classes\scene</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\scene\Map1Scene.cpp">
       <Filter>Source Files\Classes\scene</Filter>
     </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\Map2Scene.cpp">
@@ -163,13 +145,7 @@
     <ClCompile Include="D:\Git\Dreamworld\Classes\skill\Skull.cpp">
       <Filter>Source Files\Classes\skill</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\skill\Slash.cpp">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\skill\SlashEnemy.cpp">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\skill\Stick.cpp">
       <Filter>Source Files\Classes\skill</Filter>
     </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\proj.win32\main.cpp">
@@ -180,6 +156,21 @@
     </ClCompile>
     <ClCompile Include="..\Classes\main\Constants.cpp">
       <Filter>Source Files\Classes\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\item\Gem.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\player\skill\Slash.cpp">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\player\skill\Stick.cpp">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\base\BaseScene.cpp">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\Map1Scene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -209,15 +200,6 @@
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\gui\Setting.h">
       <Filter>Source Files\Classes\gui</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\item\Chest.h">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\item\Gem.h">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\item\Heart.h">
-      <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\item\MapItem.h">
       <Filter>Source Files\Classes\item</Filter>
@@ -252,9 +234,6 @@
     <ClInclude Include="D:\Git\Dreamworld\Classes\map\Port.h">
       <Filter>Source Files\Classes\map</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\map\SizeLimit.h">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\map\Wall.h">
       <Filter>Source Files\Classes\map</Filter>
     </ClInclude>
@@ -285,9 +264,6 @@
     <ClInclude Include="D:\Git\Dreamworld\Classes\player\Player.h">
       <Filter>Source Files\Classes\player</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\player\skill\Copy.h">
-      <Filter>Source Files\Classes\player\skill</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\player\skill\Eagle.h">
       <Filter>Source Files\Classes\player\skill</Filter>
     </ClInclude>
@@ -295,9 +271,6 @@
       <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\GameOver.h">
-      <Filter>Source Files\Classes\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\scene\Map1Scene.h">
       <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\Map2Scene.h">
@@ -345,13 +318,7 @@
     <ClInclude Include="D:\Git\Dreamworld\Classes\skill\Skull.h">
       <Filter>Source Files\Classes\skill</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\skill\Slash.h">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\skill\SlashEnemy.h">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\skill\Stick.h">
       <Filter>Source Files\Classes\skill</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\proj.win32\main.h">
@@ -2447,6 +2414,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\main\Constants.h">
       <Filter>Source Files\Classes\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\item\Gem.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\player\skill\Stick.h">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\player\skill\Slash.h">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\base\BaseScene.h">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\Map1Scene.h">
+      <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -27,6 +27,7 @@
 #include "ui\CocosGUI.h"
 #include "VillageScene.h"
 #include "scene/Map2Scene.h"
+#include "scene/Map1Scene.h"
 #include "SettingScene.h"
 #include "ShopScene.h"
 #include "main/Common.h"
@@ -78,12 +79,10 @@ bool MenuScene::init()
     auto menuImages1 = MenuItemImage::create("UI/play.png", "UI/yellow/play.png",
         CC_CALLBACK_1(MenuScene::onClickMenuItem, this));
     menuImages1->setTag(1);
-    //zoomAction(menuImages1);
 
     auto menuImages2 = MenuItemImage::create("UI/guide.png", "UI/yellow/guide.png",
         CC_CALLBACK_1(MenuScene::guide, this));
     menuImages2->setTag(2);
-   // zoomAction(menuImages1);
 
     auto menuImages3 = MenuItemImage::create("UI/shop.png", "UI/yellow/shop.png",
         CC_CALLBACK_1(MenuScene::shop, this));
@@ -98,7 +97,6 @@ bool MenuScene::init()
     menuImages5->setTag(5);
 
     auto mainMenu = Menu::create(menuImages1, menuImages2, menuImages3, menuImages4, menuImages5,nullptr);
-    //Constants::scaleSprite(mainMenu, 0.25);
     mainMenu->setScale(0.25 * Common::scaleSizeXY());
     mainMenu->setAnchorPoint(Vec2::ZERO);
     mainMenu->setPosition(Common::getCenter());
@@ -119,7 +117,6 @@ bool MenuScene::init()
         // position the label on the center of the screen
         label->setPosition(Vec2(origin.x + visibleSize.width / 2,
             origin.y + visibleSize.height - (label->getContentSize().height + 50) * Common::scaleSizeY()));
-        //label->setPosition(Vec2(origin.x + visibleSize.width / 2, menuImages1->getPositionY() +10));
 
         // add the label as a child to this layer
         this->addChild(label, 1);
@@ -173,7 +170,8 @@ void MenuScene::loadingbar() {
             this->unschedule("updateLoadingBar");// ngung lai
             std::this_thread::sleep_for(std::chrono::milliseconds(30));
             // chuyen scene
-            auto villageScene = VillageScene::createScene();
+            //auto villageScene = Map1Scene::createScene("map/bglv1.png", "sound/background2.mp3", "map1", true);
+            auto villageScene  = Boss1Scene::createScene("map/bglv1.png", "Enemy/Bossmap1/sound/bg.mp3", "boss1", false);
            // auto villageScene = Boss1Scene::createScene();
             Director::getInstance()->replaceScene(villageScene);
         }

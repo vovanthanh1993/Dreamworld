@@ -1,4 +1,4 @@
-/****************************************************************************
+﻿/****************************************************************************
  Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
  http://www.cocos2d-x.org
@@ -21,25 +21,46 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-
+#ifndef __BASE_SCENE_H__
+#define __BASE_SCENE_H__
+#include <string>
 #include "cocos2d.h"
-#include "ui/CocosGUI.h"
+#include "box2d/Box2D.h"
+#include "main/MyContactListener.h"
+#include "player/Player.h"
+#include "skill/SlashEnemy.h"
+#include "main/Common.h"
 #include "gui/Setting.h"
-using namespace cocos2d;
+#include "item/MapItem.h"
+#include "main/Constants.h"
 
-class SettingScene : public cocos2d::Scene
+using namespace constants;
+using namespace common;
+using namespace cocos2d;
+using namespace std;
+class BaseScene : public cocos2d::Scene
 {
 public:
-    static cocos2d::Scene* createScene();
+    static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
+    virtual bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
+    BaseScene();  // Constructor
+    ~BaseScene(); // Destructor
 
-    virtual bool init();
-    CREATE_FUNC(SettingScene);
-    void sliderEvent(Ref* sender, ui::Slider::EventType eventType);
-    void setVolume();
-    void goBack(Ref* sender);
-    void toggleSubCallback(Ref* sender);
-    void toggleVsynCallback(Ref* sender);
-    void save(Ref* sender);
-    Setting* setting = new Setting();
-    void sliderEventGamePlay(Ref* sender, ui::Slider::EventType eventType);
+protected:
+    bool isEnable = true;
+    b2World* world;
+    void update(float dt) override;
+    std::unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap = new unordered_map<b2Body*, Sprite*>();
+    TMXTiledMap* map;
+    MyContactListener* contactListener;
+    float time = 1.0 / 60.0f;
+    Player* player;
+    virtual void spawnObject();
+    Setting* settingInit = new Setting();
+    b2Body* boundaryBodyStart;
+    b2Body* boundaryBodyEnd;
+    MapItem* item;
+    bool isMoveCamera;
 };
+
+#endif // __BASE_SCENE_H__
