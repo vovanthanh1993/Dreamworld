@@ -1,12 +1,9 @@
-﻿#include "enemy/BossMap1.h"
-#include "npc/NPC1.h"
-#include "map/port.h"
-#include "main/Effect.h"
+﻿#include "BossMap1.h"
 
-BossMap1::BossMap1(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) :BaseCharacter(world, scene, position, _bodyToSpriteMap) {
+BossMap1::BossMap1(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
 };
 
-void BossMap1::init() {
+bool BossMap1::init() {
     spriteNode = SpriteBatchNode::create("Enemy/Bossmap1/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Bossmap1/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("0_boss_idle_0.png");
@@ -20,10 +17,9 @@ void BossMap1::init() {
     scene->addChild(spriteNode);
 
     b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
+    bodyDef.type = b2_dynamicBody;
     bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
-    //bodyDef.bullet = true;
 
     body = world->CreateBody(&bodyDef);
     body->SetUserData(sprite);
@@ -39,17 +35,23 @@ void BossMap1::init() {
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_ENEMY;
     fixtureDef.filter.maskBits = Constants::CATEGORY_STICK| Constants::CATEGORY_WALL| Constants::CATEGORY_LIMIT| Constants::CATEGORY_PLAYER| Constants::CATEGORY_SLASH;
+
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     b2Vec2 velocity(Constants::SPEED_BOSS1 * Common::scaleSizeXY(), 0);
     body->SetLinearVelocity(velocity);
     sprite->setScaleX(-Constants::BOSSMAP1_SCALE * Common::scaleSizeXY());
-    (*_bodyToSpriteMap)[body] = sprite;
+    (*bodyToSpriteMap)[body] = sprite;
+
     createHealthBar();
     walk();
+
+    // Lên lịch gọi update mỗi frame
+    this->schedule([this](float dt) { this->update(dt); }, "bossmap1");
+    scene->addChild(this);
+    return true;
 }
 void BossMap1::idle() {
-
     if (sprite != nullptr) {
         b2Vec2 velocity(0, 0);
         body->SetLinearVelocity(velocity);
@@ -88,7 +90,6 @@ void BossMap1::die() {
     else {
         Common::showBossText(scene, "You still have to kill me a thousand times...");
     }
-   
 
     // Lặp qua tất cả các fixture của body
     for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
@@ -102,18 +103,12 @@ void BossMap1::die() {
         // Thiết lập lại dữ liệu bộ lọc
         fixture->SetFilterData(filter);
     }
-    
-    
+
     auto animate = Animate::create(Common::createAnimation("0_boss_die_", 19, 0.05));
     auto callback2 = [this]() {
         if (sprite != nullptr) {
-            Gem gem;
-            Vec2 pos = sprite->getPosition();
-            gem.init(world, scene, pos, _bodyToSpriteMap, 10);
-            sprite->removeFromParentAndCleanup(true);
-            body->SetUserData(nullptr);
-            (*_bodyToSpriteMap).erase(body);
-            world->DestroyBody(body);
+            Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap,10);
+            BaseNode::destroyNode();
         }
         };
     auto callFunc2 = CallFunc::create(callback2);
@@ -124,28 +119,27 @@ void BossMap1::die() {
 
 void BossMap1::hit() {
     if (isHit) return;
-    // Run animation with a callback
-    Fire* fire = new Fire();
+   
     if (sprite != nullptr) {
         sprite->stopAllActions();
         auto animate = Animate::create(Common::createAnimation("0_boss_specialty_2_", 19, 0.015));
         Effect::soundMagicFire();
 
-        auto callback = [this, fire]() {
+        auto callback = [this]() {
             if (sprite != nullptr) {
                 int check = 1;
                 // check huong nhan vat
                 if (sprite->getScaleX() < 0) {
                     check = -1;
                 }
-
-                fire->init(world, scene, Vec2(sprite->getPositionX() + check * 120 * Constants::BOSSMAP1_SCALE * Common::scaleSizeXY(), sprite->getPositionY()-80 * Common::scaleSizeY()), _bodyToSpriteMap);
+                Fire* fire = new Fire(world, scene, Vec2(sprite->getPositionX() + check * 120 * Common::scaleSizeXY(), sprite->getPositionY() - 80 * Common::scaleSizeXY()), bodyToSpriteMap);
+                fire->init();
                 fire->getSprite()->setScaleX(check * fire->getSprite()->getScale());
                 walk();
                 b2Vec2 velocity(20 * check * Common::scaleSizeXY(), 0);
                 fire->getBody()->SetLinearVelocity(velocity);
             }
-            };
+        };
 
         auto callFunc = CallFunc::create(callback);
         auto sequence = Sequence::create(animate, callFunc, nullptr);
@@ -163,7 +157,7 @@ void BossMap1::phase2() {
         auto callback2 = [this](){
             int start = -50;
             for (int i = 1; i <= 20; i++) {
-                FireRain* rain = new FireRain();
+                
                 if (sprite != nullptr) {
                     int check = 1;
                     // check huong nhan vat
@@ -171,7 +165,8 @@ void BossMap1::phase2() {
                         check = -1;
                     }
 
-                    rain->init(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY() + 800 * Common::scaleSizeY()), _bodyToSpriteMap);
+                    FireRain* rain = new FireRain(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY() + 800 * Common::scaleSizeXY()), bodyToSpriteMap);
+                    rain->init();
                     rain->getSprite()->setScaleX(check * rain->getSprite()->getScale());
 
                     b2Vec2 velocity(start * Common::scaleSizeXY(), -20 * Common::scaleSizeXY());
@@ -190,30 +185,35 @@ void BossMap1::phase2() {
     }
 }
 
-void BossMap1::updateAttack(Player* player, float dt) {
+void BossMap1::update(float dt) {
+    
+    if (isALive) {
+        updateHealthBarPosition();
 
-    if (isHit) return;
-    // Cập nhật thời gian đã trôi qua
-    if (body != nullptr) {
-        timeSinceLastAttack += dt;
+        if (isHit) return;
+        // Cập nhật thời gian đã trôi qua
+        if (body != nullptr) {
+            timeSinceLastAttack += dt;
 
-        if (timeSinceLastAttack >= attackCooldown) {
-            canAttack = true;
-        }
-        if (canAttack) {
-            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_BOSS_MAP1 * Common::scaleSizeXY()) {
+            if (timeSinceLastAttack >= attackCooldown) {
+                canAttack = true;
+            }
+            if (canAttack) {
+                if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_BOSS_MAP1 * Common::scaleSizeXY()) {
 
-                // Attack logic
-                if(count++ % 5 != 0)
-                  hit();
-                else 
-                    phase2();
-                // Reset thời gian và cờ tấn công
-                timeSinceLastAttack = 0.0f;
-                canAttack = false;
+                    // Attack logic
+                    if (count++ % 5 != 0)
+                        hit();
+                    else
+                        phase2();
+                    // Reset thời gian và cờ tấn công
+                    timeSinceLastAttack = 0.0f;
+                    canAttack = false;
+                }
             }
         }
     }
+    
     
 }
 void BossMap1::setHealth(int h) {

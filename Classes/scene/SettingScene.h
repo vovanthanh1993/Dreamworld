@@ -21,10 +21,16 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
+#ifndef __SettingScene_H__
+#define __SettingScene_H__
 
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 #include "gui/Setting.h"
+#include <string>
+#include <thread>
+#include "scene/MenuScene.h"
+
 using namespace cocos2d;
 
 class SettingScene : public cocos2d::Scene
@@ -43,3 +49,4 @@ public:
     Setting* setting = new Setting();
     void sliderEventGamePlay(Ref* sender, ui::Slider::EventType eventType);
 };
+#endif // __SettingScene_H__

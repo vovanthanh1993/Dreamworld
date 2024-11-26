@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "scene/MenuScene.h"
+#include "SettingScene.h"
 
 class PauseMenu : public cocos2d::Layer {
 public:

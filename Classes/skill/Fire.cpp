@@ -1,13 +1,12 @@
 ﻿#include "skill/Fire.h"
+Fire::Fire(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {};
 
-void Fire::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
+bool Fire::init() {
     auto spriteNode = SpriteBatchNode::create("Enemy/Bossmap1/fire/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Bossmap1/fire/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("fire_0.png");
-    //sprite = Sprite::create("Enemy/Bossmap1/fire/fire.png");
     sprite->setPosition(position);
     sprite->setScale(Constants::FIRE_SCALE * Common::scaleSizeXY());
-    //sprite->setAnchorPoint(Vec2(0, 0));
     sprite->setTag(Constants::TAG_FIRE);
 
     auto animateW = Animate::create(Common::createAnimation("fire_", 3, 0.08));
@@ -15,15 +14,12 @@ void Fire::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Bod
     spriteNode->addChild(sprite);
     scene->addChild(spriteNode);
 
-    
-    
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
     bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
     bodyDef.bullet = true;
 
-   
     body = world->CreateBody(&bodyDef);
     body->SetUserData(sprite);
 
@@ -42,8 +38,6 @@ void Fire::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Bod
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
-    (*_bodyToSpriteMap)[body] = sprite;
-
+    (*bodyToSpriteMap)[body] = sprite;
+    return true;
 }
-
-Fire::Fire(){}

@@ -21,24 +21,7 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-#include "scene/MenuScene.h"
-#include <string>
-#include <thread>
-#include "ui\CocosGUI.h"
-#include "VillageScene.h"
-#include "scene/Map2Scene.h"
-#include "scene/Map1Scene.h"
-#include "SettingScene.h"
-#include "ShopScene.h"
-#include "main/Common.h"
-#include "scene/boss/Boss1Scene.h"
-#include "scene/boss/Boss2Scene.h"
-#include "scene/Map3Scene.h"
-
-using namespace common;
-
-using namespace std;
-USING_NS_CC;
+#include "MenuScene.h"
 
 Scene* MenuScene::createScene()
 {
@@ -171,8 +154,11 @@ void MenuScene::loadingbar() {
             std::this_thread::sleep_for(std::chrono::milliseconds(30));
             // chuyen scene
             //auto villageScene = Map1Scene::createScene("map/bglv1.png", "sound/background2.mp3", "map1", true);
-            auto villageScene  = Boss1Scene::createScene("map/bglv1.png", "Enemy/Bossmap1/sound/bg.mp3", "boss1", false);
+            //auto villageScene = Map2Scene::createScene("map/bglv1.png", "sound/background2.mp3", "map2", true);
+            //auto villageScene  = Boss1Scene::createScene("map/bglv1.png", "Enemy/Bossmap1/sound/bg.mp3", "boss1", false);
+            auto villageScene = Boss2Scene::createScene("map/bglv1.png", "Enemy/Bossmap2/sound/bg.mp3", "boss2", false);
            // auto villageScene = Boss1Scene::createScene();
+           // auto villageScene = VillageScene::createScene("map/bglv1.png", "sound/background2.mp3", "village", false);
             Director::getInstance()->replaceScene(villageScene);
         }
         }, 0.01f, "updateLoadingBar");// thoi gian chay 1% la 0,01s, ten cua schedule la "updateLoadingBar"
@@ -182,43 +168,6 @@ void MenuScene::menuCloseCallback(Ref* pSender)
 {
     //Close the cocos2d-x game scene and quit the application
     Director::getInstance()->end();
-}
-bool MenuScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
-{
-    switch (keyCode)
-    {
-    case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
-        // Xử lý khi nhấn phím mũi tên trái
-        CCLOG("Left arrow key pressed");
-        sprite->setPosition(0, 0);
-        break;
-    case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
-        // Xử lý khi nhấn phím mũi tên phải
-        CCLOG("Right arrow key pressed");
-        break;
-        // Thêm các trường hợp khác nếu cần
-    default:
-        break;
-    }
-    return true;
-}
-
-void MenuScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
-{
-    switch (keyCode)
-    {
-    case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
-        // Xử lý khi nhả phím mũi tên trái
-        CCLOG("Left arrow key released");
-        break;
-    case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
-        // Xử lý khi nhả phím mũi tên phải
-        CCLOG("Right arrow key released");
-        break;
-        // Thêm các trường hợp khác nếu cần
-    default:
-        break;
-    }
 }
 
 

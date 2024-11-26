@@ -1,13 +1,4 @@
-﻿#include "scene/Map3Scene.h"
-#include "player/Player.h"
-#include <string>
-#include <vector>
-#include "audio/include/AudioEngine.h"
-#include "map/Port.h"
-#include "enemy/Wraith.h"
-#include "enemy/Elemental.h"
-#include "VillageScene.h"
-#include "item/MapItem.h"
+﻿#include "Map3Scene.h"
 
 using namespace std;
 USING_NS_CC;
@@ -81,9 +72,8 @@ bool Map3Scene::init()
 
     // va cham
     contactListener =  new MyContactListener(player, this, world);
-    contactListener->_bodyToSpriteMap = _bodyToSpriteMap;
+    contactListener->bodyToSpriteMap = bodyToSpriteMap;
     contactListener->bossmap2 = bossmap2;
-    contactListener->warriorVector = warriorVector;
     world->SetContactListener(contactListener);
     
 
@@ -97,23 +87,6 @@ bool Map3Scene::init()
 void Map3Scene::update(float dt) {
 
     world->Step(dt, 8, 3); // Cập nhật thế giới Box2D
-
-    for (size_t i = 0; i < warriorVector->size(); i++ /* no increment here */) {
-        (*warriorVector)[i]->updateAttack(slashEnemyVector, player, dt);
-    }
-
-    for (size_t i = 0; i < elementalVector->size(); i++ /* no increment here */) {
-        (*elementalVector)[i]->updateAttack(player, dt);
-    }
-
-    for (size_t i = 0; i < wraithVector->size(); i++ /* no increment here */) {
-        (*wraithVector)[i]->updateAttack(player, dt);
-    }
-
-    player->updateMove();
-    player->updateSlashVector(dt);
-    //// Đồng bộ hóa vị trí sprite với vị trí body
-    Common::updatePosition(world, _bodyToSpriteMap);
 
     // Lấy Camera
     auto camera = this->getDefaultCamera();
@@ -148,19 +121,19 @@ void Map3Scene::update(float dt) {
 
 
     //-------------------CAP NHAT LAI SPRITE--------------------------
-    // Cập nhật tất cả các enemyslash
-    for (auto it = slashEnemyVector.begin(); it != slashEnemyVector.end(); ) {
-        (*it)->update(this);
+    //// Cập nhật tất cả các enemyslash
+    //for (auto it = slashEnemyVector.begin(); it != slashEnemyVector.end(); ) {
+    //    (*it)->update(this);
 
-        if (!(*it)->IsVisible()) {
-            // Xóa sprite khỏi danh sách và bộ nhớ
-            delete* it;
-            it = slashEnemyVector.erase(it); // Loại bỏ sprite khỏi danh sách
-        }
-        else {
-            ++it;
-        }
-    }
+    //    if (!(*it)->IsVisible()) {
+    //        // Xóa sprite khỏi danh sách và bộ nhớ
+    //        delete* it;
+    //        it = slashEnemyVector.erase(it); // Loại bỏ sprite khỏi danh sách
+    //    }
+    //    else {
+    //        ++it;
+    //    }
+    //}
 
     // New scene
     if (player->getSprite()->getPositionY() < 0) {
@@ -171,7 +144,7 @@ void Map3Scene::update(float dt) {
     }
     if (contactListener->isNext) {
         player->savePlayerDataInit();
-        auto newScene = VillageScene::create();
+        auto newScene = VillageScene::createScene("map/bglv1.png", "sound/background2.mp3", "village", false);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
         contactListener->isNext = false;
         Common::saveRound(Common::loadRound()+1);
@@ -181,7 +154,7 @@ void Map3Scene::update(float dt) {
 }
 
 void Map3Scene::spawnObject() {
-    MapItem* item = new MapItem(world, this, _bodyToSpriteMap, map);
+    MapItem* item = new MapItem(world, this, bodyToSpriteMap, map);
     item->spawnWallAndLimit();
     item->spawnEndGate();
 
@@ -193,7 +166,7 @@ void Map3Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = layerElemental->getTileAt(Vec2(x, y));
             if (tile) {
-                Elemental* w = new Elemental(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
+                Elemental* w = new Elemental(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
                 w->init();
                 elementalVector->push_back(w);
             }
@@ -206,12 +179,12 @@ void Map3Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = playerLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
+                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
                 player->init(false);
             }
         }
     }
-    Port* port = new Port(world, this, _bodyToSpriteMap, map);
+    Port* port = new Port(world, this, bodyToSpriteMap, map);
 }
 
 

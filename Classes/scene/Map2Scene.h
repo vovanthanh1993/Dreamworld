@@ -24,18 +24,13 @@
 
 #ifndef __Map2Scene_H__
 #define __Map2Scene_H__
-#include <string>
-#include "cocos2d.h"
-#include "box2d/Box2D.h"
 #include "base/BaseScene.h"
-#include "main/Common.h"
-#include "player/Player.h"
 #include "enemy/Warrior.h"
 #include "skill/SlashEnemy.h"
 #include "enemy/BossMap2.h"
 #include "enemy/Wraith.h"
-#include "main/Constants.h"
 #include "enemy/Acher.h"
+#include "scene/boss/Boss2Scene.h"
 
 using namespace constants;
 using namespace common;
@@ -45,14 +40,10 @@ class Map2Scene : public BaseScene
 {
 public:
     static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
-    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera) override;
+    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
 private:
-        std::vector<SlashEnemy*> slashEnemyVector;
-        std::vector<Warrior*>* warriorVector = new std::vector<Warrior*>();
-        std::vector<Acher*>* acherVector = new std::vector<Acher*>();
-        std::vector<Wraith*>* wraithVector = new std::vector<Wraith*>();
         void spawnObject();
-        void update(float dt) override;
+        void update(float dt);
 };
 
 #endif // __Map2Scene_H__

@@ -1,16 +1,16 @@
 ﻿#pragma once
 #include "cocos2d.h"
 #include "main/Common.h"
-#include "base/BaseItem.h"
+#include "base/BaseNode.h"
 #include "main/Constants.h"
 
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
-class FireRain :public BaseItem
+class FireRain :public BaseNode
 {
 public:
-	void init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap);
-	FireRain();
+	bool init();
+	FireRain(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 };
 

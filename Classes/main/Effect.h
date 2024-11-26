@@ -1,4 +1,7 @@
 ﻿#pragma once
+#ifndef __Effect_H__
+#define __Effect_H__
+
 #include "cocos2d.h"
 #include "main/Common.h"
 #include "player/Player.h"
@@ -40,3 +43,4 @@ namespace common {
 	};
 }
 
+#endif // __Effect_H__

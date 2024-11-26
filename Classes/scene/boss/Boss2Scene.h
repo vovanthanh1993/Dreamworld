@@ -24,25 +24,15 @@
 
 #ifndef __Boss2Scene_H__
 #define __Boss2Scene_H__
-#include <string>
-#include "cocos2d.h"
-#include "box2d/Box2D.h"
-#include "main/MyContactListener.h"
-#include "main/Common.h"
-#include "player/Player.h"
 #include "enemy/BossMap2.h"
-#include "main/Constants.h"
 #include "base/BaseScene.h"
+#include "scene/Map3Scene.h"
 
-using namespace constants;
-using namespace common;
-using namespace cocos2d;
-using namespace std;
 class Boss2Scene : public BaseScene
 {
 public:
     static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
-    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera) override;
+    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
     
 
 private:

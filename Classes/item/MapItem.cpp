@@ -1,6 +1,17 @@
 ﻿#include "MapItem.h"
 
-MapItem::MapItem(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap, TMXTiledMap* map) : BaseItem(world, scene, _bodyToSpriteMap, map) {
+MapItem::MapItem(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap, TMXTiledMap* map) {
+    // Store the provided scene reference
+    this->scene = scene;
+
+    // Store the provided world reference
+    this->world = world;
+
+    // Store the reference to the body-to-sprite map
+    this->bodyToSpriteMap = _bodyToSpriteMap;
+
+    // Initialize the character's position
+    this->map = map;
 };
 
 // spawn stick
@@ -10,7 +21,7 @@ void MapItem::spawnBackStick() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = backStickLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                sprite = Sprite::create("Item/backstick/backstick2.png");
+                auto sprite = Sprite::create("Item/backstick/backstick2.png");
                 sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
                 sprite->setScale(0.35 * Common::scaleSizeXY());
                 //sprite->setScaleX(2);
@@ -25,7 +36,7 @@ void MapItem::spawnBackStick() {
                 bodyDef.fixedRotation = true;
                 bodyDef.bullet = true;
 
-                body = world->CreateBody(&bodyDef);
+                auto body = world->CreateBody(&bodyDef);
                 body->SetUserData(sprite);
 
                 b2PolygonShape dynamicBox;
@@ -43,7 +54,7 @@ void MapItem::spawnBackStick() {
                 // Gán fixture cho body
                 body->SetGravityScale(0.0f);
                 body->CreateFixture(&fixtureDef);
-                (*_bodyToSpriteMap)[body] = sprite;
+                (*bodyToSpriteMap)[body] = sprite;
                 Common::zoomAction(sprite);
             }
         }
@@ -56,7 +67,7 @@ void MapItem::spawnChest() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = wallLayerChest->getTileAt(Vec2(x, y));
             if (tile) {
-                sprite = Sprite::create("Item/chest/closeChest.png");
+                auto sprite = Sprite::create("Item/chest/closeChest.png");
                 sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
                 sprite->setScale(0.15 * Common::scaleSizeXY());
                 sprite->setTag(Constants::TAG_CHEST);
@@ -68,7 +79,7 @@ void MapItem::spawnChest() {
                 bodyDef.fixedRotation = true;
                 bodyDef.bullet = true;
 
-                body = world->CreateBody(&bodyDef);
+                auto body = world->CreateBody(&bodyDef);
                 body->SetUserData(sprite);
 
                 b2PolygonShape dynamicBox;
@@ -85,7 +96,7 @@ void MapItem::spawnChest() {
 
                 // Gán fixture cho body
                 body->CreateFixture(&fixtureDef);
-                (*_bodyToSpriteMap)[body] = sprite;
+                (*bodyToSpriteMap)[body] = sprite;
             }
         }
     }
@@ -98,7 +109,7 @@ void MapItem::spawnHeart() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = wallLayerHeart->getTileAt(Vec2(x, y));
             if (tile) {
-                sprite = Sprite::create("Item/gourd/heart.png");
+                auto sprite = Sprite::create("Item/gourd/heart.png");
                 sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
                 sprite->setScale(0.08 * Common::scaleSizeXY());
                 sprite->setTag(Constants::TAG_HEART);
@@ -112,7 +123,7 @@ void MapItem::spawnHeart() {
                 bodyDef.fixedRotation = true;
                 bodyDef.bullet = true;
 
-                body = world->CreateBody(&bodyDef);
+                auto body = world->CreateBody(&bodyDef);
                 body->SetUserData(sprite);
 
                 b2PolygonShape dynamicBox;
@@ -130,7 +141,7 @@ void MapItem::spawnHeart() {
                 // Gán fixture cho body
                 body->SetGravityScale(0.0f);
                 body->CreateFixture(&fixtureDef);
-                (*_bodyToSpriteMap)[body] = sprite;
+                (*bodyToSpriteMap)[body] = sprite;
                 Common::zoomAction(sprite);
             }
         }
@@ -144,7 +155,7 @@ void MapItem::spawnBridge() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = wallBridge->getTileAt(Vec2(x, y));
             if (tile) {
-                sprite = Sprite::create("map/Bridge.png");
+                auto sprite = Sprite::create("map/Bridge.png");
                 sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
                 sprite->setScale(Constants::BRIDGE_SCALE * Common::scaleSizeXY());
                 sprite->setTag(Constants::TAG_BRIDGE);
@@ -159,7 +170,7 @@ void MapItem::spawnBridge() {
                 bodyDef.bullet = true;
 
 
-                body = world->CreateBody(&bodyDef);
+                auto body = world->CreateBody(&bodyDef);
                 body->SetUserData(sprite);
 
                 b2PolygonShape dynamicBox;
@@ -177,7 +188,7 @@ void MapItem::spawnBridge() {
                 // Gán fixture cho body
                 body->CreateFixture(&fixtureDef);
                 body->SetGravityScale(0.0f);
-                (*_bodyToSpriteMap)[body] = sprite;
+                (*bodyToSpriteMap)[body] = sprite;
                 b2Vec2 velocity(0, Constants::SPEED_BRIDGE * Common::scaleSizeXY());
                 body->SetLinearVelocity(velocity);
             }
@@ -192,7 +203,7 @@ void MapItem::spawnBridgeBreak() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = wallBridgeBreak->getTileAt(Vec2(x, y));
             if (tile) {
-                sprite = Sprite::create("map/BridgeBreak.png");
+                auto sprite = Sprite::create("map/BridgeBreak.png");
                 sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
                 sprite->setScale(Constants::BRIDGE_SCALE * Common::scaleSizeXY());
                 sprite->setTag(Constants::TAG_BRIDGE_BREAK);
@@ -205,7 +216,7 @@ void MapItem::spawnBridgeBreak() {
                 bodyDef.bullet = true;
 
 
-                body = world->CreateBody(&bodyDef);
+                auto body = world->CreateBody(&bodyDef);
                 body->SetUserData(sprite);
 
                 b2PolygonShape dynamicBox;
@@ -223,7 +234,7 @@ void MapItem::spawnBridgeBreak() {
                 // Gán fixture cho body
                 body->CreateFixture(&fixtureDef);
                 body->SetGravityScale(0.0f);
-                (*_bodyToSpriteMap)[body] = sprite;
+                (*bodyToSpriteMap)[body] = sprite;
             }
         }
     }
@@ -235,7 +246,7 @@ void MapItem::spawnBox() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = box->getTileAt(Vec2(x, y));
             if (tile) {
-                sprite = Sprite::create("map/stone.png");
+                auto sprite = Sprite::create("map/stone.png");
                 sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
                 sprite->setScale(Constants::BOX_SCALE * Common::scaleSizeXY());
                 sprite->setTag(Constants::TAG_BOX);
@@ -250,7 +261,7 @@ void MapItem::spawnBox() {
                 bodyDef.bullet = true;
 
 
-                body = world->CreateBody(&bodyDef);
+                auto body = world->CreateBody(&bodyDef);
                 body->SetUserData(sprite);
 
                 b2PolygonShape dynamicBox;
@@ -267,13 +278,14 @@ void MapItem::spawnBox() {
 
                 // Gán fixture cho body
                 body->CreateFixture(&fixtureDef);
-                (*_bodyToSpriteMap)[body] = sprite;
+                (*bodyToSpriteMap)[body] = sprite;
             }
         }
     }
 }
 
 void MapItem::spawnWallAndLimit() {
+
     //Tạo PhysicsBody cho mỗi tile trong TMXTiledMap
     auto wallObject = map->getObjectGroup("wall");
     for (const auto& obj : wallObject->getObjects()) {
@@ -346,6 +358,44 @@ void MapItem::spawnWallAndLimit() {
                 body->CreateFixture(&fixtureDef);
             }
         }
+    }
+
+    // Spawn limit map
+    auto limitMapObject = map->getObjectGroup("limitmap");
+    for (const auto& obj : limitMapObject->getObjects()) {
+        auto object = obj.asValueMap();
+
+        // Lấy thông tin đối tượng
+        float x = origin.x / Constants::PIXELS_PER_METER + object["x"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float y = object["y"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float width = object["width"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+        float height = object["height"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+
+        // Tạo body definition
+        b2BodyDef bodyDef;
+        bodyDef.type = b2_kinematicBody; // Hoặc b2_dynamicBody tùy vào yêu cầu
+        bodyDef.position.Set(x + width / 2, y + height / 2);
+
+        b2Body* body = world->CreateBody(&bodyDef);
+
+        // Tạo shape
+        b2PolygonShape boxShape;
+        boxShape.SetAsBox(width / 2, height / 2);
+
+        // Tạo fixture definition
+        b2FixtureDef fixtureDef;
+        fixtureDef.shape = &boxShape;
+        fixtureDef.density = 1.0f;
+        fixtureDef.friction = 0.0f;
+        fixtureDef.restitution = 0.0f;
+        fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
+        fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER;
+
+        body->CreateFixture(&fixtureDef);
+
+        Sprite* sprite = new Sprite();
+        sprite->setTag(Constants::TAG_LIMIT);
+        body->SetUserData(sprite);
     }
 }
 

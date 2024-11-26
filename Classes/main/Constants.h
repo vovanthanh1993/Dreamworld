@@ -47,10 +47,11 @@ namespace constants {
 		static const uint16_t CATEGORY_NPC = 0x1000;
 		static const uint16_t CATEGORY_BLOCK = 0x2000;
 		static const uint16_t CATEGORY_CLOUD = 0x4000;
+		static const uint16_t CATEGORY_LIMIT_MAP = 0x8000;
 
 		static const int TAG_PLAYER = 1;
 		static const int TAG_STICK = 2;
-		static const int TAG_ENEMY = 3;
+		static const int TAG_ACHER = 3;
 		static const int TAG_LIMIT = 4;
 		static const int TAG_WALL = 5;
 		static const int TAG_SLASH = 6;
@@ -71,9 +72,12 @@ namespace constants {
 		static const int TAG_SKULL = 21;
 		static const int TAG_BONE_RAIN = 22;
 		static const int TAG_COPY = 23;
-		static const int TAG_CLOUD = 24;
+		static const int TAG_EAGLE = 24;
 		static const int TAG_STICK_ITEM = 25;
 		static const int TAG_FIRE_RAIN = 26;
+		static const int TAG_WAR = 27;
+		static const int TAG_ELEMENT = 28;
+		
 
 		static const int MAX_HEALTH = 10;
 		static const int MAX_MANA = 10;

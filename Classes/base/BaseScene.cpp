@@ -1,16 +1,4 @@
 ﻿#include "BaseScene.h"
-#include "player/Player.h"
-#include "item/Heart.h"
-#include <string>
-#include <vector>
-#include "audio/include/AudioEngine.h"
-#include "map/Wall.h"
-#include "map/Limit.h"
-#include "scene/Map2Scene.h"
-#include "map/EndGate.h"
-#include "map/SizeLimit.h"
-#include "scene/boss/Boss1Scene.h"
-
 
 using namespace std;
 USING_NS_CC;
@@ -75,7 +63,7 @@ bool BaseScene::init(string bg, string bgMusic, string mapName, bool isMoveCamer
 
     // va cham
     contactListener = new MyContactListener(player, this, world);
-    contactListener->_bodyToSpriteMap = _bodyToSpriteMap;
+    contactListener->bodyToSpriteMap = bodyToSpriteMap;
     world->SetContactListener(contactListener);
 
 
@@ -88,12 +76,7 @@ bool BaseScene::init(string bg, string bgMusic, string mapName, bool isMoveCamer
 // update
 void BaseScene::update(float dt) {
     world->Step(dt, 8, 3); // Cập nhật thế giới Box2D
-
-    // Đồng bộ hóa vị trí sprite với vị trí body
-    Common::updatePosition(world, _bodyToSpriteMap);
-
-    player->updateMove();
-    player->updateSlashVector(dt);
+    Common::updatePosition(world, bodyToSpriteMap);
 
     if (isMoveCamera) {
         // Lấy Camera
@@ -130,16 +113,18 @@ void BaseScene::update(float dt) {
 
 void BaseScene::spawnObject() {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    item = new MapItem(world, this, _bodyToSpriteMap, map);
+    item = new MapItem(world, this, bodyToSpriteMap, map);
     item->spawnAll();
+
     // Spawn player
     auto playerLayer = map->getLayer("player");
     for (int x = 0; x < map->getMapSize().width; ++x) {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = playerLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
+                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
                 player->init(false);
+                break;
             }
         }
     }

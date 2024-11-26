@@ -6,9 +6,9 @@
 #include <iostream>
 #include <fstream>
 
-Player::Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) :BaseCharacter(world, scene, position, _bodyToSpriteMap) {
+Player::Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
 };
-void Player::init(bool isNew) {
+bool Player::init(bool isNew) {
     spriteNode = SpriteBatchNode::create("player/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("player/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Wukong-Idle_0.png");
@@ -38,19 +38,23 @@ void Player::init(bool isNew) {
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_PLAYER;
-    fixtureDef.filter.maskBits = Constants::CATEGORY_SLASH_ENEMY | Constants::CATEGORY_WALL| Constants::CATEGORY_ITEM| Constants::CATEGORY_CHEST| Constants::CATEGORY_ARROW | Constants::CATEGORY_BOX| Constants::CATEGORY_GEM; //  Không va chạm với CATEGORY_B
+    fixtureDef.filter.maskBits = Constants::CATEGORY_LIMIT_MAP|Constants::CATEGORY_SLASH_ENEMY | Constants::CATEGORY_WALL| Constants::CATEGORY_ITEM| Constants::CATEGORY_CHEST| Constants::CATEGORY_ARROW | Constants::CATEGORY_BOX| Constants::CATEGORY_GEM; //  Không va chạm với CATEGORY_B
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-
+    (*bodyToSpriteMap)[body] = sprite;
     // load from file
     loadPlayerDataInit(isNew);
     scene->addChild(uiNode, 10);
-    (*_bodyToSpriteMap)[body] = sprite;
     idle();
 
     initKeyEvent();
     initMouseEvent();
 
+    // Lên lịch gọi update mỗi frame
+    this->schedule([this](float dt) { this->update(dt); }, "player");
+    scene->addChild(this);
+
+    return true;
 }
 void Player::idle() {
     if (!isAlive) return;
@@ -90,38 +94,33 @@ void Player::jump() {
     sprite->runAction(repeatAnimate);
 }
 
-Slash* Player::hit() {
-    if (!isAlive) return nullptr;
-    
-    Slash* slash = nullptr;
+void Player::hit() {
+    if (!isAlive) return;
     float currentTime = Director::getInstance()->getTotalFrames() / 60.0f;
     // Kiểm tra nếu đang không tấn công hoặc đã qua thời gian chờ
     if ((currentTime - lastAttackTime >= attackCooldown)) {
         sprite->stopAllActions();
         lastAttackTime = currentTime; // Cập nhật thời gian của lần tấn công cuối
         auto animate = Animate::create(Common::createAnimation("Wukong-Hit_", 21, 0.013));
-        slash = new Slash();
         
         // Run animation with a callback
-        auto callback = [this, slash]() {
+        auto callback = [this]() {
             int check = 1;
             // check huong nhan vat
             if (sprite->getScaleX() < 0) {
                 check = -1;
             }
-
-            slash->init(world, scene, Vec2(sprite->getPositionX() + check * 100 * Constants::PLAYER_SCALE * Common::scaleSizeXY(), sprite->getPositionY()));
+            Slash* slash = new Slash(world, scene, Vec2(sprite->getPositionX() + check * 60 * Common::scaleSizeXY(), sprite->getPositionY()));
+            slash->init();
             auto sprite = slash->getSprite();
             sprite->setScaleX(check * Constants::STICK_SCALE * Common::scaleSizeX());
             };
 
-        
         auto callFunc = CallFunc::create(callback);
         auto sequence = Sequence::create(animate, callFunc, nullptr);
         sequence->setTag(4);
         sprite->runAction(sequence);
     }
-    return slash;
 }
 
 void Player::throwStick() {
@@ -129,23 +128,22 @@ void Player::throwStick() {
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("Wukong-Throw_", 20, 0.005));
     if (stickNum > 0) {
-        Stick* stick = new Stick();
+        
         int check = 1;
         // check huong nhan vat
         if (this->sprite->getScaleX() < 0) {
             check = -1;
         }
-
-        stick->init(world, scene, Vec2(sprite->getPositionX() + check * 10 * Constants::PLAYER_SCALE * Common::scaleSizeXY(), sprite->getPositionY()),
-            _bodyToSpriteMap);
+        Stick* stick = new Stick(world, scene, Vec2(sprite->getPositionX() + check * 10 * Common::scaleSizeXY(), sprite->getPositionY()), bodyToSpriteMap);
+        stick->init();
         stick->getSprite()->setScaleX(check * stick->getSprite()->getScale());
         b2Vec2 velocity(40 * check * Common::scaleSizeXY(), 0);
         stick->getBody()->SetLinearVelocity(velocity);
         updateStickNum(-1);
+        scene->addChild(stick);
     }
         animate->setTag(4);
-        sprite->runAction(animate);
-        
+        sprite->runAction(animate);  
 }
 
 
@@ -166,9 +164,8 @@ void Player::eagle() {
     int y = 0;
     int x = -100 * Common::scaleSizeX();
     for (int i = 1; i <= 3; i++) {
-        Eagle* eagle = new Eagle();
-        eagle->init(world, scene, Vec2(sprite->getPositionX() + check * x + check * 10 * Constants::PLAYER_SCALE * Common::scaleSizeXY(), sprite->getPositionY() + y),
-            _bodyToSpriteMap);
+        Eagle* eagle = new Eagle(world, scene, Vec2(sprite->getPositionX() + check * x + check * 10 * Common::scaleSizeXY(), sprite->getPositionY() + y), bodyToSpriteMap);
+        eagle->init();
         eagle->getSprite()->setScaleX(check * Constants::STICK_SCALE * Common::scaleSizeX());
         b2Vec2 velocity(30 * check * Common::scaleSizeXY(), 0);
         eagle->getBody()->SetLinearVelocity(velocity);
@@ -177,7 +174,6 @@ void Player::eagle() {
     }
     animate->setTag(4);
     sprite->runAction(animate);
-    (*_bodyToSpriteMap)[body] = sprite;
 }
 
 void Player::setHealth(int h) {
@@ -484,7 +480,8 @@ float Player::getMaxHealth() const {
     return maxHealth;
 }
 
-void Player::updateMove() {
+void Player::update(float dt) {
+
     if (scene->getChildByName("shop") == nullptr) {
         isEnable = true;
     }
@@ -514,10 +511,10 @@ void Player::updateMove() {
 
 void Player::actionKey(EventKeyboard::KeyCode keyCode) {
     if (isEnable) {
-        if (keyCode == (EventKeyboard::KeyCode::KEY_SPACE)) {
-            if (body->GetContactList() != nullptr) { // Kiểm tra xem có tiếp xúc với mặt đất không
-                jump();
-            }
+        if (keyCode == (EventKeyboard::KeyCode::KEY_SPACE) &&
+            (Common::isCollision(body, Constants::TAG_WALL) || Common::isCollision(body, Constants::TAG_BRIDGE) ||
+                Common::isCollision(body, Constants::TAG_BRIDGE_BREAK)|| Common::isCollision(body, Constants::TAG_BOX))) {
+            jump();
         }
         if (!isInVillage) {
             if (keyCode == (EventKeyboard::KeyCode::KEY_E)) {
@@ -537,30 +534,12 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
     }
 }
 
-void Player::updateSlashVector(float dt) {
-    // Cập nhật tất cả các slash
-    for (auto it = slashVector.begin(); it != slashVector.end(); ) {
-        (*it)->update(dt, scene);
-
-        if (!(*it)->IsVisible()) {
-            // Xóa sprite khỏi danh sách và bộ nhớ
-            delete* it;
-            it = slashVector.erase(it); // Loại bỏ sprite khỏi danh sách
-        }
-        else {
-            ++it;
-        }
-    }
-}
-
 // Mouse event
 void Player::initMouseEvent() {
     auto mouseListener = EventListenerMouse::create();
     mouseListener->onMouseDown = [=](Event* event) {
         if (isEnable && !isInVillage) {
-            Slash* slash = hit();
-            if (slash != nullptr)
-                slashVector.push_back(slash);
+            hit();
         }
         };
     scene->getEventDispatcher()->addEventListenerWithSceneGraphPriority(mouseListener, scene);

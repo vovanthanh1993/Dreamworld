@@ -1,6 +1,7 @@
 ﻿#include "FireRain.h"
+FireRain::FireRain(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {};
 
-void FireRain::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
+bool FireRain::init() {
     auto spriteNode = SpriteBatchNode::create("Enemy/Bossmap1/firerain/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Bossmap1/firerain/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("fire_rain_0.png");
@@ -40,8 +41,7 @@ void FireRain::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
-    (*_bodyToSpriteMap)[body] = sprite;
+    (*bodyToSpriteMap)[body] = sprite;
 
+    return true;
 }
-
-FireRain::FireRain(){}

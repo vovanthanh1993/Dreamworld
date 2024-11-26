@@ -23,18 +23,10 @@
  ****************************************************************************/
 #ifndef __Boss1Scene_H__
 #define __Boss1Scene_H__
-#include <string>
-#include "cocos2d.h"
-#include "box2d/Box2D.h"
-#include "main/MyContactListener.h"
 
-#include "player/Player.h"
 #include "base/BaseScene.h"
 #include "enemy/BossMap1.h"
 #include "scene/Map2Scene.h"
-#include "main/Common.h"
-#include "gui/Setting.h"
-#include "main/Constants.h"
 
 using namespace constants;
 using namespace common;
@@ -44,7 +36,7 @@ class Boss1Scene : public BaseScene
 {
 public:
     static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
-    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera) override;
+    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
 private:
         void update(float dt) override;
         BossMap1* bossmap1;

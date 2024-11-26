@@ -21,8 +21,15 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
+#ifndef __GameOver_H__
+#define __GameOver_H__
 
 #include "cocos2d.h"
+#include <string>
+#include <thread>
+#include "ui\CocosGUI.h"
+#include "scene/MenuScene.h"
+#include "VillageScene.h"
 using namespace cocos2d;
 
 class GameOver : public cocos2d::Scene
@@ -36,3 +43,5 @@ public:
     void quitGame(Ref* sender);
     CREATE_FUNC(GameOver);
 };
+
+#endif // __GameOver_H__

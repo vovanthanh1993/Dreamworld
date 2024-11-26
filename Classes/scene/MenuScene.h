@@ -21,34 +21,43 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
+#ifndef __MenuScene_H__
+#define __MenuScene_H__
 
 #include "cocos2d.h"
 #include "GUIScene.h"
 #include "gui/Setting.h"
+#include <string>
+#include <thread>
+#include "ui\CocosGUI.h"
+#include "VillageScene.h"
+#include "scene/Map2Scene.h"
+#include "scene/Map1Scene.h"
+#include "SettingScene.h"
+#include "ShopScene.h"
+#include "main/Common.h"
+#include "scene/boss/Boss1Scene.h"
+#include "scene/boss/Boss2Scene.h"
+#include "scene/Map3Scene.h"
 
 using namespace cocos2d;
-
+using namespace common;
+using namespace std;
 class MenuScene : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
-
     virtual bool init();
-    
-    // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
-
-    bool onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
-    void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
     void loadingbar();
     void update(float dt) override;
     void onClickMenuItem(Ref* sender);
     void zoomAction(Menu* item);
-    Sprite* sprite;
-    CREATE_FUNC(MenuScene);
     void setting(Ref* sender);
     void guide(Ref* sender);
     void shop(Ref* sender);
     Setting* settingInit = new Setting();
+    CREATE_FUNC(MenuScene);
 
 };
+#endif // __MenuScene_H__

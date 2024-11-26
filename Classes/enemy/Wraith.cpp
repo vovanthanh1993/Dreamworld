@@ -1,15 +1,14 @@
 ﻿#include "Wraith.h"
-#include "main/Effect.h"
-#include "skill/Rain.h"
-Wraith::Wraith(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) :BaseCharacter(world, scene, position, _bodyToSpriteMap) {
+
+Wraith::Wraith(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
 };
 
-void Wraith::init() {
+bool Wraith::init() {
     spriteNode = SpriteBatchNode::create("Enemy/Wraith/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Wraith/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Wraith_3_Idle_0.png");
     sprite->setScale(Constants::WRAITH_SCALE * Common::scaleSizeXY());
-    sprite->setTag(Constants::TAG_ENEMY);
+    sprite->setTag(Constants::TAG_ELEMENT);
 
     sprite->setPosition(position);
     spriteNode->addChild(sprite);
@@ -19,7 +18,6 @@ void Wraith::init() {
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
     bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
-    //bodyDef.bullet = true;
 
     body = world->CreateBody(&bodyDef);
     body->SetUserData(sprite);
@@ -39,9 +37,14 @@ void Wraith::init() {
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
     sprite->setScaleX(-Constants::WRAITH_SCALE * Common::scaleSizeXY());
-    (*_bodyToSpriteMap)[body] = sprite;
     idle();
-    
+
+    (*bodyToSpriteMap)[body] = sprite;
+
+    // Lên lịch gọi update mỗi frame
+    this->schedule([this](float dt) { this->update(dt); }, "wraith");
+    scene->addChild(this);
+    return true;
 }
 void Wraith::idle() {
     if (sprite != nullptr) {
@@ -69,17 +72,16 @@ void Wraith::hit() {
         auto callback2 = [this]() {
             int start = -50;
             for (int i = 1; i <= 11; i++) {
-                Rain* rain = new Rain();
+                
                 if (sprite != nullptr) {
                     int check = 1;
                     // check huong nhan vat
                     if (sprite->getScaleX() < 0) {
                         check = -1;
                     }
-
-                    rain->init(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), _bodyToSpriteMap);
+                    Rain* rain = new Rain(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), bodyToSpriteMap);
+                    rain->init();
                     rain->getSprite()->setScaleX(check * rain->getSprite()->getScale());
-
                     b2Vec2 velocity(start * Common::scaleSizeXY(), -20 * Common::scaleSizeXY());
                     rain->getBody()->SetLinearVelocity(velocity);
                     start += 10;
@@ -95,7 +97,7 @@ void Wraith::hit() {
         sprite->runAction(sequence);
     }
 }
-void Wraith::updateAttack(Player* player, float dt) {
+void Wraith::update(float dt) {
     // Cập nhật thời gian đã trôi qua
     if (body != nullptr) {
         timeSinceLastAttack += dt;
@@ -117,37 +119,35 @@ void Wraith::updateAttack(Player* player, float dt) {
     
 }
 
-void Wraith::die() {
-    b2Vec2 velocity(0, 0);
-    body->SetLinearVelocity(velocity);
-    sprite->stopAllActions();
-    auto animate = Animate::create(Common::createAnimation("Wraith_3_Dying_", 14, 0.05));
-    Effect::enemyDie();
-    // Lặp qua tất cả các fixture của body
-    for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
-        // Lấy dữ liệu bộ lọc hiện tại
-        b2Filter filter = fixture->GetFilterData();
-
-        // Cập nhật categoryBits và maskBits
-        filter.categoryBits = Constants::CATEGORY_ENEMY;
-        filter.maskBits = Constants::CATEGORY_WALL;
-
-        // Thiết lập lại dữ liệu bộ lọc
-        fixture->SetFilterData(filter);
-    }
-
-
-    auto callback = [this]() {
-        if (sprite != nullptr) {
-            sprite->removeFromParentAndCleanup(true);
-            Gem* gem = new Gem();
-            gem->init(world, scene, sprite->getPosition(), _bodyToSpriteMap, 1);
-            body->SetUserData(nullptr);
-            (*_bodyToSpriteMap).erase(body);
-            world->DestroyBody(body);
-        }
-        };
-    auto callFunc = CallFunc::create(callback);
-    auto sequence = Sequence::create(animate, callFunc, nullptr);
-    sprite->runAction(sequence);
-}
+//void Wraith::die() {
+//    b2Vec2 velocity(0, 0);
+//    body->SetLinearVelocity(velocity);
+//    sprite->stopAllActions();
+//    auto animate = Animate::create(Common::createAnimation("Wraith_3_Dying_", 14, 0.05));
+//    Effect::enemyDie();
+//    // Lặp qua tất cả các fixture của body
+//    for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
+//        // Lấy dữ liệu bộ lọc hiện tại
+//        b2Filter filter = fixture->GetFilterData();
+//
+//        // Cập nhật categoryBits và maskBits
+//        filter.categoryBits = Constants::CATEGORY_ENEMY;
+//        filter.maskBits = Constants::CATEGORY_WALL;
+//
+//        // Thiết lập lại dữ liệu bộ lọc
+//        fixture->SetFilterData(filter);
+//    }
+//
+//
+//    auto callback = [this]() {
+//        if (sprite != nullptr) {
+//            sprite->removeFromParentAndCleanup(true);
+//            Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, 1);
+//            body->SetUserData(nullptr);
+//            world->DestroyBody(body);
+//        }
+//        };
+//    auto callFunc = CallFunc::create(callback);
+//    auto sequence = Sequence::create(animate, callFunc, nullptr);
+//    sprite->runAction(sequence);
+//}

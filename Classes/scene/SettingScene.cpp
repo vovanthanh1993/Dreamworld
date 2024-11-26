@@ -21,14 +21,7 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-
-#include "VillageScene.h"
 #include "SettingScene.h"
-#include <string>
-#include <thread>
-#include "ui\CocosGUI.h"
-#include "scene/MenuScene.h"
-#include "gui/Setting.h"
 
 using namespace std;
 using namespace common;

@@ -1,14 +1,8 @@
 ﻿#include "skill/SlashEnemy.h"
 #include "main/Effect.h"
+SlashEnemy::SlashEnemy(b2World* world, Scene* scene, Vec2 position) :BaseNode(world, scene, position) {};
 
-Sprite* SlashEnemy::getSprite() {
-    return sprite;
-}
-
-b2Body* SlashEnemy::getBody() {
-    return body;
-}
-void SlashEnemy::init(b2World* world, Scene* scene, Vec2 position) {
+bool SlashEnemy::init() {
     Effect::playerSlash();
     sprite = Sprite::create("Slash.png");
     sprite->setPosition(position);
@@ -44,9 +38,15 @@ void SlashEnemy::init(b2World* world, Scene* scene, Vec2 position) {
     // Thoi gian khoi tao
     visible = true;
     startTime = std::chrono::steady_clock::now();
+
+    // Lên lịch gọi update mỗi frame
+    this->schedule([this](float dt) { this->update(dt); }, "SlashEnemy");
+    scene->addChild(this);
+
+    return true;
 }
 
-void SlashEnemy::update(Scene* scene) {
+void SlashEnemy::update(float dt) {
     if (visible) {
         auto now = std::chrono::steady_clock::now();
         std::chrono::duration<float> elapsed = now - startTime;
@@ -54,13 +54,21 @@ void SlashEnemy::update(Scene* scene) {
         if (elapsed.count() >= duration) {
             if (sprite != nullptr) {
                 visible = false;
-                // Xóa dữ liệu người dùng (Sprite) khỏi hệ thống đồ họa
-                Sprite* s = static_cast<Sprite*>(body->GetUserData());
-                body->GetWorld()->DestroyBody(body);
-                // Xóa sprite khỏi thế giới Box2D
-                sprite->removeFromParentAndCleanup(true);
-            }
 
+                // Hủy body Box2D nếu nó tồn tại
+                if (body)
+                {
+                    world->DestroyBody(body);
+                    body = nullptr; // Đảm bảo body không còn trỏ tới bất kỳ bộ nhớ nào
+                }
+
+                // Xóa sprite nếu nó tồn tại
+                if (sprite)
+                {
+                    sprite->removeFromParentAndCleanup(true); // Xóa node Cocos2d
+                    sprite = nullptr; // Đảm bảo sprite không còn trỏ tới bất kỳ bộ nhớ nào
+                }
+            }
         }
     }
 }

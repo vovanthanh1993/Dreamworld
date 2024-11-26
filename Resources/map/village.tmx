@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="320" height="180" tilewidth="24" tileheight="24" infinite="0" nextlayerid="13" nextobjectid="8">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="320" height="180" tilewidth="24" tileheight="24" infinite="0" nextlayerid="14" nextobjectid="9">
  <tileset firstgid="1" name="sprites" tilewidth="24" tileheight="24" tilecount="7225" columns="85">
   <image source="sprites.png" width="2048" height="2048"/>
  </tileset>
@@ -8,6 +8,9 @@
    eJzt2uVum2cYgGE7TRnSJGWGndOY2zHzzmnQ8crMsFPaHWlTuv5p7UyzvFyXdP/zo/f7LOuRLL2DAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABP4sz8YHC2ztX5ulAX61Jdrit1ta7V9bpRN+tW3a47dbfu1f16UH/MT/qtAB5vbmEw2F7ztVCLtaN21q7aXXtqb+2r/XWgDtahOlxH6mgdq+P11MKk3wrg8U60q07WG/VmvVVv1zv1br1X79cH9WF9VB/XJ/VpfVaf1xf1ZX1VX9t/wBQ43a46U2frXJ2vC3WxLtXlulJX61pdrxt1s27V7bpTd+te3a8H9h8wBbYt9h+4ttd8LdRi7aidtat2157aW/tqfx2og3WoDteROlrH6vjipN8KAAAA/l/c3wFWK/d3gNXK/R1gtXJ/B1it3N8BAAAAAAAAAAAAAAAAAAAAAKbVTK2p2Vpb62p9baiNtak215baWttqroYrmJ0dc3bcuZWcuZLZcb+jlXy3kzhz+wCm09P1TD1bz9Xz9UK9WC/Vy/VKvVqv1et/ffbvJjG7Wp53Gp71RJ0cwHT6pr6t7+r7OlU/1I/1U/1cv9Sv9Vv9XrMzy01idtS5NTPLPens0mcfnV1qnHNX8ryjzJ0aLjfqmePOna4zA5hOw37zM7WmZmttrav1taE21qbaXFuG/9xfS40yu3X478yOOvfwPhll9tHdN+65/9Xcw/tvlNlx55bO3FZzw0n/imE8fwKs4Agm
   </data>
  </layer>
+ <objectgroup id="13" name="limitmap">
+  <object id="8" x="-7" y="3294.66" width="9.66667" height="1077.33"/>
+ </objectgroup>
  <layer id="6" name="npc1" width="320" height="180" opacity="0.82">
   <data encoding="base64" compression="zlib">
    eJztzgENAAAIA6DP/lnMaAyngwQkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAV13bAwAAAAAAAIBbBrzXALE=
@@ -36,11 +39,10 @@
    eJztzgENAAAIA6DPmvbvYQyngwQkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADANV3bAwAAAAAAAICfBkIgAF4=
   </data>
  </layer>
- <objectgroup id="2" name="wall" opacity="0">
+ <objectgroup id="2" name="wall" opacity="0.69">
   <object id="2" x="2" y="4247" width="3479" height="73"/>
   <object id="4" x="35" y="3646.5" width="460.5" height="71.5"/>
   <object id="5" x="1185.5" y="3815" width="461" height="72.5"/>
-  <object id="7" x="-12.1212" y="2821.21" width="18.1818" height="1454.55"/>
  </objectgroup>
  <layer id="12" name="player" width="320" height="180" opacity="0">
   <data encoding="base64" compression="zlib">

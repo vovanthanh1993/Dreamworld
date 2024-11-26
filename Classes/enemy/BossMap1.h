@@ -1,17 +1,21 @@
 ﻿#pragma once
+#ifndef __BossMap1_H__
+#define __BossMap1_H__
+
 #include "cocos2d.h"
 #include "main/Common.h"
 #include "player/Player.h"
-#include "skill/SlashEnemy.h"
 #include "skill/Fire.h"
 #include "skill/FireRain.h"
 #include "item/Gem.h"
 #include "main/Constants.h"
+#include "main/Effect.h"
+#include "base/BaseNode.h"
 
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
-class BossMap1:public BaseCharacter
+class BossMap1:public BaseNode
 {
 private:
 	float attackCooldown =1.5f;  // Thời gian chờ giữa các đợt tấn công
@@ -24,21 +28,23 @@ private:
 	cocos2d::Sprite* healthBarBg; // Sprite cho nền thanh máu
 	bool isHit = false;
 public:
-	void init();
+	bool init();
 	void walk();
 	void idle();
 	void die();
 	void hit();
-	void updateAttack(Player* player, float dt);
+	void update(float dt);
 	void setHealth(int h);
 	int getHealth();
-	bool isALive = true;
 	void phase2();
 	void updateHealth(int damage);
 	void updateHealthBar(float health);
 	void createHealthBar();
 	void updateHealthBarPosition();
 	void hurt();
-	BossMap1(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap);
+	BossMap1(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	Player* player;
+	bool isALive = true;
 };
 
+#endif // __BossMap1_H__

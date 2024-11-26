@@ -1,11 +1,11 @@
 ﻿#include "NPCMonkey.h"
+NPCMonkey::NPCMonkey(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+};
 
-
-NPCMonkey::NPCMonkey(b2World* world, Scene* scene, Vec2 position,  unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
+bool NPCMonkey::init() {
     spriteNode = SpriteBatchNode::create("npc/NPCMonkey/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("npc/NPCMonkey/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("MonkeyNPCRun_0.png");
-    //sprite->setScale(0.25 * Constants::scaleSprite());
     Common::scaleAll(sprite, 0.03);
     sprite->setTag(Constants::TAG_NPC);
     
@@ -19,7 +19,6 @@ NPCMonkey::NPCMonkey(b2World* world, Scene* scene, Vec2 position,  unordered_map
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
     bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
-    //bodyDef.bullet = true;
 
     body = world->CreateBody(&bodyDef);
     body->SetUserData(sprite);
@@ -35,14 +34,16 @@ NPCMonkey::NPCMonkey(b2World* world, Scene* scene, Vec2 position,  unordered_map
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_NPC;
     fixtureDef.filter.maskBits = Constants::CATEGORY_WALL | Constants::CATEGORY_LIMIT;
+
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     b2Vec2 velocity(Constants::SPEED_ENEMY* Common::scaleSizeXY(), 0);
     body->SetLinearVelocity(velocity);
-    //sprite->setScaleX(-Constants::NPC_SCALE* Constants::scaleSprite());
     sprite->setScaleX(-sprite->getScale());
-    (*_bodyToSpriteMap)[body] = sprite;
+    (*bodyToSpriteMap)[body] = sprite;
     walk();
+
+    return true;
 }
 
 void NPCMonkey::walk() {

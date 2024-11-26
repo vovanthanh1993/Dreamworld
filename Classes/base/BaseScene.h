@@ -33,6 +33,8 @@
 #include "gui/Setting.h"
 #include "item/MapItem.h"
 #include "main/Constants.h"
+#include <vector>
+#include "audio/include/AudioEngine.h"
 
 using namespace constants;
 using namespace common;
@@ -42,7 +44,7 @@ class BaseScene : public cocos2d::Scene
 {
 public:
     static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
-    virtual bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
+    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
     BaseScene();  // Constructor
     ~BaseScene(); // Destructor
 
@@ -50,7 +52,6 @@ protected:
     bool isEnable = true;
     b2World* world;
     void update(float dt) override;
-    std::unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap = new unordered_map<b2Body*, Sprite*>();
     TMXTiledMap* map;
     MyContactListener* contactListener;
     float time = 1.0 / 60.0f;
@@ -61,6 +62,7 @@ protected:
     b2Body* boundaryBodyEnd;
     MapItem* item;
     bool isMoveCamera;
+    unordered_map<b2Body*, Sprite*>* bodyToSpriteMap = new unordered_map<b2Body*, Sprite*>();
 };
 
 #endif // __BASE_SCENE_H__

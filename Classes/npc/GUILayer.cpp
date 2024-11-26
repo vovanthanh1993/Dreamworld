@@ -1,5 +1,4 @@
 ﻿#include "GUILayer.h"
-#include "main/Effect.h"
 
 USING_NS_CC;
 

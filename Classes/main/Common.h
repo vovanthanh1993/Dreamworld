@@ -21,7 +21,7 @@ namespace common {
 		static Vec2 scalePos(Vec2 pos);
 		static void updatePosition(b2World* world, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap);
 		static void destroyObject(b2World* world, b2Body* body, unordered_map<b2Body*, Sprite*>& _bodyToSpriteMap);
-		
+				
 		static int randomNum(int from, int to);
 		static void togglePause(bool& isPaused, Scene* scene);
 		static void zoomAction(MenuItemImage* item);
@@ -35,6 +35,8 @@ namespace common {
 		static b2Body* createBoundary(b2World* world, bool isFirst);
 		static void zoomAction(Sprite* item);
 		static Vec2 getCenter();
+		static bool isCollision(b2Body* body, int compareTag);
+		static void spawnGem(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap, int num);
 
 		template <typename T>
 		static void scaleAll(T* node, float ratio) {

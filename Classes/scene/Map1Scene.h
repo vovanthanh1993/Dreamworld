@@ -21,19 +21,14 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-
-#include <string>
-#include "cocos2d.h"
-#include "box2d/Box2D.h"
-#include "main/MyContactListener.h"
-#include "player/Player.h"
+#ifndef __Map1Scene_H__
+#define __Map1Scene_H__
 #include "enemy/Warrior.h"
 #include "skill/SlashEnemy.h"
 #include "enemy/Acher.h"
 #include "base/BaseScene.h"
 #include "enemy/BossMap1.h"
-#include "main/Common.h"
-#include "main/Constants.h"
+#include "scene/boss/Boss1Scene.h"
 
 using namespace constants;
 using namespace common;
@@ -43,13 +38,10 @@ class Map1Scene : public BaseScene
 {
 public: 
     static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
-    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera) override;
+    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
 private:
     void spawnObject();
-    vector<SlashEnemy*> slashEnemyVector;
-    vector<Warrior*>* warriorVector = new std::vector<Warrior*>();
-    vector<Acher*>* acherVector = new std::vector<Acher*>();
     void update(float dt) override;
 };
 
-
+#endif // __Map1Scene_H__

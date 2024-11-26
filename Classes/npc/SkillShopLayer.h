@@ -1,8 +1,11 @@
 ﻿
+#ifndef __SkillShopLayer_H__
+#define __SkillShopLayer_H__
 
 #include "cocos2d.h"
 #include "player/Player.h"
 
+USING_NS_CC;
 class SkillShopLayer : public cocos2d::Layer {
 public:
     CREATE_FUNC(SkillShopLayer); // Macro tạo lớp
@@ -16,3 +19,4 @@ private:
     void purchaseEyesSkill(cocos2d::Ref* sender);
 
 };
+#endif // __SkillShopLayer_H__

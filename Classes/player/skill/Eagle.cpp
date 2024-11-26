@@ -1,7 +1,8 @@
 ﻿#include "Eagle.h"
 #include "main/Effect.h"
-void Eagle::init(b2World* world, Scene* scene, Vec2 position,
-    unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
+Eagle::Eagle(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {}
+
+bool Eagle::init() {
 
     auto spriteNode = SpriteBatchNode::create("player/skill/bear/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("player/skill/bear/sprites.plist");
@@ -10,7 +11,7 @@ void Eagle::init(b2World* world, Scene* scene, Vec2 position,
     sprite->setScale(0.5 * Common::scaleSizeXY());
     spriteNode->addChild(sprite);
 
-    sprite->setTag(Constants::TAG_CLOUD);
+    sprite->setTag(Constants::TAG_EAGLE);
     scene->addChild(spriteNode);
     auto animateW = Animate::create(Common::createAnimation("Animal_02__FLY_", 9, 0.06));
     animateW->retain();
@@ -32,7 +33,7 @@ void Eagle::init(b2World* world, Scene* scene, Vec2 position,
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
-    fixtureDef.density = 100.f;
+    fixtureDef.density = 0.001f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_STICK;
@@ -41,5 +42,6 @@ void Eagle::init(b2World* world, Scene* scene, Vec2 position,
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
-    (*_bodyToSpriteMap)[body] = sprite;
+    (*bodyToSpriteMap)[body] = sprite;
+    return true;
 }

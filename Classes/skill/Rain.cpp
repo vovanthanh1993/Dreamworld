@@ -1,30 +1,18 @@
 ﻿#include "skill/Rain.h"
+Rain::Rain(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) : BaseNode(world, scene, position, bodyToSpriteMap) {};
 
-void Rain::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
-    /*auto spriteNode = SpriteBatchNode::create("Enemy/Bossmap1/fire/sprites.png");
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Bossmap1/fire/sprites.plist");
-    sprite = Sprite::createWithSpriteFrameName("9.png");*/
+bool Rain::init() {
     sprite = Sprite::create("Enemy/Bossmap1/rain/rain.png");
     sprite->setPosition(position);
     sprite->setScale(Constants::HAFL_SCALE * Common::scaleSizeXY());
-    //sprite->setAnchorPoint(Vec2(0, 0));
     sprite->setTag(Constants::TAG_RAIN);
-
-   /* auto animateW = Animate::create(Constants::createAnimation("", 27, 0.1));
-    animateW->retain();
-    sprite->runAction(RepeatForever::create(animateW));*/
-    
     scene->addChild(sprite);
 
-    
-    
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
     bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
     bodyDef.bullet = true;
-
-   
     body = world->CreateBody(&bodyDef);
     body->SetUserData(sprite);
 
@@ -43,8 +31,7 @@ void Rain::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Bod
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
-    (*_bodyToSpriteMap)[body] = sprite;
+    (*bodyToSpriteMap)[body] = sprite;
 
+    return true;
 }
-
-Rain::Rain(){}

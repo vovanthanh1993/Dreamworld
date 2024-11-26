@@ -21,12 +21,8 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-#include "VillageScene.h"
 #include "GameOver.h"
-#include <string>
-#include <thread>
-#include "ui\CocosGUI.h"
-#include "scene/MenuScene.h"
+
 using namespace std;
 USING_NS_CC;
 
@@ -90,7 +86,7 @@ bool GameOver::init()
 
 void GameOver::restartCallback(Ref* sender) {
 
-    auto scene = VillageScene::createScene();
+    auto scene = VillageScene::createScene("map/bglv1.png", "sound/background2.mp3", "village", false);
     Director::getInstance()->replaceScene(TransitionFade::create(0.5, scene));
 }
 

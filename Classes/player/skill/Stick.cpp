@@ -1,7 +1,8 @@
 ﻿#include "player/skill/Stick.h"
 #include "main/Effect.h"
-void Stick::init(b2World* world, Scene* scene, Vec2 position, 
-    unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
+Stick::Stick(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap):BaseNode(world, scene, position, bodyToSpriteMap) {}
+
+bool Stick::init() {
     Effect::playerSlash();
     sprite = Sprite::create("Stick.png");
     sprite->setPosition(position);
@@ -25,7 +26,7 @@ void Stick::init(b2World* world, Scene* scene, Vec2 position,
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
-    fixtureDef.density = 0.01f;
+    fixtureDef.density = 0.001f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_STICK;
@@ -34,6 +35,7 @@ void Stick::init(b2World* world, Scene* scene, Vec2 position,
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
-    (*_bodyToSpriteMap)[body] = sprite;
+    (*bodyToSpriteMap)[body] = sprite;
+
+    return true;
 }
-Stick::Stick(){}

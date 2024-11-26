@@ -1,5 +1,7 @@
-﻿#include "skill/Arrow.h"
-void Arrow::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
+﻿#include "Arrow.h"
+Arrow::Arrow(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {};
+
+bool Arrow::init() {
     sprite = Sprite::create("Enemy/Acher/arrow.png");
     sprite->setPosition(position);
     sprite->setScale(Constants::ARROW_SCALE * Common::scaleSizeXY());
@@ -31,6 +33,6 @@ void Arrow::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Bo
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
-    (*_bodyToSpriteMap)[body] = sprite;
+    (*bodyToSpriteMap)[body] = sprite;
+    return true;
 }
-Arrow::Arrow() {};

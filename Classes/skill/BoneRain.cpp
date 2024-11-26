@@ -1,5 +1,7 @@
 ﻿#include "BoneRain.h"
-void BoneRain::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
+BoneRain::BoneRain(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {};
+
+bool BoneRain::init() {
     sprite = Sprite::create("Enemy/Bossmap2/BoneRain/bonerain.png");
     sprite->setPosition(position);
     sprite->setScale(Constants::BONE_SCALE * Common::scaleSizeXY());
@@ -31,8 +33,6 @@ void BoneRain::init(b2World* world, Scene* scene, Vec2 position, unordered_map<b
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
-    (*_bodyToSpriteMap)[body] = sprite;
-
+    (*bodyToSpriteMap)[body] = sprite;
+    return true;
 }
-
-BoneRain::BoneRain(){}

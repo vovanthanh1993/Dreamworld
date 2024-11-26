@@ -1,9 +1,4 @@
 ﻿#include "Boss1Scene.h"
-#include "player/Player.h"
-#include <string>
-#include <vector>
-#include "audio/include/AudioEngine.h"
-#include "scene/Map2Scene.h"
 
 using namespace std;
 USING_NS_CC;
@@ -40,8 +35,6 @@ void Boss1Scene::update(float dt) {
     //-------------------CAP NHAT LAI SPRITE--------------------------
     // Boss map 1
     if (bossmap1->isALive) {
-        bossmap1->updateAttack(player, dt);
-        bossmap1->updateHealthBarPosition();
         AudioEngine::setVolume(settingInit->getBgMusicId(), settingInit->getVolume());
     }
     else {
@@ -59,7 +52,7 @@ void Boss1Scene::update(float dt) {
 
 void Boss1Scene::spawnObject() {
     //BaseScene::spawnObject();
-    item = new MapItem(world, this, _bodyToSpriteMap, map);
+    item = new MapItem(world, this, bodyToSpriteMap, map);
     item->spawnWallAndLimit();
     item->spawnEndGate();
 
@@ -70,8 +63,9 @@ void Boss1Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = playerLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
+                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
                 player->init(false);
+                break;
             }
         }
     }
@@ -81,7 +75,8 @@ void Boss1Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = bossLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                bossmap1 = new BossMap1(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
+                bossmap1 = new BossMap1(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
+                bossmap1->player = player;
                 bossmap1->init();
                 break;
             }

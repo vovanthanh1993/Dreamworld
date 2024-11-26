@@ -14,7 +14,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         int tagA = spriteA->getTag();
         int tagB = spriteB->getTag();
 
-        // Tag BOx
+        // Tag Box
         if (tagA == Constants::TAG_BOX && tagB == Constants::TAG_WALL) {
             bodyA->SetLinearVelocity(b2Vec2_zero);
         }
@@ -28,69 +28,53 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             if (tagB != Constants::TAG_WALL && tagB != Constants::TAG_BRIDGE_BREAK) {
                 player->addMana(1);
             }
-            if (tagB == Constants::TAG_ENEMY) bodiesToRemove.insert(bodyB);
-            if (tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
-            if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
+            if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->die();
+            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->die();
+            else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
+            else if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
             
         }
         if (tagB == Constants::TAG_STICK) {
+            bodiesToRemove.insert(bodyB);
             if (tagA != Constants::TAG_WALL && tagA!=Constants::TAG_BRIDGE_BREAK) {
                 player->addMana(1);
             }
-            bodiesToRemove.insert(bodyB);
-            if (tagA == Constants::TAG_ENEMY) bodiesToRemove.insert(bodyA);
-            if (tagA == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
-            if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
+            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->die();
+            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->die();
+            else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
+            else if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
         }
 
         // Huy ban sao
-        if (tagA == Constants::TAG_COPY) {
+        if (tagA == Constants::TAG_EAGLE) {
             bodiesToRemove.insert(bodyA);
-            if (tagB == Constants::TAG_ENEMY) bodiesToRemove.insert(bodyB);
-            if (tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
-            if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
+            if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->die();
+            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->die();
+            else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
+            else if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
 
         }
-        if (tagB == Constants::TAG_COPY) {
+        if (tagB == Constants::TAG_EAGLE) {
             bodiesToRemove.insert(bodyB);
-            if (tagA == Constants::TAG_ENEMY) bodiesToRemove.insert(bodyA);
-            if (tagA == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
-            if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
+            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->die();
+            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->die();
+            else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
+            else if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
         }
-
-        // Huy cloud
-        if (tagA == Constants::TAG_CLOUD) {
-            bodiesToRemove.insert(bodyA);
-            if (tagB == Constants::TAG_ENEMY) bodiesToRemove.insert(bodyB);
-            
-            if (tagB == Constants::TAG_BOSSMAP1) {
-                bossmap1->updateHealth(1);
-            } 
-            if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
-
-        }
-        if (tagB == Constants::TAG_CLOUD) {
-            bodiesToRemove.insert(bodyB);
-            if (tagA == Constants::TAG_ENEMY) bodiesToRemove.insert(bodyA);
-           
-           
-            if (tagA == Constants::TAG_BOSSMAP1) {
-                bossmap1->updateHealth(1);
-            }
-            if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
-        }
-
 
         // chem trung ke dich
         if (tagA == Constants::TAG_SLASH || tagB == Constants::TAG_SLASH) {
             player->addMana(1);
-            if (tagA == Constants::TAG_ENEMY)  bodiesToRemove.insert(bodyA);
-            if (tagB == Constants::TAG_ENEMY) bodiesToRemove.insert(bodyB);
+            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->die();
+            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->die();
+            else if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->die();
+            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->die();
+
             if (tagA == Constants::TAG_BOSSMAP1 || tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
             if (tagA == Constants::TAG_BOSSMAP2 || tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
         }
 
-        // Huy arrow, xu ly phong trung ke dich
+        // Huy arrow, xu ly phong trung player
         if (tagA == Constants::TAG_ARROW) {
             bodiesToRemove.insert(bodyA);
             if (tagB == Constants::TAG_PLAYER) {
@@ -119,8 +103,6 @@ void MyContactListener::BeginContact(b2Contact* contact) {
                 player->getDamage(3);
             }
         }
-
-
 
         // Huy rain
         if (tagA == Constants::TAG_FIRE|| tagA == Constants::TAG_RAIN || tagA == Constants::Constants::TAG_BONE_RAIN || tagA == Constants::TAG_FIRE_RAIN) {
@@ -154,13 +136,13 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         }
 
         // check enemy and limit
-        if (tagB == Constants::TAG_ENEMY && tagA == Constants::TAG_LIMIT) {
+        if (tagB == Constants::TAG_WAR && tagA == Constants::TAG_LIMIT) {
             // Lấy vận tốc hiện tại của đối tượng
-            int* storedData = static_cast<int*>(spriteB->getUserData());
-            *storedData = -*storedData;
-            bodyB->SetLinearVelocity(b2Vec2(*storedData * -Constants::SPEED_ENEMY * Common::scaleSizeXY(), 0));
-            spriteB->setScaleX(*storedData * Constants::WARRIOR_SCALE * Common::scaleSizeXY());
-            spriteB->setUserData(storedData);
+            Warrior* w = static_cast<Warrior*>(spriteB->getUserData());
+            w->direction *= -1;
+            bodyB->SetLinearVelocity(b2Vec2(w->direction * -Constants::SPEED_ENEMY * Common::scaleSizeXY(), 0));
+            spriteB->setScaleX(w->direction * Constants::WARRIOR_SCALE * Common::scaleSizeXY());
+            
         }
 
         // check npc and limit
@@ -173,7 +155,6 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             spriteB->setScaleX(*storedData * spriteB->getScale());
             spriteB->setUserData(storedData);
         }
-
 
         // check boss and limit
         if (tagB == Constants::TAG_BOSSMAP1 && tagA == Constants::TAG_LIMIT) {
@@ -241,7 +222,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         }
 
         // Qua man 2
-        if (tagA == Constants::TAG_PORT && tagB == Constants::TAG_PLAYER || tagA == Constants::TAG_PLAYER&& tagB == Constants::TAG_PORT) {
+        if (tagA == Constants::TAG_PORT && tagB == Constants::TAG_PLAYER || tagA == Constants::TAG_PLAYER && tagB == Constants::TAG_PORT) {
             // Khởi tạo scene mới
             isNext = true;
         }
@@ -252,78 +233,43 @@ void MyContactListener::BeginContact(b2Contact* contact) {
 // Phương thức để xóa đối tượng
 void MyContactListener::removeObject() {
     for (b2Body* body : bodiesToRemove) {
-        if (body) {
+
+            // Xóa dữ liệu người dùng (Sprite) khỏi hệ thống đồ họa
+            Sprite* sprite = static_cast<Sprite*>(body->GetUserData());
+            int tag = sprite->getTag();
+            Vec2 pos = sprite->getPosition();
+            if (Constants::TAG_STICK == tag) {
+                Effect::destroyStick(world, scene, sprite->getPosition());
+            } else if (Constants::TAG_EAGLE == tag) {
+                Effect::smoke(world, scene, pos);
+            }
+            else if (Constants::TAG_ARROW == tag) {
+                Effect::destroyArrow(world, scene, sprite->getPosition());
+            } else if (Constants::TAG_FIRE == tag) {
+                Effect::destroyFireRain(world, scene, Vec2(sprite->getPositionX() + sprite->getScaleX() * sprite->getContentSize().width / 2, sprite->getPositionY()));
+            }
+            else if (Constants::TAG_CHEST == tag) {
+                Common::spawnGem(world, scene, pos, bodyToSpriteMap, Common::randomNum(3, 10));
+                Effect::chest();
+            }
+            else if (Constants::TAG_RAIN == tag) {
+                Effect::destroyRain(world, scene, pos);
+            }
+            else if (Constants::TAG_BONE_RAIN == tag) {
+                Effect::smoke(world, scene, pos);
+            }
+            else if (Constants::TAG_FIRE_RAIN == tag) {
+                Effect::destroyFireRain(world, scene, pos);
+            }
+            else if (Constants::TAG_SKULL == tag) {
+                Effect::smoke(world, scene, pos);
+            }
+            (*bodyToSpriteMap).erase(body);
+            world->DestroyBody(body);
+            body = nullptr;
+            sprite->removeFromParentAndCleanup(true);
+            sprite = nullptr;
             
-            int check = 0;
-            // Xoa khoi danh sach warrior
-            for (auto it = warriorVector->begin(); it != warriorVector->end(); ) {
-                if ((*it)->getBody() == body) {
-                    
-                    (*it)->die();
-                    //delete* it;
-                    it = warriorVector->erase(it); // Loại bỏ sprite khỏi danh sách
-                    check = 1;
-                }
-                else {
-                    ++it;
-                }
-            }
-            // Xoa khoi danh sach acher
-            for (auto it = acherVector->begin(); it != acherVector->end(); ) {
-                if ((*it)->getBody() == body) {
-                    (*it)->die();
-                    // Xóa sprite khỏi danh sách và bộ nhớ
-                    //delete* it;
-                    it = acherVector->erase(it); // Loại bỏ sprite khỏi danh sách
-                    check = 1;
-                }
-                else {
-                    ++it;
-                }
-            }
-
-            if (check == 0) {
-                // Xóa dữ liệu người dùng (Sprite) khỏi hệ thống đồ họa
-                Sprite* sprite = static_cast<Sprite*>(body->GetUserData());
-                if (Constants::TAG_STICK == sprite->getTag()) {
-                    Effect::destroyStick(world, scene, sprite->getPosition());
-                } else if (Constants::TAG_CLOUD == sprite->getTag()) {
-                    Effect::smoke(world, scene, sprite->getPosition());
-                }
-                else if (Constants::TAG_ARROW == sprite->getTag()) {
-                    Effect::destroyArrow(world, scene, sprite->getPosition());
-                } else if (Constants::TAG_FIRE == sprite->getTag()) {
-                   // Effect::destroyFire(world, scene, Vec2(sprite->getPositionX() + sprite->getScaleX() * sprite->getContentSize().width/2, sprite->getPositionY()));
-                    Effect::destroyFireRain(world, scene, Vec2(sprite->getPositionX() + sprite->getScaleX() * sprite->getContentSize().width / 2, sprite->getPositionY()));
-                }
-                else if (Constants::TAG_CHEST == sprite->getTag()) {
-                    Gem* gem = new Gem();
-                    gem->init(world, scene, sprite->getPosition(), _bodyToSpriteMap, Common::randomNum(3,10));
-                    Effect::chest();
-                }
-                else if (Constants::TAG_RAIN == sprite->getTag()) {
-                    Effect::destroyRain(world, scene, sprite->getPosition());
-                }
-                else if (Constants::TAG_BONE_RAIN == sprite->getTag()) {
-                    Effect::smoke(world, scene, sprite->getPosition());
-                }
-                else if (Constants::TAG_FIRE_RAIN == sprite->getTag()) {
-                    Effect::destroyFireRain(world, scene, sprite->getPosition());
-                }
-                else if (Constants::TAG_SKULL == sprite->getTag()) {
-                    Effect::smoke(world, scene, sprite->getPosition());
-                }
-
-                if (sprite) {
-                    sprite->removeFromParentAndCleanup(true);
-                    body->SetUserData(nullptr);
-                }
-                (*_bodyToSpriteMap).erase(body); // Xóa body khỏi ánh xạ
-                // Xóa body khỏi thế giới Box2D
-                world->DestroyBody(body);
-                
-            }
-        }
     }
     // Xóa danh sách body đã xóa
     bodiesToRemove.clear();

@@ -5,23 +5,27 @@
 #include "skill/Arrow.h"
 #include "item/Gem.h"
 #include "main/Constants.h"
+#include "main/Effect.h"
+#include "base/BaseNode.h"
 
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
-class Acher: public BaseCharacter
+class Acher: public BaseNode
 {
 private:
 	float attackCooldown = 2.5f;  // Thời gian chờ giữa các đợt tấn công
 	float timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
 	bool canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
+	bool isAlive = true;
 public:
-	Acher(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap);
-	void init();
+	Acher(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	bool init();
 	void walk();
 	void idle();
-	Arrow* hit();
-	void updateAttack(Player* player, float dt);
+	void hit();
+	void update(float dt);
 	void die();
+	Player* player;
 };
 

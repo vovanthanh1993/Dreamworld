@@ -8,7 +8,7 @@
 using namespace common;
 using namespace cocos2d;
 using namespace std;
-class BaseCharacter
+class BaseCharacter: public Node
 {
 protected:
 	Sprite* sprite;

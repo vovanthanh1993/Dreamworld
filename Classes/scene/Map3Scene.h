@@ -24,26 +24,13 @@
 
 #ifndef __Map3Scene_H__
 #define __Map3Scene_H__
-#include <string>
-#include "cocos2d.h"
-#include "box2d/Box2D.h"
-#include "main/MyContactListener.h"
-#include "main/Common.h"
-#include "player/Player.h"
 #include "enemy/Warrior.h"
-#include "player/skill/Stick.h"
 #include "skill/SlashEnemy.h"
-#include "item/Chest.h"
-#include "Item/heart.h"
 #include "enemy/Acher.h"
-#include "map/Bridge.h"
-#include "map/BridgeBreak.h"
-#include "map/Box.h"
-#include "enemy/BossMap2.h"
-#include "enemy/Wraith.h"
 #include "enemy/Elemental.h"
-#include "gui/Setting.h"
-#include "main/Constants.h"
+#include "item/Port.h"
+#include "enemy/Wraith.h"
+#include "VillageScene.h"
 
 using namespace constants;
 using namespace common;
@@ -67,7 +54,7 @@ private:
         }
         void update(float dt) override;
         
-        std::unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap = new unordered_map<b2Body*, Sprite*>();
+        std::unordered_map<b2Body*, Sprite*>* bodyToSpriteMap = new unordered_map<b2Body*, Sprite*>();
         
         TMXTiledMap* map;
         MyContactListener* contactListener;
@@ -77,7 +64,6 @@ private:
         std::vector<Slash*> slashVector;
         std::vector<SlashEnemy*> slashEnemyVector;
         std::vector<Warrior*>* warriorVector = new std::vector<Warrior*>();
-        std::vector<Heart*> heartVector;
         std::vector<Elemental*>* elementalVector = new std::vector<Elemental*>();
         std::vector<Wraith*>* wraithVector = new std::vector<Wraith*>();
         BossMap2* bossmap2;

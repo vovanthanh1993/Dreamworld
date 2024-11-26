@@ -5,14 +5,14 @@
 #include <thread>
 #include <chrono>
 #include "player/skill/Slash.h"
-#include <base/BaseCharacter.h>
+#include "base/BaseNode.h"
 #include "main/Constants.h"
 
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
 using namespace std;
-class Player : public BaseCharacter
+class Player : public BaseNode
 {
 private:
 	float health = Constants::MAX_HEALTH;
@@ -37,8 +37,8 @@ public:
 	void die();
 	void idle();
 	void jump();
-	Slash* hit();
-	void init(bool isNew);
+	void hit();
+	bool init(bool isNew);
 	void throwStick();
 	void eagle();
 	void setHealth(int h);
@@ -54,7 +54,7 @@ public:
 	int maxStickNum = 10;
 	int gem = 0;
 	void updateGem(int i);
-	Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap);
+	Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool isEnable = true;
 	int nextLevel = 0;
 	void hurt();
@@ -69,8 +69,9 @@ public:
 	void createManaBar();
 	void useMana(int mana);
 	void updateManaBar(float mana);
-	void updateMove();//std::map<EventKeyboard::KeyCode, bool> keys,
+	void update(float dt);
 	void actionKey(EventKeyboard::KeyCode keyCode);
+	void checkCollision();
 
 	void addMana(int num);
 	// Getter cho maxMana
@@ -91,10 +92,6 @@ public:
 
 	float attackCooldown = 0.5f; // Khoảng thời gian chờ giữa các lần tấn công
 	float lastAttackTime = 0; // Thời điểm của lần tấn công cuối cùng
-
-	std::vector<Slash*> slashVector;
-
-	void updateSlashVector(float dt);
 	void initMouseEvent();
 	void initKeyEvent();
 };

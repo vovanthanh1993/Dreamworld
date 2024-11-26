@@ -1,6 +1,4 @@
 ﻿#include "BaseCharacter.h"
-#include <iostream>
-#include <fstream>
 
 BaseCharacter::BaseCharacter(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
     // Store the provided scene reference

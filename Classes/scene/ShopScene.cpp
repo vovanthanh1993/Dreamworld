@@ -23,10 +23,7 @@
  ****************************************************************************/
 
 #include "ShopScene.h"
-#include <string>
-#include <thread>
-#include "ui\CocosGUI.h"
-#include "main/Common.h"
+
 using namespace common;
 using namespace std;
 USING_NS_CC;

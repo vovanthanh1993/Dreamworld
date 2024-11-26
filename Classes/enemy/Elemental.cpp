@@ -1,15 +1,14 @@
 ﻿#include "Elemental.h"
-#include "main/Effect.h"
-#include "skill/Rain.h"
-Elemental::Elemental(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) :BaseCharacter(world, scene, position, _bodyToSpriteMap) {
+
+Elemental::Elemental(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
 };
 
-void Elemental::init() {
+bool Elemental::init() {
     spriteNode = SpriteBatchNode::create("Enemy/Elemental/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Elemental/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Elemental_1_Idle_0.png");
     sprite->setScale(Constants::WRAITH_SCALE * Common::scaleSizeXY());
-    sprite->setTag(Constants::TAG_ENEMY);
+    sprite->setTag(Constants::TAG_ELEMENT);
 
     sprite->setPosition(position);
     spriteNode->addChild(sprite);
@@ -39,9 +38,8 @@ void Elemental::init() {
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
     sprite->setScaleX(-Constants::WRAITH_SCALE * Common::scaleSizeXY());
-    (*_bodyToSpriteMap)[body] = sprite;
     idle();
-    
+    return true;
 }
 void Elemental::idle() {
     if (sprite != nullptr) {
@@ -69,7 +67,7 @@ void Elemental::hit() {
         auto callback2 = [this]() {
             int start = -50;
             for (int i = 1; i <= 11; i++) {
-                Rain* rain = new Rain();
+                
                 if (sprite != nullptr) {
                     int check = 1;
                     // check huong nhan vat
@@ -77,7 +75,8 @@ void Elemental::hit() {
                         check = -1;
                     }
 
-                    rain->init(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), _bodyToSpriteMap);
+                    Rain* rain = new Rain(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), bodyToSpriteMap);
+                    rain->init();
                     rain->getSprite()->setScaleX(check * rain->getSprite()->getScale());
 
                     b2Vec2 velocity(start * Common::scaleSizeXY(), -20 * Common::scaleSizeXY());
@@ -140,12 +139,8 @@ void Elemental::die() {
 
     auto callback = [this]() {
         if (sprite != nullptr) {
-            sprite->removeFromParentAndCleanup(true);
-            Gem* gem = new Gem();
-            gem->init(world, scene, sprite->getPosition(), _bodyToSpriteMap, 1);
-            body->SetUserData(nullptr);
-            (*_bodyToSpriteMap).erase(body);
-            world->DestroyBody(body);
+            Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, 1);
+            BaseNode::destroyNode();
         }
         };
     auto callFunc = CallFunc::create(callback);

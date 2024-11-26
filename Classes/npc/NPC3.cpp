@@ -1,8 +1,7 @@
 ﻿#include "NPC3.h"
-#include "main/Effect.h"
-#include "npc/DialogueBox.h"
+NPC3::NPC3(b2World* world, Scene* scene, Vec2 position) :BaseNode(world, scene, position) {};
 
-NPC3::NPC3(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
+bool NPC3::init() {
     spriteNode = SpriteBatchNode::create("NPC/NPC3/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("NPC/NPC3/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Mater_Idle_0.png");
@@ -36,9 +35,9 @@ NPC3::NPC3(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, S
     fixtureDef.filter.maskBits = Constants::CATEGORY_WALL;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-    (*_bodyToSpriteMap)[body] = sprite;
     idle();
-    
+
+    return true;
 }
 void NPC3::idle() {
     if (sprite != nullptr) {
@@ -50,18 +49,6 @@ void NPC3::idle() {
     
 }
 
-
-Sprite* NPC3::getSprite() {
-    return sprite;
-}
-
-b2Body* NPC3::getBody() {
-    return body;
-}
-
-SpriteBatchNode* NPC3::getSpriteNode() {
-    return spriteNode;
-};
 void NPC3::startConversation(Scene* scene) {
     displayMessage("Xin chào! Bạn có cần giúp đỡ không?", scene);
 }

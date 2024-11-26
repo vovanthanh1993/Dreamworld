@@ -241,6 +241,43 @@ namespace common {
         Vec2 origin = Director::getInstance()->getVisibleOrigin();
         return Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2);
     }
+
+    bool Common::isCollision(b2Body* body, int compareTag) {
+        if (body && body->GetContactList() != nullptr) {
+
+            // body là con trỏ đến b2Body đã được tạo
+            b2ContactEdge* contactEdge = body->GetContactList();  // Lấy danh sách va chạm
+
+            // Duyệt qua các va chạm
+            while (contactEdge != nullptr)
+            {
+                b2Contact* contact = contactEdge->contact;  // Lấy đối tượng va chạm
+                b2Body* otherBody = contactEdge->other;    // Lấy b2Body đối diện trong va chạm
+                Sprite* sprite = static_cast<Sprite*>(otherBody->GetUserData());
+                int tag = sprite->getTag();
+                if (tag == compareTag) return true;
+
+                // Tiếp tục duyệt qua các va chạm khác (nếu có)
+                contactEdge = contactEdge->next;
+            }
+        }
+        return false;
+    }
+
+    void Common::spawnGem(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap, int num) {
+        int x = 0;
+        if (num > 1) {
+            x = -(num / 2)*30* Common::scaleSizeXY();
+        }
+        for (int i = 0; i < num; i++) {
+            Gem* gem = new Gem(world, scene, Vec2(position.x +x, position.y), bodyToSpriteMap);
+            gem->init();
+            b2Vec2 velocity(0, 50 * Common::scaleSizeXY());
+            float newAngle = 0.0f;
+            gem->getBody()->SetLinearVelocity(velocity);
+            x += 30 * Common::scaleSizeXY();
+        }
+    }
 }
 
 

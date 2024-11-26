@@ -2,18 +2,15 @@
 #include "cocos2d.h"
 #include "main/Common.h"
 #include "main/Constants.h"
+#include "base/BaseNode.h"
 
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
-class Gem
+class Gem:public BaseNode
 {
-private:
-	Sprite* sprite;
-	b2Body* body;
 public:
-	void init(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap, int num);
-	Sprite* getSprite();
-	b2Body* getBody();
+	Gem(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	bool init();
 };
 

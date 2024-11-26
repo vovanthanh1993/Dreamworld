@@ -1,13 +1,8 @@
 ﻿#include "Slash.h"
 #include "main/Effect.h"
-Sprite* Slash::getSprite() {
-    return sprite;
-}
+Slash::Slash(b2World* world, Scene* scene, Vec2 position) :BaseNode(world, scene, position) {};
 
-b2Body* Slash::getBody() {
-    return body;
-}
-void Slash::init(b2World* world, Scene* scene, Vec2 position) {
+bool Slash::init() {
     Effect::playerSlash();
     sprite = Sprite::create("Slash.png");
     sprite->setPosition(position);
@@ -43,9 +38,14 @@ void Slash::init(b2World* world, Scene* scene, Vec2 position) {
     // Thoi gian khoi tao
     visible = true;
     startTime = std::chrono::steady_clock::now();
+    // Lên lịch gọi update mỗi frame
+    this->schedule([this](float dt) { this->update(dt); }, "Slash");
+    scene->addChild(this);
+
+    return true;
 }
 
-void Slash::update(float deltaTime, Scene* scene) {
+void Slash::update(float dt) {
     if (visible) {
         auto now = std::chrono::steady_clock::now();
         std::chrono::duration<float> elapsed = now - startTime;
@@ -53,16 +53,20 @@ void Slash::update(float deltaTime, Scene* scene) {
         if (elapsed.count() >= duration) {
             if (sprite != nullptr && body != nullptr) {
                 visible = false;
+                // Hủy body Box2D nếu nó tồn tại
+                if (body)
+                {
+                    world->DestroyBody(body);
+                    body = nullptr; // Đảm bảo body không còn trỏ tới bất kỳ bộ nhớ nào
+                }
 
-
-                body->GetWorld()->DestroyBody(body);
-                // Xóa sprite khỏi thế giới Box2D
-                sprite->removeFromParentAndCleanup(true);
+                // Xóa sprite nếu nó tồn tại
+                if (sprite)
+                {
+                    sprite->removeFromParentAndCleanup(true); // Xóa node Cocos2d
+                    sprite = nullptr; // Đảm bảo sprite không còn trỏ tới bất kỳ bộ nhớ nào
+                }
             }
         }
     }
-}
-
-bool Slash::IsVisible() {
-    return visible;
 }

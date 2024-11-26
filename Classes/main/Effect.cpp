@@ -1,4 +1,4 @@
-﻿#include "main/Effect.h"
+﻿#include "Effect.h"
 namespace common {
     void Effect::destroyStick(b2World* world, Scene* scene, Vec2 position) {
         SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Effect/stick/sprites.plist");

@@ -4,9 +4,6 @@
     <ClCompile Include="D:\Git\Dreamworld\Classes\base\BaseCharacter.cpp">
       <Filter>Source Files\Classes\base</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\base\BaseItem.cpp">
-      <Filter>Source Files\Classes\base</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\Acher.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
@@ -42,27 +39,6 @@
     </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\main\MyContactListener.cpp">
       <Filter>Source Files\Classes\main</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\map\Box.cpp">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\map\Bridge.cpp">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\map\BridgeBreak.cpp">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\map\EndGate.cpp">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\map\Limit.cpp">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\map\Port.cpp">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\map\Wall.cpp">
-      <Filter>Source Files\Classes\map</Filter>
     </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\npc\DialogueBox.cpp">
       <Filter>Source Files\Classes\npc</Filter>
@@ -172,12 +148,15 @@
     <ClCompile Include="..\Classes\scene\Map1Scene.cpp">
       <Filter>Source Files\Classes\scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\base\BaseNode.cpp">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\item\Port.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Git\Dreamworld\Classes\base\BaseCharacter.h">
-      <Filter>Source Files\Classes\base</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\base\BaseItem.h">
       <Filter>Source Files\Classes\base</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h">
@@ -215,27 +194,6 @@
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\main\MyContactListener.h">
       <Filter>Source Files\Classes\main</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\map\Box.h">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\map\Bridge.h">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\map\BridgeBreak.h">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\map\EndGate.h">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\map\Limit.h">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\map\Port.h">
-      <Filter>Source Files\Classes\map</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\map\Wall.h">
-      <Filter>Source Files\Classes\map</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\npc\DialogueBox.h">
       <Filter>Source Files\Classes\npc</Filter>
@@ -2430,6 +2388,12 @@
     <ClInclude Include="..\Classes\scene\Map1Scene.h">
       <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\base\BaseNode.h">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\item\Port.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\Git\Dreamworld\CMakeLists.txt" />
@@ -2682,9 +2646,6 @@
     </Filter>
     <Filter Include="Source Files\Classes\main">
       <UniqueIdentifier>{A414C149-648E-3360-9303-2FCEE46494C9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\map">
-      <UniqueIdentifier>{4D52E313-CBE9-3458-B0C1-B385F0C48167}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Classes\npc">
       <UniqueIdentifier>{CE75C5E6-E0C1-3E3C-A2BA-8EF3752D1AC0}</UniqueIdentifier>

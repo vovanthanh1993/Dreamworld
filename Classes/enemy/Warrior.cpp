@@ -1,18 +1,16 @@
-﻿#include "enemy/Warrior.h"
-#include "main/Effect.h"
-
-Warrior::Warrior(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) :BaseCharacter(world, scene, position, _bodyToSpriteMap) {
+﻿#include "Warrior.h"
+Warrior::Warrior(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
 };
 
-void Warrior::init() {
+bool Warrior::init() {
     spriteNode = SpriteBatchNode::create("enemy/warrior/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/warrior/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Idle_0.png");
     sprite->setScale(Constants::WARRIOR_SCALE* Common::scaleSizeXY());
-    sprite->setTag(Constants::TAG_ENEMY);
+    sprite->setTag(Constants::TAG_WAR);
     
-    int* userData = new int(-1);
-    sprite->setUserData(userData);
+    //int* userData = new int(-1);
+    sprite->setUserData(this);
     sprite->setPosition(position);
     spriteNode->addChild(sprite);
     scene->addChild(spriteNode, 1);
@@ -42,7 +40,14 @@ void Warrior::init() {
     b2Vec2 velocity(Constants::SPEED_ENEMY* Common::scaleSizeXY(), 0);
     body->SetLinearVelocity(velocity);
     sprite->setScaleX(-Constants::WARRIOR_SCALE* Common::scaleSizeXY());
-    (*_bodyToSpriteMap)[body] = sprite;
+    (*bodyToSpriteMap)[body] = sprite;
+    walk();
+
+    // Lên lịch gọi update mỗi frame
+    this->schedule([this](float dt) { this->update(dt); }, "warrior");
+    scene->addChild(this);
+
+    return true;
 }
 void Warrior::idle() {
     if (sprite != nullptr) {
@@ -63,7 +68,7 @@ void Warrior::walk() {
 }
 
 void Warrior::die() {
-    isLive = false;
+    isAlive = false;
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
@@ -82,16 +87,11 @@ void Warrior::die() {
         // Thiết lập lại dữ liệu bộ lọc
         fixture->SetFilterData(filter);
     }
-   
 
     auto callback = [this]() {
         if (sprite != nullptr) {
-            sprite->removeFromParentAndCleanup(true);
-            Gem* gem = new Gem();
-            gem->init(world, scene, sprite->getPosition(), _bodyToSpriteMap, Common::randomNum(1, 3));
-            body->SetUserData(nullptr);
-            (*_bodyToSpriteMap).erase(body);
-            world->DestroyBody(body);
+            Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, Common::randomNum(1, 3));
+            BaseNode::destroyNode();
         }
         };
     auto callFunc = CallFunc::create(callback);
@@ -99,24 +99,23 @@ void Warrior::die() {
     sprite->runAction(sequence);
 }
 
-SlashEnemy* Warrior::hit() {
+void Warrior::hit() {
 
     // Run animation with a callback
-    SlashEnemy* slashEnemy = new SlashEnemy();
+    
     if (sprite != nullptr) {
         sprite->stopAllActions();
         auto animate = Animate::create(Common::createAnimation("Attacking_", 11, 0.015));
 
-        
-        auto callback = [this, slashEnemy]() {
+        auto callback = [this]() {
             if (sprite != nullptr) {
                 int check = 1;
                 // check huong nhan vat
                 if (sprite->getScaleX() < 0) {
                     check = -1;
                 }
-
-                slashEnemy->init(world, scene, Vec2(sprite->getPositionX() + check * 120 * Constants::PLAYER_SCALE* Common::scaleSizeXY(), sprite->getPositionY()));
+                SlashEnemy* slashEnemy = new SlashEnemy(world, scene, Vec2(sprite->getPositionX() + check * 60 * Common::scaleSizeXY(), sprite->getPositionY()));
+                slashEnemy->init();
                 slashEnemy->getSprite()->setScaleX(check * Constants::STICK_SCALE* Common::scaleSizeXY());
                 walk();
             }
@@ -126,23 +125,19 @@ SlashEnemy* Warrior::hit() {
         auto sequence = Sequence::create(animate, callFunc, nullptr);
         sprite->runAction(sequence);
     }
-    
-    return slashEnemy;
 }
+void Warrior::update(float dt) {
 
-void Warrior::updateAttack(vector<SlashEnemy*> &slashEnemyVector, Player* player, float dt) {
     // Cập nhật thời gian đã trôi qua
-    if (body != nullptr) {
+    if (isAlive && body != nullptr) {
         timeSinceLastAttack += dt;
 
         if (timeSinceLastAttack >= attackCooldown) {
             canAttack = true;
         }
         if (canAttack) {
-            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_WAR* Common::scaleSizeXY()) {
-
-                // Attack logic
-                slashEnemyVector.push_back(hit());
+            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_WAR * Common::scaleSizeXY()) {
+                 hit();
                 // Reset thời gian và cờ tấn công
                 timeSinceLastAttack = 0.0f;
                 canAttack = false;
@@ -150,3 +145,4 @@ void Warrior::updateAttack(vector<SlashEnemy*> &slashEnemyVector, Player* player
         }
     }
 }
+

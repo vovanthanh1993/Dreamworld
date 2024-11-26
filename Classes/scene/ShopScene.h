@@ -21,9 +21,15 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
+#ifndef __ShopScene_H__
+#define __ShopScene_H__
 
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
+#include <string>
+#include <thread>
+#include "main/Common.h"
+
 using namespace cocos2d;
 
 class ShopScene : public cocos2d::Scene
@@ -34,3 +40,4 @@ public:
     CREATE_FUNC(ShopScene);
     void goBack(Ref* sender);
 };
+#endif // __ShopScene_H__

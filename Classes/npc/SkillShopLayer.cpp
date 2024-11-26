@@ -2,8 +2,6 @@
 #include "main/Effect.h"
 #include "scene/MenuScene.h"
 
-USING_NS_CC;
-
 SkillShopLayer::SkillShopLayer() {
     //if (!Layer::init()) {
     //    return false; // Kiểm tra khởi tạo

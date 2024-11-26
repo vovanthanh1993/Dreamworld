@@ -1,4 +1,6 @@
 ﻿#pragma once
+#ifndef __MyContactListener_H__
+#define __MyContactListener_H__
 
 #include "cocos2d.h"
 #include <box2d/box2d.h>
@@ -26,7 +28,7 @@ public:
     Player* player;
     Scene* scene;
     b2World* world;
-    unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap;
+    unordered_map<b2Body*, Sprite*>* bodyToSpriteMap;
     
 
     MyContactListener(Player* player, Scene* scene, b2World* world);
@@ -35,6 +37,5 @@ public:
     bool isNext = false;
     BossMap1* bossmap1;
     BossMap2* bossmap2;
-    vector<Acher*>* acherVector = new vector<Acher*>;
-    vector<Warrior*>* warriorVector = new vector<Warrior*>;
 };
+#endif // __MyContactListener_H__

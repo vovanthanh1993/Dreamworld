@@ -1,8 +1,8 @@
 ﻿#include "NPC2.h"
-#include "main/Effect.h"
-#include "npc/DialogueBox.h"
 
-NPC2::NPC2(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) {
+NPC2::NPC2(b2World* world, Scene* scene, Vec2 position) :BaseNode(world, scene, position) {};
+
+bool NPC2::init() {
     spriteNode = SpriteBatchNode::create("NPC/NPC2/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("NPC/NPC2/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Druid_2_Idle_0.png");
@@ -37,9 +37,9 @@ NPC2::NPC2(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, S
     fixtureDef.filter.maskBits = Constants::CATEGORY_WALL;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-    (*_bodyToSpriteMap)[body] = sprite;
     idle();
-    
+
+    return true;
 }
 void NPC2::idle() {
     if (sprite != nullptr) {
@@ -50,19 +50,6 @@ void NPC2::idle() {
     } 
     
 }
-
-
-Sprite* NPC2::getSprite() {
-    return sprite;
-}
-
-b2Body* NPC2::getBody() {
-    return body;
-}
-
-SpriteBatchNode* NPC2::getSpriteNode() {
-    return spriteNode;
-};
 void NPC2::startConversation(Scene* scene) {
     displayMessage("Xin chào! Bạn có cần giúp đỡ không?", scene);
 }

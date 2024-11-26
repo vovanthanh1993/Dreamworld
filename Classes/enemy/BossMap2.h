@@ -1,17 +1,23 @@
 ﻿#pragma once
+#ifndef __BossMap2_H__
+#define __BossMap2_H__
+
 #include "cocos2d.h"
 #include "main/Common.h"
 #include "player/Player.h"
-#include "skill/SlashEnemy.h"
 #include "skill/Fire.h"
 #include "skill/Rain.h"
 #include "item/Gem.h"
 #include "main/Constants.h"
+#include "skill/skull.h"
+#include "skill/BoneRain.h"
+#include "main/Effect.h"
+#include "base/BaseNode.h"
 
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
-class BossMap2:public BaseCharacter
+class BossMap2:public BaseNode
 {
 private:
 	float attackCooldown =1.5f;  // Thời gian chờ giữa các đợt tấn công
@@ -24,17 +30,17 @@ private:
 	cocos2d::Sprite* healthBarBg; // Sprite cho nền thanh máu
 	bool isHit = false;
 public:
-	BossMap2(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap);
-	void init();
+	BossMap2(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	bool init();
 	void walk();
 	void idle();
 	void hurt();
 	void die();
-	void updateAttack(Player* player, float dt, TMXTiledMap* map);
+	void update(float dt);
 	void setHealth(int h);
 	int getHealth();
 	bool isALive = true;
-	void skill2();
+	void boneRain();
 	void updateHealth(int damage);
 	void moveBodyToPoint(TMXTiledMap* map);
 	void moveBodyToInit(TMXTiledMap* map);
@@ -44,5 +50,8 @@ public:
 	void updateHealthBar(float health);
 	void createHealthBar();
 	void updateHealthBarPosition();
+	Player* player;
+	TMXTiledMap* map;
 };
 
+#endif // __BossMap2_H__

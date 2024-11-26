@@ -1,14 +1,9 @@
 ﻿#include "BossMap2.h"
-#include "npc/NPC1.h"
-#include "map/port.h"
-#include "skill/skull.h"
-#include "skill/BoneRain.h"
-#include "main/Effect.h"
 
-BossMap2::BossMap2(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap) :BaseCharacter(world, scene, position, _bodyToSpriteMap) {
+BossMap2::BossMap2(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
 };
 
-void BossMap2::init() {
+bool BossMap2::init() {
     spriteNode = SpriteBatchNode::create("Enemy/Bossmap2/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Bossmap2/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Wraith_1_Moving Forward_0.png");
@@ -47,9 +42,15 @@ void BossMap2::init() {
     body->SetGravityScale(0.0f);
     body->SetLinearVelocity(velocity);
     sprite->setScaleX(-Constants::BOSSMAP1_SCALE * Common::scaleSizeXY());
-    (*_bodyToSpriteMap)[body] = sprite;
+    (*bodyToSpriteMap)[body] = sprite;
+
     createHealthBar();
     walk();
+
+    // Lên lịch gọi update mỗi frame
+    this->schedule([this](float dt) { this->update(dt); }, "bossmap2");
+    scene->addChild(this);
+    return true;
 }
 void BossMap2::idle() {
     if (sprite != nullptr) {
@@ -125,25 +126,18 @@ void BossMap2::die() {
     auto animate = Animate::create(Common::createAnimation("Wraith_1_Dying_", 14, 0.05));
     auto callback2 = [this]() {
         if (sprite != nullptr) {
-            Gem gem;
-            Vec2 pos = sprite->getPosition();
-            gem.init(world, scene, pos, _bodyToSpriteMap, 10);
-            sprite->removeFromParentAndCleanup(true);
-            body->SetUserData(nullptr);
-            (*_bodyToSpriteMap).erase(body);
-            world->DestroyBody(body);
+            Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap,10);
+            BaseNode::destroyNode();
         }
         };
     
-    
-   
     auto callFunc2 = CallFunc::create(callback2);
     
     auto sequence = Sequence::create(animate, callFunc2, nullptr);
     sprite->runAction(sequence);
 }
 
-void BossMap2::skill2() {
+void BossMap2::boneRain() {
 
     // Run animation with a callback
     if (sprite != nullptr) {
@@ -152,16 +146,15 @@ void BossMap2::skill2() {
         auto callback2 = [this](){
             int start = -50;
             for (int i = 1; i <= 21; i++) {
-                BoneRain* rain = new BoneRain();
+                
                 if (sprite != nullptr) {
                     int check = 1;
                     // check huong nhan vat
                     if (sprite->getScaleX() < 0) {
                         check = -1;
                     }
-
-                    rain->init(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), _bodyToSpriteMap);
-
+                    BoneRain* rain = new BoneRain(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), bodyToSpriteMap);
+                    rain->init();
                     b2Vec2 velocity(start * Common::scaleSizeXY(), -20 * Common::scaleSizeXY());
                     rain->getBody()->SetLinearVelocity(velocity);
                     start += 5;
@@ -170,7 +163,6 @@ void BossMap2::skill2() {
             
             };        
 
-       // auto callFunc1 = CallFunc::create(callback1);
         auto callFunc2 = CallFunc::create(callback2);
        
         auto sequence = Sequence::create(animate, callFunc2, nullptr);
@@ -178,44 +170,47 @@ void BossMap2::skill2() {
     }
 }
 
-void BossMap2::updateAttack(Player* player, float dt, TMXTiledMap* map) {
-    // Cập nhật thời gian đã trôi qua
-    if (body != nullptr) {
-        timeSinceLastAttack += dt;
+void BossMap2::update(float dt) {
+    if (isALive) {
+        updateHealthBarPosition();
 
-        if (timeSinceLastAttack >= attackCooldown) {
-            canAttack = true;
-        }
-        if (canAttack) {
-            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_BOSS_MAP2) {
+        // Cập nhật thời gian đã trôi qua
+        if (body != nullptr) {
+            timeSinceLastAttack += dt;
 
-                // Attack logic
-                if (count++ % 3 != 0 && !isInPoint)
-                    skill2();
-                else {
-                    if (!isInPoint) {
-                        moveBodyToPoint(map);
-                        isInPoint = true;
-                        throwSkull();
-                        
+            if (timeSinceLastAttack >= attackCooldown) {
+                canAttack = true;
+            }
+            if (canAttack) {
+                if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_BOSS_MAP2) {
+
+                    // Attack logic
+                    if (count++ % 3 != 0 && !isInPoint)
+                        boneRain();
+                    else {
+                        if (!isInPoint) {
+                            moveBodyToPoint(map);
+                            isInPoint = true;
+                            throwSkull();
+
+                        }
+
+                        if (countPhase2++ % 5 == 0) {
+
+                            isInPoint = false;
+                            moveBodyToInit(map);
+                            countPhase2 = 1;
+                            count = 1;
+                        }
                     }
-                   
-                    if (countPhase2++ % 5 == 0) {
-                        
-                        isInPoint = false;
-                        moveBodyToInit(map);
-                        countPhase2 = 1;
-                        count = 1;
-                    }
+
+                    // Reset thời gian và cờ tấn công
+                    timeSinceLastAttack = 0.0f;
+                    canAttack = false;
                 }
-                    
-                // Reset thời gian và cờ tấn công
-                timeSinceLastAttack = 0.0f;
-                canAttack = false;
             }
         }
     }
-    
 }
 void BossMap2::setHealth(int h) {
     health = h;
@@ -275,20 +270,18 @@ void BossMap2::throwSkull() {
         Effect::soundCreepyLaughter();
 
         auto callback2 = [this]() {
-                Skull* skull1 = new Skull();
-                Skull* skull2 = new Skull();
+                
                 if (sprite != nullptr) {
                     int check = 1;
                     // check huong nhan vat
                     if (sprite->getScaleX() < 0) {
                         check = -1;
                     }
-
-                    skull1->init(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), _bodyToSpriteMap);
+                    Skull* skull = new Skull(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), bodyToSpriteMap);
+                    skull->init();
                     b2Vec2 velocity(-10* Common::scaleSizeXY(), -60* Common::scaleSizeXY());
-                    skull1->getBody()->SetLinearVelocity(velocity);
-            }
-
+                    skull->getBody()->SetLinearVelocity(velocity);
+                }
             };
 
         // auto callFunc1 = CallFunc::create(callback1);

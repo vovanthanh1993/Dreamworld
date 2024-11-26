@@ -1,98 +1,40 @@
 ﻿#include "VillageScene.h"
-#include "player/Player.h"
-#include "item/Heart.h"
-#include <string>
-#include <vector>
-#include "audio/include/AudioEngine.h"
-#include "map/Wall.h"
-#include "map/Limit.h"
-#include "npc/NPC1.h"
-#include "npc/DialogueBox.h"
-#include "npc/ShopLayer.h"
-#include "map/EndGate.h"
-#include "scene/Map1Scene.h"
-#include "npc/NPCMonkey.h"
-
 
 using namespace std;
 USING_NS_CC;
 
-Scene* VillageScene::createScene()
+Scene* VillageScene::createScene(string bg, string bgMusic, string mapName, bool isMoveCamera)
 {
-    return VillageScene::create();
-}
-
-
-//on "init" you need to initialize your instance
-bool VillageScene::init()
-{
-    // 1. super init first
-    if (!Scene::init())
-    {
-        return false;
-    }
-    int round = Common::loadRound();
-    if (round == 1) {
-        Common::showBossText(this, "It's that monkey again...");
+    VillageScene* ret = new VillageScene();
+    if (ret && ret->init(bg, bgMusic, mapName, isMoveCamera)) {
+        ret->autorelease();  // Tự động giải phóng bộ nhớ
+        return ret;
     }
     else {
-        Common::showBossText(this, "The monkey still needs to practice a lot more...");
+        delete ret;
+        return nullptr;
     }
-    settingInit->loadSettingData();
-    settingInit->setBgMusicId(Common::playBackgroundMusic(settingInit->getVolume(), "sound/background2.mp3"));
+}
 
-    // Tạo một Camera
-    auto camera = Camera::create();
-    camera->setCameraFlag(CameraFlag::USER1);
-    this->addChild(camera);
-   
+//on "init" you need to initialize your instance
+bool VillageScene::init(string bg, string bgMusic, string mapName, bool isMoveCamera)
+{
+    if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
+        return false;
+    }
 
-    // Khởi tạo thế giới vật lý với trọng lực
-    b2Vec2 gravity(0.0f, Constants::GRAVITY* Common::scaleSizeXY()); // Trọng lực theo chiều dương Y -400
-    world = new b2World(gravity);
-    
-
-    // Thêm lớp ảnh (hình nền)
-    auto background = cocos2d::Sprite::create("map/bglv1.png");
-    background->setAnchorPoint(cocos2d::Vec2(0, 0));
-    background->setPosition(cocos2d::Vec2(0, 0));
-    Common::scaleAll(background, 1);
-    this->addChild(background, 0);
-
-
-    map = TMXTiledMap::create("map/village.tmx");
-    map->setScale(Common::scaleSizeXY());
-    map->setAnchorPoint(Vec2(0,0));
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    map->setPosition(origin);
-    addChild(map, 0, 99);
-    spawnObject();
-
-   // Press
+    // Press
     auto keyboardListener = EventListenerKeyboard::create();
     keyboardListener->onKeyPressed = CC_CALLBACK_2(VillageScene::onKeyPressed, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
-
-    // va cham
-    contactListener =  new MyContactListener(player);
-    contactListener->_bodyToSpriteMap = _bodyToSpriteMap;
-    world->SetContactListener(contactListener);
-
-    // Schedule the update method
-    this->scheduleUpdate();
-
     return true;
 }
 
+
 // update
 void VillageScene::update(float dt) {
-    world->Step(dt, 8, 3); // Cập nhật thế giới Box2D
 
-    player->updateMove();
-    player->updateSlashVector(dt);
-
-    // Đồng bộ hóa vị trí sprite với vị trí body
-    Common::updatePosition(world, _bodyToSpriteMap);
+    BaseScene::update(dt);
 
     if (contactListener->isNext) {
         player->savePlayerDataInit();
@@ -100,9 +42,6 @@ void VillageScene::update(float dt) {
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
         contactListener->isNext = false;
     }
-    
-    settingInit->loadSettingData();
-    AudioEngine::setVolume(settingInit->getBgMusicId(), settingInit->getVolume());
 }
 
 void VillageScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event) {
@@ -139,8 +78,9 @@ void VillageScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d
 
 void VillageScene::spawnObject() {
 
-    Wall* wall = new Wall(world, this, map);
-    Limit* limit = new Limit(world, this, map);
+    item = new MapItem(world, this, bodyToSpriteMap, map);
+    item->spawnWallAndLimit();
+    item->spawnEndGate();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     // Spawn player
@@ -149,7 +89,7 @@ void VillageScene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = playerLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
+                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
                 player->init(true);
                 player->isInVillage = true;
             }
@@ -162,9 +102,8 @@ void VillageScene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = npc1Layer->getTileAt(Vec2(x, y));
             if (tile) {
-    
-                npc1 = new NPC1(world, this, Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
-                npc1->startConversation(this);
+                npc1 = new NPC1(world, this, Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                npc1->init();
             }
         }
     }
@@ -175,9 +114,8 @@ void VillageScene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = npc3Layer->getTileAt(Vec2(x, y));
             if (tile) {
-
-                npc3 = new NPC3(world, this, Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
-                npc3->startConversation(this);
+                npc3 = new NPC3(world, this, Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                npc3->init();
             }
         }
     }
@@ -189,8 +127,8 @@ void VillageScene::spawnObject() {
             auto tile = npc2Layer->getTileAt(Vec2(x, y));
             if (tile) {
 
-                npc2 = new NPC2(world, this, Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
-                npc2->startConversation(this);
+                npc2 = new NPC2(world, this, Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                npc2->init();
             }
         }
     }
@@ -202,12 +140,11 @@ void VillageScene::spawnObject() {
             auto tile = npcMonkeyLayer->getTileAt(Vec2(x, y));
             if (tile) {
 
-                NPCMonkey* npcMonkey = new NPCMonkey(world, this, Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), _bodyToSpriteMap);
+                NPCMonkey* npcMonkey = new NPCMonkey(world, this, Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
+                npcMonkey->init();
             }
         }
     }
-    EndGate* port = new EndGate(world, this, _bodyToSpriteMap, map);
-    
 }
 
 
