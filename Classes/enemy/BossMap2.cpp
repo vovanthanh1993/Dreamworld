@@ -35,7 +35,7 @@ bool BossMap2::init() {
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_ENEMY;
-    fixtureDef.filter.maskBits = Constants::CATEGORY_STICK| Constants::CATEGORY_WALL| Constants::CATEGORY_LIMIT| Constants::CATEGORY_PLAYER| Constants::CATEGORY_SLASH;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_STICK| Constants::CATEGORY_WALL| Constants::CATEGORY_LIMIT| Constants::CATEGORY_SLASH;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     b2Vec2 velocity(Constants::SPEED_BOSS2 * Common::scaleSizeXY(), 0);

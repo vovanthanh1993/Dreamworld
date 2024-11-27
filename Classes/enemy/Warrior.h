@@ -21,7 +21,8 @@ protected:
 	float timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
 	bool canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
 	bool isAlive = true;
-
+	float scale = 0.2;
+	float attackRange = 3;
 public:
 	Warrior(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init();
@@ -32,6 +33,7 @@ public:
 	void update(float dt);
 	Player* player;
 	int direction = -1;
+	int speed = 6;
 };
 
 #endif // __Warrior_H__

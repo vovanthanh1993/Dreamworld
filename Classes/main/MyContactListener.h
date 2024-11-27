@@ -7,12 +7,14 @@
 #include <vector>
 #include "main/Common.h"
 #include "enemy/Warrior.h"
+#include "enemy/Hedgehog.h"
 #include "player/Player.h"
 #include "enemy/Acher.h"
 #include "enemy/BossMap1.h"
 #include "enemy/BossMap2.h"
 #include "main/Effect.h"
-#include "player/Player.h"
+#include "enemy/Golem.h"
+#include "enemy/Bat.h"
 #include "main/Constants.h"
 
 using namespace constants;

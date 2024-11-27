@@ -99,8 +99,8 @@ void BaseScene::update(float dt) {
                 camera->setPosition3D(Vec3(cameraPosition.x, camera->getPositionY(), camera->getPosition3D().z));
 
                 player->uiNode->setPositionX(cameraPosition.x - screenWidth / 2 - origin.x);
-                boundaryBodyStart->SetTransform(b2Vec2((cameraPosition.x - origin.x - screenWidth / 2 - 130 * Common::scaleSizeXY()) / Constants::PIXELS_PER_METER, camera->getPositionY()), 0.0f);
-                boundaryBodyEnd->SetTransform(b2Vec2((cameraPosition.x + origin.x + screenWidth / 2 + 130 * Common::scaleSizeXY()) / Constants::PIXELS_PER_METER, camera->getPositionY()), 0.0f);
+                boundaryBodyStart->SetTransform(b2Vec2((cameraPosition.x - origin.x - screenWidth / 2 - 140 * Common::scaleSizeXY()) / Constants::PIXELS_PER_METER, camera->getPositionY()), 0.0f);
+                boundaryBodyEnd->SetTransform(b2Vec2((cameraPosition.x + origin.x + screenWidth / 2 + 140 * Common::scaleSizeXY()) / Constants::PIXELS_PER_METER, camera->getPositionY()), 0.0f);
             }
         }
     }

@@ -41,7 +41,7 @@ void Boss2Scene::update(float dt) {
     //-------------------CAP NHAT LAI SPRITE--------------------------
     if (contactListener->isNext && !bossmap2->isALive) {
         player->savePlayerDataInit();
-        auto newScene = Map3Scene::create();
+        auto newScene = Map3Scene::createScene("map/bg2.png", "sound/background2.mp3", "map3", true);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
         
     }

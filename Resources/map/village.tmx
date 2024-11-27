@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="320" height="180" tilewidth="24" tileheight="24" infinite="0" nextlayerid="14" nextobjectid="9">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="320" height="180" tilewidth="24" tileheight="24" infinite="0" nextlayerid="14" nextobjectid="13">
  <tileset firstgid="1" name="sprites" tilewidth="24" tileheight="24" tilecount="7225" columns="85">
   <image source="sprites.png" width="2048" height="2048"/>
  </tileset>
@@ -43,6 +43,8 @@
   <object id="2" x="2" y="4247" width="3479" height="73"/>
   <object id="4" x="35" y="3646.5" width="460.5" height="71.5"/>
   <object id="5" x="1185.5" y="3815" width="461" height="72.5"/>
+  <object id="9" x="-45.4545" y="1906.06" width="12.1212" height="2421.21"/>
+  <object id="12" x="1960.61" y="1895.46" width="12.1212" height="2421.21"/>
  </objectgroup>
  <layer id="12" name="player" width="320" height="180" opacity="0">
   <data encoding="base64" compression="zlib">

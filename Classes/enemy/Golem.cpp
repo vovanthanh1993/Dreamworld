@@ -1,13 +1,13 @@
-﻿#include "Warrior.h"
-Warrior::Warrior(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+﻿#include "Golem.h"
+Golem::Golem(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
 };
 
-bool Warrior::init() {
-    spriteNode = SpriteBatchNode::create("enemy/warrior/sprites.png");
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/warrior/sprites.plist");
-    sprite = Sprite::createWithSpriteFrameName("Idle_0.png");
-    sprite->setScale(Constants::WARRIOR_SCALE* Common::scaleSizeXY());
-    sprite->setTag(Constants::TAG_WAR);
+bool Golem::init() {
+    spriteNode = SpriteBatchNode::create("enemy/Golem/sprites.png");
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/Golem/sprites.plist");
+    sprite = Sprite::createWithSpriteFrameName("0_Golem_Idle_0.png");
+    sprite->setScale(scale * Common::scaleSizeXY());
+    sprite->setTag(Constants::TAG_GOLEM);
     
     //int* userData = new int(-1);
     sprite->setUserData(this);
@@ -44,35 +44,35 @@ bool Warrior::init() {
     walk();
 
     // Lên lịch gọi update mỗi frame
-    this->schedule([this](float dt) { this->update(dt); }, "warrior");
+    this->schedule([this](float dt) { this->update(dt); }, "Golem");
     scene->addChild(this);
 
     return true;
 }
-void Warrior::idle() {
+void Golem::idle() {
     if (sprite != nullptr) {
         sprite->stopAllActions();
-        auto animateW = Animate::create(Common::createAnimation("Idle_", 11, 0.04));
+        auto animateW = Animate::create(Common::createAnimation("0_Golem_Idle_", 17, 0.04));
         animateW->retain();
         sprite->runAction(RepeatForever::create(animateW));
     } 
 }
 
-void Warrior::walk() {
+void Golem::walk() {
     if (sprite != nullptr) {
         sprite->stopAllActions();
-        auto animateW = Animate::create(Common::createAnimation("Walking_", 17, 0.04));
+        auto animateW = Animate::create(Common::createAnimation("0_Golem_Walking_", 19, 0.04));
         animateW->retain();
         sprite->runAction(RepeatForever::create(animateW));
     }  
 }
 
-void Warrior::die() {
+void Golem::die() {
     isAlive = false;
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
-    auto animate = Animate::create(Common::createAnimation("Dying_", 14, 0.05));
+    auto animate = Animate::create(Common::createAnimation("0_Golem_Dying_", 14, 0.05));
     Effect::enemyDie();
 
     // Lặp qua tất cả các fixture của body
@@ -99,13 +99,11 @@ void Warrior::die() {
     sprite->runAction(sequence);
 }
 
-void Warrior::hit() {
+void Golem::hit() {
 
-    // Run animation with a callback
-    
     if (sprite != nullptr) {
         sprite->stopAllActions();
-        auto animate = Animate::create(Common::createAnimation("Attacking_", 11, 0.015));
+        auto animate = Animate::create(Common::createAnimation("0_Golem_Slashing_", 11, 0.015));
 
         auto callback = [this]() {
             if (sprite != nullptr) {
@@ -126,7 +124,7 @@ void Warrior::hit() {
         sprite->runAction(sequence);
     }
 }
-void Warrior::update(float dt) {
+void Golem::update(float dt) {
 
     // Cập nhật thời gian đã trôi qua
     if (isAlive && body != nullptr) {
@@ -144,5 +142,23 @@ void Warrior::update(float dt) {
             }
         }
     }
+}
+
+void Golem::getDamage(int damage) {
+    health-= damage;
+    hurt();
+    if (health == 0) die();
+}
+
+void Golem::hurt() {
+    sprite->stopAllActions();
+    auto animate = Animate::create(Common::createAnimation("0_Golem_Hurt_", 11, 0.04));
+    animate->setTag(4);
+    auto callback = [this]() {
+        walk();
+        };
+    auto callFunc = CallFunc::create(callback);
+    auto sequence = Sequence::create(animate, callFunc, nullptr);
+    sprite->runAction(sequence);
 }
 

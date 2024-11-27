@@ -23,6 +23,19 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         }
 
         // Huy stick, xu ly phong trung ke dich
+        if (tagB == Constants::TAG_STICK) {
+            bodiesToRemove.insert(bodyB);
+            if (tagA != Constants::TAG_WALL && tagA != Constants::TAG_BRIDGE_BREAK) {
+                player->addMana(1);
+            }
+            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->die();
+            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->die();
+            else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
+            else if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
+            else if (tagA == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(1);
+            else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(1);
+            else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(1);
+        }
         if (tagA == Constants::TAG_STICK) {
             bodiesToRemove.insert(bodyA);
             if (tagB != Constants::TAG_WALL && tagB != Constants::TAG_BRIDGE_BREAK) {
@@ -32,46 +45,54 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->die();
             else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
             else if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
-            
+            else if (tagB == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(1);
+            else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(1);
+            else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(1);
         }
-        if (tagB == Constants::TAG_STICK) {
-            bodiesToRemove.insert(bodyB);
-            if (tagA != Constants::TAG_WALL && tagA!=Constants::TAG_BRIDGE_BREAK) {
-                player->addMana(1);
-            }
-            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->die();
-            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->die();
-            else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
-            else if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
-        }
+        
 
-        // Huy ban sao
-        if (tagA == Constants::TAG_EAGLE) {
-            bodiesToRemove.insert(bodyA);
-            if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->die();
-            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->die();
-            else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
-            else if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
-
-        }
+        // Tha qua trung ke dich
         if (tagB == Constants::TAG_EAGLE) {
             bodiesToRemove.insert(bodyB);
             if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->die();
             else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->die();
             else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
             else if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
+            else if (tagA == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(1);
+            else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(1);
+            else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(1);
         }
+        
+        if (tagA == Constants::TAG_EAGLE) {
+            bodiesToRemove.insert(bodyA);
+            if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->die();
+            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->die();
+            else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
+            else if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
+            else if (tagB == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(1);
+            else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(1);
+            else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(1);
+
+        }
+        
 
         // chem trung ke dich
         if (tagA == Constants::TAG_SLASH || tagB == Constants::TAG_SLASH) {
             player->addMana(1);
             if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->die();
-            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->die();
             else if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->die();
+            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->die();
             else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->die();
+            else if (tagA == Constants::TAG_HED) static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(1);
+            else if (tagB == Constants::TAG_HED) static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(1);
+            else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(1);
+            else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(1);
+            else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(1);
+            else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(1);
 
-            if (tagA == Constants::TAG_BOSSMAP1 || tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
-            if (tagA == Constants::TAG_BOSSMAP2 || tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
+
+            else if (tagA == Constants::TAG_BOSSMAP1 || tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
+            else if (tagA == Constants::TAG_BOSSMAP2 || tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
         }
 
         // Huy arrow, xu ly phong trung player
@@ -97,6 +118,17 @@ void MyContactListener::BeginContact(b2Contact* contact) {
                 player->getDamage(3);
             }
         }
+
+        // Player va cham voi Bat
+        if (tagA == Constants::TAG_PLAYER && tagB == Constants::TAG_BAT) {
+            static_cast<Bat*>(spriteB->getUserData())->getDamage(1);
+            player->getDamage(2);
+        }
+        else if (tagB == Constants::TAG_PLAYER && tagA == Constants::TAG_BAT) {
+            static_cast<Bat*>(spriteA->getUserData())->getDamage(1);
+            player->getDamage(2);
+        }
+
         if (tagB == Constants::TAG_SKULL) {
             if (tagA == Constants::TAG_PLAYER) {
                 bodiesToRemove.insert(bodyB);
@@ -129,20 +161,31 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             }
         }
 
-        // chem trung ke dich
-        if (tagA == Constants::TAG_SLASH_ENEMY && tagB == Constants::TAG_PLAYER || tagB == Constants::TAG_SLASH_ENEMY && tagA == Constants::TAG_PLAYER) {
-            player->getDamage(1);
-           
-        }
-
         // check enemy and limit
         if (tagB == Constants::TAG_WAR && tagA == Constants::TAG_LIMIT) {
             // Lấy vận tốc hiện tại của đối tượng
             Warrior* w = static_cast<Warrior*>(spriteB->getUserData());
             w->direction *= -1;
-            bodyB->SetLinearVelocity(b2Vec2(w->direction * -Constants::SPEED_ENEMY * Common::scaleSizeXY(), 0));
-            spriteB->setScaleX(w->direction * Constants::WARRIOR_SCALE * Common::scaleSizeXY());
-            
+            bodyB->SetLinearVelocity(b2Vec2(w->direction * w->speed * Common::scaleSizeXY(), 0));
+            spriteB->setScaleX(-spriteB->getScaleX());
+        }
+
+        // check golem and limit
+        if (tagB == Constants::TAG_GOLEM && tagA == Constants::TAG_LIMIT) {
+            // Lấy vận tốc hiện tại của đối tượng
+            Golem* w = static_cast<Golem*>(spriteB->getUserData());
+            w->direction *= -1;
+            bodyB->SetLinearVelocity(b2Vec2(w->direction * w->speed * Common::scaleSizeXY(), 0));
+            spriteB->setScaleX(-spriteB->getScaleX());
+        }
+
+        // check golem and limit
+        if (tagB == Constants::TAG_BAT && tagA == Constants::TAG_LIMIT) {
+            // Lấy vận tốc hiện tại của đối tượng
+            Bat* w = static_cast<Bat*>(spriteB->getUserData());
+            w->direction *= -1;
+            bodyB->SetLinearVelocity(b2Vec2(w->direction * w->speed * Common::scaleSizeXY(), 0));
+            spriteB->setScaleX(-spriteB->getScaleX());
         }
 
         // check npc and limit
@@ -218,6 +261,15 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             if (tagB == Constants::TAG_STICK_ITEM) {
                 player->updateStickNum(1);
                 bodiesToRemove.insert(bodyB);
+            }
+
+            // chem trung ke dich
+            if (tagA == Constants::TAG_SLASH_ENEMY || tagB == Constants::TAG_SLASH_ENEMY) {
+                player->getDamage(1);
+            }
+            // chem trung ke dich
+            if (tagA == Constants::TAG_HED || tagB == Constants::TAG_HED) {
+                player->getDamage(2);
             }
         }
 

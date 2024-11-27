@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\base\BaseCharacter.cpp">
-      <Filter>Source Files\Classes\base</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\Acher.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
@@ -154,11 +151,17 @@
     <ClCompile Include="..\Classes\item\Port.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\enemy\Hedgehog.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\enemy\Golem.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\enemy\Bat.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\base\BaseCharacter.h">
-      <Filter>Source Files\Classes\base</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClInclude>
@@ -2393,6 +2396,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\item\Port.h">
       <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\Hedgehog.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\Golem.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\Bat.h">
+      <Filter>Source Files\Classes\enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

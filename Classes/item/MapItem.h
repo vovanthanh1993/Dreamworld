@@ -25,5 +25,6 @@ public:
 	void spawnWallAndLimit();
 	void spawnAll();
 	void spawnEndGate();
+	void spawnBase();
 };
 

@@ -16,14 +16,14 @@ Scene* Map1Scene::createScene(string bg, string bgMusic, string mapName, bool is
     }
 }
 
-//on "init" you need to initialize your instance
-bool Map1Scene::init(string bg, string bgMusic, string mapName, bool isMoveCamera)
-{
-    if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
-        return false;
-    }
-    return true;
-}
+////on "init" you need to initialize your instance
+//bool Map1Scene::init(string bg, string bgMusic, string mapName, bool isMoveCamera)
+//{
+//    if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
+//        return false;
+//    }
+//    return true;
+//}
 
 // update
 void Map1Scene::update(float dt) {

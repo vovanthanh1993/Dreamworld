@@ -835,13 +835,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClInclude Include="..\Classes\base\BaseNode.h" />
     <ClInclude Include="..\Classes\base\BaseScene.h" />
+    <ClInclude Include="..\Classes\enemy\Bat.h" />
+    <ClInclude Include="..\Classes\enemy\Golem.h" />
+    <ClInclude Include="..\Classes\enemy\Hedgehog.h" />
     <ClInclude Include="..\Classes\item\Gem.h" />
     <ClInclude Include="..\Classes\item\Port.h" />
     <ClInclude Include="..\Classes\main\Constants.h" />
     <ClInclude Include="..\Classes\player\skill\Slash.h" />
     <ClInclude Include="..\Classes\player\skill\Stick.h" />
     <ClInclude Include="..\Classes\scene\Map1Scene.h" />
-    <ClInclude Include="D:\Git\Dreamworld\Classes\base\BaseCharacter.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\BossMap1.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\BossMap2.h" />
@@ -886,13 +888,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\Git\Dreamworld\proj.win32\resource.h" />
     <ClCompile Include="..\Classes\base\BaseNode.cpp" />
     <ClCompile Include="..\Classes\base\BaseScene.cpp" />
+    <ClCompile Include="..\Classes\enemy\Bat.cpp" />
+    <ClCompile Include="..\Classes\enemy\Golem.cpp" />
+    <ClCompile Include="..\Classes\enemy\Hedgehog.cpp" />
     <ClCompile Include="..\Classes\item\Gem.cpp" />
     <ClCompile Include="..\Classes\item\Port.cpp" />
     <ClCompile Include="..\Classes\main\Constants.cpp" />
     <ClCompile Include="..\Classes\player\skill\Slash.cpp" />
     <ClCompile Include="..\Classes\player\skill\Stick.cpp" />
     <ClCompile Include="..\Classes\scene\Map1Scene.cpp" />
-    <ClCompile Include="D:\Git\Dreamworld\Classes\base\BaseCharacter.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\Acher.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\BossMap1.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\BossMap2.cpp" />

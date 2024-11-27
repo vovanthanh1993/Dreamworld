@@ -33,12 +33,17 @@ bool Elemental::init() {
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_ENEMY;
-    fixtureDef.filter.maskBits = Constants::CATEGORY_WALL | Constants::CATEGORY_LIMIT | Constants::CATEGORY_PLAYER | Constants::CATEGORY_SLASH;//Constants::CATEGORY_STICK| ;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_WALL | Constants::CATEGORY_LIMIT | Constants::CATEGORY_SLASH;//Constants::CATEGORY_STICK| ;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
     sprite->setScaleX(-Constants::WRAITH_SCALE * Common::scaleSizeXY());
     idle();
+    (*bodyToSpriteMap)[body] = sprite;
+
+    // Lên lịch gọi update mỗi frame
+    this->schedule([this](float dt) { this->update(dt); }, "elemental");
+    scene->addChild(this);
     return true;
 }
 void Elemental::idle() {
@@ -95,9 +100,9 @@ void Elemental::hit() {
     }
 }
 
-void Elemental::updateAttack(Player* player, float dt) {
-    // Cập nhật thời gian đã trôi qua
-    if (body != nullptr) {
+void Elemental::update(float dt) {
+
+    if (isAlive && body != nullptr) {
         timeSinceLastAttack += dt;
 
         if (timeSinceLastAttack >= attackCooldown) {

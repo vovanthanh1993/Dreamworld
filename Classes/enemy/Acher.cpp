@@ -35,12 +35,13 @@ bool Acher::init() {
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_ENEMY;
-    fixtureDef.filter.maskBits = Constants::CATEGORY_STICK| Constants::CATEGORY_WALL| Constants::CATEGORY_LIMIT| Constants::CATEGORY_PLAYER| Constants::CATEGORY_SLASH;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_STICK| Constants::CATEGORY_WALL| Constants::CATEGORY_LIMIT| Constants::CATEGORY_SLASH;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     sprite->setScaleX(-Constants::ACHER_SCALE * Common::scaleSizeXY());
     idle();
     (*bodyToSpriteMap)[body] = sprite;
+
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "acher");
     scene->addChild(this);
@@ -102,7 +103,9 @@ void Acher::update(float dt) {
             canAttack = true;
         }
         if (canAttack) {
-            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_ACHER* Common::scaleSizeXY()) {
+            float dy = body->GetPosition().y - player->getBody()->GetPosition().y;
+            float distanceY = std::abs(dy);
+            if (distanceY <= 2 && b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= attackRange * Common::scaleSizeXY()) {
 
                 // Attack logic
                 hit();

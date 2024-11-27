@@ -31,45 +31,24 @@
 #include "item/Port.h"
 #include "enemy/Wraith.h"
 #include "VillageScene.h"
+#include "base/BaseScene.h"
+#include "enemy/Hedgehog.h"
+#include "enemy/Golem.h"
+#include "enemy/Bat.h"
+
 
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
 using namespace std;
-class Map3Scene : public cocos2d::Scene
+class Map3Scene : public BaseScene
 {
 public:
-    static cocos2d::Scene* createScene();
-
-    virtual bool init();
-    std::set<EventKeyboard::KeyCode> _keysPressed;
-    CREATE_FUNC(Map3Scene);
-    
-
+    static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
+    //bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
 private:
-        bool isEnable = true;
-        b2World* world;
-        void setWorld(b2World* m_world) {
-            world = m_world;
-        }
-        void update(float dt) override;
-        
-        std::unordered_map<b2Body*, Sprite*>* bodyToSpriteMap = new unordered_map<b2Body*, Sprite*>();
-        
-        TMXTiledMap* map;
-        MyContactListener* contactListener;
-       
-        float time = 1.0 / 60.0f;
-        Player* player;
-        std::vector<Slash*> slashVector;
-        std::vector<SlashEnemy*> slashEnemyVector;
-        std::vector<Warrior*>* warriorVector = new std::vector<Warrior*>();
-        std::vector<Elemental*>* elementalVector = new std::vector<Elemental*>();
-        std::vector<Wraith*>* wraithVector = new std::vector<Wraith*>();
-        BossMap2* bossmap2;
-        void spawnObject();
-        bool isEndMap = true;
-        Setting* settingInit = new Setting();
+    void spawnObject();
+    void update(float dt);
 };
 
 #endif // __Map3Scene_H__

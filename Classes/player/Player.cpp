@@ -38,7 +38,7 @@ bool Player::init(bool isNew) {
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_PLAYER;
-    fixtureDef.filter.maskBits = Constants::CATEGORY_LIMIT_MAP|Constants::CATEGORY_SLASH_ENEMY | Constants::CATEGORY_WALL| Constants::CATEGORY_ITEM| Constants::CATEGORY_CHEST| Constants::CATEGORY_ARROW | Constants::CATEGORY_BOX| Constants::CATEGORY_GEM; //  Không va chạm với CATEGORY_B
+    fixtureDef.filter.maskBits = Constants::CATEGORY_ENEMY|Constants::CATEGORY_LIMIT_MAP|Constants::CATEGORY_SLASH_ENEMY | Constants::CATEGORY_WALL| Constants::CATEGORY_ITEM| Constants::CATEGORY_CHEST| Constants::CATEGORY_ARROW | Constants::CATEGORY_BOX| Constants::CATEGORY_GEM; //  Không va chạm với CATEGORY_B
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     (*bodyToSpriteMap)[body] = sprite;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="600" height="270" tilewidth="24" tileheight="24" infinite="0" nextlayerid="27" nextobjectid="94">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="600" height="270" tilewidth="24" tileheight="24" infinite="0" nextlayerid="27" nextobjectid="96">
  <tileset firstgid="1" name="sprites" tilewidth="24" tileheight="24" tilecount="7225" columns="85">
   <image source="sprites.png" width="2048" height="2048"/>
  </tileset>
@@ -97,9 +97,11 @@
   <object id="83" x="6527.33" y="5929.33" width="339" height="68"/>
   <object id="86" x="12983.3" y="6119.33" width="345.333" height="73.3333"/>
   <object id="87" x="13436" y="6026" width="352.667" height="73.3333"/>
+  <object id="94" x="-60" y="3064" width="28" height="3408"/>
+  <object id="95" x="14432" y="3072" width="28" height="3408"/>
  </objectgroup>
  <objectgroup id="26" name="limitmap">
-  <object id="92" x="-23.1325" y="3062.75" width="32.3855" height="3395.86"/>
+  <object id="92" x="-3.1325" y="3062.75" width="12.3855" height="3395.86"/>
  </objectgroup>
  <layer id="11" name="heart" width="600" height="270" opacity="0">
   <data encoding="base64" compression="zlib">

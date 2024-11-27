@@ -1,13 +1,13 @@
-﻿#include "Warrior.h"
-Warrior::Warrior(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+﻿#include "Hedgehog.h"
+Hedgehog::Hedgehog(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
 };
 
-bool Warrior::init() {
-    spriteNode = SpriteBatchNode::create("enemy/warrior/sprites.png");
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/warrior/sprites.plist");
-    sprite = Sprite::createWithSpriteFrameName("Idle_0.png");
-    sprite->setScale(Constants::WARRIOR_SCALE* Common::scaleSizeXY());
-    sprite->setTag(Constants::TAG_WAR);
+bool Hedgehog::init() {
+    spriteNode = SpriteBatchNode::create("enemy/hedgehog/sprites.png");
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/hedgehog/sprites.plist");
+    sprite = Sprite::createWithSpriteFrameName("Hed_idle_0.png");
+    sprite->setScale(scale* Common::scaleSizeXY());
+    sprite->setTag(Constants::TAG_HED);
     
     //int* userData = new int(-1);
     sprite->setUserData(this);
@@ -30,49 +30,48 @@ bool Warrior::init() {
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
-    fixtureDef.density = 1.0f;
+    fixtureDef.density = 100000.0f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_ENEMY;
-    fixtureDef.filter.maskBits = Constants::CATEGORY_STICK| Constants::CATEGORY_WALL| Constants::CATEGORY_LIMIT| Constants::CATEGORY_SLASH;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_STICK| Constants::CATEGORY_WALL| Constants::CATEGORY_PLAYER| Constants::CATEGORY_SLASH;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-    b2Vec2 velocity(direction*speed* Common::scaleSizeXY(), 0);
-    body->SetLinearVelocity(velocity);
-    sprite->setScaleX(direction * scale * Common::scaleSizeXY());
+    sprite->setScaleX(direction* scale * Common::scaleSizeXY());
     (*bodyToSpriteMap)[body] = sprite;
-    walk();
+    idle();
 
     // Lên lịch gọi update mỗi frame
-    this->schedule([this](float dt) { this->update(dt); }, "warrior");
+    this->schedule([this](float dt) { this->update(dt); }, "hedgehog");
     scene->addChild(this);
 
     return true;
 }
-void Warrior::idle() {
-    if (sprite != nullptr) {
-        sprite->stopAllActions();
-        auto animateW = Animate::create(Common::createAnimation("Idle_", 11, 0.04));
-        animateW->retain();
-        sprite->runAction(RepeatForever::create(animateW));
-    } 
+void Hedgehog::idle() {
+    sprite->stopAllActions();
+    auto animate = Animate::create(Common::createAnimation("Hed_idle Blinking_", 11, 0.04));
+    animate->retain();
+    sprite->runAction(RepeatForever::create(animate));
 }
 
-void Warrior::walk() {
+void Hedgehog::walk() {
+    b2Vec2 velocity(direction * speed * Common::scaleSizeXY(), 0);
+    body->SetLinearVelocity(velocity);
+
     if (sprite != nullptr) {
         sprite->stopAllActions();
-        auto animateW = Animate::create(Common::createAnimation("Walking_", 17, 0.04));
-        animateW->retain();
-        sprite->runAction(RepeatForever::create(animateW));
-    }  
+        auto animate = Animate::create(Common::createAnimation("Hed_walking_", 17, 0.04));
+        animate->retain();
+        sprite->runAction(RepeatForever::create(animate));
+    }
 }
 
-void Warrior::die() {
+void Hedgehog::die() {
     isAlive = false;
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
-    auto animate = Animate::create(Common::createAnimation("Dying_", 14, 0.05));
+    auto animate = Animate::create(Common::createAnimation("Hed_smoke_", 9, 0.05));
     Effect::enemyDie();
 
     // Lặp qua tất cả các fixture của body
@@ -99,7 +98,7 @@ void Warrior::die() {
     sprite->runAction(sequence);
 }
 
-void Warrior::hit() {
+void Hedgehog::hit() {
 
     // Run animation with a callback
     
@@ -126,7 +125,7 @@ void Warrior::hit() {
         sprite->runAction(sequence);
     }
 }
-void Warrior::update(float dt) {
+void Hedgehog::update(float dt) {
 
     // Cập nhật thời gian đã trôi qua
     if (isAlive && body != nullptr) {
@@ -136,13 +135,33 @@ void Warrior::update(float dt) {
             canAttack = true;
         }
         if (canAttack) {
-            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= attackRange * Common::scaleSizeXY()) {
-                 hit();
+            float dy = body->GetPosition().y - player->getBody()->GetPosition().y;
+            float distanceY = std::abs(dy);
+            if (distanceY<= 2 && b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= attackRange * Common::scaleSizeXY()) {
+                walk();
                 // Reset thời gian và cờ tấn công
                 timeSinceLastAttack = 0.0f;
                 canAttack = false;
             }
         }
     }
+}
+
+void Hedgehog::getDamage(int damage) {
+    health--;
+    hurt();
+    if (health == 0) die();
+}
+
+void Hedgehog::hurt() {
+    sprite->stopAllActions();
+    auto animate = Animate::create(Common::createAnimation("Hed_hurt_", 11, 0.04));
+    animate->setTag(4);
+    auto callback = [this]() {
+            idle();
+    };
+    auto callFunc = CallFunc::create(callback);
+    auto sequence = Sequence::create(animate, callFunc, nullptr);
+    sprite->runAction(sequence);
 }
 

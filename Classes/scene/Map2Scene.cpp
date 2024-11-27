@@ -16,16 +16,15 @@ Scene* Map2Scene::createScene(string bg, string bgMusic, string mapName, bool is
     }
 }
 
-//on "init" you need to initialize your instance
-bool Map2Scene::init(string bg, string bgMusic, string mapName, bool isMoveCamera)
-{
-    
-    if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
-        return false;
-    }
-    world->SetContactListener(contactListener);
-    return true;
-}
+////on "init" you need to initialize your instance
+//bool Map2Scene::init(string bg, string bgMusic, string mapName, bool isMoveCamera)
+//{
+//    
+//    if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
+//        return false;
+//    }
+//    return true;
+//}
 
 // update
 void Map2Scene::update(float dt) {

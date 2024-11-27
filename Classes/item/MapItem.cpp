@@ -434,7 +434,7 @@ void MapItem::spawnEndGate() {
         fixtureDef.friction = 0.0f;
         fixtureDef.restitution = 0.0f;
         fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
-        fixtureDef.filter.maskBits = Constants::CATEGORY_GEM | Constants::CATEGORY_ARROW | Constants::CATEGORY_STICK | Constants::CATEGORY_ENEMY | Constants::CATEGORY_PLAYER | Constants::CATEGORY_LIMIT | Constants::CATEGORY_CHEST | Constants::CATEGORY_BOX | Constants::CATEGORY_ITEM;
+        fixtureDef.filter.maskBits =  Constants::CATEGORY_PLAYER;
 
         body->CreateFixture(&fixtureDef);
 
@@ -449,8 +449,16 @@ void MapItem::spawnAll() {
     spawnChest();
     spawnBackStick();
     spawnHeart();
+    spawnEndGate();
     spawnBox();
     spawnBridge();
     spawnBridgeBreak();
+}
+
+void MapItem::spawnBase() {
+    spawnWallAndLimit();
+    spawnChest();
+    spawnBackStick();
+    spawnHeart();
     spawnEndGate();
 }
