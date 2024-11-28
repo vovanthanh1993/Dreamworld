@@ -22,7 +22,6 @@ protected:
 	bool canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
 	bool isAlive = true;
 	float scale = 0.4;
-	float attackRange = 20;
 	int health = 1;
 public:
 	Bat(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
@@ -31,10 +30,12 @@ public:
 	void die();
 	void hurt();
 	void update(float dt);
+	void followPlayer();
 	Player* player;
 	int direction = 1;
 	int speed = 6;
 	void getDamage(int damage);
+	float attackRange = 20;
 };
 
 #endif // __Bat_H__

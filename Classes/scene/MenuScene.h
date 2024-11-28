@@ -38,6 +38,8 @@
 #include "main/Common.h"
 #include "scene/boss/Boss1Scene.h"
 #include "scene/boss/Boss2Scene.h"
+#include "scene/boss/Boss3Scene.h"
+
 #include "scene/Map3Scene.h"
 
 using namespace cocos2d;

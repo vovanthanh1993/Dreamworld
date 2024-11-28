@@ -17,7 +17,7 @@ using namespace cocos2d;
 class Warrior:public BaseNode
 {
 protected:
-	float attackCooldown =2.0f;  // Thời gian chờ giữa các đợt tấn công
+	float attackCooldown =1.5f;  // Thời gian chờ giữa các đợt tấn công
 	float timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
 	bool canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
 	bool isAlive = true;
@@ -34,6 +34,7 @@ public:
 	Player* player;
 	int direction = -1;
 	int speed = 6;
+	void followPlayer();
 };
 
 #endif // __Warrior_H__

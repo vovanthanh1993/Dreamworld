@@ -4,7 +4,7 @@ BoneRain::BoneRain(b2World* world, Scene* scene, Vec2 position, unordered_map<b2
 bool BoneRain::init() {
     sprite = Sprite::create("Enemy/Bossmap2/BoneRain/bonerain.png");
     sprite->setPosition(position);
-    sprite->setScale(Constants::BONE_SCALE * Common::scaleSizeXY());
+    sprite->setScale(scale * Common::scaleSizeXY());
     //sprite->setAnchorPoint(Vec2(0, 0));
     sprite->setTag(Constants::TAG_BONE_RAIN);
     scene->addChild(sprite);
@@ -34,5 +34,22 @@ bool BoneRain::init() {
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
     (*bodyToSpriteMap)[body] = sprite;
+    followPlayer();
     return true;
+}
+
+void BoneRain::followPlayer() {
+    // Lấy vị trí của enemy và player
+    b2Vec2 playerPos = player->getBody()->GetPosition();
+    b2Vec2 enemyPos = body->GetPosition();
+
+    // Tính toán vector hướng từ enemy tới player
+    b2Vec2 direction = playerPos - enemyPos;
+    direction.Normalize();
+
+    if (direction.x < 0) sprite->setScaleX(-scale);
+    else sprite->setScaleX(scale);
+    float speedAttack = 50.0f;  // Tốc độ di chuyển của enemy
+    b2Vec2 velocity = Common::scaleSizeXY() * speedAttack * direction;
+    body->SetLinearVelocity(velocity);
 }

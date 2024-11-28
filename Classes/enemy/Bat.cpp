@@ -110,22 +110,26 @@ void Bat::update(float dt) {
                     }
                 }
 
-                // Lấy vị trí của enemy và player
-                b2Vec2 playerPos = player->getBody()->GetPosition();
-                b2Vec2 enemyPos = body->GetPosition();
-
-                // Tính toán vector hướng từ enemy tới player
-                b2Vec2 direction = playerPos - enemyPos;
-                direction.Normalize();
-
-                if (direction.x < 0) sprite->setScaleX(-scale);
-                else sprite->setScaleX(scale);
-                float speedAttack = 8.0f;  // Tốc độ di chuyển của enemy
-                b2Vec2 velocity = Common::scaleSizeXY()*speedAttack * direction;
-                body->SetLinearVelocity(velocity);
+                followPlayer();
                 canAttack = true;
             }
     }
+}
+
+void Bat::followPlayer() {
+    // Lấy vị trí của enemy và player
+    b2Vec2 playerPos = player->getBody()->GetPosition();
+    b2Vec2 enemyPos = body->GetPosition();
+
+    // Tính toán vector hướng từ enemy tới player
+    b2Vec2 direction = playerPos - enemyPos;
+    direction.Normalize();
+
+    if (direction.x < 0) sprite->setScaleX(-scale);
+    else sprite->setScaleX(scale);
+    float speedAttack = 8.0f;  // Tốc độ di chuyển của enemy
+    b2Vec2 velocity = Common::scaleSizeXY() * speedAttack * direction;
+    body->SetLinearVelocity(velocity);
 }
 
 void Bat::getDamage(int damage) {

@@ -80,6 +80,7 @@ namespace constants {
 		static const int TAG_HED = 29;
 		static const int TAG_GOLEM = 30;
 		static const int TAG_BAT = 31;
+		static const int TAG_BOSSMAP3 = 32;
 		
 
 		static const int MAX_HEALTH = 10;

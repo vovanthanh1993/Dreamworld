@@ -3,6 +3,7 @@
 #include "main/Common.h"
 #include "base/BaseNode.h"
 #include "main/Constants.h"
+#include "player/Player.h"
 
 using namespace constants;
 using namespace common;
@@ -12,5 +13,8 @@ class Skull :public BaseNode
 public:
 	bool init();
 	Skull(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	void followPlayer();
+	Player* player;
+	float scale = 0.6;
 };
 

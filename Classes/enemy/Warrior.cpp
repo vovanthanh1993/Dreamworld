@@ -146,3 +146,24 @@ void Warrior::update(float dt) {
     }
 }
 
+void Warrior::followPlayer() {
+    // Lấy vị trí của enemy và player
+    b2Vec2 playerPos = player->getBody()->GetPosition();
+    b2Vec2 enemyPos = body->GetPosition();
+
+    // Tính toán vector hướng từ enemy tới player
+    b2Vec2 direction = playerPos - enemyPos;
+    direction.Normalize();
+
+    if (direction.x < 0) {
+        sprite->setScaleX(-scale);
+        this->direction = -1;
+    }
+    else {
+        sprite->setScaleX(scale);
+        this->direction = 1;
+    }
+    b2Vec2 velocity = Common::scaleSizeXY() * speed * direction;
+    body->SetLinearVelocity(velocity);
+}
+

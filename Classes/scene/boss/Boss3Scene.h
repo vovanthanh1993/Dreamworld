@@ -24,7 +24,7 @@
 
 #ifndef __Boss3Scene_H__
 #define __Boss3Scene_H__
-#include "enemy/BossMap2.h"
+#include "enemy/BossMap3.h"
 #include "base/BaseScene.h"
 #include "scene/Map3Scene.h"
 
@@ -37,7 +37,7 @@ public:
 
 private:
         void update(float dt) override;
-        BossMap2* bossmap2;
+        BossMap3* bossmap3;
         void spawnObject();
 };
 

@@ -45,6 +45,7 @@ public:
 	BossMap1(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	Player* player;
 	bool isALive = true;
+	
 };
 
 #endif // __BossMap1_H__

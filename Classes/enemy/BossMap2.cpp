@@ -144,27 +144,12 @@ void BossMap2::boneRain() {
         auto animate = Animate::create(Common::createAnimation("Wraith_1_Casting Spells_", 10, 0.01));
         Effect::soundDarkMagic();
         auto callback2 = [this](){
-            int start = -50;
-            for (int i = 1; i <= 21; i++) {
-                
-                if (sprite != nullptr) {
-                    int check = 1;
-                    // check huong nhan vat
-                    if (sprite->getScaleX() < 0) {
-                        check = -1;
-                    }
-                    BoneRain* rain = new BoneRain(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), bodyToSpriteMap);
-                    rain->init();
-                    b2Vec2 velocity(start * Common::scaleSizeXY(), -20 * Common::scaleSizeXY());
-                    rain->getBody()->SetLinearVelocity(velocity);
-                    start += 5;
-                }
-            }
-            
-            };        
+            BoneRain* rain = new BoneRain(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), bodyToSpriteMap);
+            rain->player = player;
+            rain->init();
+        };        
 
         auto callFunc2 = CallFunc::create(callback2);
-       
         auto sequence = Sequence::create(animate, callFunc2, nullptr);
         sprite->runAction(sequence);
     }
@@ -185,17 +170,18 @@ void BossMap2::update(float dt) {
                 if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_BOSS_MAP2) {
 
                     // Attack logic
-                    if (count++ % 3 != 0 && !isInPoint)
+                    
+                    if (count++ % 10 != 0 && !isInPoint)
                         boneRain();
                     else {
                         if (!isInPoint) {
                             moveBodyToPoint(map);
                             isInPoint = true;
-                            throwSkull();
+                            throwWarrior();
 
                         }
 
-                        if (countPhase2++ % 5 == 0) {
+                        if (countPhase2++ % 15 == 0) {
 
                             isInPoint = false;
                             moveBodyToInit(map);
@@ -263,7 +249,7 @@ void BossMap2::moveBodyToInit(TMXTiledMap* map) {
     }
 }
 
-void BossMap2::throwSkull() {
+void BossMap2::throwWarrior() {
     // Run animation with a callback
     if (sprite != nullptr) {
         auto animate = Animate::create(Common::createAnimation("Wraith_1_Casting Spells_", 10, 0.01));
@@ -277,10 +263,11 @@ void BossMap2::throwSkull() {
                     if (sprite->getScaleX() < 0) {
                         check = -1;
                     }
-                    Skull* skull = new Skull(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), bodyToSpriteMap);
-                    skull->init();
-                    b2Vec2 velocity(-10* Common::scaleSizeXY(), -60* Common::scaleSizeXY());
-                    skull->getBody()->SetLinearVelocity(velocity);
+                    Warrior* w = new Warrior(world, scene, sprite->getPosition(), bodyToSpriteMap);
+                    w->player = player;
+                    w->speed = 10;
+                    w->init();
+                    w->followPlayer();
                 }
             };
 
