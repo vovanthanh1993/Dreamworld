@@ -120,7 +120,7 @@ void Bat::update(float dt) {
 
                 if (direction.x < 0) sprite->setScaleX(-scale);
                 else sprite->setScaleX(scale);
-                float speedAttack = 5.0f;  // Tốc độ di chuyển của enemy
+                float speedAttack = 8.0f;  // Tốc độ di chuyển của enemy
                 b2Vec2 velocity = Common::scaleSizeXY()*speedAttack * direction;
                 body->SetLinearVelocity(velocity);
                 canAttack = true;
@@ -129,9 +129,12 @@ void Bat::update(float dt) {
 }
 
 void Bat::getDamage(int damage) {
-    health-= damage;
+    health -= damage;
+    if (health == 0) {
+        die();
+        return;
+    }
     hurt();
-    if (health == 0) die();
 }
 
 void Bat::hurt() {

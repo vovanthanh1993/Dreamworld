@@ -76,9 +76,6 @@
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\Map2Scene.cpp">
       <Filter>Source Files\Classes\scene</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\scene\Map3Scene.cpp">
-      <Filter>Source Files\Classes\scene</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\MenuScene.cpp">
       <Filter>Source Files\Classes\scene</Filter>
     </ClCompile>
@@ -160,6 +157,12 @@
     <ClCompile Include="..\Classes\enemy\Bat.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\scene\boss\Boss3Scene.cpp">
+      <Filter>Source Files\Classes\scene\boss</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\Map3Scene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h">
@@ -235,9 +238,6 @@
       <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\Map2Scene.h">
-      <Filter>Source Files\Classes\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\scene\Map3Scene.h">
       <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\MenuScene.h">
@@ -2405,6 +2405,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\enemy\Bat.h">
       <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\boss\Boss3Scene.h">
+      <Filter>Source Files\Classes\scene\boss</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\Map3Scene.h">
+      <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

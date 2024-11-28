@@ -21,7 +21,7 @@ protected:
 	float timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
 	bool canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
 	bool isAlive = true;
-	float scale = 0.5;
+	float scale = 0.4;
 	float attackRange = 20;
 	int health = 1;
 public:
@@ -30,7 +30,6 @@ public:
 	void idle();
 	void die();
 	void hurt();
-	void walk();
 	void update(float dt);
 	Player* player;
 	int direction = 1;

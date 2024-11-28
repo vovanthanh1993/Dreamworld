@@ -39,7 +39,7 @@ void Map3Scene::update(float dt) {
     }
     if (contactListener->isNext) {
         player->savePlayerDataInit();
-        auto newScene = Boss2Scene::createScene("map/bglv1.png", "Enemy/Bossmap2/sound/bg.mp3", "boss2", false);
+        auto newScene = Boss3Scene::createScene("map/bglv1.png", "Enemy/Bossmap2/sound/bg.mp3", "boss2", false);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
     }
     contactListener->isNext = false;
@@ -48,6 +48,7 @@ void Map3Scene::update(float dt) {
 void Map3Scene::spawnObject() {
     MapItem* item = new MapItem(world, this, bodyToSpriteMap, map);
     item->spawnBase();
+    item->spawnBridge(2);
 
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -76,7 +77,7 @@ void Map3Scene::spawnObject() {
     //    }
     //}
 
-    // spawn acher
+    // spawn hedgehog
     auto hedgehogLayer = map->getLayer("hedgehog");
     for (int x = 0; x < map->getMapSize().width; ++x) {
         for (int y = 0; y < map->getMapSize().height; ++y) {
@@ -89,7 +90,7 @@ void Map3Scene::spawnObject() {
         }
     }
 
-    // spawn acher
+    // spawn golem
     auto golemLayer = map->getLayer("golem");
     for (int x = 0; x < map->getMapSize().width; ++x) {
         for (int y = 0; y < map->getMapSize().height; ++y) {
@@ -102,7 +103,7 @@ void Map3Scene::spawnObject() {
         }
     }
 
-    // spawn acher
+    // spawn bat
     auto batLayer = map->getLayer("bat");
     for (int x = 0; x < map->getMapSize().width; ++x) {
         for (int y = 0; y < map->getMapSize().height; ++y) {

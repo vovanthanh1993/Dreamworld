@@ -146,8 +146,11 @@ void Golem::update(float dt) {
 
 void Golem::getDamage(int damage) {
     health-= damage;
+    if (health == 0) {
+        die();
+        return;
+    }
     hurt();
-    if (health == 0) die();
 }
 
 void Golem::hurt() {

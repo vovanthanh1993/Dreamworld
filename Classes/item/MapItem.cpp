@@ -148,7 +148,7 @@ void MapItem::spawnHeart() {
     }
 }
 
-void MapItem::spawnBridge() {
+void MapItem::spawnBridge(int type) {
     // spawn bridge
     auto wallBridge = map->getLayer("bridge");
     for (int x = 0; x < map->getMapSize().width; ++x) {
@@ -156,8 +156,12 @@ void MapItem::spawnBridge() {
             auto tile = wallBridge->getTileAt(Vec2(x, y));
             if (tile) {
                 auto sprite = Sprite::create("map/Bridge.png");
+                sprite->setScale(0.9 * Common::scaleSizeXY());
+                if (type = 2) {
+                    sprite = Sprite::create("map/cave_bridge.png");
+                    sprite->setScale(0.9 * Common::scaleSizeXY());
+                }
                 sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                sprite->setScale(Constants::BRIDGE_SCALE * Common::scaleSizeXY());
                 sprite->setTag(Constants::TAG_BRIDGE);
                 scene->addChild(sprite);
                 int* userData = new int(-1);
@@ -240,7 +244,7 @@ void MapItem::spawnBridgeBreak() {
     }
 }
 
-void MapItem::spawnBox() {
+void MapItem::spawnStone() {
     auto box = map->getLayer("box");
     for (int x = 0; x < map->getMapSize().width; ++x) {
         for (int y = 0; y < map->getMapSize().height; ++y) {
@@ -450,8 +454,8 @@ void MapItem::spawnAll() {
     spawnBackStick();
     spawnHeart();
     spawnEndGate();
-    spawnBox();
-    spawnBridge();
+    spawnStone();
+    spawnBridge(1);
     spawnBridgeBreak();
 }
 

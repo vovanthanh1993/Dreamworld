@@ -19,9 +19,9 @@ public:
 	void spawnBackStick();
 	void spawnChest();
 	void spawnHeart();
-	void spawnBridge();
+	void spawnBridge(int type);
 	void spawnBridgeBreak();
-	void spawnBox();
+	void spawnStone();
 	void spawnWallAndLimit();
 	void spawnAll();
 	void spawnEndGate();

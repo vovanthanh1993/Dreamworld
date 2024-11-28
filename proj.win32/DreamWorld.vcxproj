@@ -843,7 +843,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\Classes\main\Constants.h" />
     <ClInclude Include="..\Classes\player\skill\Slash.h" />
     <ClInclude Include="..\Classes\player\skill\Stick.h" />
+    <ClInclude Include="..\Classes\scene\boss\Boss3Scene.h" />
     <ClInclude Include="..\Classes\scene\Map1Scene.h" />
+    <ClInclude Include="..\Classes\scene\Map3Scene.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\BossMap1.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\BossMap2.h" />
@@ -869,7 +871,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\GUIScene.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\GameOver.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\Map2Scene.h" />
-    <ClInclude Include="D:\Git\Dreamworld\Classes\scene\Map3Scene.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\MenuScene.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\PauseMenu.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\scene\SettingScene.h" />
@@ -896,7 +897,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\Classes\main\Constants.cpp" />
     <ClCompile Include="..\Classes\player\skill\Slash.cpp" />
     <ClCompile Include="..\Classes\player\skill\Stick.cpp" />
+    <ClCompile Include="..\Classes\scene\boss\Boss3Scene.cpp" />
     <ClCompile Include="..\Classes\scene\Map1Scene.cpp" />
+    <ClCompile Include="..\Classes\scene\Map3Scene.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\Acher.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\BossMap1.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\BossMap2.cpp" />
@@ -922,7 +925,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\GUIScene.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\GameOver.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\Map2Scene.cpp" />
-    <ClCompile Include="D:\Git\Dreamworld\Classes\scene\Map3Scene.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\MenuScene.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\PauseMenu.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\SettingScene.cpp" />

@@ -148,9 +148,12 @@ void Hedgehog::update(float dt) {
 }
 
 void Hedgehog::getDamage(int damage) {
-    health--;
+    health -= damage;
+    if (health == 0) {
+        die();
+        return;
+    }
     hurt();
-    if (health == 0) die();
 }
 
 void Hedgehog::hurt() {

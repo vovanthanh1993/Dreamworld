@@ -24,18 +24,16 @@
 
 #ifndef __Map3Scene_H__
 #define __Map3Scene_H__
-#include "enemy/Warrior.h"
-#include "skill/SlashEnemy.h"
-#include "enemy/Acher.h"
-#include "enemy/Elemental.h"
-#include "item/Port.h"
-#include "enemy/Wraith.h"
-#include "VillageScene.h"
 #include "base/BaseScene.h"
+#include "enemy/Warrior.h"
+#include "enemy/Bat.h"
 #include "enemy/Hedgehog.h"
 #include "enemy/Golem.h"
-#include "enemy/Bat.h"
-
+#include "skill/SlashEnemy.h"
+#include "enemy/BossMap2.h"
+#include "enemy/Wraith.h"
+#include "enemy/Acher.h"
+#include "scene/boss/Boss3Scene.h"
 
 using namespace constants;
 using namespace common;
@@ -47,8 +45,8 @@ public:
     static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
     //bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
 private:
-    void spawnObject();
-    void update(float dt);
+        void spawnObject();
+        void update(float dt);
 };
 
 #endif // __Map3Scene_H__
