@@ -125,55 +125,65 @@ void Player::hit() {
 
 void Player::throwStick() {
     if (!isAlive) return;
-    sprite->stopAllActions();
-    auto animate = Animate::create(Common::createAnimation("Wukong-Throw_", 20, 0.005));
-    if (stickNum > 0) {
-        
-        int check = 1;
-        // check huong nhan vat
-        if (this->sprite->getScaleX() < 0) {
-            check = -1;
+    float currentTime = Director::getInstance()->getTotalFrames() / 60.0f;
+    // Kiểm tra nếu đang không tấn công hoặc đã qua thời gian chờ
+    if ((currentTime - lastAttackTimeStick >= attackCooldownStick)) {
+        lastAttackTimeStick = currentTime;
+        sprite->stopAllActions();
+        auto animate = Animate::create(Common::createAnimation("Wukong-Throw_", 20, 0.005));
+        if (stickNum > 0) {
+
+            int check = 1;
+            // check huong nhan vat
+            if (this->sprite->getScaleX() < 0) {
+                check = -1;
+            }
+            Stick* stick = new Stick(world, scene, Vec2(sprite->getPositionX() + check * 10 * Common::scaleSizeXY(), sprite->getPositionY()), bodyToSpriteMap);
+            stick->init();
+            stick->getSprite()->setScaleX(check * stick->getSprite()->getScale());
+            b2Vec2 velocity(40 * check * Common::scaleSizeXY(), 0);
+            stick->getBody()->SetLinearVelocity(velocity);
+            updateStickNum(-1);
+            scene->addChild(stick);
         }
-        Stick* stick = new Stick(world, scene, Vec2(sprite->getPositionX() + check * 10 * Common::scaleSizeXY(), sprite->getPositionY()), bodyToSpriteMap);
-        stick->init();
-        stick->getSprite()->setScaleX(check * stick->getSprite()->getScale());
-        b2Vec2 velocity(40 * check * Common::scaleSizeXY(), 0);
-        stick->getBody()->SetLinearVelocity(velocity);
-        updateStickNum(-1);
-        scene->addChild(stick);
-    }
         animate->setTag(4);
-        sprite->runAction(animate);  
+        sprite->runAction(animate);
+    }
 }
 
 
 void Player::eagle() {
     int manaUse = 5;
     if (!isAlive || mana < manaUse) return;
-    useMana(manaUse);
-    Effect::eagle();
-    sprite->stopAllActions();
-    auto animate = Animate::create(Common::createAnimation("Wukong-Throw_", 20, 0.005));
+    float currentTime = Director::getInstance()->getTotalFrames() / 60.0f;
+    // Kiểm tra nếu đang không tấn công hoặc đã qua thời gian chờ
+    if ((currentTime - lastAttackTimeEagle >= attackCooldownEagle)) {
+        lastAttackTimeEagle = currentTime;
+        useMana(manaUse);
+        Effect::eagle();
+        sprite->stopAllActions();
+        auto animate = Animate::create(Common::createAnimation("Wukong-Throw_", 20, 0.005));
 
-    int check = 1;
-    // check huong nhan vat              
-    if (this->sprite->getScaleX() < 0) {
-        check = -1;
-    }
+        int check = 1;
+        // check huong nhan vat              
+        if (this->sprite->getScaleX() < 0) {
+            check = -1;
+        }
 
-    int y = 0;
-    int x = -100 * Common::scaleSizeX();
-    for (int i = 1; i <= 3; i++) {
-        Eagle* eagle = new Eagle(world, scene, Vec2(sprite->getPositionX() + check * x + check * 10 * Common::scaleSizeXY(), sprite->getPositionY() + y), bodyToSpriteMap);
-        eagle->init();
-        eagle->getSprite()->setScaleX(check * Constants::STICK_SCALE * Common::scaleSizeX());
-        b2Vec2 velocity(30 * check * Common::scaleSizeXY(), 0);
-        eagle->getBody()->SetLinearVelocity(velocity);
-        y += 20 * Common::scaleSizeY();
-        x += 100 * Common::scaleSizeX();
+        int y = 0;
+        int x = -100 * Common::scaleSizeX();
+        for (int i = 1; i <= 3; i++) {
+            Eagle* eagle = new Eagle(world, scene, Vec2(sprite->getPositionX() + check * x + check * 15 * Common::scaleSizeXY(), sprite->getPositionY() + y), bodyToSpriteMap);
+            eagle->init();
+            eagle->getSprite()->setScaleX(check * Constants::STICK_SCALE * Common::scaleSizeX());
+            b2Vec2 velocity(30 * check * Common::scaleSizeXY(), 0);
+            eagle->getBody()->SetLinearVelocity(velocity);
+            y += 20 * Common::scaleSizeY();
+            x += 100 * Common::scaleSizeX();
+        }
+        animate->setTag(4);
+        sprite->runAction(animate);
     }
-    animate->setTag(4);
-    sprite->runAction(animate);
 }
 
 void Player::setHealth(int h) {
@@ -332,7 +342,6 @@ void Player::loadPlayerDataInit(bool isNew) {
         initHealth();
     }
 }
-
 
 void Player::hurt() {
     if (!isAlive) return;

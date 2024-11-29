@@ -27,6 +27,12 @@ private:
 	cocos2d::Sprite* manaBarBg; // Sprite cho nền thanh máu
 	Label* healthLabel;
 	map<EventKeyboard::KeyCode, bool> keys;
+	float attackCooldown = 0.5f; // Khoảng thời gian chờ giữa các lần tấn công
+	float lastAttackTime = 0; // Thời điểm của lần tấn công cuối cùng
+	float attackCooldownStick = 0.5f; // Khoảng thời gian chờ giữa các lần tấn công
+	float lastAttackTimeStick = 0; // Thời điểm của lần tấn công cuối cùng
+	float attackCooldownEagle = 0.5f; // Khoảng thời gian chờ giữa các lần tấn công
+	float lastAttackTimeEagle = 0; // Thời điểm của lần tấn công cuối cùng
 public:
 	bool isAlive = true;
 	Node* uiNode = Node::create();
@@ -71,7 +77,6 @@ public:
 	void updateManaBar(float mana);
 	void update(float dt);
 	void actionKey(EventKeyboard::KeyCode keyCode);
-	void checkCollision();
 
 	void addMana(int num);
 	// Getter cho maxMana
@@ -89,9 +94,6 @@ public:
 	void setMaxHealth(float health);
 	float getMaxHealth() const;
 	bool isInVillage = false;
-
-	float attackCooldown = 0.5f; // Khoảng thời gian chờ giữa các lần tấn công
-	float lastAttackTime = 0; // Thời điểm của lần tấn công cuối cùng
 	void initMouseEvent();
 	void initKeyEvent();
 };

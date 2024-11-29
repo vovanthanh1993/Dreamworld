@@ -50,7 +50,7 @@ bool Golem::init() {
     return true;
 }
 void Golem::idle() {
-    if (sprite != nullptr) {
+    if (isAlive && sprite != nullptr) {
         sprite->stopAllActions();
         auto animateW = Animate::create(Common::createAnimation("0_Golem_Idle_", 17, 0.04));
         animateW->retain();
@@ -59,7 +59,7 @@ void Golem::idle() {
 }
 
 void Golem::walk() {
-    if (sprite != nullptr) {
+    if (isAlive && sprite != nullptr) {
         sprite->stopAllActions();
         auto animateW = Animate::create(Common::createAnimation("0_Golem_Walking_", 19, 0.04));
         animateW->retain();
@@ -101,7 +101,7 @@ void Golem::die() {
 
 void Golem::hit() {
 
-    if (sprite != nullptr) {
+    if (isAlive && sprite != nullptr) {
         sprite->stopAllActions();
         auto animate = Animate::create(Common::createAnimation("0_Golem_Slashing_", 11, 0.015));
 
