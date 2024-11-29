@@ -157,7 +157,7 @@ void MapItem::spawnBridge(int type) {
             if (tile) {
                 auto sprite = Sprite::create("map/Bridge.png");
                 sprite->setScale(0.9 * Common::scaleSizeXY());
-                if (type = 2) {
+                if (type == 2) {
                     sprite = Sprite::create("map/cave_bridge.png");
                     sprite->setScale(0.9 * Common::scaleSizeXY());
                 }
@@ -443,7 +443,7 @@ void MapItem::spawnEndGate() {
         body->CreateFixture(&fixtureDef);
 
         Sprite* sprite = new Sprite();
-        sprite->setTag(Constants::TAG_PORT);
+        sprite->setTag(Constants::TAG_ENDGATE);
         body->SetUserData(sprite);
     }
 }

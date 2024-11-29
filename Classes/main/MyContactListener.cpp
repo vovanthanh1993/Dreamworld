@@ -274,7 +274,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         }
 
         // Qua man 2
-        if (tagA == Constants::TAG_PORT && tagB == Constants::TAG_PLAYER || tagA == Constants::TAG_PLAYER && tagB == Constants::TAG_PORT) {
+        if (tagA == Constants::TAG_ENDGATE && tagB == Constants::TAG_PLAYER || tagA == Constants::TAG_PLAYER && tagB == Constants::TAG_ENDGATE) {
             // Khởi tạo scene mới
             isNext = true;
         }

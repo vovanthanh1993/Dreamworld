@@ -35,6 +35,7 @@ public:
 	int direction = -1;
 	int speed = 6;
 	void followPlayer();
+	bool isFollowPlayer = false;
 };
 
 #endif // __Warrior_H__

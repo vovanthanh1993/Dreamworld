@@ -171,23 +171,25 @@ void BossMap2::update(float dt) {
 
                     // Attack logic
                     
-                    if (count++ % 10 != 0 && !isInPoint)
+                    if (count++ < 10 && countPhase2 == 1)
                         boneRain();
                     else {
-                        if (!isInPoint) {
+                        if (countPhase2 == 1) {
                             moveBodyToPoint(map);
-                            isInPoint = true;
                             throwWarrior();
-
                         }
 
-                        if (countPhase2++ % 15 == 0) {
+                        if (countPhase2 == 10) {
+                            throwWarrior();
+                        }
 
-                            isInPoint = false;
+                        // Ve lai vi tri dau tien
+                        if (countPhase2++ == 15) {
                             moveBodyToInit(map);
                             countPhase2 = 1;
                             count = 1;
                         }
+                        
                     }
 
                     // Reset thời gian và cờ tấn công
@@ -265,8 +267,9 @@ void BossMap2::throwWarrior() {
                     }
                     Warrior* w = new Warrior(world, scene, sprite->getPosition(), bodyToSpriteMap);
                     w->player = player;
-                    w->speed = 10;
+                    w->speed = 8;
                     w->init();
+                    w->isFollowPlayer = true;
                     w->followPlayer();
                 }
             };

@@ -20,7 +20,7 @@ Port::Port(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* _bodyT
                 sprite = Sprite::createWithSpriteFrameName("Explosion_0.png");
                 sprite->setPosition(Vec2(origin.x+x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE));
                 sprite->setScale(Constants::PORT_SCALE * Common::scaleSizeXY());
-                sprite->setTag(Constants::TAG_PORT);
+                sprite->setTag(Constants::TAG_ENDGATE);
                 spriteNode->addChild(sprite);
                 scene->addChild(spriteNode, 1);
                 auto animateW = Animate::create(Common::createAnimation("Explosion_", 4, 0.2));

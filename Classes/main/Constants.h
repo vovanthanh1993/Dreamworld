@@ -65,7 +65,7 @@ namespace constants {
 		static const int TAG_BOSSMAP1 = 14;
 		static const int TAG_FIRE = 15;
 		static const int TAG_GEM = 16;
-		static const int TAG_PORT = 17;
+		static const int TAG_ENDGATE = 17;
 		static const int TAG_RAIN = 18;
 		static const int TAG_NPC = 19;
 		static const int TAG_BOSSMAP2 = 20;

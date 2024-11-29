@@ -45,7 +45,6 @@ public:
 	void updateHealth(int damage);
 	void moveBodyToPoint(TMXTiledMap* map);
 	void moveBodyToInit(TMXTiledMap* map);
-	bool isInPoint = false;
 	int countPhase2 = 1;
 	void throwWarrior();
 	void updateHealthBar(float health);

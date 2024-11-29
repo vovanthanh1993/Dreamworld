@@ -21,7 +21,6 @@
  <objectgroup id="6" name="wall">
   <object id="2" x="0.5" y="1006" width="1919.5" height="36.5"/>
   <object id="8" x="-25" y="233" width="15.5" height="847"/>
-  <object id="9" x="1926.75" y="276.75" width="15.5" height="801.5"/>
  </objectgroup>
  <objectgroup id="7" name="endgate">
   <object id="3" x="1918" y="83.3333" width="4.66667" height="927.334"/>

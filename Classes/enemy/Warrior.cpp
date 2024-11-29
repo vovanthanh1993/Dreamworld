@@ -127,15 +127,17 @@ void Warrior::hit() {
     }
 }
 void Warrior::update(float dt) {
-
+    
     // Cập nhật thời gian đã trôi qua
     if (isAlive && body != nullptr) {
+        
         timeSinceLastAttack += dt;
 
         if (timeSinceLastAttack >= attackCooldown) {
             canAttack = true;
         }
         if (canAttack) {
+            if(isFollowPlayer) followPlayer();
             if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= attackRange * Common::scaleSizeXY()) {
                  hit();
                 // Reset thời gian và cờ tấn công
@@ -158,10 +160,12 @@ void Warrior::followPlayer() {
     if (direction.x < 0) {
         sprite->setScaleX(-scale);
         this->direction = -1;
+        direction = b2Vec2(-1, 0);
     }
     else {
         sprite->setScaleX(scale);
         this->direction = 1;
+        direction = b2Vec2(1, 0);
     }
     b2Vec2 velocity = Common::scaleSizeXY() * speed * direction;
     body->SetLinearVelocity(velocity);
