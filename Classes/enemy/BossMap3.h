@@ -18,10 +18,10 @@
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
-class BossMap3:public BaseNode
+class BossMap3 :public BaseNode
 {
 private:
-	float attackCooldown =3.0f;  // Thời gian chờ giữa các đợt tấn công
+	float attackCooldown = 3.0f;  // Thời gian chờ giữa các đợt tấn công
 	float timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
 	bool canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
 	int health = 20;
@@ -30,8 +30,8 @@ private:
 	Sprite* healthBar; // Sprite cho thanh máu
 	Sprite* healthBarBg; // Sprite cho nền thanh máu
 	bool isHit = false;
-	float scale = 1;
-	int attackRange = 20;
+	float scale = 0.6;
+	void spawnBat();
 public:
 	BossMap3(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init();
@@ -42,24 +42,17 @@ public:
 	void update(float dt);
 	void setHealth(int h);
 	int getHealth();
-	void hit();
-	void boneRain();
+	bool isALive = true;
 	void updateHealth(int damage);
-	void moveBodyToPoint(TMXTiledMap* map);
-	void moveBodyToInit(TMXTiledMap* map);
-	bool isInPoint = false;
-	int countPhase2 = 1;
-	void throwSkull();
+	void moveBodyToPoint();
 	void updateHealthBar(float health);
 	void createHealthBar();
 	void updateHealthBarPosition();
-	void callBat();
 	Player* player;
 	TMXTiledMap* map;
 	int direction = -1;
-	int speed = 6;
-	bool isALive = true;
-	void followPlayer();
+	int speed = 10;
+	int lastPoint = 1;
 };
 
 #endif // __BossMap3_H__

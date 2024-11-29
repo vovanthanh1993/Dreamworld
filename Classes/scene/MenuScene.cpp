@@ -153,13 +153,13 @@ void MenuScene::loadingbar() {
             this->unschedule("updateLoadingBar");// ngung lai
             std::this_thread::sleep_for(std::chrono::milliseconds(30));
             // chuyen scene
-            auto villageScene = Map1Scene::createScene("map/bglv1.png", "sound/background2.mp3", "map1", true);
+            //auto villageScene = Map1Scene::createScene("map/bglv1.png", "sound/background2.mp3", "map1", true);
             //auto villageScene = Map2Scene::createScene("map/bglv1.png", "sound/background2.mp3", "map2", true);
             //auto villageScene  = Boss1Scene::createScene("map/bglv1.png", "Enemy/Bossmap1/sound/bg.mp3", "boss1", false);
-            //auto villageScene = Boss2Scene::createScene("map/bglv1.png", "Enemy/Bossmap2/sound/bg.mp3", "boss2", false);
-           // auto villageScene = Boss1Scene::createScene();
+            auto villageScene = Boss2Scene::createScene("map/bglv1.png", "Enemy/Bossmap2/sound/bg.mp3", "boss2", false);
+           
            // auto villageScene = VillageScene::createScene("map/bglv1.png", "sound/background2.mp3", "village", false);
-            //auto villageScene =Boss3Scene::createScene("map/bg2.png", "Enemy/Bossmap2/sound/bg.mp3", "boss3", false);
+           //auto villageScene =Boss3Scene::createScene("map/bg2.png", "Enemy/Bossmap2/sound/bg.mp3", "boss3", false);
             //auto villageScene = Map3Scene::createScene("map/bg2.png", "sound/background2.mp3", "map3", true);
             Director::getInstance()->replaceScene(villageScene);
         }

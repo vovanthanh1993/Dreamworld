@@ -7,11 +7,8 @@ bool BossMap2::init() {
     spriteNode = SpriteBatchNode::create("Enemy/Bossmap2/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Bossmap2/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Wraith_1_Moving Forward_0.png");
-    sprite->setScale(Constants::BOSSMAP2_SCALE * Common::scaleSizeXY());
+    sprite->setScale(scale*Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_BOSSMAP2);
-    
-    int* userData = new int(-1);
-    sprite->setUserData(userData);
     sprite->setPosition(position);
     spriteNode->addChild(sprite);
     scene->addChild(spriteNode);
@@ -38,10 +35,10 @@ bool BossMap2::init() {
     fixtureDef.filter.maskBits = Constants::CATEGORY_STICK| Constants::CATEGORY_WALL| Constants::CATEGORY_LIMIT| Constants::CATEGORY_SLASH;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-    b2Vec2 velocity(Constants::SPEED_BOSS2 * Common::scaleSizeXY(), 0);
+    b2Vec2 velocity(direction* speed * Common::scaleSizeXY(), 0);
     body->SetGravityScale(0.0f);
     body->SetLinearVelocity(velocity);
-    sprite->setScaleX(-Constants::BOSSMAP1_SCALE * Common::scaleSizeXY());
+    sprite->setScaleX(direction* scale * Common::scaleSizeXY());
     (*bodyToSpriteMap)[body] = sprite;
 
     createHealthBar();
@@ -175,7 +172,7 @@ void BossMap2::update(float dt) {
                         boneRain();
                     else {
                         if (countPhase2 == 1) {
-                            moveBodyToPoint(map);
+                            moveBodyToPoint();
                             throwWarrior();
                         }
 
@@ -185,7 +182,7 @@ void BossMap2::update(float dt) {
 
                         // Ve lai vi tri dau tien
                         if (countPhase2++ == 15) {
-                            moveBodyToInit(map);
+                            moveBodyToInit();
                             countPhase2 = 1;
                             count = 1;
                         }
@@ -217,10 +214,10 @@ void BossMap2::updateHealth(int damage) {
             die();
         } 
 }
-void BossMap2::moveBodyToPoint(TMXTiledMap* map) {
+void BossMap2::moveBodyToPoint() {
     int i = Common::randomNum(1, 3);
     int count = 0;
-        auto box = map->getLayer("move");
+        auto box = map->getLayer("point");
         for (int x = 0; x < map->getMapSize().width; ++x) {
             for (int y = 0; y < map->getMapSize().height; ++y) {
                 auto tile = box->getTileAt(Vec2(x, y));
@@ -237,7 +234,7 @@ void BossMap2::moveBodyToPoint(TMXTiledMap* map) {
         }
 }
 
-void BossMap2::moveBodyToInit(TMXTiledMap* map) {
+void BossMap2::moveBodyToInit() {
     auto box = map->getLayer("boss");
     for (int x = 0; x < map->getMapSize().width; ++x) {
         for (int y = 0; y < map->getMapSize().height; ++y) {

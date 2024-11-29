@@ -22,7 +22,7 @@ bool Boss3Scene::init(string bg, string bgMusic, string mapName, bool isMoveCame
     if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
         return false;
     }
-    //contactListener->bossmap3 = bossmap3;
+    contactListener->bossmap3 = bossmap3;
     return true;
 }
 
@@ -74,8 +74,8 @@ void Boss3Scene::spawnObject() {
             auto tile = bossLayer->getTileAt(Vec2(x, y));
             if (tile) {
                 bossmap3 = new BossMap3(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
-                bossmap3->player = player;
                 bossmap3->map = map;
+                bossmap3->player = player;
                 bossmap3->init();
             }
         }

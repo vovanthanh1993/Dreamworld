@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="24" tileheight="24" infinite="0" nextlayerid="11" nextobjectid="4">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="24" tileheight="24" infinite="0" nextlayerid="17" nextobjectid="17">
  <tileset firstgid="1" name="Cave - Platforms" tilewidth="24" tileheight="24" tilecount="37107" columns="217">
   <image source="Cave - Platforms.png" width="5222" height="4111"/>
  </tileset>
  <layer id="1" name="bg" width="80" height="45">
   <data encoding="base64" compression="zlib">
-   eJzt0MVNhWEUBuFvd6UX3N2pAHd3KsDdnQpwd6c5poh/cUNmkmd78uaEYGZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZvZ/O4uFcI4LXOIK17jBLe5wjwc84gnPeMEr3vCOD3ziC9/4wW8s+r0n3DyNpc7umXgIs5jDPBawiCUsYwWrWMM6NrCJLWxjB7vYwz4OcIgjHMej/98UN6fjqbO7KRFCM1rQija0owOd6EI3etCLPvRjAIMYwjBGMIoxjGMCk4no/9fAzcZE6uzOSIaQiSxkIwe5yEM+ClCIIhSjBKUoQzkqUIkqVKMGtahDfTL6/6VxMz2ZOrv/AAfCYaU=
+   eJzt2DdzU0EUhuG1G0siFWBZtiRHWjCOgHNOtGAcyTn8AnLOmT+AbZxtcq4B4xzpyRSAczYzvB0zFBSXK27QfjNPqdXZU+zZvULIyMjIyMjIyMjIGDsJTiESkYRkpCAVaUhHBjKRhWzkIBd5yEcB1ji9t/bFLiGWwB92BMCBQATBCRfcCEYIQhGGcERgqUudfhix9m/8/jt+YBBDGMYIRjGGcUxgElOYxgxmMYefGvVPD7W/dAvxCq/RgjdoRRva0YFOdKEbPehFH/oxgLdudfrhTbXLyPyZQqxHEYpRglKUoVzDuoySSB8hViAK0YhBLOIQ76N1dfqPxVcIK2yYh/lYgIVY5Kt1deom2Z/7HlKRhnRkIBNZyEYOcpGHfBT4/33Nd/ToPT7gIz7hM77gq8n6J2P8KJ03as8pu523AxwIRBCccMGNYIQgFGEIR4RdwR+pHKXzRu05NUgvhjCMEYxiDOOYwCSmMI0ZzGJOB/1TOm/UnlMtAbwd0Io2tKMDnehCN3rQiz70YyBA+b7VitJ5o/acuuUQogKVqMJtVKMGtahDPRrQiCY0O5TvW0adeOIO5E0x6tzyRJTcCYw6tzwRJXcCo84tT0TJnUDOrd/5329XM33rsmjwtpffuv4t3vStyxOR37rMHTOdz1rsxUznsxZ7MdP5rMVezHQ+m2kvMjIyylLlxxsd1ahBLepQjwY0ognNuIO7uIf7eICHeITHeIKneIbneOGnfr0VrFnpp5+6D1mEOIwjOIpjOI4TOIlTOI0zOItzOI8LuIhLuIwruIpruI4buGlRv38HWPOgRT91F1q5R6IIxShBKcpQjg3YiE3YjC3Yim3Yjh3YiV3YjT3Yi33Yb1W/f2tZc51VP3VH2rhHIgrRiEEs4hCPlViF1UhAIpKQjBSkIg3pyEAmspCNHJv6/VvGmstt+qn7F9VvbLg=
+  </data>
+ </layer>
+ <layer id="13" name="bat" width="80" height="45">
+  <data encoding="base64" compression="zlib">
+   eJzt2jERACAAxLB6wD9a0fDHmkjo3Kp7YqQZAAAAAAAAAAAAAABsvPg7zQD48QCvhgLF
+  </data>
+ </layer>
+ <layer id="15" name="point" width="80" height="45" opacity="0.4">
+  <data encoding="base64" compression="zlib">
+   eJzt2rENACAMA8FIlGyamq1Zgi2SSNxN8IVLRwDAH87qLgAAACrc3V3AJPYAAAAAAABUSj81AACGeWpbAtE=
+  </data>
+ </layer>
+ <layer id="16" name="limit" width="80" height="45">
+  <data encoding="base64" compression="zlib">
+   eJzt2rENACAMA8EUdEhsxv7rsARYRLob4CuXrgKA3vb4qwMAALyxZo8mWXYBAAAAAACk3PyY+asBAJByAFP8Aak=
   </data>
  </layer>
  <layer id="4" name="bg2" width="80" height="45">
@@ -21,13 +36,24 @@
  <objectgroup id="10" name="limitmap">
   <object id="3" x="-6.66667" y="-5.33333" width="8" height="1016"/>
  </objectgroup>
- <layer id="6" name="boss" width="80" height="45">
+ <layer id="6" name="boss" width="80" height="45" opacity="0.18">
   <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6BXsH8y2xjjm4MEJAAAAAAAAAAAAADwz057AAAA0HUw0wDr
+   eJztzkENAAAIBKBLYFf7f2yhm4MEJADwW9f1AAAAAAAAAAAAAAAAYN8AskYAgA==
   </data>
  </layer>
  <objectgroup id="7" name="wall">
   <object id="2" x="1.33333" y="1005.33" width="1914.67" height="66.6667"/>
+  <object id="4" x="294.667" y="846.667" width="130" height="45.3333"/>
+  <object id="5" x="585" y="657.667" width="130" height="45.3333"/>
+  <object id="6" x="1281" y="488.333" width="130" height="45.3333"/>
+  <object id="7" x="880" y="628" width="291" height="41"/>
+  <object id="8" x="157.5" y="511.5" width="291" height="41"/>
+  <object id="10" x="1257.67" y="729.333" width="130" height="45.3333"/>
+  <object id="11" x="1520.33" y="845.333" width="130" height="45.3333"/>
+  <object id="12" x="1620.33" y="488" width="130" height="45.3333"/>
+  <object id="13" x="993.667" y="366.667" width="130" height="45.3333"/>
+  <object id="15" x="1306" y="220" width="343" height="46"/>
+  <object id="16" x="513.5" y="246" width="343" height="46"/>
  </objectgroup>
  <layer id="8" name="limit" width="80" height="45" opacity="0.73">
   <data encoding="base64" compression="zlib">

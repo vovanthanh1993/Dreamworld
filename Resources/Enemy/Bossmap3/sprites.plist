@@ -4,1558 +4,816 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>troll_attacking_0.png</key>
+			<key>bossbat_hurt_0.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{428,2753},{200,178}}</string>
+				<string>{{0,705},{272,159}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{79,43},{200,178}}</string>
+				<string>{{18,9},{272,159}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_attacking_1.png</key>
+			<key>bossbat_hurt_1.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{627,1450},{187,183}}</string>
+				<string>{{0,1278},{270,151}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{74,38},{187,183}}</string>
+				<string>{{10,17},{270,151}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_attacking_10.png</key>
+			<key>bossbat_hurt_10.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,347},{232,173}}</string>
+				<string>{{0,1688},{269,155}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{65,48},{232,173}}</string>
+				<string>{{14,13},{269,155}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_attacking_11.png</key>
+			<key>bossbat_hurt_11.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,3324},{218,176}}</string>
+				<string>{{0,1123},{270,154}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{71,45},{218,176}}</string>
+				<string>{{16,14},{270,154}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_attacking_2.png</key>
+			<key>bossbat_hurt_2.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{809,3881},{174,196}}</string>
+				<string>{{273,518},{262,157}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{69,25},{174,196}}</string>
+				<string>{{6,12},{262,157}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_attacking_3.png</key>
+			<key>bossbat_hurt_3.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{815,949},{170,200}}</string>
+				<string>{{535,1072},{253,160}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{65,21},{170,200}}</string>
+				<string>{{8,9},{253,160}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_attacking_4.png</key>
+			<key>bossbat_hurt_4.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{815,1352},{164,197}}</string>
+				<string>{{536,290},{245,163}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{64,24},{164,197}}</string>
+				<string>{{11,6},{245,163}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_attacking_5.png</key>
+			<key>bossbat_hurt_5.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{815,1759},{159,193}}</string>
+				<string>{{536,454},{244,162}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{63,28},{159,193}}</string>
+				<string>{{12,6},{244,162}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_attacking_6.png</key>
+			<key>bossbat_hurt_6.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{815,2754},{153,190}}</string>
+				<string>{{535,1233},{252,161}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{61,31},{153,190}}</string>
+				<string>{{11,7},{252,161}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_attacking_7.png</key>
+			<key>bossbat_hurt_7.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{628,361},{185,207}}</string>
+				<string>{{533,129},{258,160}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{61,14},{185,207}}</string>
+				<string>{{11,8},{258,160}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_attacking_8.png</key>
+			<key>bossbat_hurt_8.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,0},{251,175}}</string>
+				<string>{{272,865},{262,158}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{64,46},{251,175}}</string>
+				<string>{{12,10},{262,158}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_attacking_9.png</key>
+			<key>bossbat_hurt_9.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{0,176},{240,170}}</string>
+				<string>{{270,1430},{266,157}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{62,51},{240,170}}</string>
+				<string>{{13,11},{266,157}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_0.png</key>
+			<key>bossbat_idle Blinking_0.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{428,887},{200,178}}</string>
+				<string>{{0,389},{272,159}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{79,43},{200,178}}</string>
+				<string>{{18,9},{272,159}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_1.png</key>
+			<key>bossbat_idle Blinking_1.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{429,548},{198,180}}</string>
+				<string>{{0,260},{273,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{82,41},{198,180}}</string>
+				<string>{{18,39},{273,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_10.png</key>
+			<key>bossbat_idle Blinking_10.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{624,3504},{190,179}}</string>
+				<string>{{0,130},{273,129}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{28,48},{190,179}}</string>
+				<string>{{19,33},{273,129}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_11.png</key>
+			<key>bossbat_idle Blinking_11.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{443,0},{193,176}}</string>
+				<string>{{0,1430},{269,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{25,55},{193,176}}</string>
+				<string>{{21,34},{269,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_12.png</key>
+			<key>bossbat_idle Blinking_12.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{443,0},{193,176}}</string>
+				<string>{{271,1123},{263,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{25,55},{193,176}}</string>
+				<string>{{25,35},{263,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_13.png</key>
+			<key>bossbat_idle Blinking_13.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{443,0},{193,176}}</string>
+				<string>{{274,129},{258,129}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{25,55},{193,176}}</string>
+				<string>{{28,35},{258,129}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_14.png</key>
+			<key>bossbat_idle Blinking_14.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{443,0},{193,176}}</string>
+				<string>{{535,806},{255,132}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{25,55},{193,176}}</string>
+				<string>{{30,36},{255,132}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_2.png</key>
+			<key>bossbat_idle Blinking_15.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{430,1450},{196,181}}</string>
+				<string>{{274,0},{261,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{86,40},{196,181}}</string>
+				<string>{{25,37},{261,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_3.png</key>
+			<key>bossbat_idle Blinking_16.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{430,2932},{196,180}}</string>
+				<string>{{270,1588},{266,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{87,40},{196,180}}</string>
+				<string>{{22,38},{266,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_4.png</key>
+			<key>bossbat_idle Blinking_17.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{629,2370},{181,187}}</string>
+				<string>{{0,865},{271,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{90,30},{181,187}}</string>
+				<string>{{19,39},{271,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_5.png</key>
+			<key>bossbat_idle Blinking_2.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{814,361},{172,194}}</string>
+				<string>{{0,1559},{269,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{76,24},{172,194}}</string>
+				<string>{{21,38},{269,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_6.png</key>
+			<key>bossbat_idle Blinking_3.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{815,3317},{155,199}}</string>
+				<string>{{271,1252},{263,129}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{61,18},{155,199}}</string>
+				<string>{{25,37},{263,129}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_7.png</key>
+			<key>bossbat_idle Blinking_4.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{815,1550},{161,208}}</string>
+				<string>{{535,676},{257,129}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{51,13},{161,208}}</string>
+				<string>{{29,36},{257,129}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_8.png</key>
+			<key>bossbat_idle Blinking_5.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{815,1150},{168,201}}</string>
+				<string>{{274,259},{258,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{43,25},{168,201}}</string>
+				<string>{{29,36},{258,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_dying_9.png</key>
+			<key>bossbat_idle Blinking_6.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{218,3511},{181,168}}</string>
+				<string>{{273,389},{262,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{37,59},{181,168}}</string>
+				<string>{{26,35},{262,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_hurt_0.png</key>
+			<key>bossbat_idle Blinking_7.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{428,887},{200,178}}</string>
+				<string>{{0,1844},{268,129}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{79,43},{200,178}}</string>
+				<string>{{22,34},{268,129}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_hurt_1.png</key>
+			<key>bossbat_idle Blinking_8.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{241,176},{201,186}}</string>
+				<string>{{0,0},{273,129}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{72,35},{201,186}}</string>
+				<string>{{19,33},{273,129}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_hurt_10.png</key>
+			<key>bossbat_idle Blinking_9.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{226,701},{202,185}}</string>
+				<string>{{0,549},{272,155}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{73,36},{202,185}}</string>
+				<string>{{19,6},{272,155}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_hurt_11.png</key>
+			<key>bossbat_idle_0.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{428,2187},{201,182}}</string>
+				<string>{{0,389},{272,159}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{76,39},{201,182}}</string>
+				<string>{{18,9},{272,159}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_hurt_2.png</key>
+			<key>bossbat_idle_1.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{428,2562},{200,190}}</string>
+				<string>{{0,260},{273,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{66,31},{200,190}}</string>
+				<string>{{18,39},{273,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_hurt_3.png</key>
+			<key>bossbat_idle_10.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{430,1258},{197,191}}</string>
+				<string>{{0,130},{273,129}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{60,30},{197,191}}</string>
+				<string>{{19,33},{273,129}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_hurt_4.png</key>
+			<key>bossbat_idle_11.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{430,1066},{197,191}}</string>
+				<string>{{0,1430},{269,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{60,30},{197,191}}</string>
+				<string>{{21,34},{269,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_hurt_5.png</key>
+			<key>bossbat_idle_12.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{429,1635},{198,192}}</string>
+				<string>{{271,1123},{263,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{61,29},{198,192}}</string>
+				<string>{{25,35},{263,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_hurt_6.png</key>
+			<key>bossbat_idle_13.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{428,2370},{200,191}}</string>
+				<string>{{274,129},{258,129}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{63,30},{200,191}}</string>
+				<string>{{28,35},{258,129}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_hurt_7.png</key>
+			<key>bossbat_idle_14.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{422,3511},{201,190}}</string>
+				<string>{{535,939},{255,132}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{66,31},{201,190}}</string>
+				<string>{{30,36},{255,132}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_hurt_8.png</key>
+			<key>bossbat_idle_15.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{225,2551},{202,189}}</string>
+				<string>{{273,676},{261,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{68,32},{202,189}}</string>
+				<string>{{25,37},{261,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_hurt_9.png</key>
+			<key>bossbat_idle_16.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{225,1999},{203,187}}</string>
+				<string>{{269,1844},{266,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{70,34},{203,187}}</string>
+				<string>{{22,38},{266,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle Blinking_0.png</key>
+			<key>bossbat_idle_17.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{428,2753},{200,178}}</string>
+				<string>{{0,994},{271,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{79,43},{200,178}}</string>
+				<string>{{19,39},{271,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle Blinking_1.png</key>
+			<key>bossbat_idle_2.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{226,887},{201,178}}</string>
+				<string>{{0,1559},{269,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{77,43},{201,178}}</string>
+				<string>{{21,38},{269,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle Blinking_10.png</key>
+			<key>bossbat_idle_3.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{225,2369},{202,181}}</string>
+				<string>{{271,1252},{263,129}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{75,40},{202,181}}</string>
+				<string>{{25,37},{263,129}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle Blinking_11.png</key>
+			<key>bossbat_idle_4.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{425,3323},{201,180}}</string>
+				<string>{{535,676},{257,129}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{77,41},{201,180}}</string>
+				<string>{{29,36},{257,129}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle Blinking_2.png</key>
+			<key>bossbat_idle_5.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{226,521},{202,179}}</string>
+				<string>{{274,259},{258,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{76,42},{202,179}}</string>
+				<string>{{29,36},{258,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle Blinking_3.png</key>
+			<key>bossbat_idle_6.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{225,1635},{203,179}}</string>
+				<string>{{273,389},{262,128}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{74,42},{203,179}}</string>
+				<string>{{26,35},{262,128}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle Blinking_4.png</key>
+			<key>bossbat_idle_7.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{222,3141},{204,181}}</string>
+				<string>{{0,1844},{268,129}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{72,40},{204,181}}</string>
+				<string>{{22,34},{268,129}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle Blinking_5.png</key>
+			<key>bossbat_idle_8.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{225,1452},{204,182}}</string>
+				<string>{{0,0},{273,129}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{71,39},{204,182}}</string>
+				<string>{{19,33},{273,129}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle Blinking_6.png</key>
+			<key>bossbat_idle_9.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{208,3867},{206,184}}</string>
+				<string>{{0,549},{272,155}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{69,37},{206,184}}</string>
+				<string>{{19,6},{272,155}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle Blinking_7.png</key>
+			<key>bossbat_smoke_0.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{225,1082},{204,184}}</string>
+				<string>{{648,0},{109,102}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{71,37},{204,184}}</string>
+				<string>{{117,52},{109,102}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle Blinking_8.png</key>
+			<key>bossbat_smoke_1.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{225,1267},{204,184}}</string>
+				<string>{{536,0},{111,104}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{72,37},{204,184}}</string>
+				<string>{{116,51},{111,104}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle Blinking_9.png</key>
+			<key>bossbat_smoke_2.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{225,1815},{203,183}}</string>
+				<string>{{392,1717},{119,117}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{74,38},{203,183}}</string>
+				<string>{{112,45},{119,117}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle_0.png</key>
+			<key>bossbat_smoke_3.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{428,2753},{200,178}}</string>
+				<string>{{270,1717},{121,119}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{79,43},{200,178}}</string>
+				<string>{{111,44},{121,119}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle_1.png</key>
+			<key>bossbat_smoke_4.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{226,887},{201,178}}</string>
+				<string>{{680,1529},{140,132}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{77,43},{201,178}}</string>
+				<string>{{102,37},{140,132}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle_10.png</key>
+			<key>bossbat_smoke_5.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{225,2187},{202,181}}</string>
+				<string>{{680,1395},{141,133}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{75,40},{202,181}}</string>
+				<string>{{101,37},{141,133}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle_11.png</key>
+			<key>bossbat_smoke_6.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{427,3141},{201,180}}</string>
+				<string>{{537,1533},{142,134}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{77,41},{201,180}}</string>
+				<string>{{101,36},{142,134}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle_2.png</key>
+			<key>bossbat_smoke_7.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{226,521},{202,179}}</string>
+				<string>{{537,1395},{142,137}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{76,42},{202,179}}</string>
+				<string>{{100,34},{142,137}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle_3.png</key>
+			<key>bossbat_smoke_8.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{225,1635},{203,179}}</string>
+				<string>{{536,1857},{144,139}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{74,42},{203,179}}</string>
+				<string>{{99,33},{144,139}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
-			<key>troll_idle_4.png</key>
+			<key>bossbat_smoke_9.png</key>
 			<dict>
 				<key>frame</key>
-				<string>{{222,3141},{204,181}}</string>
+				<string>{{536,1717},{145,139}}</string>
 				<key>offset</key>
 				<string>{0,0}</string>
 				<key>rotated</key>
 				<false/>
 				<key>sourceColorRect</key>
-				<string>{{72,40},{204,181}}</string>
+				<string>{{99,33},{145,139}}</string>
 				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_idle_5.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{225,1452},{204,182}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{71,39},{204,182}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_idle_6.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{208,3867},{206,184}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{69,37},{206,184}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_idle_7.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{225,1082},{204,184}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{71,37},{204,184}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_idle_8.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{225,1267},{204,184}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{72,37},{204,184}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_idle_9.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{225,1815},{203,183}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{74,38},{203,183}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_jump Loop_0.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{811,2213},{174,196}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{80,25},{174,196}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_jump Loop_1.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{809,3684},{174,196}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{81,25},{174,196}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_jump Loop_2.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{814,752},{172,196}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{83,25},{172,196}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_jump Loop_3.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{814,556},{172,195}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{84,26},{172,195}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_jump Loop_4.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{812,3120},{172,196}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{83,25},{172,196}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_jump Loop_5.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{809,2016},{174,196}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{81,25},{174,196}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_jump Start_0.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{428,2753},{200,178}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{79,43},{200,178}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_jump Start_1.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{617,3883},{191,183}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{85,39},{191,183}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_jump Start_2.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{629,3120},{182,187}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{90,35},{182,187}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_jump Start_3.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{629,2558},{178,190}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{89,32},{178,190}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_jump Start_4.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{630,2016},{178,192}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{86,30},{178,192}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_jump Start_5.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{808,2558},{176,195}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{83,27},{176,195}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_0.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{216,3684},{205,178}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{79,43},{205,178}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_1.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,3684},{215,182}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{76,39},{215,182}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_10.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,2017},{224,186}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{71,35},{224,186}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_11.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,2204},{224,186}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{71,35},{224,186}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_12.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,2391},{224,186}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{71,35},{224,186}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_13.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,895},{225,186}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{70,35},{225,186}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_14.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,2578},{224,186}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{70,35},{224,186}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_15.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,2765},{224,187}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{70,34},{224,187}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_16.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,2953},{223,185}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{72,36},{223,185}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_17.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,3501},{217,182}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{75,39},{217,182}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_2.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,3139},{221,184}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{73,37},{221,184}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_3.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,1269},{224,187}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{70,34},{224,187}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_4.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,1082},{224,186}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{70,35},{224,186}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_5.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,708},{225,186}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{70,35},{225,186}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_6.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,521},{225,186}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{70,35},{225,186}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_7.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,1457},{224,186}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{71,35},{224,186}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_8.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,1644},{224,186}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{71,35},{224,186}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_taunt_9.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,1831},{224,185}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{71,36},{224,185}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_0.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{0,3867},{207,187}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{66,34},{207,187}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_1.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{224,2953},{205,187}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{70,35},{205,187}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_10.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{628,1634},{186,188}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{83,35},{186,188}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_11.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{628,1066},{186,188}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{86,36},{186,188}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_12.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{629,753},{184,186}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{90,37},{184,186}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_13.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{628,569},{185,183}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{91,39},{185,183}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_14.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{617,3702},{191,180}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{86,41},{191,180}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_15.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{429,1828},{197,182}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{81,40},{197,182}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_16.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{415,3863},{201,185}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{76,38},{201,185}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_17.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{219,3324},{205,186}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{71,36},{205,186}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_2.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{225,2741},{202,187}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{75,36},{202,187}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_3.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{429,363},{198,184}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{80,38},{198,184}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_4.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{443,177},{192,183}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{85,39},{192,183}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_5.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{627,3322},{186,181}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{90,41},{186,181}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_6.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{636,177},{184,183}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{90,40},{184,183}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_7.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{628,1255},{186,185}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{86,38},{186,185}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_8.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{627,1828},{187,187}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{83,36},{187,187}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
-			</dict>
-
-			<key>troll_walking_9.png</key>
-			<dict>
-				<key>frame</key>
-				<string>{{627,2932},{187,187}}</string>
-				<key>offset</key>
-				<string>{0,0}</string>
-				<key>rotated</key>
-				<false/>
-				<key>sourceColorRect</key>
-				<string>{{81,35},{187,187}}</string>
-				<key>sourceSize</key>
-				<string>{200,178}</string>
+				<string>{272,159}</string>
 			</dict>
 
 		</dict>
@@ -1565,7 +823,7 @@
 			<key>format</key>
 			<integer>2</integer>
 			<key>size</key>
-			<string>{1024,4096}</string>
+			<string>{1024,2048}</string>
 			<key>textureFileName</key>
 			<string>sprites.png</string>
 			</dict>

@@ -36,7 +36,7 @@ public:
     
 
 private:
-        void update(float dt) override;
+        void update(float dt);
         BossMap3* bossmap3;
         void spawnObject();
 };

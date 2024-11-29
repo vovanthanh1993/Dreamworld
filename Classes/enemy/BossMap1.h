@@ -27,6 +27,7 @@ private:
 	cocos2d::Sprite* healthBar; // Sprite cho thanh máu
 	cocos2d::Sprite* healthBarBg; // Sprite cho nền thanh máu
 	bool isHit = false;
+	float scale = 1;
 public:
 	bool init();
 	void walk();
@@ -45,6 +46,8 @@ public:
 	BossMap1(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	Player* player;
 	bool isALive = true;
+	int direction = -1;
+	int speed = 10;
 	
 };
 

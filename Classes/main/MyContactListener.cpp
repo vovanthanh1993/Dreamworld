@@ -32,6 +32,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->die();
             else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
             else if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
+            else if (tagA == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(1);
             else if (tagA == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(1);
             else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(1);
             else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(1);
@@ -45,6 +46,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->die();
             else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
             else if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
+            else if (tagB == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(1);
             else if (tagB == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(1);
             else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(1);
             else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(1);
@@ -58,6 +60,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->die();
             else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
             else if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
+            else if (tagA == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(1);
             else if (tagA == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(1);
             else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(1);
             else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(1);
@@ -69,6 +72,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->die();
             else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
             else if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
+            else if (tagB == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(1);
             else if (tagB == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(1);
             else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(1);
             else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(1);
@@ -93,6 +97,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
 
             else if (tagA == Constants::TAG_BOSSMAP1 || tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(1);
             else if (tagA == Constants::TAG_BOSSMAP2 || tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(1);
+            else if (tagA == Constants::TAG_BOSSMAP3 || tagB == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(1);
         }
 
         // Huy arrow, xu ly phong trung player
@@ -202,21 +207,25 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         // check boss and limit
         if (tagB == Constants::TAG_BOSSMAP1 && tagA == Constants::TAG_LIMIT) {
             // Lấy vận tốc hiện tại của đối tượng
-            int* storedData = static_cast<int*>(spriteB->getUserData());
-            *storedData = -*storedData;
-            bodyB->SetLinearVelocity(b2Vec2(*storedData * -Constants::SPEED_BOSS1 * Common::scaleSizeXY(), 0));
-            spriteB->setScaleX(*storedData * Constants::BOSSMAP1_SCALE * Common::scaleSizeXY());
-            spriteB->setUserData(storedData);
+            bossmap1->direction *= -1;
+            bodyB->SetLinearVelocity(b2Vec2(bossmap1->direction * bossmap1->speed* Common::scaleSizeXY(), 0));
+            spriteB->setScaleX(-spriteB->getScaleX());
         }
 
         // check boss and limit
         if (tagB == Constants::TAG_BOSSMAP2 && tagA == Constants::TAG_LIMIT) {
             // Lấy vận tốc hiện tại của đối tượng
-            int* storedData = static_cast<int*>(spriteB->getUserData());
-            *storedData = -*storedData;
-            bodyB->SetLinearVelocity(b2Vec2(*storedData * -Constants::SPEED_BOSS2 * Common::scaleSizeXY(), 0));
-            spriteB->setScaleX(*storedData * Constants::BOSSMAP2_SCALE * Common::scaleSizeXY());
-            spriteB->setUserData(storedData);
+            bossmap2->direction *= -1;
+            bodyB->SetLinearVelocity(b2Vec2(bossmap2->direction * bossmap2->speed * Common::scaleSizeXY(), 0));
+            spriteB->setScaleX(-spriteB->getScaleX());
+        }
+
+        // check golem and limit
+        if (tagB == Constants::TAG_BOSSMAP3 && tagA == Constants::TAG_LIMIT) {
+            // Lấy vận tốc hiện tại của đối tượng
+            bossmap3->direction *= -1;
+            bodyB->SetLinearVelocity(b2Vec2(bossmap3->direction * bossmap3->speed * Common::scaleSizeXY(), 0));
+            spriteB->setScaleX(-spriteB->getScaleX());
         }
 
 

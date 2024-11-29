@@ -12,6 +12,7 @@
 #include "enemy/Acher.h"
 #include "enemy/BossMap1.h"
 #include "enemy/BossMap2.h"
+#include "enemy/BossMap3.h"
 #include "main/Effect.h"
 #include "enemy/Golem.h"
 #include "enemy/Bat.h"
@@ -39,5 +40,6 @@ public:
     bool isNext = false;
     BossMap1* bossmap1;
     BossMap2* bossmap2;
+    BossMap3* bossmap3;
 };
 #endif // __MyContactListener_H__

@@ -7,7 +7,7 @@ bool BossMap1::init() {
     spriteNode = SpriteBatchNode::create("Enemy/Bossmap1/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Bossmap1/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("0_boss_idle_0.png");
-    sprite->setScale(Constants::BOSSMAP1_SCALE * Common::scaleSizeXY());
+    sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_BOSSMAP1);
     
     int* userData = new int(-1);
@@ -38,9 +38,9 @@ bool BossMap1::init() {
 
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-    b2Vec2 velocity(Constants::SPEED_BOSS1 * Common::scaleSizeXY(), 0);
+    b2Vec2 velocity(direction* speed * Common::scaleSizeXY(), 0);
     body->SetLinearVelocity(velocity);
-    sprite->setScaleX(-Constants::BOSSMAP1_SCALE * Common::scaleSizeXY());
+    sprite->setScaleX(direction* scale * Common::scaleSizeXY());
     (*bodyToSpriteMap)[body] = sprite;
 
     createHealthBar();

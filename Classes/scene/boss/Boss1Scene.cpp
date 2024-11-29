@@ -51,7 +51,6 @@ void Boss1Scene::update(float dt) {
 }
 
 void Boss1Scene::spawnObject() {
-    //BaseScene::spawnObject();
     item = new MapItem(world, this, bodyToSpriteMap, map);
     item->spawnWallAndLimit();
     item->spawnEndGate();

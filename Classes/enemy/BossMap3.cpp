@@ -6,12 +6,9 @@ BossMap3::BossMap3(b2World* world, Scene* scene, Vec2 position, unordered_map<b2
 bool BossMap3::init() {
     spriteNode = SpriteBatchNode::create("Enemy/BossMap3/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/BossMap3/sprites.plist");
-    sprite = Sprite::createWithSpriteFrameName("troll_idle_0.png");
+    sprite = Sprite::createWithSpriteFrameName("bossbat_idle Blinking_0.png");
     sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_BOSSMAP3);
-    
-    int* userData = new int(-1);
-    sprite->setUserData(userData);
     sprite->setPosition(position);
     spriteNode->addChild(sprite);
     scene->addChild(spriteNode);
@@ -35,16 +32,17 @@ bool BossMap3::init() {
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_ENEMY;
-    fixtureDef.filter.maskBits = Constants::CATEGORY_STICK| Constants::CATEGORY_WALL| Constants::CATEGORY_LIMIT| Constants::CATEGORY_SLASH;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_STICK | Constants::CATEGORY_WALL | Constants::CATEGORY_LIMIT | Constants::CATEGORY_SLASH;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-    b2Vec2 velocity(direction*speed * Common::scaleSizeXY(), 0);
+    b2Vec2 velocity(direction * speed * Common::scaleSizeXY(), 0);
+    body->SetGravityScale(0.0f);
     body->SetLinearVelocity(velocity);
-    sprite->setScaleX(direction* scale * Common::scaleSizeXY());
+    sprite->setScaleX(direction * scale * Common::scaleSizeXY());
     (*bodyToSpriteMap)[body] = sprite;
 
     createHealthBar();
-    walk();
+    idle();
 
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "BossMap3");
@@ -53,38 +51,39 @@ bool BossMap3::init() {
 }
 void BossMap3::idle() {
     if (sprite != nullptr) {
-        b2Vec2 velocity(0, 0);
-        body->SetLinearVelocity(velocity);
         sprite->stopAllActions();
-        auto animateW = Animate::create(Common::createAnimation("troll_idle Blinking_", 11, 0.1));
+        auto animateW = Animate::create(Common::createAnimation("bossbat_idle Blinking_", 17, 0.04));
         animateW->retain();
         sprite->runAction(RepeatForever::create(animateW));
-    } 
+    }
 }
 
 void BossMap3::hurt() {
-
     Effect::soundBoss1Hurt();
     sprite->stopAllActions();
-    auto animate = Animate::create(Common::createAnimation("troll_hurt_", 11, 0.1));
+    auto animate = Animate::create(Common::createAnimation("bossbat_hurt_", 11, 0.01));
     auto callback = [this]() {
-        walk();
+        idle();
     };
 
-    // auto callFunc1 = CallFunc::create(callback1);
+    
+        auto callback1 = [this]() {
+            moveBodyToPoint();
+        };
     auto callFunc = CallFunc::create(callback);
-    auto sequence = Sequence::create(animate, callFunc, nullptr);
+    auto callFunc1 = CallFunc::create(callback1);
+    auto sequence = Sequence::create(animate, callFunc, callFunc1, nullptr);
     sprite->runAction(sequence);
     Common::changeSpriteColor(sprite, isHit);
 }
 
 void BossMap3::walk() {
-    if (sprite != nullptr) {
-        sprite->stopAllActions();
-        auto animateW = Animate::create(Common::createAnimation("troll_walking_", 17, 0.1));
-        animateW->retain();
-        sprite->runAction(RepeatForever::create(animateW));
-    }
+    //if (sprite != nullptr) {
+    //    //sprite->stopAllActions();
+    //    auto animateW = Animate::create(Common::createAnimation("Wraith_1_Moving Forward_", 11, 0.04));
+    //    animateW->retain();
+    //    sprite->runAction(RepeatForever::create(animateW));
+    //}
 }
 
 void BossMap3::die() {
@@ -106,7 +105,7 @@ void BossMap3::die() {
     else {
         Common::showBossText(scene, "I will come back...");
     }
-    
+
     Effect::soundCreepyLaughter();
 
     // Lặp qua tất cả các fixture của body
@@ -122,18 +121,76 @@ void BossMap3::die() {
         fixture->SetFilterData(filter);
     }
 
-    auto animate = Animate::create(Common::createAnimation("troll_dying_", 14, 0.05));
+    auto animate = Animate::create(Common::createAnimation("bossbat_smoke_", 9, 0.05));
     auto callback2 = [this]() {
         if (sprite != nullptr) {
-            Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap,10);
+            Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, 10);
             BaseNode::destroyNode();
         }
         };
-    
+
     auto callFunc2 = CallFunc::create(callback2);
-    
+
     auto sequence = Sequence::create(animate, callFunc2, nullptr);
     sprite->runAction(sequence);
+}
+
+void BossMap3::update(float dt) {
+    if (isALive) {
+        updateHealthBarPosition();
+
+        // Cập nhật thời gian đã trôi qua
+        if (body != nullptr) {
+
+            timeSinceLastAttack += dt;
+
+            if (timeSinceLastAttack >= attackCooldown) {
+                canAttack = true;
+            }
+            if (canAttack) {
+                 {
+                    spawnBat();
+                    // Reset thời gian và cờ tấn công
+                    timeSinceLastAttack = 0.0f;
+                    canAttack = false;
+                }
+            }
+        }
+    }
+}
+
+void BossMap3::spawnBat() {
+    // spawn bat
+    int i = Common::randomNum(1, 5);
+    int count = 0;
+    auto batLayer = map->getLayer("bat");
+    for (int x = 0; x < map->getMapSize().width; ++x) {
+        for (int y = 0; y < map->getMapSize().height; ++y) {
+            auto tile = batLayer->getTileAt(Vec2(x, y));
+            if (tile) {
+                if (i == ++count) {
+                    Bat* w = new Bat(world, scene, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
+                    w->player = player;
+                    w->attackRange = 1000;
+                    w->init();
+
+                    // Lặp qua tất cả các fixture của body
+                    for (b2Fixture* fixture = w->getBody()->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
+                        // Lấy dữ liệu bộ lọc hiện tại
+                        b2Filter filter = fixture->GetFilterData();
+
+                        // Cập nhật categoryBits và maskBits
+                        filter.categoryBits = Constants::CATEGORY_ENEMY;
+                        filter.maskBits = Constants::CATEGORY_STICK | Constants::CATEGORY_SLASH | Constants::CATEGORY_PLAYER;
+
+                        // Thiết lập lại dữ liệu bộ lọc
+                        fixture->SetFilterData(filter);
+                    }
+                    break;
+                }
+            }
+        }
+    }
 }
 void BossMap3::setHealth(int h) {
     health = h;
@@ -150,6 +207,27 @@ void BossMap3::updateHealth(int damage) {
         healthBar->removeFromParentAndCleanup(true);
         healthBarBg->removeFromParentAndCleanup(true);
         die();
+    }
+}
+void BossMap3::moveBodyToPoint() {
+    int i = Common::randomNum(1, 4);
+    while (i == lastPoint) {
+        i = Common::randomNum(1, 4);
+    }
+    lastPoint = i;
+    int count = 0;
+    auto box = map->getLayer("point");
+    for (int x = 0; x < map->getMapSize().width; ++x) {
+        for (int y = 0; y < map->getMapSize().height; ++y) {
+            auto tile = box->getTileAt(Vec2(x, y));
+            if (tile) {
+                count++;
+                if (i == count) {
+                    float newAngle = 0.0f;
+                    body->SetTransform(b2Vec2((x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2) / Constants::PIXELS_PER_METER * Common::scaleSizeXY(), (map->getMapSize().height - y) * Constants::TITLE_SIZE / Constants::PIXELS_PER_METER * Common::scaleSizeXY()), newAngle);
+                }
+            }
+        }
     }
 }
 
@@ -180,111 +258,4 @@ void BossMap3::updateHealthBarPosition() {
     b2Vec2 position = body->GetPosition();
     healthBar->setPosition(position.x * Constants::PIXELS_PER_METER - healthBar->getContentSize().width / 4 * Common::scaleSizeXY(), position.y * Constants::PIXELS_PER_METER + sprite->getContentSize().height / 2 * Common::scaleSizeXY());
     healthBarBg->setPosition(position.x * Constants::PIXELS_PER_METER - healthBar->getContentSize().width / 4 * Common::scaleSizeXY(), position.y * Constants::PIXELS_PER_METER + sprite->getContentSize().height / 2 * Common::scaleSizeXY());
-}
-
-void BossMap3::update(float dt) {
-    if (isALive) {
-        updateHealthBarPosition();
-
-        // Cập nhật thời gian đã trôi qua
-        if (isALive && body != nullptr) {
-            timeSinceLastAttack += dt;
-
-            if (timeSinceLastAttack >= attackCooldown) {
-                canAttack = true;
-            }
-            if (canAttack) {
-                followPlayer();
-                //if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= attackRange * Common::scaleSizeXY()) {
-                //    //hit();
-                //    callBat();
-                //    // Reset thời gian và cờ tấn công
-                //    timeSinceLastAttack = 0.0f;
-                //    canAttack = false;
-                //}
-                if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= attackRange * Common::scaleSizeXY()) {
-                    //hit();
-                    callBat();
-                    // Reset thời gian và cờ tấn công
-                    timeSinceLastAttack = 0.0f;
-                    canAttack = false;
-                }
-            }
-        }
-    }
-}
-void BossMap3::followPlayer() {
-    walk();
-    // Lấy vị trí của enemy và player
-    b2Vec2 playerPos = player->getBody()->GetPosition();
-    b2Vec2 enemyPos = body->GetPosition();
-
-    // Tính toán vector hướng từ enemy tới player
-    b2Vec2 direction = playerPos - enemyPos;
-    direction.Normalize();
-
-    if (direction.x < 0) sprite->setScaleX(-scale);
-    else sprite->setScaleX(scale);
-    float speedAttack = 8.0f;  // Tốc độ di chuyển của enemy
-    b2Vec2 velocity = Common::scaleSizeXY() * speedAttack * direction;
-    body->SetLinearVelocity(velocity);
-}
-
-void BossMap3::hit() {
-    if (isHit) return;
-
-    if (sprite != nullptr) {
-        sprite->stopAllActions();
-        body->SetLinearVelocity(b2Vec2_zero);
-        auto animate = Animate::create(Common::createAnimation("troll_attacking_", 11, 0.015));
-        Effect::soundMagicFire();
-
-        auto callback = [this]() {
-            if (sprite != nullptr) {
-                int check = 1;
-                // check huong nhan vat
-                if (sprite->getScaleX() < 0) {
-                    check = -1;
-                }
-                Fire* fire = new Fire(world, scene, Vec2(sprite->getPositionX() + check * 800 * Common::scaleSizeXY(), sprite->getPositionY() - 80 * Common::scaleSizeXY()), bodyToSpriteMap);
-                fire->init();
-                fire->getSprite()->setScaleX(check * fire->getSprite()->getScale());
-                walk();
-                b2Vec2 velocity(20 * check * Common::scaleSizeXY(), 0);
-                fire->getBody()->SetLinearVelocity(velocity);
-            }
-            };
-
-        auto callFunc = CallFunc::create(callback);
-        auto sequence = Sequence::create(animate, callFunc, nullptr);
-        sprite->runAction(sequence);
-    }
-}
-
-void BossMap3::callBat() {
-    if (isHit) return;
-    body->SetLinearVelocity(b2Vec2_zero);
-
-    if (sprite != nullptr) {
-        auto animate = Animate::create(Common::createAnimation("troll_taunt_", 17, 0.015));
-
-        auto callback = [this]() {
-            if (sprite != nullptr) {
-                int check = 1;
-                // check huong nhan vat
-                if (sprite->getScaleX() < 0) {
-                    check = -1;
-                }
-                Bat* w = new Bat(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY() + 400 *Common::scaleSizeXY()), bodyToSpriteMap);
-                w->player = player;
-                w->init();
-                w->attackRange = 1000;
-                idle();
-            }
-            };
-
-        auto callFunc = CallFunc::create(callback);
-        auto sequence = Sequence::create(animate, callFunc, nullptr);
-        sprite->runAction(sequence);
-    }
 }

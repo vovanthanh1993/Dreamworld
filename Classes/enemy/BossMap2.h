@@ -30,6 +30,7 @@ private:
 	cocos2d::Sprite* healthBar; // Sprite cho thanh máu
 	cocos2d::Sprite* healthBarBg; // Sprite cho nền thanh máu
 	bool isHit = false;
+	float scale = 1;
 public:
 	BossMap2(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init();
@@ -43,8 +44,8 @@ public:
 	bool isALive = true;
 	void boneRain();
 	void updateHealth(int damage);
-	void moveBodyToPoint(TMXTiledMap* map);
-	void moveBodyToInit(TMXTiledMap* map);
+	void moveBodyToPoint();
+	void moveBodyToInit();
 	int countPhase2 = 1;
 	void throwWarrior();
 	void updateHealthBar(float health);
@@ -52,6 +53,8 @@ public:
 	void updateHealthBarPosition();
 	Player* player;
 	TMXTiledMap* map;
+	int direction = -1;
+	int speed = 15;
 };
 
 #endif // __BossMap2_H__
