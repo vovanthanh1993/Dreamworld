@@ -70,8 +70,8 @@ void Wraith::hit() {
         auto animate = Animate::create(Common::createAnimation("Wraith_3_Casting Spells_", 17, 0.01));
 
         auto callback2 = [this]() {
-            int start = -50;
-            for (int i = 1; i <= 11; i++) {
+            int start = -40;
+            for (int i = 1; i <= 9; i++) {
                 
                 if (sprite != nullptr) {
                     int check = 1;

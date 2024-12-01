@@ -275,13 +275,14 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             if (tagA == Constants::TAG_STONE_BALL) {
                 player->getDamage(1);
                 bodiesToRemove.insert(bodyA);
-                static_cast<StoneBall*>(spriteA->getUserData())->destroy();
+                static_cast<StoneBall*>(spriteA->getUserData())->isActive = false;
             }
             if (tagB == Constants::TAG_STONE_BALL) {
                 player->getDamage(1);
                 bodiesToRemove.insert(bodyB);
-                static_cast<StoneBall*>(spriteB->getUserData())->destroy();
+                static_cast<StoneBall*>(spriteB->getUserData())->isActive = false;
             }
+
 
             // chem trung ke dich
             if (tagA == Constants::TAG_SLASH_ENEMY || tagB == Constants::TAG_SLASH_ENEMY) {
@@ -290,6 +291,11 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             // chem trung ke dich
             if (tagA == Constants::TAG_HED || tagB == Constants::TAG_HED) {
                 player->getDamage(2);
+            }
+
+            // chem trung ke dich
+            if (tagA == Constants::TAG_BOSSMAP1 || tagB == Constants::TAG_BOSSMAP1) {
+                player->getDamage(1);
             }
         }
 

@@ -19,7 +19,7 @@ using namespace cocos2d;
 class BossMap1:public BaseNode
 {
 private:
-	float attackCooldown =1.5f;  // Thời gian chờ giữa các đợt tấn công
+	float attackCooldown =2.0f;  // Thời gian chờ giữa các đợt tấn công
 	float timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
 	bool canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
 	int health = 20;
@@ -29,17 +29,19 @@ private:
 	cocos2d::Sprite* healthBarBg; // Sprite cho nền thanh máu
 	bool isHit = false;
 	float scale = 1;
-	float attackRange = Constants::ATTACK_RANGE_BOSS_MAP1;
+	float attackRange = 1000;
+	std::vector<StoneBall*> stoneBallVector;
+	void followPlayer();
 public:
 	bool init();
 	void walk();
 	void idle();
 	void die();
-	void hit();
+	void throwStoneBall();
 	void update(float dt);
 	void setHealth(int h);
 	int getHealth();
-	void throwStoneBall();
+	void charge();
 	void updateHealth(int damage);
 	void updateHealthBar(float health);
 	void createHealthBar();
@@ -50,7 +52,7 @@ public:
 	bool isALive = true;
 	int direction = -1;
 	int speed = 10;
-	void followPlayer();
+	void createStoneBall();
 	
 };
 

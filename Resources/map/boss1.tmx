@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="24" tileheight="24" infinite="0" nextlayerid="9" nextobjectid="9">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="24" tileheight="24" infinite="0" nextlayerid="9" nextobjectid="11">
  <tileset firstgid="1" name="sprites" tilewidth="24" tileheight="24" tilecount="7225" columns="85">
   <image source="sprites.png" width="2048" height="2048"/>
  </tileset>
  <layer id="1" name="bg" width="80" height="45">
   <data encoding="base64" compression="zlib">
-   eJzt1tlOwlAURuGWQWY6gM/mPEFpwWdznoC24Ku5mmDihQKHRGuTfyXfhaHHbnc8UctSSimllFJKKaWUUkoppZRSSimllAcfPfSxn+84hStEhDEmuM53nMKVIMUCS7znO07hcm3uMHz00LfznqhYjdhXiAhjTLQ/o2L2lSDFAkvtzyinxB2GBx+9Ut4TFauAfY0QIsJY+zNqzr5iJEix0P6M6pa5w3DhwS/nPVGxGrKvACOEiLQ/o2bsa44YCVLtz6hOhTsMBy68St4TFasB+xoiwAih9mfUlH3NMEeMRPszql3lDqMLB24174mKVfbvXvYnI/u1y1a3hxrqaKCJFtrooAtn9bzOWtYBDnGEY5zgFGc4xwUucYUBhqtnP/3l2WD1/H+a+Qa3uMM9HvCIJzzjBa94yz63v7fN2SlmP32PHd/71W/NvOmszdcllFFBFXuooY4GmmihvWb+TWe32cG6s50d3rvuXdv8vJvmzc5+AEXGj9A=
+   eJzt2XtP2mAUgPFeQOgN99km9IITymWfTaEtOKEF99km7DHWhKVWULK1yc6T/P7zpa8nsSYHRZEkSZIkSZIkSZIkSZIkSZIkSZIk6SOp0KCjgSYu0IINBx1c4ktFd6xzLjz4CNDHNb5hhDEmmOJ7RXescxFiJFhgiXv8QIYNtnjEz4ruWOv4A1ahQUcDTVzAgg0HHVyqVV+2fvWYiQsPPgL0cY0QI4wxwVTmV2jOTCLESLDAEvdIkWGDLR5lfoX2+T9gFRp0NNCECQs2HHS0qm9bv7rMpAcXHnwE6GOIECOMMZH5FZL333nJ+++85P13XvL+O68ZM5kjQowECyyxRooMG2xlfoV2zGSfLxBUaNDRgAETFmw4etW3rV9XzKSLHlx48BFggCFCjDCW+RW6YyYzzBEhRoIFVlgjRYaNzK/QEzPZYZ8vAFVo0NGGARMW7EbVt61fX5nJFbrowYUHHzcYYIgQI5lfoVtmcocZ5ogQI8EDVlgjRSbzK/SLmTxhh32+wFehoYU2DJiwmi97/TYMmLCU4p7/+WPKvhP4n86W7fVvMMAQofLnnj848C/PTvOfr9Ody/b6D1hhjVR52fMv1bedcvb1O4I3P+OTzz30t+587GzZXr+FNgyYB3v+svscO3vKDN4763ziue8965Tf99h9n8/+BrkgzzY=
   </data>
  </layer>
  <objectgroup id="2" name="wall">
   <object id="1" x="-0.666667" y="1007.33" width="1920.33" height="26"/>
-  <object id="5" x="25" y="622" width="79" height="313"/>
   <object id="7" x="-32" y="-1.33333" width="14.6667" height="1079.33"/>
   <object id="8" x="1951.33" y="1.00167" width="14.6667" height="1079.33"/>
+  <object id="9" x="1790" y="528" width="115" height="436"/>
+  <object id="10" x="9" y="550.5" width="82" height="409"/>
  </objectgroup>
  <objectgroup id="8" name="limitmap">
   <object id="6" x="-4.66667" y="-1.33333" width="7.3333" height="1000"/>
  </objectgroup>
- <layer id="3" name="boss" width="80" height="45" opacity="0">
+ <layer id="3" name="boss" width="80" height="45" opacity="0.63">
   <data encoding="base64" compression="zlib">
-   eJztzjENAAAIA7AFofiXMRMkPK2CJgAAAAAAAAAAAAAAAOx8DwDgVgHK3ABh
+   eJztzkEJAAAIBLAD+3cxog8rCH62BEsAAAAAAAAAAAAAAAC40vU9AIA10fUAtA==
   </data>
  </layer>
- <layer id="4" name="limit" width="80" height="45" opacity="0">
+ <layer id="4" name="limit" width="80" height="45" opacity="0.41">
   <data encoding="base64" compression="zlib">
-   eJztzTENADAIADDYhX8nOMTDDg7SGmgEAAAAAAAAAAAAAADAHZ07T72dBwB+DWcoAL0=
+   eJzt0DENAEAIwEDCgM337+KDCMLAnYKmEQAAAAAAAAAAAAAAQHu5XXBHeQ0A4z7PRQBq
   </data>
  </layer>
  <layer id="5" name="player" width="80" height="45" opacity="0">
@@ -33,6 +34,6 @@
   </data>
  </layer>
  <objectgroup id="6" name="endgate">
-  <object id="3" x="1916" y="359" width="7" height="658"/>
+  <object id="3" x="1916" y="-1" width="7" height="1018"/>
  </objectgroup>
 </map>

@@ -3,12 +3,24 @@
 StoneBall::StoneBall(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {};
 
 bool StoneBall::init() {
-    sprite = Sprite::create("Enemy/Bossmap1/stoneball/stoneball.png");
+    /*sprite = Sprite::create("Enemy/Bossmap1/stoneball/stoneball2.png");
     sprite->setPosition(position);
     sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setPosition(position);
     sprite->setTag(Constants::TAG_STONE_BALL);
-    scene->addChild(sprite);
+    scene->addChild(sprite);*/
+
+    auto spriteNode = SpriteBatchNode::create("Enemy/Bossmap1/stoneball/sprites.png");
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Bossmap1/stoneball/sprites.plist");
+    sprite = Sprite::createWithSpriteFrameName("stone_ball_0.png");
+    sprite->setPosition(position);
+    sprite->setScale(scale * Common::scaleSizeXY());
+    sprite->setTag(Constants::TAG_STONE_BALL);
+
+    auto animateW = Animate::create(Common::createAnimation("stone_ball_", 19, 0.08));
+    sprite->runAction(RepeatForever::create(animateW));
+    spriteNode->addChild(sprite);
+    scene->addChild(spriteNode);
     sprite->setUserData(this);
 
     b2BodyDef bodyDef;
@@ -52,7 +64,7 @@ void StoneBall::update(float dt) {
         std::chrono::duration<float> elapsed = now - startTime;
         if (elapsed.count() >= duration) {
             {
-                BaseNode::destroyNode();
+                destroy();
             }
         }
     }
@@ -60,20 +72,5 @@ void StoneBall::update(float dt) {
 
 void StoneBall::destroy() {
     isActive = false;
-    //sprite->stopAllActions();
-    //bodyToSpriteMap->erase(body);
-
-    //// Hủy body Box2D nếu nó tồn tại
-    //if (body)
-    //{
-    //    world->DestroyBody(body);
-    //    body = nullptr; // Đảm bảo body không còn trỏ tới bất kỳ bộ nhớ nào
-    //}
-
-    //// Xóa sprite nếu nó tồn tại
-    //if (sprite)
-    //{
-    //    sprite->removeFromParentAndCleanup(true); // Xóa node Cocos2d
-    //    sprite = nullptr; // Đảm bảo sprite không còn trỏ tới bất kỳ bộ nhớ nào
-    //}
+    BaseNode::destroyNode();
 }

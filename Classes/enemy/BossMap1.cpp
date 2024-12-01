@@ -72,6 +72,11 @@ void BossMap1::walk() {
 
 void BossMap1::die() {
     isALive = false;
+    /*for (auto stoneBall : stoneBallVector) {
+        if (stoneBall->isActive) stoneBall->destroy();
+    }*/
+    stoneBallVector.clear();
+
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
@@ -95,11 +100,9 @@ void BossMap1::die() {
     for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
         // Lấy dữ liệu bộ lọc hiện tại
         b2Filter filter = fixture->GetFilterData();
-
         // Cập nhật categoryBits và maskBits
         filter.categoryBits = Constants::CATEGORY_ENEMY;
         filter.maskBits = Constants::CATEGORY_WALL;
-
         // Thiết lập lại dữ liệu bộ lọc
         fixture->SetFilterData(filter);
     }
@@ -117,61 +120,59 @@ void BossMap1::die() {
     sprite->runAction(sequence);
 }
 
-void BossMap1::hit() {
+void BossMap1::throwStoneBall() {
     if (isHit) return;
    
+    // Run animation with a callback
+    if (isHit) return;
     if (sprite != nullptr) {
-        sprite->stopAllActions();
-        auto animate = Animate::create(Common::createAnimation("0_boss_specialty_2_", 19, 0.015));
+        auto animate = Animate::create(Common::createAnimation("0_boss_attack_", 19, 0.02));
         Effect::soundMagicFire();
-
-        auto callback = [this]() {
-            if (sprite != nullptr) {
-                int check = 1;
-                // check huong nhan vat
-                if (sprite->getScaleX() < 0) {
-                    check = -1;
-                }
-                Fire* fire = new Fire(world, scene, Vec2(sprite->getPositionX() + check * 120 * Common::scaleSizeXY(), sprite->getPositionY() - 80 * Common::scaleSizeXY()), bodyToSpriteMap);
-                fire->init();
-                fire->getSprite()->setScaleX(check * fire->getSprite()->getScale());
-                walk();
-                b2Vec2 velocity(20 * check * Common::scaleSizeXY(), 0);
-                fire->getBody()->SetLinearVelocity(velocity);
-            }
+        auto callback2 = [this]() {
+            createStoneBall();
         };
+        auto callFunc2 = CallFunc::create(callback2);
 
-        auto callFunc = CallFunc::create(callback);
-        auto sequence = Sequence::create(animate, callFunc, nullptr);
+        auto sequence = Sequence::create(animate, callFunc2, nullptr);
         sprite->runAction(sequence);
     }
 }
 
-void BossMap1::throwStoneBall() {
+void BossMap1::charge() {
     // Run animation with a callback
     if (isHit) return;
     if (sprite != nullptr) {
-        auto animate = Animate::create(Common::createAnimation("0_boss_specialty_", 19, 0.01));
+        auto animate = Animate::create(Common::createAnimation("0_boss_specialty_", 19, 0.02));
         Effect::soundMagicFire();
+        followPlayer();
+        body->SetLinearVelocity(b2Vec2(direction * 60 * Common::scaleSizeXY(), 0));
 
-        auto callback2 = [this](){
-                if (sprite != nullptr) {
-                    int check = 1;
-                    // check huong nhan vat
-                    if (sprite->getScaleX() < 0) {
-                        check = -1;
-                    }
-
-                    StoneBall* stoneball = new StoneBall(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY() + 200 * Common::scaleSizeXY()), bodyToSpriteMap);
-                    stoneball->init();
-                    stoneball->getBody()->SetLinearVelocity(b2Vec2(-20 * Common::scaleSizeXY(), 80*Common::scaleSizeXY()));
-                }
-            };        
-
-       // auto callFunc1 = CallFunc::create(callback1);
-        auto callFunc2 = CallFunc::create(callback2);
-       
-        auto sequence = Sequence::create(animate, callFunc2, nullptr);
+        // De va cham voi player
+        for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
+            // Lấy dữ liệu bộ lọc hiện tại
+            b2Filter filter = fixture->GetFilterData();
+            // Cập nhật categoryBits và maskBits
+            filter.categoryBits = Constants::CATEGORY_ENEMY;
+            filter.maskBits = Constants::CATEGORY_STICK | Constants::CATEGORY_WALL | Constants::CATEGORY_LIMIT | Constants::CATEGORY_SLASH| Constants::CATEGORY_PLAYER;
+            // Thiết lập lại dữ liệu bộ lọc
+            fixture->SetFilterData(filter);
+        }
+        auto callback1 = [this]() {
+            // De va cham voi player
+            for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
+                // Lấy dữ liệu bộ lọc hiện tại
+                b2Filter filter = fixture->GetFilterData();
+                // Cập nhật categoryBits và maskBits
+                filter.categoryBits = Constants::CATEGORY_ENEMY;
+                filter.maskBits = Constants::CATEGORY_STICK | Constants::CATEGORY_WALL | Constants::CATEGORY_LIMIT | Constants::CATEGORY_SLASH;
+                // Thiết lập lại dữ liệu bộ lọc
+                fixture->SetFilterData(filter);
+            }
+        };
+        auto callFunc1 = CallFunc::create(callback1);
+        //auto callFunc2 = CallFunc::create(callback2);
+        
+        auto sequence = Sequence::create(animate, callFunc1, nullptr);
         sprite->runAction(sequence);
     }
 }
@@ -234,6 +235,13 @@ void BossMap1::hurt() {
 
 }
 
+void BossMap1::createStoneBall() {
+    StoneBall* stoneball = new StoneBall(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY() + 200 * Common::scaleSizeXY()), bodyToSpriteMap);
+    stoneball->init();
+    stoneBallVector.push_back(stoneball);
+    stoneball->getBody()->SetLinearVelocity(b2Vec2(direction *20 * Common::scaleSizeXY(), 60 * Common::scaleSizeXY()));
+}
+
 void BossMap1::followPlayer() {
     // Lấy vị trí của enemy và player
     b2Vec2 playerPos = player->getBody()->GetPosition();
@@ -242,19 +250,16 @@ void BossMap1::followPlayer() {
     // Tính toán vector hướng từ enemy tới player
     b2Vec2 direction = playerPos - enemyPos;
     direction.Normalize();
+    int check = 1;
 
     if (direction.x < 0) {
-        sprite->setScaleX(-scale);
         this->direction = -1;
-        direction = b2Vec2(-1, 0);
+        sprite->setScaleX(-scale);
     }
     else {
-        sprite->setScaleX(scale);
         this->direction = 1;
-        direction = b2Vec2(1, 0);
+        sprite->setScaleX(scale);
     }
-    b2Vec2 velocity = Common::scaleSizeXY() * speed * direction;
-    body->SetLinearVelocity(velocity);
 }
 
 void BossMap1::update(float dt) {
@@ -269,11 +274,11 @@ void BossMap1::update(float dt) {
             if (timeSinceLastAttack >= attackCooldown) {
                 if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= attackRange * Common::scaleSizeXY()) {
 
-                    //// Attack logic
-                    //if (count++ % 5 != 0)
-                    //    hit();
-                    //else
+                    // Attack logic
+                    if (count++ % 3 != 0) 
                         throwStoneBall();
+                    else
+                        charge();
                     // Reset thời gian và cờ tấn công
                     timeSinceLastAttack = 0.0f;
                 }
