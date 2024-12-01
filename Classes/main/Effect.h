@@ -40,6 +40,7 @@ namespace common {
 		static void healing(b2World* world, Scene* scene, Vec2 position);
 		static void eagle();
 		static void getStick();
+		static void soundBoss3Hurt();
 	};
 }
 

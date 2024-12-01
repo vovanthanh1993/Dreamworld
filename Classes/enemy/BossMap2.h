@@ -14,6 +14,7 @@
 #include "main/Effect.h"
 #include "base/BaseNode.h"
 #include "enemy/Warrior.h"
+#include <vector>
 
 using namespace constants;
 using namespace common;
@@ -31,6 +32,7 @@ private:
 	cocos2d::Sprite* healthBarBg; // Sprite cho nền thanh máu
 	bool isHit = false;
 	float scale = 1;
+	std::vector<Warrior*> warVector;
 public:
 	BossMap2(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init();

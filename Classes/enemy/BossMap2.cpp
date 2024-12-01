@@ -86,6 +86,11 @@ void BossMap2::walk() {
 }
 
 void BossMap2::die() {
+    for (auto war : warVector) {
+        if (war->isAlive) war->die();
+    }
+    warVector.clear();
+
     isALive = false;
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
@@ -268,6 +273,7 @@ void BossMap2::throwWarrior() {
                     w->init();
                     w->isFollowPlayer = true;
                     w->followPlayer();
+                    warVector.push_back(w);
                 }
             };
 

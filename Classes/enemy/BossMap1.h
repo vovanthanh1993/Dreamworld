@@ -11,6 +11,7 @@
 #include "main/Constants.h"
 #include "main/Effect.h"
 #include "base/BaseNode.h"
+#include "skill/StoneBall.h"
 
 using namespace constants;
 using namespace common;
@@ -28,6 +29,7 @@ private:
 	cocos2d::Sprite* healthBarBg; // Sprite cho nền thanh máu
 	bool isHit = false;
 	float scale = 1;
+	float attackRange = Constants::ATTACK_RANGE_BOSS_MAP1;
 public:
 	bool init();
 	void walk();
@@ -37,7 +39,7 @@ public:
 	void update(float dt);
 	void setHealth(int h);
 	int getHealth();
-	void phase2();
+	void throwStoneBall();
 	void updateHealth(int damage);
 	void updateHealthBar(float health);
 	void createHealthBar();
@@ -48,6 +50,7 @@ public:
 	bool isALive = true;
 	int direction = -1;
 	int speed = 10;
+	void followPlayer();
 	
 };
 

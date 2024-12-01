@@ -201,6 +201,13 @@ namespace common {
         settingInit.loadSettingData();
         AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap1/sound/boss1hurt.mp3"), 0.5 * settingInit.getGameplayVol());
     }
+
+    void Effect::soundBoss3Hurt() {
+        Setting settingInit;
+        settingInit.loadSettingData();
+        AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap3/sound/hurt.mp3"), 0.5 * settingInit.getGameplayVol());
+    }
+
     void Effect::soundMagicFire() {
         Setting settingInit;
         settingInit.loadSettingData();

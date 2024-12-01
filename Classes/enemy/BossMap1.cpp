@@ -147,7 +147,7 @@ void BossMap1::hit() {
     }
 }
 
-void BossMap1::phase2() {
+void BossMap1::throwStoneBall() {
     // Run animation with a callback
     if (isHit) return;
     if (sprite != nullptr) {
@@ -155,9 +155,6 @@ void BossMap1::phase2() {
         Effect::soundMagicFire();
 
         auto callback2 = [this](){
-            int start = -50;
-            for (int i = 1; i <= 20; i++) {
-                
                 if (sprite != nullptr) {
                     int check = 1;
                     // check huong nhan vat
@@ -165,16 +162,10 @@ void BossMap1::phase2() {
                         check = -1;
                     }
 
-                    FireRain* rain = new FireRain(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY() + 800 * Common::scaleSizeXY()), bodyToSpriteMap);
-                    rain->init();
-                    rain->getSprite()->setScaleX(check * rain->getSprite()->getScale());
-
-                    b2Vec2 velocity(start * Common::scaleSizeXY(), -20 * Common::scaleSizeXY());
-                    rain->getBody()->SetLinearVelocity(velocity);
-                    start += 10;
+                    StoneBall* stoneball = new StoneBall(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY() + 200 * Common::scaleSizeXY()), bodyToSpriteMap);
+                    stoneball->init();
+                    stoneball->getBody()->SetLinearVelocity(b2Vec2(-20 * Common::scaleSizeXY(), 80*Common::scaleSizeXY()));
                 }
-            }
-            
             };        
 
        // auto callFunc1 = CallFunc::create(callback1);
@@ -185,37 +176,6 @@ void BossMap1::phase2() {
     }
 }
 
-void BossMap1::update(float dt) {
-    
-    if (isALive) {
-        updateHealthBarPosition();
-
-        if (isHit) return;
-        // Cập nhật thời gian đã trôi qua
-        if (body != nullptr) {
-            timeSinceLastAttack += dt;
-
-            if (timeSinceLastAttack >= attackCooldown) {
-                canAttack = true;
-            }
-            if (canAttack) {
-                if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_BOSS_MAP1 * Common::scaleSizeXY()) {
-
-                    // Attack logic
-                    if (count++ % 5 != 0)
-                        hit();
-                    else
-                        phase2();
-                    // Reset thời gian và cờ tấn công
-                    timeSinceLastAttack = 0.0f;
-                    canAttack = false;
-                }
-            }
-        }
-    }
-    
-    
-}
 void BossMap1::setHealth(int h) {
     health = h;
 };
@@ -272,4 +232,52 @@ void BossMap1::hurt() {
     Effect::soundBoss1Hurt();
     Common::changeSpriteColor(sprite, isHit);
 
+}
+
+void BossMap1::followPlayer() {
+    // Lấy vị trí của enemy và player
+    b2Vec2 playerPos = player->getBody()->GetPosition();
+    b2Vec2 enemyPos = body->GetPosition();
+
+    // Tính toán vector hướng từ enemy tới player
+    b2Vec2 direction = playerPos - enemyPos;
+    direction.Normalize();
+
+    if (direction.x < 0) {
+        sprite->setScaleX(-scale);
+        this->direction = -1;
+        direction = b2Vec2(-1, 0);
+    }
+    else {
+        sprite->setScaleX(scale);
+        this->direction = 1;
+        direction = b2Vec2(1, 0);
+    }
+    b2Vec2 velocity = Common::scaleSizeXY() * speed * direction;
+    body->SetLinearVelocity(velocity);
+}
+
+void BossMap1::update(float dt) {
+
+    if (isALive) {
+        updateHealthBarPosition();
+
+        if (isHit) return;
+        // Cập nhật thời gian đã trôi qua
+        if (body != nullptr) {
+            timeSinceLastAttack += dt;
+            if (timeSinceLastAttack >= attackCooldown) {
+                if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= attackRange * Common::scaleSizeXY()) {
+
+                    //// Attack logic
+                    //if (count++ % 5 != 0)
+                    //    hit();
+                    //else
+                        throwStoneBall();
+                    // Reset thời gian và cờ tấn công
+                    timeSinceLastAttack = 0.0f;
+                }
+            }
+        }
+    }
 }

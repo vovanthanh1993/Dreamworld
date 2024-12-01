@@ -32,7 +32,7 @@ void Map1Scene::update(float dt) {
 
     if (player->getSprite()->getPositionY() < 0) {
         cocos2d::AudioEngine::stopAll();
-        Director::getInstance()->replaceScene(Map1Scene::createScene("map/bglv1.png", "sound/background2.mp3", "map1", true));
+        Director::getInstance()->replaceScene(Map1Scene::createScene("map/bglv1.png", "sound/bg1.mp3", "map1", true));
     }
     if (contactListener->isNext) {
         player->savePlayerDataInit();

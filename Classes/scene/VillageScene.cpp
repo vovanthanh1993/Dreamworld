@@ -38,7 +38,7 @@ void VillageScene::update(float dt) {
 
     if (contactListener->isNext) {
         player->savePlayerDataInit();
-        auto newScene = Map1Scene::createScene("map/bglv1.png", "sound/background2.mp3", "map1", true);
+        auto newScene = Map1Scene::createScene("map/bglv1.png", "sound/bg1.mp3", "map1", true);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
         contactListener->isNext = false;
     }

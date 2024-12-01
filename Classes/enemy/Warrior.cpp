@@ -9,7 +9,6 @@ bool Warrior::init() {
     sprite->setScale(Constants::WARRIOR_SCALE* Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_WAR);
     
-    //int* userData = new int(-1);
     sprite->setUserData(this);
     sprite->setPosition(position);
     spriteNode->addChild(sprite);

@@ -33,13 +33,13 @@ void Map3Scene::update(float dt) {
     // New scene
     if (player->getSprite()->getPositionY() < 0) {
         cocos2d::AudioEngine::stopAll();
-        auto newScene = Map3Scene::createScene("map/bg2.png", "sound/background2.mp3", "map3", true);
+        auto newScene = Map3Scene::createScene("map/bg2.png", "sound/bg3.mp3", "map3", true);
         Director::getInstance()->replaceScene(newScene);
 
     }
     if (contactListener->isNext) {
         player->savePlayerDataInit();
-        auto newScene = Boss3Scene::createScene("map/bg2.png", "Enemy/Bossmap2/sound/bg.mp3", "boss3", false);
+        auto newScene = Boss3Scene::createScene("map/bg2.png", "Enemy/Bossmap3/sound/bg.mp3", "boss3", false);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
     }
     contactListener->isNext = false;

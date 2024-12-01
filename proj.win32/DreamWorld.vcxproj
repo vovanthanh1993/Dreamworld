@@ -847,6 +847,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\Classes\scene\boss\Boss3Scene.h" />
     <ClInclude Include="..\Classes\scene\Map1Scene.h" />
     <ClInclude Include="..\Classes\scene\Map3Scene.h" />
+    <ClInclude Include="..\Classes\skill\StoneBall.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\BossMap1.h" />
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\BossMap2.h" />
@@ -902,6 +903,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\Classes\scene\boss\Boss3Scene.cpp" />
     <ClCompile Include="..\Classes\scene\Map1Scene.cpp" />
     <ClCompile Include="..\Classes\scene\Map3Scene.cpp" />
+    <ClCompile Include="..\Classes\skill\StoneBall.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\Acher.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\BossMap1.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\enemy\BossMap2.cpp" />

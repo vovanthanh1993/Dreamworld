@@ -166,6 +166,9 @@
     <ClCompile Include="..\Classes\enemy\BossMap3.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\skill\StoneBall.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h">
@@ -2417,6 +2420,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\enemy\BossMap3.h">
       <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\StoneBall.h">
+      <Filter>Source Files\Classes\skill</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

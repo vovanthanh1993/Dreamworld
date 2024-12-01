@@ -33,7 +33,7 @@ void Map2Scene::update(float dt) {
     // New scene
     if (player->getSprite()->getPositionY() < 0) {
         cocos2d::AudioEngine::stopAll();
-        auto newScene = Map2Scene::createScene("map/bglv1.png", "sound/background2.mp3", "map2", true);
+        auto newScene = Map2Scene::createScene("map/bglv1.png", "sound/bg2.mp3", "map2", true);
         Director::getInstance()->replaceScene(newScene);
 
     }

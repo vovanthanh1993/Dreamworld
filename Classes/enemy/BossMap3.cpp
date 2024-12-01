@@ -59,7 +59,7 @@ void BossMap3::idle() {
 }
 
 void BossMap3::hurt() {
-    Effect::soundBoss1Hurt();
+    Effect::soundBoss3Hurt();
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("bossbat_hurt_", 11, 0.01));
     auto callback = [this]() {
@@ -87,6 +87,11 @@ void BossMap3::walk() {
 }
 
 void BossMap3::die() {
+    for (auto bat : batVector) {
+        if(bat->isAlive) bat->die();
+    }
+    batVector.clear();
+
     isALive = false;
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
@@ -173,6 +178,7 @@ void BossMap3::spawnBat() {
                     w->player = player;
                     w->attackRange = 1000;
                     w->init();
+                    batVector.push_back(w);
 
                     // Lặp qua tất cả các fixture của body
                     for (b2Fixture* fixture = w->getBody()->GetFixtureList(); fixture; fixture = fixture->GetNext()) {

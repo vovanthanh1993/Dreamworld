@@ -20,7 +20,6 @@ protected:
 	float attackCooldown =0;  // Thời gian chờ giữa các đợt tấn công
 	float timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
 	bool canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
-	bool isAlive = true;
 	float scale = 0.4;
 	int health = 1;
 public:
@@ -36,6 +35,7 @@ public:
 	int speed = 6;
 	void getDamage(int damage);
 	float attackRange = 20;
+	bool isAlive = true;
 };
 
 #endif // __Bat_H__

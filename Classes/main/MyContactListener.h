@@ -17,6 +17,7 @@
 #include "enemy/Golem.h"
 #include "enemy/Bat.h"
 #include "main/Constants.h"
+#include "skill/StoneBall.h"
 
 using namespace constants;
 using namespace common;
