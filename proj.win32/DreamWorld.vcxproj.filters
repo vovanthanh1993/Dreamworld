@@ -151,9 +151,6 @@
     <ClCompile Include="..\Classes\enemy\Golem.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\enemy\Bat.cpp">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\scene\boss\Boss3Scene.cpp">
       <Filter>Source Files\Classes\scene\boss</Filter>
     </ClCompile>
@@ -195,6 +192,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\item\GemPool.cpp">
       <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\enemy\BatPool.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\enemy\Bat.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2433,9 +2436,6 @@
     <ClInclude Include="..\Classes\enemy\Golem.h">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\enemy\Bat.h">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\scene\boss\Boss3Scene.h">
       <Filter>Source Files\Classes\scene\boss</Filter>
     </ClInclude>
@@ -2477,6 +2477,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\item\GemPool.h">
       <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\BatPool.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\Bat.h">
+      <Filter>Source Files\Classes\enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

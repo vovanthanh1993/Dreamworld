@@ -52,7 +52,7 @@ bool Player::init(bool isNew) {
     // Su dung pool
     slashPool = new SlashPool(world, scene, 5);
     stickPool = new StickPool(world, scene, bodyToSpriteMap, 5);
-    eaglePool = new EaglePool(world, scene, bodyToSpriteMap, 6);
+    eaglePool = new EaglePool(world, scene, bodyToSpriteMap, 10);
 
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "player");

@@ -1,8 +1,12 @@
 ﻿#include "Bat.h"
-Bat::Bat(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+Bat::Bat(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {
 };
 
-bool Bat::init() {
+bool Bat::init(Vec2 position) {
+    scale = 0.4;
+    isActive = true;
+    health = 1;
+
     spriteNode = SpriteBatchNode::create("enemy/Bat/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/Bat/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("bat_idle Blinking_0.png");
@@ -18,7 +22,7 @@ bool Bat::init() {
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
     bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
-    //bodyDef.bullet = true;
+    bodyDef.bullet = true;
 
     body = world->CreateBody(&bodyDef);
     body->SetUserData(sprite);
@@ -50,7 +54,7 @@ bool Bat::init() {
     return true;
 }
 void Bat::idle() {
-    if (isAlive) {
+    if (isActive) {
         sprite->stopAllActions();
         auto animateW = Animate::create(Common::createAnimation("bat_idle Blinking_", 17, 0.04));
         animateW->retain();
@@ -59,11 +63,12 @@ void Bat::idle() {
 }
 
 void Bat::die() {
-    isAlive = false;
+    isActive = false;
+
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
-    auto animate = Animate::create(Common::createAnimation("bat_smoke_", 9, 0.05));
+    auto animate = Animate::create(Common::createAnimation("bat_smoke_", 9, 0.02));
     Effect::enemyDie();
 
     // Lặp qua tất cả các fixture của body
@@ -80,9 +85,10 @@ void Bat::die() {
     }
 
     auto callback = [this]() {
-        if (!isAlive) {
-            BaseNode::destroyNode();
-        }
+            if (!isActive) {
+                this->removeFromParentAndCleanup(true);
+                BaseNode::destroyNode();
+            }
         };
     auto callFunc = CallFunc::create(callback);
     auto sequence = Sequence::create(animate, callFunc, nullptr);
@@ -92,7 +98,7 @@ void Bat::die() {
 void Bat::update(float dt) {
 
     // Cập nhật thời gian đã trôi qua
-    if (isAlive && body != nullptr) {
+    if (isActive && body != nullptr) {
             if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= attackRange * Common::scaleSizeXY()) {
                 if (!canAttack) {
                     // Lặp qua tất cả các fixture của body
@@ -151,4 +157,3 @@ void Bat::hurt() {
     auto sequence = Sequence::create(animate, callFunc, nullptr);
     sprite->runAction(sequence);
 }
-

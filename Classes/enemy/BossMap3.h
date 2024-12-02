@@ -14,6 +14,7 @@
 #include "main/Effect.h"
 #include "base/BaseNode.h"
 #include "enemy/Bat.h"
+#include "enemy/BatPool.h"
 #include <vector>
 
 using namespace constants;
@@ -33,7 +34,7 @@ private:
 	bool isHit = false;
 	float scale = 0.6;
 	void spawnBat();
-	std::vector<Bat*> batVector;
+	BatPool* batPool;
 public:
 	BossMap3(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init();

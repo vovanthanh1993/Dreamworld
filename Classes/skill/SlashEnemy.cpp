@@ -10,7 +10,6 @@ bool SlashEnemy::init(Vec2 position) {
     sprite = Sprite::create("Slash.png");
     sprite->setPosition(position);
     sprite->setScale(scale * Common::scaleSizeXY());
-    sprite->setPosition(position);
     sprite->setTag(Constants::TAG_SLASH_ENEMY);
     scene->addChild(sprite);
     sprite->setUserData(this);

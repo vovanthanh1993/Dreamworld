@@ -354,17 +354,13 @@ void MyContactListener::removeObject() {
             }*/
             if (type == 2) {
                 static_cast<BaseNode*>(sprite->getUserData())->reset();
-                (*bodyToSpriteMap).erase(body);
-                world->DestroyBody(body);
-                sprite->removeFromParentAndCleanup(true);
             }
-            else {
-                (*bodyToSpriteMap).erase(body);
-                world->DestroyBody(body);
-                body = nullptr;
-                sprite->removeFromParentAndCleanup(true);
-                sprite = nullptr;
-            }
+            (*bodyToSpriteMap).erase(body);
+            world->DestroyBody(body);
+            body = nullptr;
+            sprite->removeFromParentAndCleanup(true);
+            sprite = nullptr;
+            
             
             
     }

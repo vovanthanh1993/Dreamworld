@@ -1,5 +1,4 @@
-﻿#pragma once
-#ifndef __Bat_H__
+﻿#ifndef __Bat_H__
 #define __Bat_H__
 
 #include "cocos2d.h"
@@ -14,17 +13,16 @@
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
-class Bat:public BaseNode
+class Bat :public BaseNode
 {
 protected:
-	float attackCooldown =0;  // Thời gian chờ giữa các đợt tấn công
+	float attackCooldown = 0;  // Thời gian chờ giữa các đợt tấn công
 	float timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
 	bool canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
-	float scale = 0.4;
 	int health = 1;
 public:
-	Bat(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
-	bool init();
+	Bat(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	bool init(Vec2 position);
 	void idle();
 	void die();
 	void hurt();
@@ -35,7 +33,6 @@ public:
 	int speed = 6;
 	void getDamage(int damage);
 	float attackRange = 20;
-	bool isAlive = true;
 };
 
 #endif // __Bat_H__

@@ -8,7 +8,6 @@ bool Slash::init(Vec2 position) {
     sprite = Sprite::create("Slash.png");
     sprite->setPosition(position);
     sprite->setScale(scale * Common::scaleSizeXY());
-    sprite->setPosition(position);
     sprite->setTag(Constants::TAG_SLASH);
     scene->addChild(sprite);
 

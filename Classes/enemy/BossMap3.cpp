@@ -44,6 +44,9 @@ bool BossMap3::init() {
     createHealthBar();
     idle();
 
+    // Pool for bat
+    batPool = new BatPool(world, scene, bodyToSpriteMap, 10);
+
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "BossMap3");
     scene->addChild(this);
@@ -87,10 +90,12 @@ void BossMap3::walk() {
 }
 
 void BossMap3::die() {
-    for (auto bat : batVector) {
-        if(bat->isAlive) bat->die();
+    for (Bat* bat : batPool->getPool()) {
+        if (bat->getIsActive()) {
+            bat->die();
+        }
     }
-    batVector.clear();
+    delete batPool;
 
     isALive = false;
     b2Vec2 velocity(0, 0);
@@ -165,6 +170,7 @@ void BossMap3::update(float dt) {
 }
 
 void BossMap3::spawnBat() {
+
     // spawn bat
     int i = Common::randomNum(1, 5);
     int count = 0;
@@ -174,25 +180,26 @@ void BossMap3::spawnBat() {
             auto tile = batLayer->getTileAt(Vec2(x, y));
             if (tile) {
                 if (i == ++count) {
-                    Bat* w = new Bat(world, scene, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
-                    w->player = player;
-                    w->attackRange = 1000;
-                    w->init();
-                    batVector.push_back(w);
+                    Bat* w = batPool->getFromPool();
+                    if (w != nullptr) {
+                        w->player = player;
+                        w->attackRange = 1000;
+                        w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
 
-                    // Lặp qua tất cả các fixture của body
-                    for (b2Fixture* fixture = w->getBody()->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
-                        // Lấy dữ liệu bộ lọc hiện tại
-                        b2Filter filter = fixture->GetFilterData();
+                        // Lặp qua tất cả các fixture của body
+                        for (b2Fixture* fixture = w->getBody()->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
+                            // Lấy dữ liệu bộ lọc hiện tại
+                            b2Filter filter = fixture->GetFilterData();
 
-                        // Cập nhật categoryBits và maskBits
-                        filter.categoryBits = Constants::CATEGORY_ENEMY;
-                        filter.maskBits = Constants::CATEGORY_STICK | Constants::CATEGORY_SLASH | Constants::CATEGORY_PLAYER;
+                            // Cập nhật categoryBits và maskBits
+                            filter.categoryBits = Constants::CATEGORY_ENEMY;
+                            filter.maskBits = Constants::CATEGORY_STICK | Constants::CATEGORY_SLASH | Constants::CATEGORY_PLAYER;
 
-                        // Thiết lập lại dữ liệu bộ lọc
-                        fixture->SetFilterData(filter);
+                            // Thiết lập lại dữ liệu bộ lọc
+                            fixture->SetFilterData(filter);
+                        }
+                        break;
                     }
-                    break;
                 }
             }
         }
