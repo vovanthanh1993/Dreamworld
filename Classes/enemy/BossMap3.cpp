@@ -50,7 +50,7 @@ bool BossMap3::init() {
     return true;
 }
 void BossMap3::idle() {
-    if (sprite != nullptr) {
+    if (isALive) {
         sprite->stopAllActions();
         auto animateW = Animate::create(Common::createAnimation("bossbat_idle Blinking_", 17, 0.04));
         animateW->retain();
@@ -128,10 +128,10 @@ void BossMap3::die() {
 
     auto animate = Animate::create(Common::createAnimation("bossbat_smoke_", 9, 0.05));
     auto callback2 = [this]() {
-        if (sprite != nullptr) {
-            Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, 10);
-            BaseNode::destroyNode();
-        }
+            if (!isALive) {
+                Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, 10);
+                BaseNode::destroyNode();
+            }
         };
 
     auto callFunc2 = CallFunc::create(callback2);

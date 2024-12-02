@@ -1,14 +1,10 @@
 ﻿#include "skill/StoneBall.h"
 #include "main/Effect.h"
-StoneBall::StoneBall(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {};
+StoneBall::StoneBall(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {};
 
-bool StoneBall::init() {
-    /*sprite = Sprite::create("Enemy/Bossmap1/stoneball/stoneball2.png");
-    sprite->setPosition(position);
-    sprite->setScale(scale * Common::scaleSizeXY());
-    sprite->setPosition(position);
-    sprite->setTag(Constants::TAG_STONE_BALL);
-    scene->addChild(sprite);*/
+bool StoneBall::init(Vec2 position) {
+    scale = 0.4;
+    isActive = true;
 
     auto spriteNode = SpriteBatchNode::create("Enemy/Bossmap1/stoneball/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Bossmap1/stoneball/sprites.plist");
@@ -16,6 +12,7 @@ bool StoneBall::init() {
     sprite->setPosition(position);
     sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_STONE_BALL);
+    sprite->setUserData(this);
 
     auto animateW = Animate::create(Common::createAnimation("stone_ball_", 19, 0.08));
     sprite->runAction(RepeatForever::create(animateW));
@@ -64,13 +61,18 @@ void StoneBall::update(float dt) {
         std::chrono::duration<float> elapsed = now - startTime;
         if (elapsed.count() >= duration) {
             {
-                destroy();
+                bodyToSpriteMap->erase(body);
+                isActive = false;
+                world->DestroyBody(body);
+                sprite->removeFromParentAndCleanup(true);
+                this->removeFromParentAndCleanup(true);
+                
             }
         }
     }
 }
 
-void StoneBall::destroy() {
-    isActive = false;
-    BaseNode::destroyNode();
+void StoneBall::reset() {
+    this->isActive = false;
+    this->removeFromParentAndCleanup(true);
 }

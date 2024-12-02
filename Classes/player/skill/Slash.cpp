@@ -1,12 +1,13 @@
 ﻿#include "Slash.h"
 #include "main/Effect.h"
-Slash::Slash(b2World* world, Scene* scene, Vec2 position) :BaseNode(world, scene, position) {};
+Slash::Slash(b2World* world, Scene* scene) :BaseNode(world, scene) {};
 
-bool Slash::init() {
+bool Slash::init(Vec2 position) {
+    scale = 0.3;
     Effect::playerSlash();
     sprite = Sprite::create("Slash.png");
     sprite->setPosition(position);
-    sprite->setScale(Constants::STICK_SCALE * Common::scaleSizeXY());
+    sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setPosition(position);
     sprite->setTag(Constants::TAG_SLASH);
     scene->addChild(sprite);
@@ -36,7 +37,7 @@ bool Slash::init() {
     body->CreateFixture(&fixtureDef);
 
     // Thoi gian khoi tao
-    visible = true;
+    isActive = true;
     startTime = std::chrono::steady_clock::now();
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "Slash");
@@ -46,26 +47,16 @@ bool Slash::init() {
 }
 
 void Slash::update(float dt) {
-    if (visible) {
+    if (isActive) {
         auto now = std::chrono::steady_clock::now();
         std::chrono::duration<float> elapsed = now - startTime;
 
         if (elapsed.count() >= duration) {
             if (sprite != nullptr && body != nullptr) {
-                visible = false;
-                // Hủy body Box2D nếu nó tồn tại
-                if (body)
-                {
-                    world->DestroyBody(body);
-                    body = nullptr; // Đảm bảo body không còn trỏ tới bất kỳ bộ nhớ nào
-                }
-
-                // Xóa sprite nếu nó tồn tại
-                if (sprite)
-                {
-                    sprite->removeFromParentAndCleanup(true); // Xóa node Cocos2d
-                    sprite = nullptr; // Đảm bảo sprite không còn trỏ tới bất kỳ bộ nhớ nào
-                }
+                isActive = false;
+                world->DestroyBody(body);
+                sprite->removeFromParentAndCleanup(true); // Xóa node Cocos2d
+                this->removeFromParentAndCleanup(true);
             }
         }
     }

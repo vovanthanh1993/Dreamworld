@@ -270,8 +270,8 @@ namespace common {
             x = -(num / 2)*30* Common::scaleSizeXY();
         }
         for (int i = 0; i < num; i++) {
-            Gem* gem = new Gem(world, scene, Vec2(position.x +x, position.y), bodyToSpriteMap);
-            gem->init();
+            Gem* gem = new Gem(world, scene, bodyToSpriteMap);
+            gem->init(Vec2(position.x + x, position.y));
             b2Vec2 velocity(0, 50 * Common::scaleSizeXY());
             float newAngle = 0.0f;
             gem->getBody()->SetLinearVelocity(velocity);

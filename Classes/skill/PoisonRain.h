@@ -7,10 +7,10 @@
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
-class Rain :public BaseNode
+class PoisonRain :public BaseNode
 {
 public:
-	bool init();
-	Rain(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	bool init(Vec2 position);
+	PoisonRain(b2World* world, Scene* scene,unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 };
 

@@ -12,6 +12,7 @@
 #include "main/Effect.h"
 #include "base/BaseNode.h"
 #include "skill/StoneBall.h"
+#include "skill/StoneBallPool.h"
 
 using namespace constants;
 using namespace common;
@@ -31,6 +32,7 @@ private:
 	float scale = 1;
 	float attackRange = 1000;
 	std::vector<StoneBall*> stoneBallVector;
+	StoneBallPool* stoneBallPool;
 	void followPlayer();
 public:
 	bool init();

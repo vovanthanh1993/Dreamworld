@@ -65,40 +65,7 @@ void Elemental::walk() {
 }
 
 
-void Elemental::hit() {
-    if (sprite != nullptr) {
-        auto animate = Animate::create(Common::createAnimation("Elemental_1_Casting Spells_", 17, 0.01));
 
-        auto callback2 = [this]() {
-            int start = -50;
-            for (int i = 1; i <= 11; i++) {
-                
-                if (sprite != nullptr) {
-                    int check = 1;
-                    // check huong nhan vat
-                    if (sprite->getScaleX() < 0) {
-                        check = -1;
-                    }
-
-                    Rain* rain = new Rain(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), bodyToSpriteMap);
-                    rain->init();
-                    rain->getSprite()->setScaleX(check * rain->getSprite()->getScale());
-
-                    b2Vec2 velocity(start * Common::scaleSizeXY(), -20 * Common::scaleSizeXY());
-                    rain->getBody()->SetLinearVelocity(velocity);
-                    start += 10;
-                }
-            }
-
-            };
-
-        // auto callFunc1 = CallFunc::create(callback1);
-        auto callFunc2 = CallFunc::create(callback2);
-
-        auto sequence = Sequence::create(animate, callFunc2, nullptr);
-        sprite->runAction(sequence);
-    }
-}
 
 void Elemental::update(float dt) {
 

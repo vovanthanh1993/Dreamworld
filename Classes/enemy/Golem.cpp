@@ -42,6 +42,7 @@ bool Golem::init() {
     sprite->setScaleX(direction * scale * Common::scaleSizeXY());
     (*bodyToSpriteMap)[body] = sprite;
     walk();
+    slashEnemyPool = new SlashEnemyPool(world, scene, 5);
 
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "Golem");
@@ -50,7 +51,7 @@ bool Golem::init() {
     return true;
 }
 void Golem::idle() {
-    if (isAlive && sprite != nullptr) {
+    if (isAlive) {
         sprite->stopAllActions();
         auto animateW = Animate::create(Common::createAnimation("0_Golem_Idle_", 17, 0.04));
         animateW->retain();
@@ -59,7 +60,7 @@ void Golem::idle() {
 }
 
 void Golem::walk() {
-    if (isAlive && sprite != nullptr) {
+    if (isAlive) {
         sprite->stopAllActions();
         auto animateW = Animate::create(Common::createAnimation("0_Golem_Walking_", 19, 0.04));
         animateW->retain();
@@ -89,7 +90,7 @@ void Golem::die() {
     }
 
     auto callback = [this]() {
-        if (sprite != nullptr) {
+        if (!isAlive) {
             Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, Common::randomNum(1, 3));
             BaseNode::destroyNode();
         }
@@ -106,15 +107,12 @@ void Golem::hit() {
         auto animate = Animate::create(Common::createAnimation("0_Golem_Slashing_", 11, 0.015));
 
         auto callback = [this]() {
-            if (sprite != nullptr) {
-                int check = 1;
-                // check huong nhan vat
-                if (sprite->getScaleX() < 0) {
-                    check = -1;
+            if (isAlive) {
+                SlashEnemy* slashEnemy = slashEnemyPool->getFromPool();
+                if (slashEnemy != nullptr) {
+                    slashEnemy->init(Vec2(sprite->getPositionX() + direction * 60 * Common::scaleSizeXY(), sprite->getPositionY()));
+                    slashEnemy->getSprite()->setScaleX(direction * Constants::STICK_SCALE * Common::scaleSizeXY());
                 }
-                SlashEnemy* slashEnemy = new SlashEnemy(world, scene, Vec2(sprite->getPositionX() + check * 60 * Common::scaleSizeXY(), sprite->getPositionY()));
-                slashEnemy->init();
-                slashEnemy->getSprite()->setScaleX(check * Constants::STICK_SCALE* Common::scaleSizeXY());
                 walk();
             }
             };

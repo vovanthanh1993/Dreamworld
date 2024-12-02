@@ -15,7 +15,6 @@ bool Player::init(bool isNew) {
     sprite->setScale(Constants::PLAYER_SCALE* Common::scaleSizeXY());
     sprite->setPosition(position);
     sprite->setTag(Constants::TAG_PLAYER);
-    
     spriteNode->addChild(sprite);
     scene->addChild(spriteNode, 1);
 
@@ -50,10 +49,16 @@ bool Player::init(bool isNew) {
     initKeyEvent();
     initMouseEvent();
 
+    // Su dung pool
+    slashPool = new SlashPool(world, scene, 5);
+    stickPool = new StickPool(world, scene, bodyToSpriteMap, 5);
+    eaglePool = new EaglePool(world, scene, bodyToSpriteMap, 6);
+
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "player");
     scene->addChild(this);
 
+    
     return true;
 }
 void Player::idle() {
@@ -105,15 +110,14 @@ void Player::hit() {
         
         // Run animation with a callback
         auto callback = [this]() {
-            int check = 1;
-            // check huong nhan vat
-            if (sprite->getScaleX() < 0) {
-                check = -1;
+            // Khi người chơi thực hiện đòn tấn công:
+            Slash* slash = slashPool->getFromPool();
+            if (slash != nullptr) {
+                slash->init(Vec2(sprite->getPositionX() + direction * 60 * Common::scaleSizeXY(), sprite->getPositionY()));  // Kích hoạt nhát chém
+                auto sprite = slash->getSprite();
+                sprite->setScaleX(direction * slash->getScale() * Common::scaleSizeX());
             }
-            Slash* slash = new Slash(world, scene, Vec2(sprite->getPositionX() + check * 60 * Common::scaleSizeXY(), sprite->getPositionY()));
-            slash->init();
-            auto sprite = slash->getSprite();
-            sprite->setScaleX(check * Constants::STICK_SCALE * Common::scaleSizeX());
+            
             };
 
         auto callFunc = CallFunc::create(callback);
@@ -132,19 +136,14 @@ void Player::throwStick() {
         sprite->stopAllActions();
         auto animate = Animate::create(Common::createAnimation("Wukong-Throw_", 20, 0.005));
         if (stickNum > 0) {
-
-            int check = 1;
-            // check huong nhan vat
-            if (this->sprite->getScaleX() < 0) {
-                check = -1;
+            Stick* stick = stickPool->getFromPool();
+            if (stick != nullptr) {
+                stick->init(Vec2(sprite->getPositionX() + direction * 10 * Common::scaleSizeXY(), sprite->getPositionY()));
+                stick->getSprite()->setScaleX(direction * stick->getSprite()->getScale());
+                b2Vec2 velocity(40 * direction * Common::scaleSizeXY(), 0);
+                stick->getBody()->SetLinearVelocity(velocity);
+                updateStickNum(-1);
             }
-            Stick* stick = new Stick(world, scene, Vec2(sprite->getPositionX() + check * 10 * Common::scaleSizeXY(), sprite->getPositionY()), bodyToSpriteMap);
-            stick->init();
-            stick->getSprite()->setScaleX(check * stick->getSprite()->getScale());
-            b2Vec2 velocity(40 * check * Common::scaleSizeXY(), 0);
-            stick->getBody()->SetLinearVelocity(velocity);
-            updateStickNum(-1);
-            scene->addChild(stick);
         }
         animate->setTag(4);
         sprite->runAction(animate);
@@ -152,10 +151,11 @@ void Player::throwStick() {
 }
 
 
-void Player::eagle() {
+void Player::throwEagle() {
     int manaUse = 5;
     if (!isAlive || mana < manaUse) return;
     float currentTime = Director::getInstance()->getTotalFrames() / 60.0f;
+
     // Kiểm tra nếu đang không tấn công hoặc đã qua thời gian chờ
     if ((currentTime - lastAttackTimeEagle >= attackCooldownEagle)) {
         lastAttackTimeEagle = currentTime;
@@ -164,22 +164,18 @@ void Player::eagle() {
         sprite->stopAllActions();
         auto animate = Animate::create(Common::createAnimation("Wukong-Throw_", 20, 0.005));
 
-        int check = 1;
-        // check huong nhan vat              
-        if (this->sprite->getScaleX() < 0) {
-            check = -1;
-        }
-
         int y = 0;
         int x = -100 * Common::scaleSizeX();
         for (int i = 1; i <= 3; i++) {
-            Eagle* eagle = new Eagle(world, scene, Vec2(sprite->getPositionX() + check * x + check * 15 * Common::scaleSizeXY(), sprite->getPositionY() + y), bodyToSpriteMap);
-            eagle->init();
-            eagle->getSprite()->setScaleX(check * Constants::STICK_SCALE * Common::scaleSizeX());
-            b2Vec2 velocity(30 * check * Common::scaleSizeXY(), 0);
-            eagle->getBody()->SetLinearVelocity(velocity);
-            y += 20 * Common::scaleSizeY();
-            x += 100 * Common::scaleSizeX();
+            Eagle* eagle = eaglePool->getFromPool();
+            if (eagle != nullptr) {
+                eagle->init(Vec2(sprite->getPositionX() + direction * x + direction * 15 * Common::scaleSizeXY(), sprite->getPositionY() + y));
+                eagle->getSprite()->setScaleX(direction * eagle->getScale() * Common::scaleSizeX());
+                b2Vec2 velocity(30 * direction * Common::scaleSizeXY(), 0);
+                eagle->getBody()->SetLinearVelocity(velocity);
+                y += 20 * Common::scaleSizeY();
+                x += 100 * Common::scaleSizeX();
+            }  
         }
         animate->setTag(4);
         sprite->runAction(animate);
@@ -496,6 +492,7 @@ void Player::update(float dt) {
     }
     if (!isEnable||!isAlive) return;
     if (keys[EventKeyboard::KeyCode::KEY_A]) {
+        direction = -1;
         body->SetLinearVelocity(b2Vec2(-Constants::SPEED_PLAYER * Common::scaleSizeXY(), body->GetLinearVelocity().y)); // Di chuyển sang trái
         sprite->setScaleX(-Constants::PLAYER_SCALE * Common::scaleSizeXY());
         if (!sprite->getActionByTag(4) && !sprite->getActionByTag(1)) { // Kiểm tra nếu hoạt ảnh chưa chạy
@@ -503,6 +500,7 @@ void Player::update(float dt) {
         }
     }
     else if (keys[EventKeyboard::KeyCode::KEY_D]) {
+        direction = 1;
         body->SetLinearVelocity(b2Vec2(Constants::SPEED_PLAYER * Common::scaleSizeXY(), body->GetLinearVelocity().y)); // Di chuyển sang phải
         sprite->setScaleX(Constants::PLAYER_SCALE * Common::scaleSizeXY());
         if (!sprite->getActionByTag(4) && !sprite->getActionByTag(1)) { // Kiểm tra nếu hoạt ảnh chưa chạy
@@ -534,7 +532,7 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
                 useGourd();
             }
             if (keyCode == (EventKeyboard::KeyCode::KEY_Q)) {
-                eagle();
+                throwEagle();
             }
         } 
     }

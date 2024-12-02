@@ -42,13 +42,15 @@ bool Acher::init() {
     idle();
     (*bodyToSpriteMap)[body] = sprite;
 
+    arrowPool = new ArrowPool(world, scene, bodyToSpriteMap, 5);
+
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "acher");
     scene->addChild(this);
     return true;
 }
 void Acher::idle() {
-    if (sprite != nullptr) {
+    if (isAlive) {
         sprite->stopAllActions();
         auto animateW = Animate::create(Common::createAnimation("0_Archer_Idle_", 9, 0.04));
         animateW->retain();
@@ -57,7 +59,7 @@ void Acher::idle() {
 }
 
 void Acher::walk() {
-    if (sprite != nullptr) {
+    if (isAlive) {
         sprite->stopAllActions();
         auto animateW = Animate::create(Common::createAnimation("Walking_", 17, 0.04));
         animateW->retain();
@@ -67,23 +69,18 @@ void Acher::walk() {
 
 void Acher::hit() {
     // Run animation with a callback
-    if (sprite != nullptr) {
+    if (isAlive) {
         sprite->stopAllActions();
         auto animate = Animate::create(Common::createAnimation("0_Archer_Shooting_", 8, 0.05));
-
-        
         auto callback = [this]() {
             if (sprite != nullptr) {
-                int check = 1;
-                // check huong nhan vat
-                if (sprite->getScaleX() < 0) {
-                    check = -1;
+                Arrow* arrow = arrowPool->getFromPool();
+                if (arrow != nullptr) {
+                    arrow->init(Vec2(sprite->getPositionX() + direction * 60 * Common::scaleSizeXY(), sprite->getPositionY()));
+                    arrow->getSprite()->setScaleX(direction * arrow->getScale() * Common::scaleSizeXY());
+                    b2Vec2 velocity(40 * direction * Common::scaleSizeXY(), 0);
+                    arrow->getBody()->SetLinearVelocity(velocity);
                 }
-                Arrow* arrow = new Arrow(world, scene, Vec2(sprite->getPositionX() + check * 60 * Common::scaleSizeXY(), sprite->getPositionY()), bodyToSpriteMap);
-                arrow->init();
-                arrow->getSprite()->setScaleX(check * Constants::ARROW_SCALE * Common::scaleSizeXY());
-                b2Vec2 velocity(40 * check * Common::scaleSizeXY(), 0);
-                arrow->getBody()->SetLinearVelocity(velocity);
                 idle();
             }
             };
@@ -142,7 +139,7 @@ void Acher::die() {
 
 
     auto callback = [this]() {
-        if (sprite != nullptr) {
+        if (!isAlive) {
             sprite->removeFromParentAndCleanup(true);
             Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, Common::randomNum(1, 3));
             BaseNode::destroyNode();

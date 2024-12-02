@@ -1,17 +1,19 @@
 ﻿#pragma once
 #include "cocos2d.h"
 #include "main/Common.h"
-#include "base/BaseNode.h"
 #include "main/Constants.h"
+#include "player/skill/Slash.h"
 
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
-class Eagle :public BaseNode
+class SlashPool
 {
-
+private:
+	std::vector<Slash*> pool;
 public:
-	bool init(Vec2 position);
-	Eagle(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	SlashPool(b2World* world, Scene* scene, int poolSize);
+	~SlashPool();
+	Slash* getFromPool();
 };
 

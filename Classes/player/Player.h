@@ -5,6 +5,9 @@
 #include <thread>
 #include <chrono>
 #include "player/skill/Slash.h"
+#include "player/skill/SlashPool.h"
+#include "player/skill/EaglePool.h"
+#include "player/skill/StickPool.h"
 #include "base/BaseNode.h"
 #include "main/Constants.h"
 
@@ -33,6 +36,10 @@ private:
 	float lastAttackTimeStick = 0; // Thời điểm của lần tấn công cuối cùng
 	float attackCooldownEagle = 0.5f; // Khoảng thời gian chờ giữa các lần tấn công
 	float lastAttackTimeEagle = 0; // Thời điểm của lần tấn công cuối cùng
+	SlashPool* slashPool;
+	StickPool* stickPool;
+	EaglePool* eaglePool;
+	int direction = 1;
 public:
 	bool isAlive = true;
 	Node* uiNode = Node::create();
@@ -46,7 +53,7 @@ public:
 	void hit();
 	bool init(bool isNew);
 	void throwStick();
-	void eagle();
+	void throwEagle();
 	void setHealth(int h);
 	int getHealth();
 	void setStickNum(int h);

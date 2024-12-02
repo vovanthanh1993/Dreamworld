@@ -41,6 +41,8 @@ bool Wraith::init() {
 
     (*bodyToSpriteMap)[body] = sprite;
 
+    poisonRainPool = new PoisonRainPool(world, scene, bodyToSpriteMap, 10);
+
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "wraith");
     scene->addChild(this);
@@ -79,16 +81,17 @@ void Wraith::hit() {
                     if (sprite->getScaleX() < 0) {
                         check = -1;
                     }
-                    Rain* rain = new Rain(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), bodyToSpriteMap);
-                    rain->init();
-                    rain->getSprite()->setScaleX(check * rain->getSprite()->getScale());
-                    b2Vec2 velocity(start * Common::scaleSizeXY(), -20 * Common::scaleSizeXY());
-                    rain->getBody()->SetLinearVelocity(velocity);
-                    start += 10;
+                    PoisonRain* rain = poisonRainPool->getFromPool();
+                    if (rain != nullptr) {
+                        rain->init(Vec2(sprite->getPositionX(), sprite->getPositionY()));
+                        rain->getSprite()->setScaleX(check * rain->getSprite()->getScale());
+                        b2Vec2 velocity(start * Common::scaleSizeXY(), -20 * Common::scaleSizeXY());
+                        rain->getBody()->SetLinearVelocity(velocity);
+                        start += 10;
+                    }
                 }
             }
-
-            };
+        };
 
         // auto callFunc1 = CallFunc::create(callback1);
         auto callFunc2 = CallFunc::create(callback2);

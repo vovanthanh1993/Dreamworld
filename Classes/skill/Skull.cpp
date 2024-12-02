@@ -7,6 +7,8 @@ bool Skull::init() {
     sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_SKULL);
     scene->addChild(sprite);
+    sprite->setUserData(this);
+
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
     bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);

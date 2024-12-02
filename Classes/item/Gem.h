@@ -10,7 +10,7 @@ using namespace cocos2d;
 class Gem:public BaseNode
 {
 public:
-	Gem(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
-	bool init();
+	Gem(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	bool init(Vec2 position);
 };
 

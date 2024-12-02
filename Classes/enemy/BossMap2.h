@@ -6,11 +6,12 @@
 #include "main/Common.h"
 #include "player/Player.h"
 #include "skill/Fire.h"
-#include "skill/Rain.h"
+#include "skill/PoisonRain.h"
 #include "item/Gem.h"
 #include "main/Constants.h"
 #include "skill/skull.h"
 #include "skill/BoneRain.h"
+#include "skill/BoneRainPool.h"
 #include "main/Effect.h"
 #include "base/BaseNode.h"
 #include "enemy/Warrior.h"
@@ -33,6 +34,7 @@ private:
 	bool isHit = false;
 	float scale = 1;
 	std::vector<Warrior*> warVector;
+	BoneRainPool* boneRainPool;
 public:
 	BossMap2(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init();

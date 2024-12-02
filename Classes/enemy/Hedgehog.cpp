@@ -48,22 +48,25 @@ bool Hedgehog::init() {
     return true;
 }
 void Hedgehog::idle() {
-    sprite->stopAllActions();
-    auto animate = Animate::create(Common::createAnimation("Hed_idle Blinking_", 11, 0.04));
-    animate->retain();
-    sprite->runAction(RepeatForever::create(animate));
+    if (isAlive) {
+        sprite->stopAllActions();
+        auto animate = Animate::create(Common::createAnimation("Hed_idle Blinking_", 11, 0.04));
+        animate->retain();
+        sprite->runAction(RepeatForever::create(animate));
+    }
+    
 }
 
 void Hedgehog::walk() {
-    b2Vec2 velocity(direction * speed * Common::scaleSizeXY(), 0);
-    body->SetLinearVelocity(velocity);
-
-    if (sprite != nullptr) {
+    if (isAlive) {
+        b2Vec2 velocity(direction * speed * Common::scaleSizeXY(), 0);
+        body->SetLinearVelocity(velocity);
         sprite->stopAllActions();
         auto animate = Animate::create(Common::createAnimation("Hed_walking_", 17, 0.04));
         animate->retain();
         sprite->runAction(RepeatForever::create(animate));
     }
+    
 }
 
 void Hedgehog::die() {
@@ -88,7 +91,7 @@ void Hedgehog::die() {
     }
 
     auto callback = [this]() {
-        if (sprite != nullptr) {
+        if (!isAlive) {
             Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, Common::randomNum(1, 3));
             BaseNode::destroyNode();
         }
@@ -98,37 +101,10 @@ void Hedgehog::die() {
     sprite->runAction(sequence);
 }
 
-void Hedgehog::hit() {
-
-    // Run animation with a callback
-    
-    if (sprite != nullptr) {
-        sprite->stopAllActions();
-        auto animate = Animate::create(Common::createAnimation("Attacking_", 11, 0.015));
-
-        auto callback = [this]() {
-            if (sprite != nullptr) {
-                int check = 1;
-                // check huong nhan vat
-                if (sprite->getScaleX() < 0) {
-                    check = -1;
-                }
-                SlashEnemy* slashEnemy = new SlashEnemy(world, scene, Vec2(sprite->getPositionX() + check * 60 * Common::scaleSizeXY(), sprite->getPositionY()));
-                slashEnemy->init();
-                slashEnemy->getSprite()->setScaleX(check * Constants::STICK_SCALE* Common::scaleSizeXY());
-                walk();
-            }
-            };
-
-        auto callFunc = CallFunc::create(callback);
-        auto sequence = Sequence::create(animate, callFunc, nullptr);
-        sprite->runAction(sequence);
-    }
-}
 void Hedgehog::update(float dt) {
 
     // Cập nhật thời gian đã trôi qua
-    if (isAlive && body != nullptr) {
+    if (isAlive) {
         timeSinceLastAttack += dt;
 
         if (timeSinceLastAttack >= attackCooldown) {

@@ -5,10 +5,10 @@ bool FireRain::init() {
     auto spriteNode = SpriteBatchNode::create("Enemy/Bossmap1/firerain/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Bossmap1/firerain/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("fire_rain_0.png");
-    //sprite = Sprite::create("Enemy/Bossmap1/rain/rain.png");
     sprite->setPosition(position);
     sprite->setScale(Constants::FIRE_RAIN_SCALE * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_FIRE_RAIN);
+    sprite->setUserData(this);
 
     auto animateW = Animate::create(Common::createAnimation("fire_rain_", 8, 0.1));
     animateW->retain();

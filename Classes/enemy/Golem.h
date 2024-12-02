@@ -6,6 +6,7 @@
 #include "main/Common.h"
 #include "player/Player.h"
 #include "skill/SlashEnemy.h"
+#include "skill/SlashEnemyPool.h"
 #include "item/Gem.h"
 #include "main/Constants.h"
 #include "main/Effect.h"
@@ -24,6 +25,7 @@ protected:
 	float scale = 0.35;
 	float attackRange = 3;
 	int health = 2;
+	SlashEnemyPool* slashEnemyPool;
 public:
 	Golem(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init();

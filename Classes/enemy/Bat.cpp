@@ -50,7 +50,7 @@ bool Bat::init() {
     return true;
 }
 void Bat::idle() {
-    if (sprite != nullptr) {
+    if (isAlive) {
         sprite->stopAllActions();
         auto animateW = Animate::create(Common::createAnimation("bat_idle Blinking_", 17, 0.04));
         animateW->retain();
@@ -80,8 +80,7 @@ void Bat::die() {
     }
 
     auto callback = [this]() {
-        if (sprite != nullptr) {
-            //Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, Common::randomNum(1, 3));
+        if (!isAlive) {
             BaseNode::destroyNode();
         }
         };

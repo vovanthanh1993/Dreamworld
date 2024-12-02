@@ -1,13 +1,16 @@
 ﻿#include "BoneRain.h"
-BoneRain::BoneRain(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {};
+BoneRain::BoneRain(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {};
 
-bool BoneRain::init() {
+bool BoneRain::init(Vec2 position) {
+    scale = 0.4;
+    isActive = true;
+
     sprite = Sprite::create("Enemy/Bossmap2/BoneRain/bonerain.png");
     sprite->setPosition(position);
     sprite->setScale(scale * Common::scaleSizeXY());
-    //sprite->setAnchorPoint(Vec2(0, 0));
     sprite->setTag(Constants::TAG_BONE_RAIN);
     scene->addChild(sprite);
+    sprite->setUserData(this);
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác

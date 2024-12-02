@@ -8,6 +8,7 @@ bool Fire::init() {
     sprite->setPosition(position);
     sprite->setScale(Constants::FIRE_SCALE * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_FIRE);
+    sprite->setUserData(this);
 
     auto animateW = Animate::create(Common::createAnimation("fire_", 3, 0.08));
     sprite->runAction(RepeatForever::create(animateW));

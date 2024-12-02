@@ -1,15 +1,19 @@
 ﻿#include "skill/SlashEnemy.h"
 #include "main/Effect.h"
-SlashEnemy::SlashEnemy(b2World* world, Scene* scene, Vec2 position) :BaseNode(world, scene, position) {};
+SlashEnemy::SlashEnemy(b2World* world, Scene* scene) :BaseNode(world, scene) {};
 
-bool SlashEnemy::init() {
+bool SlashEnemy::init(Vec2 position) {
+    scale = 0.3;
+    isActive = true;
+
     Effect::playerSlash();
     sprite = Sprite::create("Slash.png");
     sprite->setPosition(position);
-    sprite->setScale(Constants::STICK_SCALE * Common::scaleSizeXY());
+    sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setPosition(position);
     sprite->setTag(Constants::TAG_SLASH_ENEMY);
     scene->addChild(sprite);
+    sprite->setUserData(this);
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_kinematicBody; // Hoặc loại cơ thể phù hợp khác
@@ -34,9 +38,6 @@ bool SlashEnemy::init() {
 
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-
-    // Thoi gian khoi tao
-    visible = true;
     startTime = std::chrono::steady_clock::now();
 
     // Lên lịch gọi update mỗi frame
@@ -47,32 +48,17 @@ bool SlashEnemy::init() {
 }
 
 void SlashEnemy::update(float dt) {
-    if (visible) {
+    if (isActive) {
         auto now = std::chrono::steady_clock::now();
         std::chrono::duration<float> elapsed = now - startTime;
 
         if (elapsed.count() >= duration) {
             if (sprite != nullptr) {
-                visible = false;
-
-                // Hủy body Box2D nếu nó tồn tại
-                if (body)
-                {
-                    world->DestroyBody(body);
-                    body = nullptr; // Đảm bảo body không còn trỏ tới bất kỳ bộ nhớ nào
-                }
-
-                // Xóa sprite nếu nó tồn tại
-                if (sprite)
-                {
-                    sprite->removeFromParentAndCleanup(true); // Xóa node Cocos2d
-                    sprite = nullptr; // Đảm bảo sprite không còn trỏ tới bất kỳ bộ nhớ nào
-                }
+                isActive = false;
+                world->DestroyBody(body);
+                sprite->removeFromParentAndCleanup(true);
+                this->removeFromParentAndCleanup(true);
             }
         }
     }
-}
-
-bool SlashEnemy::IsVisible() {
-    return visible;
 }

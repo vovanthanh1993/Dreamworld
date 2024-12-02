@@ -41,6 +41,7 @@ bool Warrior::init() {
     sprite->setScaleX(direction * scale * Common::scaleSizeXY());
     (*bodyToSpriteMap)[body] = sprite;
     walk();
+    slashEnemyPool = new SlashEnemyPool(world, scene, 5);
 
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "warrior");
@@ -49,7 +50,7 @@ bool Warrior::init() {
     return true;
 }
 void Warrior::idle() {
-    if (sprite != nullptr) {
+    if (isAlive) {
         sprite->stopAllActions();
         auto animateW = Animate::create(Common::createAnimation("Idle_", 11, 0.04));
         animateW->retain();
@@ -58,7 +59,7 @@ void Warrior::idle() {
 }
 
 void Warrior::walk() {
-    if (sprite != nullptr) {
+    if (isAlive) {
         sprite->stopAllActions();
         auto animateW = Animate::create(Common::createAnimation("Walking_", 17, 0.04));
         animateW->retain();
@@ -88,7 +89,7 @@ void Warrior::die() {
     }
 
     auto callback = [this]() {
-        if (sprite != nullptr) {
+        if (!isAlive) {
             Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, Common::randomNum(1, 3));
             BaseNode::destroyNode();
         }
@@ -102,20 +103,17 @@ void Warrior::hit() {
 
     // Run animation with a callback
     
-    if (sprite != nullptr) {
+    if (isAlive) {
         sprite->stopAllActions();
         auto animate = Animate::create(Common::createAnimation("Attacking_", 11, 0.015));
 
         auto callback = [this]() {
-            if (sprite != nullptr) {
-                int check = 1;
-                // check huong nhan vat
-                if (sprite->getScaleX() < 0) {
-                    check = -1;
+            if (isAlive) {
+                SlashEnemy* slashEnemy = slashEnemyPool->getFromPool();
+                if (slashEnemy != nullptr) {
+                    slashEnemy->init(Vec2(sprite->getPositionX() + direction * 60 * Common::scaleSizeXY(), sprite->getPositionY()));
+                    slashEnemy->getSprite()->setScaleX(direction * slashEnemy->getScale() * Common::scaleSizeXY());
                 }
-                SlashEnemy* slashEnemy = new SlashEnemy(world, scene, Vec2(sprite->getPositionX() + check * 60 * Common::scaleSizeXY(), sprite->getPositionY()));
-                slashEnemy->init();
-                slashEnemy->getSprite()->setScaleX(check * Constants::STICK_SCALE* Common::scaleSizeXY());
                 walk();
             }
             };
@@ -128,7 +126,7 @@ void Warrior::hit() {
 void Warrior::update(float dt) {
     
     // Cập nhật thời gian đã trôi qua
-    if (isAlive && body != nullptr) {
+    if (isAlive) {
         
         timeSinceLastAttack += dt;
 

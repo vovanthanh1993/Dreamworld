@@ -42,6 +42,8 @@ bool BossMap1::init() {
     body->SetLinearVelocity(velocity);
     sprite->setScaleX(direction* scale * Common::scaleSizeXY());
     (*bodyToSpriteMap)[body] = sprite;
+    
+    stoneBallPool = new StoneBallPool(world, scene, bodyToSpriteMap, 5);
 
     createHealthBar();
     walk();
@@ -52,7 +54,7 @@ bool BossMap1::init() {
     return true;
 }
 void BossMap1::idle() {
-    if (sprite != nullptr) {
+    if (isALive) {
         b2Vec2 velocity(0, 0);
         body->SetLinearVelocity(velocity);
         sprite->stopAllActions();
@@ -63,7 +65,7 @@ void BossMap1::idle() {
 }
 
 void BossMap1::walk() {
-    if (sprite != nullptr) {
+    if (isALive) {
         auto animateW = Animate::create(Common::createAnimation("0_boss_walk_", 19, 0.04));
         animateW->retain();
         sprite->runAction(RepeatForever::create(animateW));
@@ -72,11 +74,6 @@ void BossMap1::walk() {
 
 void BossMap1::die() {
     isALive = false;
-    /*for (auto stoneBall : stoneBallVector) {
-        if (stoneBall->isActive) stoneBall->destroy();
-    }*/
-    stoneBallVector.clear();
-
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
@@ -109,10 +106,10 @@ void BossMap1::die() {
 
     auto animate = Animate::create(Common::createAnimation("0_boss_die_", 19, 0.05));
     auto callback2 = [this]() {
-        if (sprite != nullptr) {
-            Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap,10);
-            BaseNode::destroyNode();
-        }
+            if (!isALive) {
+                Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, 10);
+                BaseNode::destroyNode();
+            }
         };
     auto callFunc2 = CallFunc::create(callback2);
     
@@ -125,7 +122,7 @@ void BossMap1::throwStoneBall() {
    
     // Run animation with a callback
     if (isHit) return;
-    if (sprite != nullptr) {
+    if (isALive) {
         auto animate = Animate::create(Common::createAnimation("0_boss_attack_", 19, 0.02));
         Effect::soundMagicFire();
         auto callback2 = [this]() {
@@ -141,7 +138,7 @@ void BossMap1::throwStoneBall() {
 void BossMap1::charge() {
     // Run animation with a callback
     if (isHit) return;
-    if (sprite != nullptr) {
+    if (isALive) {
         auto animate = Animate::create(Common::createAnimation("0_boss_specialty_", 19, 0.02));
         Effect::soundMagicFire();
         followPlayer();
@@ -236,10 +233,12 @@ void BossMap1::hurt() {
 }
 
 void BossMap1::createStoneBall() {
-    StoneBall* stoneball = new StoneBall(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY() + 200 * Common::scaleSizeXY()), bodyToSpriteMap);
-    stoneball->init();
-    stoneBallVector.push_back(stoneball);
-    stoneball->getBody()->SetLinearVelocity(b2Vec2(direction *20 * Common::scaleSizeXY(), 60 * Common::scaleSizeXY()));
+    StoneBall* stoneball = stoneBallPool->getFromPool();
+    if (stoneball != nullptr) {
+        stoneball->init(Vec2(sprite->getPositionX(), sprite->getPositionY() + 200 * Common::scaleSizeXY()));
+        stoneBallVector.push_back(stoneball);
+        stoneball->getBody()->SetLinearVelocity(b2Vec2(direction * 20 * Common::scaleSizeXY(), 60 * Common::scaleSizeXY()));
+    }
 }
 
 void BossMap1::followPlayer() {

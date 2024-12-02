@@ -1,15 +1,18 @@
 ﻿#include "Eagle.h"
 #include "main/Effect.h"
-Eagle::Eagle(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {}
+Eagle::Eagle(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {}
 
-bool Eagle::init() {
+bool Eagle::init(Vec2 position) {
+    scale = 0.3;
+    isActive = true;
 
     auto spriteNode = SpriteBatchNode::create("player/skill/bear/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("player/skill/bear/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Animal_02__FLY_0.png");
     sprite->setPosition(position);
-    sprite->setScale(0.5 * Common::scaleSizeXY());
+    sprite->setScale(scale * Common::scaleSizeXY());
     spriteNode->addChild(sprite);
+    sprite->setUserData(this);
 
     sprite->setTag(Constants::TAG_EAGLE);
     scene->addChild(spriteNode);

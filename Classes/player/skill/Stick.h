@@ -10,7 +10,7 @@ using namespace cocos2d;
 class Stick :public BaseNode
 {
 public:
-	bool init();
-	Stick(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	bool init(Vec2 position);
+	Stick(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 };
 

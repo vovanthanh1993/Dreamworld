@@ -7,12 +7,15 @@
 #include <unordered_map>
 #include "main/Constants.h"
 
+
 using namespace constants;
 using namespace cocos2d;
 using namespace std;
 namespace common {
 	class Common
 	{
+	private:
+
 	public:
 		static Animation* createAnimation(string prefixName, int pFramesOrder, float delay);
 		static float scaleSizeY();

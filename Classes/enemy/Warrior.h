@@ -6,6 +6,7 @@
 #include "main/Common.h"
 #include "player/Player.h"
 #include "skill/SlashEnemy.h"
+#include "skill/SlashEnemyPool.h"
 #include "item/Gem.h"
 #include "main/Constants.h"
 #include "main/Effect.h"
@@ -22,6 +23,7 @@ protected:
 	bool canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
 	float scale = 0.2;
 	float attackRange = 3;
+	SlashEnemyPool* slashEnemyPool;
 public:
 	Warrior(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init();

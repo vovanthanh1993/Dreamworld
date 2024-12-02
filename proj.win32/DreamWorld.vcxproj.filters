@@ -109,9 +109,6 @@
     <ClCompile Include="D:\Git\Dreamworld\Classes\skill\FireRain.cpp">
       <Filter>Source Files\Classes\skill</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\skill\Rain.cpp">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\skill\Skull.cpp">
       <Filter>Source Files\Classes\skill</Filter>
     </ClCompile>
@@ -168,6 +165,36 @@
     </ClCompile>
     <ClCompile Include="..\Classes\skill\StoneBall.cpp">
       <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\player\skill\SlashPool.cpp">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\player\skill\StickPool.cpp">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\player\skill\EaglePool.cpp">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\ArrowPool.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\SlashEnemyPool.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\BoneRainPool.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\PoisonRain.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\PoisonRainPool.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\skill\StoneBallPool.cpp">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\item\GemPool.cpp">
+      <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -277,9 +304,6 @@
       <Filter>Source Files\Classes\skill</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\skill\FireRain.h">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\skill\Rain.h">
       <Filter>Source Files\Classes\skill</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\skill\Skull.h">
@@ -2423,6 +2447,36 @@
     </ClInclude>
     <ClInclude Include="..\Classes\skill\StoneBall.h">
       <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\player\skill\SlashPool.h">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\player\skill\StickPool.h">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\player\skill\EaglePool.h">
+      <Filter>Source Files\Classes\player\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\ArrowPool.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\SlashEnemyPool.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\BoneRainPool.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\PoisonRain.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\PoisonRainPool.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\skill\StoneBallPool.h">
+      <Filter>Source Files\Classes\skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\item\GemPool.h">
+      <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

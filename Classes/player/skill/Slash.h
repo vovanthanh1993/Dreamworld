@@ -12,10 +12,9 @@ class Slash:public BaseNode
 private:
 	float duration = 0.01; // Thời gian tồn tại tính bằng giây
 	std::chrono::steady_clock::time_point startTime;
-	bool visible = true;
 public:
-	Slash(b2World* world, Scene* scene, Vec2 position);
-	bool init();
+	Slash(b2World* world, Scene* scene);
+	bool init(Vec2 position);
 	void update(float dt);
 };
 

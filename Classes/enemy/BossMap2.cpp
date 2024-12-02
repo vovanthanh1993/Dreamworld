@@ -41,6 +41,8 @@ bool BossMap2::init() {
     sprite->setScaleX(direction* scale * Common::scaleSizeXY());
     (*bodyToSpriteMap)[body] = sprite;
 
+    boneRainPool = new BoneRainPool(world, scene, bodyToSpriteMap, 10);
+
     createHealthBar();
     walk();
 
@@ -50,7 +52,7 @@ bool BossMap2::init() {
     return true;
 }
 void BossMap2::idle() {
-    if (sprite != nullptr) {
+    if (isALive) {
         b2Vec2 velocity(0, 0);
         body->SetLinearVelocity(velocity);
         sprite->stopAllActions();
@@ -69,7 +71,6 @@ void BossMap2::hurt() {
         walk();
     };
 
-    // auto callFunc1 = CallFunc::create(callback1);
     auto callFunc = CallFunc::create(callback);
     auto sequence = Sequence::create(animate, callFunc, nullptr);
     sprite->runAction(sequence);
@@ -77,8 +78,7 @@ void BossMap2::hurt() {
 }
 
 void BossMap2::walk() {
-    if (sprite != nullptr) {
-        //sprite->stopAllActions();
+    if (isALive) {
         auto animateW = Animate::create(Common::createAnimation("Wraith_1_Moving Forward_", 11, 0.04));
         animateW->retain();
         sprite->runAction(RepeatForever::create(animateW));
@@ -127,10 +127,10 @@ void BossMap2::die() {
 
     auto animate = Animate::create(Common::createAnimation("Wraith_1_Dying_", 14, 0.05));
     auto callback2 = [this]() {
-        if (sprite != nullptr) {
-            Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap,10);
-            BaseNode::destroyNode();
-        }
+            if (!isALive) {
+                Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap,10);
+                BaseNode::destroyNode();
+            }
         };
     
     auto callFunc2 = CallFunc::create(callback2);
@@ -146,9 +146,11 @@ void BossMap2::boneRain() {
         auto animate = Animate::create(Common::createAnimation("Wraith_1_Casting Spells_", 10, 0.01));
         Effect::soundDarkMagic();
         auto callback2 = [this](){
-            BoneRain* rain = new BoneRain(world, scene, Vec2(sprite->getPositionX(), sprite->getPositionY()), bodyToSpriteMap);
-            rain->player = player;
-            rain->init();
+            BoneRain* rain = boneRainPool->getFromPool();
+            if (rain != nullptr) {
+                rain->player = player;
+                rain->init(Vec2(sprite->getPositionX(), sprite->getPositionY()));
+            }
         };        
 
         auto callFunc2 = CallFunc::create(callback2);
@@ -261,7 +263,7 @@ void BossMap2::throwWarrior() {
 
         auto callback2 = [this]() {
                 
-                if (sprite != nullptr) {
+                if (isALive) {
                     int check = 1;
                     // check huong nhan vat
                     if (sprite->getScaleX() < 0) {

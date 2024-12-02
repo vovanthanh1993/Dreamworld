@@ -1,12 +1,16 @@
 ﻿#include "Arrow.h"
-Arrow::Arrow(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {};
+Arrow::Arrow(b2World* world, Scene* scene,unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) : BaseNode(world, scene, bodyToSpriteMap) {};
 
-bool Arrow::init() {
+bool Arrow::init(Vec2 position) {
+    scale = Constants::ARROW_SCALE;
+    isActive = true;
+
     sprite = Sprite::create("Enemy/Acher/arrow.png");
     sprite->setPosition(position);
-    sprite->setScale(Constants::ARROW_SCALE * Common::scaleSizeXY());
+    sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_ARROW);
     scene->addChild(sprite);
+    sprite->setUserData(this);
     
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác

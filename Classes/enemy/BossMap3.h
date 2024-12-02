@@ -6,7 +6,7 @@
 #include "main/Common.h"
 #include "player/Player.h"
 #include "skill/Fire.h"
-#include "skill/Rain.h"
+#include "skill/PoisonRain.h"
 #include "item/Gem.h"
 #include "main/Constants.h"
 #include "skill/skull.h"

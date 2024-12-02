@@ -1,15 +1,19 @@
 ﻿#include "player/skill/Stick.h"
 #include "main/Effect.h"
-Stick::Stick(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap):BaseNode(world, scene, position, bodyToSpriteMap) {}
+Stick::Stick(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap):BaseNode(world, scene, bodyToSpriteMap) {}
 
-bool Stick::init() {
+bool Stick::init(Vec2 position) {
+    scale = 0.3;
+    isActive = true;
+
     Effect::playerSlash();
     sprite = Sprite::create("Stick.png");
     sprite->setPosition(position);
     Common::scaleAll(sprite, 0.017);
     sprite->setTag(Constants::TAG_STICK);
     scene->addChild(sprite);
-    
+    sprite->setUserData(this);
+
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
     bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);

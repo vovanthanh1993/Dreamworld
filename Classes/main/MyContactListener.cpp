@@ -275,12 +275,12 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             if (tagA == Constants::TAG_STONE_BALL) {
                 player->getDamage(1);
                 bodiesToRemove.insert(bodyA);
-                static_cast<StoneBall*>(spriteA->getUserData())->isActive = false;
+                static_cast<StoneBall*>(spriteA->getUserData())->reset();
             }
             if (tagB == Constants::TAG_STONE_BALL) {
                 player->getDamage(1);
                 bodiesToRemove.insert(bodyB);
-                static_cast<StoneBall*>(spriteB->getUserData())->isActive = false;
+                static_cast<StoneBall*>(spriteB->getUserData())->reset();
             }
 
 
@@ -316,40 +316,56 @@ void MyContactListener::removeObject() {
             Sprite* sprite = static_cast<Sprite*>(body->GetUserData());
             int tag = sprite->getTag();
             Vec2 pos = sprite->getPosition();
+            int type = 1;
             if (Constants::TAG_STICK == tag) {
                 Effect::destroyStick(world, scene, sprite->getPosition());
+                type = 2;
             } else if (Constants::TAG_EAGLE == tag) {
                 Effect::smoke(world, scene, pos);
+                type = 2;
             }
             else if (Constants::TAG_STONE_BALL == tag) {
                 Effect::smoke(world, scene, pos);
+                type = 2;
             }
             else if (Constants::TAG_ARROW == tag) {
                 Effect::destroyArrow(world, scene, sprite->getPosition());
-            } else if (Constants::TAG_FIRE == tag) {
-                Effect::destroyFireRain(world, scene, Vec2(sprite->getPositionX() + sprite->getScaleX() * sprite->getContentSize().width / 2, sprite->getPositionY()));
-            }
+                type = 2;
+            } 
             else if (Constants::TAG_CHEST == tag) {
                 Common::spawnGem(world, scene, pos, bodyToSpriteMap, Common::randomNum(3, 10));
                 Effect::chest();
             }
             else if (Constants::TAG_RAIN == tag) {
                 Effect::destroyRain(world, scene, pos);
+                type = 2;
             }
             else if (Constants::TAG_BONE_RAIN == tag) {
+                type = 2;
                 Effect::smoke(world, scene, pos);
             }
-            else if (Constants::TAG_FIRE_RAIN == tag) {
+            /*else if (Constants::TAG_FIRE_RAIN == tag) {
                 Effect::destroyFireRain(world, scene, pos);
             }
             else if (Constants::TAG_SKULL == tag) {
                 Effect::smoke(world, scene, pos);
+            }else if (Constants::TAG_FIRE == tag) {
+                Effect::destroyFireRain(world, scene, Vec2(sprite->getPositionX() + sprite->getScaleX() * sprite->getContentSize().width / 2, sprite->getPositionY()));
+            }*/
+            if (type == 2) {
+                static_cast<BaseNode*>(sprite->getUserData())->reset();
+                (*bodyToSpriteMap).erase(body);
+                world->DestroyBody(body);
+                sprite->removeFromParentAndCleanup(true);
             }
-            (*bodyToSpriteMap).erase(body);
-            world->DestroyBody(body);
-            body = nullptr;
-            sprite->removeFromParentAndCleanup(true);
-            sprite = nullptr;
+            else {
+                (*bodyToSpriteMap).erase(body);
+                world->DestroyBody(body);
+                body = nullptr;
+                sprite->removeFromParentAndCleanup(true);
+                sprite = nullptr;
+            }
+            
             
     }
     // Xóa danh sách body đã xóa

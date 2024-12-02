@@ -8,7 +8,7 @@
 #include "item/Gem.h"
 #include "main/Constants.h"
 #include "main/Effect.h"
-#include "skill/Rain.h"
+#include "skill/PoisonRain.h"
 #include "base/BaseNode.h"
 
 using namespace constants;

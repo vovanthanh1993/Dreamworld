@@ -1,11 +1,14 @@
 ﻿#include "Gem.h"
-Gem::Gem(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {};
-bool Gem::init() {
+Gem::Gem(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {};
+bool Gem::init(Vec2 position) {
+
+    scale = Constants::GEM_SCALE;
     sprite = Sprite::create("Item/gem/gem.png");
     sprite->setPosition(position);
-    sprite->setScale(Constants::GEM_SCALE * Common::scaleSizeXY());
+    sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_GEM);
     scene->addChild(sprite);
+    sprite->setUserData(this);
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác

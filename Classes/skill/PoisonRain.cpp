@@ -1,12 +1,16 @@
-﻿#include "skill/Rain.h"
-Rain::Rain(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) : BaseNode(world, scene, position, bodyToSpriteMap) {};
+﻿#include "PoisonRain.h"
+PoisonRain::PoisonRain(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) : BaseNode(world, scene, bodyToSpriteMap) {};
 
-bool Rain::init() {
+bool PoisonRain::init(Vec2 position) {
+    scale = 0.5;
+    isActive = true;
+
     sprite = Sprite::create("Enemy/Bossmap1/rain/rain.png");
     sprite->setPosition(position);
-    sprite->setScale(Constants::HAFL_SCALE * Common::scaleSizeXY());
+    sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_RAIN);
     scene->addChild(sprite);
+    sprite->setUserData(this);
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
