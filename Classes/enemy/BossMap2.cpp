@@ -40,11 +40,12 @@ bool BossMap2::init() {
     body->SetLinearVelocity(velocity);
     sprite->setScaleX(direction* scale * Common::scaleSizeXY());
     (*bodyToSpriteMap)[body] = sprite;
-
-    boneRainPool = new BoneRainPool(world, scene, bodyToSpriteMap, 10);
-
     createHealthBar();
     walk();
+
+    boneRainPool = new BoneRainPool(world, scene, bodyToSpriteMap, 10);
+    warriorPool = new WarriorPool(world, scene, bodyToSpriteMap, 10);
+    
 
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "bossmap2");
@@ -86,10 +87,11 @@ void BossMap2::walk() {
 }
 
 void BossMap2::die() {
-    for (auto war : warVector) {
-        if (war->isAlive) war->die();
+    for (Warrior* war : warriorPool->getPool()) {
+        if (war->isAlive) {
+            war->die();
+        }
     }
-    warVector.clear();
 
     isALive = false;
     b2Vec2 velocity(0, 0);
@@ -269,13 +271,14 @@ void BossMap2::throwWarrior() {
                     if (sprite->getScaleX() < 0) {
                         check = -1;
                     }
-                    Warrior* w = new Warrior(world, scene, sprite->getPosition(), bodyToSpriteMap);
-                    w->player = player;
-                    w->speed = 8;
-                    w->init();
-                    w->isFollowPlayer = true;
-                    w->followPlayer();
-                    warVector.push_back(w);
+                    Warrior* w = warriorPool->getFromPool();
+                    if (w != nullptr) {
+                        w->player = player;
+                        w->speed = 8;
+                        w->init(sprite->getPosition());
+                        w->isFollowPlayer = true;
+                        w->followPlayer();
+                    }
                 }
             };
 

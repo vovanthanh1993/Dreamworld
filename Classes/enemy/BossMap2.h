@@ -15,6 +15,7 @@
 #include "main/Effect.h"
 #include "base/BaseNode.h"
 #include "enemy/Warrior.h"
+#include "enemy/WarriorPool.h"
 #include <vector>
 
 using namespace constants;
@@ -35,6 +36,7 @@ private:
 	float scale = 1;
 	std::vector<Warrior*> warVector;
 	BoneRainPool* boneRainPool;
+	WarriorPool* warriorPool;
 public:
 	BossMap2(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init();

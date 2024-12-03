@@ -5,6 +5,7 @@ Bat::Bat(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSp
 bool Bat::init(Vec2 position) {
     scale = 0.4;
     isActive = true;
+    isAlive = true;
     health = 1;
 
     spriteNode = SpriteBatchNode::create("enemy/Bat/sprites.png");
@@ -54,7 +55,7 @@ bool Bat::init(Vec2 position) {
     return true;
 }
 void Bat::idle() {
-    if (isActive) {
+    if (isAlive) {
         sprite->stopAllActions();
         auto animateW = Animate::create(Common::createAnimation("bat_idle Blinking_", 17, 0.04));
         animateW->retain();
@@ -63,14 +64,7 @@ void Bat::idle() {
 }
 
 void Bat::die() {
-    isActive = false;
-
-    b2Vec2 velocity(0, 0);
-    body->SetLinearVelocity(velocity);
-    sprite->stopAllActions();
-    auto animate = Animate::create(Common::createAnimation("bat_smoke_", 9, 0.02));
-    Effect::enemyDie();
-
+    isAlive = false;
     // Lặp qua tất cả các fixture của body
     for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
         // Lấy dữ liệu bộ lọc hiện tại
@@ -84,12 +78,20 @@ void Bat::die() {
         fixture->SetFilterData(filter);
     }
 
+    
+    
+    b2Vec2 velocity(0, 0);
+    body->SetLinearVelocity(velocity);
+    sprite->stopAllActions();
+    auto animate = Animate::create(Common::createAnimation("bat_smoke_", 9, 0.04));
+    Effect::enemyDie();
+
     auto callback = [this]() {
-            if (!isActive) {
-                this->removeFromParentAndCleanup(true);
-                BaseNode::destroyNode();
-            }
-        };
+        if (!isAlive) {
+            BaseNode::destroyNode();
+            this->removeFromParentAndCleanup(true);
+        }
+    };
     auto callFunc = CallFunc::create(callback);
     auto sequence = Sequence::create(animate, callFunc, nullptr);
     sprite->runAction(sequence);
@@ -98,7 +100,7 @@ void Bat::die() {
 void Bat::update(float dt) {
 
     // Cập nhật thời gian đã trôi qua
-    if (isActive && body != nullptr) {
+    if (isAlive && body != nullptr) {
             if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= attackRange * Common::scaleSizeXY()) {
                 if (!canAttack) {
                     // Lặp qua tất cả các fixture của body
@@ -139,7 +141,7 @@ void Bat::followPlayer() {
 
 void Bat::getDamage(int damage) {
     health -= damage;
-    if (health == 0) {
+    if (health <= 0) {
         die();
         return;
     }

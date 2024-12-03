@@ -40,6 +40,8 @@ SpriteBatchNode* BaseNode::getSpriteNode() {
 };
 
 void BaseNode::destroyNode() {
+
+    isActive = false;
     bodyToSpriteMap->erase(body);
 
     // Hủy body Box2D nếu nó tồn tại

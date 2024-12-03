@@ -74,6 +74,7 @@ void BossMap1::walk() {
 
 void BossMap1::die() {
     isALive = false;
+
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();

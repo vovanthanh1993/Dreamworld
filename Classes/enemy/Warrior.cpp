@@ -1,8 +1,13 @@
 ﻿#include "Warrior.h"
-Warrior::Warrior(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+Warrior::Warrior(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
 };
 
-bool Warrior::init() {
+bool Warrior::init(Vec2 position) {
+    scale = 0.2;
+    isAlive = true;
+    isActive = true;
+    canAttack = false;
+
     spriteNode = SpriteBatchNode::create("enemy/warrior/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/warrior/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Idle_0.png");
@@ -29,7 +34,7 @@ bool Warrior::init() {
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
-    fixtureDef.density = 1.0f;
+    fixtureDef.density = 1000.0f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_ENEMY;
@@ -92,6 +97,7 @@ void Warrior::die() {
         if (!isAlive) {
             Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, Common::randomNum(1, 3));
             BaseNode::destroyNode();
+            this->removeFromParentAndCleanup(true);
         }
         };
     auto callFunc = CallFunc::create(callback);

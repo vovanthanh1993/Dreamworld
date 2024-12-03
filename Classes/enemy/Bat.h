@@ -33,6 +33,7 @@ public:
 	int speed = 6;
 	void getDamage(int damage);
 	float attackRange = 20;
+	bool isAlive = false;
 };
 
 #endif // __Bat_H__

@@ -90,14 +90,13 @@ void BossMap3::walk() {
 }
 
 void BossMap3::die() {
+    isALive = false;
     for (Bat* bat : batPool->getPool()) {
-        if (bat->getIsActive()) {
+        if (bat->isAlive) {
             bat->die();
         }
     }
-    delete batPool;
 
-    isALive = false;
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();

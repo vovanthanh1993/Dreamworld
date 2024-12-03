@@ -840,6 +840,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\Classes\enemy\BossMap3.h" />
     <ClInclude Include="..\Classes\enemy\Golem.h" />
     <ClInclude Include="..\Classes\enemy\Hedgehog.h" />
+    <ClInclude Include="..\Classes\enemy\WarriorPool.h" />
     <ClInclude Include="..\Classes\item\Gem.h" />
     <ClInclude Include="..\Classes\item\GemPool.h" />
     <ClInclude Include="..\Classes\item\Port.h" />
@@ -906,6 +907,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\Classes\enemy\BossMap3.cpp" />
     <ClCompile Include="..\Classes\enemy\Golem.cpp" />
     <ClCompile Include="..\Classes\enemy\Hedgehog.cpp" />
+    <ClCompile Include="..\Classes\enemy\WarriorPool.cpp" />
     <ClCompile Include="..\Classes\item\Gem.cpp" />
     <ClCompile Include="..\Classes\item\GemPool.cpp" />
     <ClCompile Include="..\Classes\item\Port.cpp" />

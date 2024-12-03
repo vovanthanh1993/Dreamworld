@@ -199,6 +199,9 @@
     <ClCompile Include="..\Classes\enemy\Bat.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\enemy\WarriorPool.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h">
@@ -2482,6 +2485,9 @@
       <Filter>Source Files\Classes\enemy</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\enemy\Bat.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\WarriorPool.h">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClInclude>
   </ItemGroup>

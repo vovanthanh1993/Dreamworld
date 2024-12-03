@@ -21,12 +21,11 @@ protected:
 	float attackCooldown =1.5f;  // Thời gian chờ giữa các đợt tấn công
 	float timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
 	bool canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
-	float scale = 0.2;
 	float attackRange = 3;
 	SlashEnemyPool* slashEnemyPool;
 public:
-	Warrior(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
-	bool init();
+	Warrior(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	bool init(Vec2 position);
 	void walk();
 	void idle();
 	void hit();
@@ -37,7 +36,7 @@ public:
 	int speed = 6;
 	void followPlayer();
 	bool isFollowPlayer = false;
-	bool isAlive = true;
+	bool isAlive = false;
 };
 
 #endif // __Warrior_H__
