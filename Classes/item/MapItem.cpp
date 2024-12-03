@@ -17,45 +17,14 @@ MapItem::MapItem(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* 
 // spawn stick
 void MapItem::spawnBackStick() {
     auto backStickLayer = map->getLayer("backstick");
-    for (int x = 0; x < map->getMapSize().width; ++x) {
-        for (int y = 0; y < map->getMapSize().height; ++y) {
-            auto tile = backStickLayer->getTileAt(Vec2(x, y));
-            if (tile) {
-                auto sprite = Sprite::create("Item/backstick/backstick2.png");
-                sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                sprite->setScale(0.35 * Common::scaleSizeXY());
-                //sprite->setScaleX(2);
-                sprite->setTag(Constants::TAG_STICK_ITEM);
-                scene->addChild(sprite);
-                auto rotateAction = RotateBy::create(2.0f, 360); // Thời gian 2 giây, góc 360 độ
-                sprite->runAction(RepeatForever::create(rotateAction)); // Lặp lại mãi mãi
-
-                b2BodyDef bodyDef;
-                bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-                bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
-                bodyDef.fixedRotation = true;
-                bodyDef.bullet = true;
-
-                auto body = world->CreateBody(&bodyDef);
-                body->SetUserData(sprite);
-
-                b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
-                    ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
-
-                b2FixtureDef fixtureDef;
-                fixtureDef.shape = &dynamicBox;
-                fixtureDef.density = 0.00001f;
-                fixtureDef.friction = 0.0f;
-                fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Constants::CATEGORY_ITEM;
-                fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER;
-
-                // Gán fixture cho body
-                body->SetGravityScale(0.0f);
-                body->CreateFixture(&fixtureDef);
-                (*bodyToSpriteMap)[body] = sprite;
-                Common::zoomAction(sprite);
+    if (backStickLayer != nullptr) {
+        for (int x = 0; x < map->getMapSize().width; ++x) {
+            for (int y = 0; y < map->getMapSize().height; ++y) {
+                auto tile = backStickLayer->getTileAt(Vec2(x, y));
+                if (tile) {
+                    BackStick* item = new BackStick(world, scene, bodyToSpriteMap);
+                    item->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                }
             }
         }
     }
@@ -63,40 +32,16 @@ void MapItem::spawnBackStick() {
 
 void MapItem::spawnChest() {
     auto wallLayerChest = map->getLayer("chest");
-    for (int x = 0; x < map->getMapSize().width; ++x) {
-        for (int y = 0; y < map->getMapSize().height; ++y) {
-            auto tile = wallLayerChest->getTileAt(Vec2(x, y));
-            if (tile) {
-                auto sprite = Sprite::create("Item/chest/closeChest.png");
-                sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                sprite->setScale(0.15 * Common::scaleSizeXY());
-                sprite->setTag(Constants::TAG_CHEST);
-                scene->addChild(sprite);
-
-                b2BodyDef bodyDef;
-                bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-                bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
-                bodyDef.fixedRotation = true;
-                bodyDef.bullet = true;
-
-                auto body = world->CreateBody(&bodyDef);
-                body->SetUserData(sprite);
-
-                b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
-                    ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
-
-                b2FixtureDef fixtureDef;
-                fixtureDef.shape = &dynamicBox;
-                fixtureDef.density = 1.0f;
-                fixtureDef.friction = 0.0f;
-                fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Constants::CATEGORY_CHEST;
-                fixtureDef.filter.maskBits = Constants::CATEGORY_WALL | Constants::CATEGORY_SLASH;// Constants::CATEGORY_PLAYER;
-
-                // Gán fixture cho body
-                body->CreateFixture(&fixtureDef);
-                (*bodyToSpriteMap)[body] = sprite;
+    if (wallLayerChest != nullptr) {
+        if (wallLayerChest != nullptr) {
+            for (int x = 0; x < map->getMapSize().width; ++x) {
+                for (int y = 0; y < map->getMapSize().height; ++y) {
+                    auto tile = wallLayerChest->getTileAt(Vec2(x, y));
+                    if (tile) {
+                        Chest* item = new Chest(world, scene, bodyToSpriteMap);
+                        item->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                    }
+                }
             }
         }
     }
@@ -105,44 +50,15 @@ void MapItem::spawnChest() {
 void MapItem::spawnHeart() {
     // spawn heart
     auto wallLayerHeart = map->getLayer("heart");
-    for (int x = 0; x < map->getMapSize().width; ++x) {
-        for (int y = 0; y < map->getMapSize().height; ++y) {
-            auto tile = wallLayerHeart->getTileAt(Vec2(x, y));
-            if (tile) {
-                auto sprite = Sprite::create("Item/gourd/heart.png");
-                sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                sprite->setScale(0.08 * Common::scaleSizeXY());
-                sprite->setTag(Constants::TAG_HEART);
-                scene->addChild(sprite);
-                auto rotateAction = RotateBy::create(2.0f, 360); // Thời gian 2 giây, góc 360 độ
-                sprite->runAction(RepeatForever::create(rotateAction)); // Lặp lại mãi mãi
+    if (wallLayerHeart != nullptr) {
+        for (int x = 0; x < map->getMapSize().width; ++x) {
+            for (int y = 0; y < map->getMapSize().height; ++y) {
+                auto tile = wallLayerHeart->getTileAt(Vec2(x, y));
+                if (tile) {
+                    Heart* item = new Heart(world, scene, bodyToSpriteMap);
+                    item->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
 
-                b2BodyDef bodyDef;
-                bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-                bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
-                bodyDef.fixedRotation = true;
-                bodyDef.bullet = true;
-
-                auto body = world->CreateBody(&bodyDef);
-                body->SetUserData(sprite);
-
-                b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox(((sprite->getContentSize().width) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
-                    ((sprite->getContentSize().height) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
-
-                b2FixtureDef fixtureDef;
-                fixtureDef.shape = &dynamicBox;
-                fixtureDef.density = 0.00001f;
-                fixtureDef.friction = 0.0f;
-                fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Constants::CATEGORY_ITEM;
-                fixtureDef.filter.maskBits = Constants::CATEGORY_WALL | Constants::CATEGORY_PLAYER;
-
-                // Gán fixture cho body
-                body->SetGravityScale(0.0f);
-                body->CreateFixture(&fixtureDef);
-                (*bodyToSpriteMap)[body] = sprite;
-                Common::zoomAction(sprite);
+                }
             }
         }
     }
@@ -151,138 +67,46 @@ void MapItem::spawnHeart() {
 void MapItem::spawnBridge(int type) {
     // spawn bridge
     auto wallBridge = map->getLayer("bridge");
-    for (int x = 0; x < map->getMapSize().width; ++x) {
-        for (int y = 0; y < map->getMapSize().height; ++y) {
-            auto tile = wallBridge->getTileAt(Vec2(x, y));
-            if (tile) {
-                auto sprite = Sprite::create("map/Bridge.png");
-                sprite->setScale(0.9 * Common::scaleSizeXY());
-                if (type == 2) {
-                    sprite = Sprite::create("map/cave_bridge.png");
-                    sprite->setScale(0.9 * Common::scaleSizeXY());
+    if (wallBridge != nullptr) {
+        for (int x = 0; x < map->getMapSize().width; ++x) {
+            for (int y = 0; y < map->getMapSize().height; ++y) {
+                auto tile = wallBridge->getTileAt(Vec2(x, y));
+                if (tile) {
+                    Bridge* item = new Bridge(world, scene, bodyToSpriteMap);
+                    item->type = type;
+                    item->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
                 }
-                sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                sprite->setTag(Constants::TAG_BRIDGE);
-                scene->addChild(sprite);
-                int* userData = new int(-1);
-                sprite->setUserData(userData);
-
-                b2BodyDef bodyDef;
-                bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-                bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
-                bodyDef.fixedRotation = true;
-                bodyDef.bullet = true;
-
-
-                auto body = world->CreateBody(&bodyDef);
-                body->SetUserData(sprite);
-
-                b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox(((sprite->getContentSize().width - 20) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
-                    ((sprite->getContentSize().height - 20) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
-
-                b2FixtureDef fixtureDef;
-                fixtureDef.shape = &dynamicBox;
-                fixtureDef.density = 1000.0f;
-                fixtureDef.friction = 0.0f;
-                fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
-                fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER | Constants::CATEGORY_ARROW | Constants::CATEGORY_LIMIT | Constants::CATEGORY_STICK;
-
-                // Gán fixture cho body
-                body->CreateFixture(&fixtureDef);
-                body->SetGravityScale(0.0f);
-                (*bodyToSpriteMap)[body] = sprite;
-                b2Vec2 velocity(0, Constants::SPEED_BRIDGE * Common::scaleSizeXY());
-                body->SetLinearVelocity(velocity);
             }
         }
     }
 }
 
-void MapItem::spawnBridgeBreak() {
+void MapItem::spawnBrokenBridge() {
     // spawn bridge break
-    auto wallBridgeBreak = map->getLayer("bridgebreak");
-    for (int x = 0; x < map->getMapSize().width; ++x) {
-        for (int y = 0; y < map->getMapSize().height; ++y) {
-            auto tile = wallBridgeBreak->getTileAt(Vec2(x, y));
-            if (tile) {
-                auto sprite = Sprite::create("map/BridgeBreak.png");
-                sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                sprite->setScale(Constants::BRIDGE_SCALE * Common::scaleSizeXY());
-                sprite->setTag(Constants::TAG_BRIDGE_BREAK);
-                scene->addChild(sprite);
-
-                b2BodyDef bodyDef;
-                bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-                bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
-                bodyDef.fixedRotation = true;
-                bodyDef.bullet = true;
-
-
-                auto body = world->CreateBody(&bodyDef);
-                body->SetUserData(sprite);
-
-                b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox(((sprite->getContentSize().width - 40) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
-                    ((sprite->getContentSize().height - 40) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
-
-                b2FixtureDef fixtureDef;
-                fixtureDef.shape = &dynamicBox;
-                fixtureDef.density = 1000000.0f;
-                fixtureDef.friction = 0.0f;
-                fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
-                fixtureDef.filter.maskBits = Constants::TAG_PLAYER | Constants::CATEGORY_ARROW | Constants::CATEGORY_LIMIT;
-
-                // Gán fixture cho body
-                body->CreateFixture(&fixtureDef);
-                body->SetGravityScale(0.0f);
-                (*bodyToSpriteMap)[body] = sprite;
+    auto wallBridgeBreak = map->getLayer("BrokenBridge");
+    if (wallBridgeBreak != nullptr) {
+        for (int x = 0; x < map->getMapSize().width; ++x) {
+            for (int y = 0; y < map->getMapSize().height; ++y) {
+                auto tile = wallBridgeBreak->getTileAt(Vec2(x, y));
+                if (tile) {
+                    BrokenBridge* item = new BrokenBridge(world, scene, bodyToSpriteMap);
+                    item->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                }
             }
         }
     }
 }
 
 void MapItem::spawnStone() {
-    auto box = map->getLayer("box");
-    for (int x = 0; x < map->getMapSize().width; ++x) {
-        for (int y = 0; y < map->getMapSize().height; ++y) {
-            auto tile = box->getTileAt(Vec2(x, y));
-            if (tile) {
-                auto sprite = Sprite::create("map/stone.png");
-                sprite->setPosition(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                sprite->setScale(Constants::BOX_SCALE * Common::scaleSizeXY());
-                sprite->setTag(Constants::TAG_BOX);
-                scene->addChild(sprite, 0);
-                int* userData = new int(-1);
-                sprite->setUserData(userData);
-
-                b2BodyDef bodyDef;
-                bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
-                bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
-                bodyDef.fixedRotation = true;
-                bodyDef.bullet = true;
-
-
-                auto body = world->CreateBody(&bodyDef);
-                body->SetUserData(sprite);
-
-                b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox(((sprite->getContentSize().width - 20) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER,
-                    ((sprite->getContentSize().height - 20) / 2 * sprite->getScale()) / Constants::PIXELS_PER_METER); // Kích thước của hình dạng va chạm
-
-                b2FixtureDef fixtureDef;
-                fixtureDef.shape = &dynamicBox;
-                fixtureDef.density = 500.0f;
-                fixtureDef.friction = 1.0f;
-                fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Constants::CATEGORY_BOX;
-                fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER | Constants::CATEGORY_ARROW | Constants::CATEGORY_LIMIT | Constants::CATEGORY_WALL;
-
-                // Gán fixture cho body
-                body->CreateFixture(&fixtureDef);
-                (*bodyToSpriteMap)[body] = sprite;
+    auto box = map->getLayer("stone");
+    if (box != nullptr) {
+        for (int x = 0; x < map->getMapSize().width; ++x) {
+            for (int y = 0; y < map->getMapSize().height; ++y) {
+                auto tile = box->getTileAt(Vec2(x, y));
+                if (tile) {
+                    Stone* item = new Stone(world, scene, bodyToSpriteMap);
+                    item->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                }
             }
         }
     }
@@ -319,7 +143,7 @@ void MapItem::spawnWallAndLimit() {
         fixtureDef.friction = 0.0f;
         fixtureDef.restitution = 0.0f;
         fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
-        fixtureDef.filter.maskBits = Constants::CATEGORY_NPC | Constants::CATEGORY_GEM | Constants::CATEGORY_ARROW | Constants::CATEGORY_STICK | Constants::CATEGORY_ENEMY | Constants::CATEGORY_PLAYER | Constants::CATEGORY_LIMIT | Constants::CATEGORY_CHEST | Constants::CATEGORY_BOX | Constants::CATEGORY_ITEM;
+        fixtureDef.filter.maskBits = Constants::CATEGORY_NPC | Constants::CATEGORY_GEM | Constants::CATEGORY_ARROW | Constants::CATEGORY_STICK | Constants::CATEGORY_ENEMY | Constants::CATEGORY_PLAYER | Constants::CATEGORY_LIMIT | Constants::CATEGORY_CHEST | Constants::CATEGORY_STONE | Constants::CATEGORY_ITEM;
 
         body->CreateFixture(&fixtureDef);
 
@@ -356,7 +180,7 @@ void MapItem::spawnWallAndLimit() {
                 fixtureDef.friction = 0.0f; // Ma sát
                 fixtureDef.restitution = 0; // Độ hồi phục (bouncing)
                 fixtureDef.filter.categoryBits = Constants::CATEGORY_LIMIT;
-                fixtureDef.filter.maskBits = Constants::CATEGORY_NPC | Constants::CATEGORY_ENEMY | Constants::CATEGORY_WALL | Constants::CATEGORY_BOX;
+                fixtureDef.filter.maskBits = Constants::CATEGORY_NPC | Constants::CATEGORY_ENEMY | Constants::CATEGORY_WALL | Constants::CATEGORY_STONE;
 
                 //// Gán fixture cho body
                 body->CreateFixture(&fixtureDef);
@@ -456,7 +280,7 @@ void MapItem::spawnAll() {
     spawnEndGate();
     spawnStone();
     spawnBridge(1);
-    spawnBridgeBreak();
+    spawnBrokenBridge();
 }
 
 void MapItem::spawnBase() {

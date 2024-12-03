@@ -46,7 +46,7 @@ Port::Port(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* _bodyT
                 fixtureDef.density = 20.0f;
                 fixtureDef.friction = 0.0f;
                 fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Constants::CATEGORY_BOX;
+                fixtureDef.filter.categoryBits = Constants::CATEGORY_STONE;
                 fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER | Constants::CATEGORY_ARROW | Constants::CATEGORY_LIMIT | Constants::CATEGORY_WALL;
 
                 // Gán fixture cho body

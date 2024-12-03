@@ -42,7 +42,7 @@ namespace constants {
 		static const uint16_t CATEGORY_SLASH = 0x0080;
 		static const uint16_t CATEGORY_CHEST = 0x0100;
 		static const uint16_t CATEGORY_ARROW = 0x0200;
-		static const uint16_t CATEGORY_BOX = 0x0400;
+		static const uint16_t CATEGORY_STONE = 0x0400;
 		static const uint16_t CATEGORY_GEM = 0x0800;
 		static const uint16_t CATEGORY_NPC = 0x1000;
 		static const uint16_t CATEGORY_BLOCK = 0x2000;

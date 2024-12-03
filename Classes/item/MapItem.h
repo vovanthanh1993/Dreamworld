@@ -2,6 +2,12 @@
 #include "cocos2d.h"
 #include "main/Common.h"
 #include "main/Constants.h"
+#include "item/Chest.h"
+#include "item/Heart.h"
+#include "item/BackStick.h"
+#include "item/Bridge.h"
+#include "item/BrokenBridge.h"
+#include "item/Stone.h"
 
 using namespace constants;
 using namespace common;
@@ -20,7 +26,7 @@ public:
 	void spawnChest();
 	void spawnHeart();
 	void spawnBridge(int type);
-	void spawnBridgeBreak();
+	void spawnBrokenBridge();
 	void spawnStone();
 	void spawnWallAndLimit();
 	void spawnAll();
