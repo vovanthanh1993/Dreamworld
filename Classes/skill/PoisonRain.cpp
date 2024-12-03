@@ -37,5 +37,23 @@ bool PoisonRain::init(Vec2 position) {
     body->SetGravityScale(0.0f);
     (*bodyToSpriteMap)[body] = sprite;
 
+     //Lên lịch gọi update mỗi frame
+    this->schedule([this](float dt) { this->update(dt); }, "PoisonRain");
+    scene->addChild(this);
+
     return true;
+}
+
+void PoisonRain::update(float dt) {
+    if (isActive && sprite->getPosition().y <= 0) {
+         {
+            BaseNode::destroyNode();
+            this->removeFromParentAndCleanup(true);
+         }
+    }
+}
+
+void PoisonRain::reset() {
+    this->isActive = false;
+    this->removeFromParentAndCleanup(true);
 }

@@ -9,7 +9,7 @@
   </data>
  </layer>
  <objectgroup id="13" name="limitmap">
-  <object id="8" x="-7" y="3294.66" width="9.66667" height="1077.33"/>
+  <object id="8" x="2.66667" y="2640.11" height="1731.88"/>
  </objectgroup>
  <layer id="6" name="npc1" width="320" height="180" opacity="0.82">
   <data encoding="base64" compression="zlib">
@@ -27,7 +27,7 @@
   </data>
  </layer>
  <objectgroup id="11" name="endgate">
-  <object id="6" x="1918.17" y="3695.33" width="2.33333" height="561.333"/>
+  <object id="6" x="1918.17" y="2634.72" width="2.33333" height="1621.94"/>
  </objectgroup>
  <layer id="9" name="npcmonkey" width="320" height="180" opacity="0">
   <data encoding="base64" compression="zlib">
@@ -43,8 +43,6 @@
   <object id="2" x="2" y="4247" width="3479" height="73"/>
   <object id="4" x="35" y="3646.5" width="460.5" height="71.5"/>
   <object id="5" x="1185.5" y="3815" width="461" height="72.5"/>
-  <object id="9" x="-45.4545" y="1906.06" width="12.1212" height="2421.21"/>
-  <object id="12" x="1960.61" y="1895.46" width="12.1212" height="2421.21"/>
  </objectgroup>
  <layer id="12" name="player" width="320" height="180" opacity="0">
   <data encoding="base64" compression="zlib">

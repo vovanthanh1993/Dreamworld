@@ -10,8 +10,6 @@
  </layer>
  <objectgroup id="2" name="wall">
   <object id="1" x="-0.666667" y="1007.33" width="1920.33" height="26"/>
-  <object id="7" x="-32" y="-1.33333" width="14.6667" height="1079.33"/>
-  <object id="8" x="1951.33" y="1.00167" width="14.6667" height="1079.33"/>
   <object id="9" x="1790" y="528" width="115" height="436"/>
   <object id="10" x="9" y="550.5" width="82" height="409"/>
  </objectgroup>

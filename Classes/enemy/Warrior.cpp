@@ -163,12 +163,12 @@ void Warrior::followPlayer() {
     if (direction.x < 0) {
         sprite->setScaleX(-scale);
         this->direction = -1;
-        direction = b2Vec2(-1, 0);
+        direction = b2Vec2(-1, -10);
     }
     else {
         sprite->setScaleX(scale);
         this->direction = 1;
-        direction = b2Vec2(1, 0);
+        direction = b2Vec2(1, -10);
     }
     b2Vec2 velocity = Common::scaleSizeXY() * speed * direction;
     body->SetLinearVelocity(velocity);

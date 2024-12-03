@@ -26,8 +26,8 @@ private:
 	float attackCooldown = 2.5f;  // Thời gian chờ giữa các đợt tấn công
 	float timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
 	bool canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
-	int health = 1;
-	int count = 1;
+	int health = 20;
+	int count = 20;
 	int maxHealth = 1;
 	Sprite* healthBar; // Sprite cho thanh máu
 	Sprite* healthBarBg; // Sprite cho nền thanh máu

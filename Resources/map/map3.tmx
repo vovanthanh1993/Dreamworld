@@ -62,7 +62,7 @@
   <object id="49" x="1286" y="5717" width="290" height="43.5"/>
  </objectgroup>
  <objectgroup id="7" name="endgate">
-  <object id="6" x="14398.8" y="5112.12" width="4.66667" height="1368"/>
+  <object id="6" x="14398.8" y="4815.15" width="4.66667" height="1664.97"/>
  </objectgroup>
  <layer id="5" name="elemental" width="600" height="270" opacity="0.8">
   <data encoding="base64" compression="zlib">
@@ -110,6 +110,6 @@
   </data>
  </layer>
  <objectgroup id="9" name="limitmap">
-  <object id="7" x="-3" y="5501" width="5" height="982"/>
+  <object id="7" x="-3" y="4807.06" width="5" height="1675.94"/>
  </objectgroup>
 </map>

@@ -41,7 +41,7 @@ bool Wraith::init() {
 
     (*bodyToSpriteMap)[body] = sprite;
 
-    poisonRainPool = new PoisonRainPool(world, scene, bodyToSpriteMap, 10);
+    poisonRainPool = new PoisonRainPool(world, scene, bodyToSpriteMap, 15);
 
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "wraith");

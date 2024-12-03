@@ -12,5 +12,7 @@ class PoisonRain :public BaseNode
 public:
 	bool init(Vec2 position);
 	PoisonRain(b2World* world, Scene* scene,unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	void update(float dt);
+	void reset();
 };
 

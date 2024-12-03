@@ -140,15 +140,29 @@ void MyContactListener::BeginContact(b2Contact* contact) {
                 player->getDamage(3);
             }
         }
+        if (tagA == Constants::TAG_RAIN) {
+            if (tagB == Constants::TAG_PLAYER) {
+                player->getDamage(2);
+            }
+            bodiesToRemove.insert(bodyA);
+            static_cast<PoisonRain*>(spriteA->getUserData())->reset();
+        }
+        if (tagB == Constants::TAG_RAIN) {
+            if (tagA == Constants::TAG_PLAYER) {
+                player->getDamage(2);
+            }
+            bodiesToRemove.insert(bodyB);
+            static_cast<PoisonRain*>(spriteB->getUserData())->reset();
+        }
 
         // Huy rain
-        if (tagA == Constants::TAG_FIRE|| tagA == Constants::TAG_RAIN || tagA == Constants::Constants::TAG_BONE_RAIN || tagA == Constants::TAG_FIRE_RAIN) {
+        if (tagA == Constants::TAG_FIRE || tagA == Constants::Constants::TAG_BONE_RAIN || tagA == Constants::TAG_FIRE_RAIN) {
             bodiesToRemove.insert(bodyA);
             if (tagB == Constants::TAG_PLAYER) {
                 player->getDamage(2);
             }
         }
-        if (tagB == Constants::TAG_FIRE|| tagB == Constants::TAG_RAIN|| tagB == Constants::Constants::TAG_BONE_RAIN || tagB == Constants::TAG_FIRE_RAIN) {
+        if (tagB == Constants::TAG_FIRE|| tagB == Constants::Constants::TAG_BONE_RAIN || tagB == Constants::TAG_FIRE_RAIN) {
             bodiesToRemove.insert(bodyB);
             if (tagA == Constants::TAG_PLAYER) {
                 player->getDamage(2);  

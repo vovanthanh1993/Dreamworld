@@ -81,6 +81,10 @@ void Boss1Scene::spawnObject() {
             }
         }
     }
+
+    // start and end
+    boundaryBodyStart = Common::createBoundary(world, true);
+    boundaryBodyEnd = Common::createBoundary(world, false);
 }
 
 
