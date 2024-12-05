@@ -220,6 +220,15 @@
     <ClCompile Include="..\Classes\item\Stone.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\inventory\InventoryLayer.cpp">
+      <Filter>Source Files\Classes\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\base\BaseLayer.cpp">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\inventory\Charm.cpp">
+      <Filter>Source Files\Classes\Inventory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h">
@@ -2526,6 +2535,15 @@
     <ClInclude Include="..\Classes\item\Stone.h">
       <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\inventory\InventoryLayer.h">
+      <Filter>Source Files\Classes\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\base\BaseLayer.h">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\inventory\Charm.h">
+      <Filter>Source Files\Classes\Inventory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\Git\Dreamworld\CMakeLists.txt" />
@@ -2799,6 +2817,9 @@
     </Filter>
     <Filter Include="Source Files\proj.win32">
       <UniqueIdentifier>{3A2CF70E-4149-32B6-B782-29F78466F959}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\Inventory">
+      <UniqueIdentifier>{3231212b-4ecd-4438-b961-dcbe506949f9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

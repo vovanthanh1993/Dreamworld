@@ -10,6 +10,7 @@
 #include "player/skill/StickPool.h"
 #include "base/BaseNode.h"
 #include "main/Constants.h"
+#include "Inventory/charm.h"
 
 using namespace constants;
 using namespace common;
@@ -40,7 +41,10 @@ private:
 	StickPool* stickPool;
 	EaglePool* eaglePool;
 	int direction = 1;
+	
 public:
+	Sprite* charmSprite = nullptr;
+	Vector<Charm*> equipment;
 	bool isAlive = true;
 	Node* uiNode = Node::create();
 	Label* stickLabel;
@@ -103,5 +107,9 @@ public:
 	bool isInVillage = false;
 	void initMouseEvent();
 	void initKeyEvent();
+	void addEquipment(Charm* eq);
+	float damage = 1;
+
+	void changeCharm(Charm* charm);
 };
 

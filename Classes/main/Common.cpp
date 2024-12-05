@@ -273,7 +273,6 @@ namespace common {
             Gem* gem = new Gem(world, scene, bodyToSpriteMap);
             gem->init(Vec2(position.x + x, position.y));
             b2Vec2 velocity(0, 50 * Common::scaleSizeXY());
-            float newAngle = 0.0f;
             gem->getBody()->SetLinearVelocity(velocity);
             x += 30 * Common::scaleSizeXY();
         }

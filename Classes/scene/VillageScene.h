@@ -35,6 +35,7 @@
 #include "npc/ShopLayer.h"
 #include "scene/Map1Scene.h"
 #include "npc/NPCMonkey.h"
+#include "inventory/InventoryLayer.h"
 
 class VillageScene : public BaseScene
 {

@@ -268,6 +268,14 @@ void MyContactListener::BeginContact(b2Contact* contact) {
                 player->updateGem(1);
                 bodiesToRemove.insert(bodyB);
             }
+            if (tagA == Constants::TAG_EQUIPMENT) {
+                player->addEquipment(static_cast<Charm*>(spriteA->getUserData()));
+                bodiesToRemove.insert(bodyA);
+            }
+            if (tagB == Constants::TAG_EQUIPMENT) {
+                player->addEquipment(static_cast<Charm*>(spriteB->getUserData()));
+                bodiesToRemove.insert(bodyB);
+            }
             if (tagA == Constants::TAG_HEART) {
                 player->healing(1);
                 bodiesToRemove.insert(bodyA);
@@ -347,7 +355,11 @@ void MyContactListener::removeObject() {
                 type = 2;
             } 
             else if (Constants::TAG_CHEST == tag) {
-                Common::spawnGem(world, scene, pos, bodyToSpriteMap, Common::randomNum(3, 10));
+                //Common::spawnGem(world, scene, pos, bodyToSpriteMap, Common::randomNum(3, 10));
+                Charm* charm = new Charm(world, scene, bodyToSpriteMap);
+                charm->init(pos);
+                b2Vec2 velocity(0, 60 * Common::scaleSizeXY());
+                charm->getBody()->SetLinearVelocity(velocity);
                 Effect::chest();
             }
             else if (Constants::TAG_RAIN == tag) {

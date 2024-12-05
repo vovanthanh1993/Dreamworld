@@ -8,40 +8,40 @@
    eJzt2DdzU0EUhuG1G0siFWBZtiRHWjCOgHNOtGAcyTn8AnLOmT+AbZxtcq4B4xzpyRSAczYzvB0zFBSXK27QfjNPqdXZU+zZvULIyMjIyMjIyMjIGDsJTiESkYRkpCAVaUhHBjKRhWzkIBd5yEcB1ji9t/bFLiGWwB92BMCBQATBCRfcCEYIQhGGcERgqUudfhix9m/8/jt+YBBDGMYIRjGGcUxgElOYxgxmMYefGvVPD7W/dAvxCq/RgjdoRRva0YFOdKEbPehFH/oxgLdudfrhTbXLyPyZQqxHEYpRglKUoVzDuoySSB8hViAK0YhBLOIQ76N1dfqPxVcIK2yYh/lYgIVY5Kt1deom2Z/7HlKRhnRkIBNZyEYOcpGHfBT4/33Nd/ToPT7gIz7hM77gq8n6J2P8KJ03as8pu523AxwIRBCccMGNYIQgFGEIR4RdwR+pHKXzRu05NUgvhjCMEYxiDOOYwCSmMI0ZzGJOB/1TOm/UnlMtAbwd0Io2tKMDnehCN3rQiz70YyBA+b7VitJ5o/acuuUQogKVqMJtVKMGtahDPRrQiCY0O5TvW0adeOIO5E0x6tzyRJTcCYw6tzwRJXcCo84tT0TJnUDOrd/5329XM33rsmjwtpffuv4t3vStyxOR37rMHTOdz1rsxUznsxZ7MdP5rMVezHQ+m2kvMjIyylLlxxsd1ahBLepQjwY0ognNuIO7uIf7eICHeITHeIKneIbneOGnfr0VrFnpp5+6D1mEOIwjOIpjOI4TOIlTOI0zOItzOI8LuIhLuIwruIpruI4buGlRv38HWPOgRT91F1q5R6IIxShBKcpQjg3YiE3YjC3Yim3Yjh3YiV3YjT3Yi33Yb1W/f2tZc51VP3VH2rhHIgrRiEEs4hCPlViF1UhAIpKQjBSkIg3pyEAmspCNHJv6/VvGmstt+qn7F9VvbLg=
   </data>
  </layer>
- <layer id="13" name="bat" width="80" height="45">
-  <data encoding="base64" compression="zlib">
-   eJzt2jERACAAxLB6wD9a0fDHmkjo3Kp7YqQZAAAAAAAAAAAAAABsvPg7zQD48QCvhgLF
-  </data>
- </layer>
- <layer id="15" name="point" width="80" height="45" opacity="0.4">
-  <data encoding="base64" compression="zlib">
-   eJzt2rENACAMA8FIlGyamq1Zgi2SSNxN8IVLRwDAH87qLgAAACrc3V3AJPYAAAAAAABUSj81AACGeWpbAtE=
-  </data>
- </layer>
- <layer id="16" name="limit" width="80" height="45">
-  <data encoding="base64" compression="zlib">
-   eJzt2rENACAMA8EUdEhsxv7rsARYRLob4CuXrgKA3vb4qwMAALyxZo8mWXYBAAAAAACk3PyY+asBAJByAFP8Aak=
-  </data>
- </layer>
  <layer id="4" name="bg2" width="80" height="45">
   <data encoding="base64" compression="zlib">
    eJztzrVRRVEAANGbfekFd3cqwN2dCnB3pwLc3WmObYHgz7xgd+bkG4KZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZ/aeTWAinOMM5LnCJK1zjBre4wz0e8IgnPOMFr3jDOz7wiS984we/sWh8p6KpeAjTmMEs5jCPBSxiCctYwSrWsI4NbGIL29jBLvawjwMc4gjH8Wh8p6KGRAiNaEIzWtCKNrSjA53oQjd60Is+9GMAgxjCMEYwijGMYwKTiWh8p6K0ZAjpyEAmspCNHOQiD/koQCGKUIwSlKIM5ahAJapQjRrUog71yWh8/wEsi0qN
   </data>
  </layer>
- <layer id="5" name="player" width="80" height="45">
+ <layer id="13" name="bat" width="80" height="45" opacity="0">
+  <data encoding="base64" compression="zlib">
+   eJzt2jERACAAxLB6wD9a0fDHmkjo3Kp7YqQZAAAAAAAAAAAAAABsvPg7zQD48QCvhgLF
+  </data>
+ </layer>
+ <layer id="15" name="point" width="80" height="45" opacity="0">
+  <data encoding="base64" compression="zlib">
+   eJzt2rENACAMA8FIlGyamq1Zgi2SSNxN8IVLRwDAH87qLgAAACrc3V3AJPYAAAAAAABUSj81AACGeWpbAtE=
+  </data>
+ </layer>
+ <layer id="16" name="limit" width="80" height="45" opacity="0">
+  <data encoding="base64" compression="zlib">
+   eJzt2rENACAMA8EUdEhsxv7rsARYRLob4CuXrgKA3vb4qwMAALyxZo8mWXYBAAAAAACk3PyY+asBAJByAFP8Aak=
+  </data>
+ </layer>
+ <layer id="5" name="player" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztzjENAAAIA7A5QBn+7eCAhIunVdAEAAAAAAAAAAAAAAC46voeAADsBleeAF0=
   </data>
  </layer>
- <objectgroup id="10" name="limitmap">
+ <objectgroup id="10" name="limitmap" opacity="0">
   <object id="3" x="-6.66667" y="-5.33333" width="8" height="1016"/>
  </objectgroup>
- <layer id="6" name="boss" width="80" height="45" opacity="0.18">
+ <layer id="6" name="boss" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztzkENAAAIBKBLYFf7f2yhm4MEJADwW9f1AAAAAAAAAAAAAAAAYN8AskYAgA==
   </data>
  </layer>
- <objectgroup id="7" name="wall">
+ <objectgroup id="7" name="wall" opacity="0">
   <object id="2" x="1.33333" y="1005.33" width="1914.67" height="66.6667"/>
   <object id="4" x="294.667" y="846.667" width="130" height="45.3333"/>
   <object id="5" x="585" y="657.667" width="130" height="45.3333"/>
@@ -55,12 +55,12 @@
   <object id="15" x="1306" y="220" width="343" height="46"/>
   <object id="16" x="513.5" y="246" width="343" height="46"/>
  </objectgroup>
- <layer id="8" name="limit" width="80" height="45" opacity="0.73">
+ <layer id="8" name="limit" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztziEBAAAIA7BbQtK/BgkwGMyWYAkAAAAAAAAAAAAAALDp+h4AANwMuBQAZw==
   </data>
  </layer>
- <objectgroup id="3" name="endgate">
+ <objectgroup id="3" name="endgate" opacity="0">
   <object id="1" x="1916" y="-8" width="9.33333" height="1088"/>
  </objectgroup>
 </map>

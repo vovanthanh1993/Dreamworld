@@ -18,6 +18,7 @@
 #include "enemy/Bat.h"
 #include "main/Constants.h"
 #include "skill/StoneBall.h"
+#include "inventory/Charm.h"
 
 using namespace constants;
 using namespace common;

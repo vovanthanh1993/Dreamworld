@@ -4,6 +4,8 @@ BossMap3::BossMap3(b2World* world, Scene* scene, Vec2 position, unordered_map<b2
 };
 
 bool BossMap3::init() {
+    scale = 0.6;
+
     spriteNode = SpriteBatchNode::create("Enemy/BossMap3/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/BossMap3/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("bossbat_idle Blinking_0.png");

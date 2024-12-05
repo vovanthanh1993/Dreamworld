@@ -21,8 +21,8 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-#ifndef __BASE_SCENE_H__
-#define __BASE_SCENE_H__
+#ifndef __BaseLayer_H__
+#define __BaseLayer_H__
 #include <string>
 #include "cocos2d.h"
 #include "box2d/Box2D.h"
@@ -41,29 +41,14 @@ using namespace constants;
 using namespace common;
 using namespace cocos2d;
 using namespace std;
-class BaseScene : public cocos2d::Scene
+class BaseLayer : public cocos2d::Layer
 {
 public:
-    static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
-    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
-    BaseScene();  // Constructor
-    ~BaseScene(); // Destructor
-
-protected:
-    bool isEnable = true;
-    b2World* world;
-    void update(float dt) override;
-    TMXTiledMap* map;
-    MyContactListener* contactListener;
-    float time = 1.0 / 60.0f;
+    static Layer* createLayer(Player* player, Scene* scene);
+    bool init(Player* player, Scene* scene);
+    BaseLayer();  // Constructor
+    ~BaseLayer(); // Destructor
     Player* player;
-    virtual void spawnObject();
-    Setting* settingInit = new Setting();
-    b2Body* boundaryBodyStart;
-    b2Body* boundaryBodyEnd;
-    MapItem* item;
-    bool isMoveCamera;
-    unordered_map<b2Body*, Sprite*>* bodyToSpriteMap = new unordered_map<b2Body*, Sprite*>();
 };
 
-#endif // __BASE_SCENE_H__
+#endif // __BaseLayer_H__

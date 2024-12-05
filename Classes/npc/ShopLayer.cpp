@@ -15,7 +15,6 @@ ShopLayer::ShopLayer() {
     shopFrame->setPosition(Vec2(origin.x+screenSize.width/2.5, screenSize.height/3)); // Vị trí khung trên bản đồ
     //this->addChild(shopFrame);
 
-    
      //Thêm hình nền cho khung
     auto background = Sprite::create("ui/shopbg.png"); // Đường dẫn đến hình nền
     background->setPosition(Vec2(150 * Common::scaleSizeX(), 200 * Common::scaleSizeY())); // Giữa khung
@@ -27,9 +26,6 @@ ShopLayer::ShopLayer() {
     header->setScale(Common::scaleSizeXY());
     shopFrame->addChild(header);
 
-    
-
-    
     int skillPostX = 40 * Common::scaleSizeX();
     int pricePostX = 100 * Common::scaleSizeX();
 
@@ -56,7 +52,7 @@ ShopLayer::ShopLayer() {
     itemLabel1->setPosition(Vec2(pricePostX, 260 * Common::scaleSizeY()));
     Common::zoomAction(itemLabel1);
 
-    // update mana---------------------------------------------
+    // update mana ---------------------------------------------
     Sprite* manaUpgrade = Sprite::create("shop/mana.png");
     manaUpgrade->setPosition(skillPostX, 200 * Common::scaleSizeXY());
     manaUpgrade->setScale(0.15 * Common::scaleSizeXY());
@@ -97,7 +93,6 @@ ShopLayer::ShopLayer() {
         CC_CALLBACK_1(ShopLayer::purchaseStickItem, this)
     );
     itemLabel2->setColor(cocos2d::Color3B(255, 255, 0));
-    //itemLabel2->setColor(cocos2d::Color3B(255, 0, 0));
     itemLabel2->setTag(200); // Đặt tag cho vật phẩm
     itemLabel2->setAnchorPoint(Vec2(0, 0));
     itemLabel2->setPosition(Vec2(pricePostX, 60 * Common::scaleSizeY())); // Vị trí trong khung

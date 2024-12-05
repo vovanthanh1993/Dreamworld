@@ -491,6 +491,7 @@ void Player::update(float dt) {
         isEnable = true;
     }
     if (!isEnable||!isAlive) return;
+
     if (keys[EventKeyboard::KeyCode::KEY_A]) {
         direction = -1;
         body->SetLinearVelocity(b2Vec2(-Constants::SPEED_PLAYER * Common::scaleSizeXY(), body->GetLinearVelocity().y)); // Di chuyển sang trái
@@ -513,7 +514,9 @@ void Player::update(float dt) {
         if (!sprite->getActionByTag(4) && !sprite->getActionByTag(2)) { // Kiểm tra nếu hoạt ảnh chưa chạy
             idle();
         }
-    }
+    } 
+
+    
 }
 
 void Player::actionKey(EventKeyboard::KeyCode keyCode) {
@@ -533,6 +536,9 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
             }
             if (keyCode == (EventKeyboard::KeyCode::KEY_Q)) {
                 throwEagle();
+            }
+            if (keyCode == (EventKeyboard::KeyCode::KEY_I)) {
+                auto inventoryLayer = InventoryLayer::createLayer(this, scene);
             }
         } 
     }
@@ -565,4 +571,27 @@ void Player::initKeyEvent() {
         keys[keyCode] = false;
         };
     scene->getEventDispatcher()->addEventListenerWithSceneGraphPriority(eventListener, scene);
+}
+
+void Player::addEquipment(Charm* eq) {
+    equipment.pushBack(eq);
+}
+
+void Player::changeCharm(Charm* charm) {
+    if (charmSprite != nullptr) {
+        charmSprite->removeFromParentAndCleanup(true);
+    }
+    
+    charmSprite = Sprite::create(charm->spritePath);
+    charmSprite->setAnchorPoint(Vec2(0,1));
+    charmSprite->setScale(0.3 * Common::scaleSizeXY());
+    //Common::zoomAction(charmSprite);
+
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    Size screenSize = Director::getInstance()->getVisibleSize();
+    int y = screenSize.height;
+
+    //Charm
+    charmSprite->setPosition(origin.x, y - 150*Common::scaleSizeXY());
+    uiNode->addChild(charmSprite);
 }
