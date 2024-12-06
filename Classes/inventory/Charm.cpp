@@ -3,6 +3,14 @@ Charm::Charm(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* body
 bool Charm::init(Vec2 position) {
     scale = 0.3;
     id = Common::randomNum(1, 6);
+    manaBonus = Common::randomNum(-10, 10);
+    healthBonus = Common::randomNum(-10, 10);
+    dameBonus = Common::randomNum(-1 , 2);
+    string manaBonusS = manaBonus >= 0 ? "+" + to_string(manaBonus) : to_string(manaBonus);
+    string healthBonusS = healthBonus >= 0 ? "+" + to_string(healthBonus) : to_string(healthBonus);
+    string dameBonusS = dameBonus >= 0 ? "+" + to_string(dameBonus) : to_string(dameBonus);
+    effect = manaBonusS + " mana, " + healthBonusS + " health, " + dameBonusS + " damage";
+
     spritePath = "inventory/charm" + to_string(id) + ".png";
     sprite = Sprite::create(spritePath);
     sprite->setPosition(position);

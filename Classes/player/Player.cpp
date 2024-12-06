@@ -9,6 +9,8 @@
 Player::Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
 };
 bool Player::init(bool isNew) {
+    currentCharm = nullptr;
+
     spriteNode = SpriteBatchNode::create("player/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("player/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Wukong-Idle_0.png");
@@ -368,7 +370,8 @@ void Player::die() {
 void Player::updateHealth(int damage) {
     health -= damage;
     updateHealthBar(health);
-    hurt();
+    if(damage >0) hurt();
+    
     if (health <= 0) {
         healthBar->removeFromParentAndCleanup(true);
         die();
@@ -538,7 +541,11 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
                 throwEagle();
             }
             if (keyCode == (EventKeyboard::KeyCode::KEY_I)) {
+                auto camera = scene->getDefaultCamera();
+                //Director::getInstance()->pause();
                 auto inventoryLayer = InventoryLayer::createLayer(this, scene);
+                Vec2 pos = camera->getPosition();
+                inventoryLayer->setPosition(Vec2(pos.x -250*Common::scaleSizeXY(), pos.y - 250 * Common::scaleSizeXY()));
             }
         } 
     }
@@ -573,11 +580,31 @@ void Player::initKeyEvent() {
     scene->getEventDispatcher()->addEventListenerWithSceneGraphPriority(eventListener, scene);
 }
 
-void Player::addEquipment(Charm* eq) {
-    equipment.pushBack(eq);
+void Player::addEquipment(Charm* charmInput) {
+    for (auto& charm : equipment) {
+        if (charmInput->id == charm->id) {
+            if (currentCharm != nullptr && currentCharm->id == charm->id) {
+                return;
+            }
+            charm = charmInput;
+            return;
+        }
+    }
+    equipment.pushBack(charmInput);
 }
 
 void Player::changeCharm(Charm* charm) {
+    
+    if (currentCharm == charm) return;
+    if (currentCharm) {
+        maxHealth -= currentCharm->healthBonus;
+        maxMana -= currentCharm->manaBonus;
+        updateHealth(currentCharm->healthBonus);
+        addMana(-currentCharm->manaBonus);
+        damage -= currentCharm->dameBonus;
+    }
+    currentCharm = charm;
+
     if (charmSprite != nullptr) {
         charmSprite->removeFromParentAndCleanup(true);
     }
@@ -594,4 +621,9 @@ void Player::changeCharm(Charm* charm) {
     //Charm
     charmSprite->setPosition(origin.x, y - 150*Common::scaleSizeXY());
     uiNode->addChild(charmSprite);
+    maxHealth += charm->healthBonus;
+    maxMana += charm->manaBonus;
+    updateHealth(-charm->healthBonus);
+    addMana(charm->manaBonus);
+    damage += charm->dameBonus;
 }

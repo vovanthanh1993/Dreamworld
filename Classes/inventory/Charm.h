@@ -12,12 +12,13 @@ class Charm:public BaseNode
 public:
 	Charm(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init(Vec2 position);
-	float manaBonus = 0;
-	float healthBonus = 0;
-	float dameBonus = 0;
+	int manaBonus = 0;
+	int healthBonus = 0;
+	int dameBonus = 0;
 	string name;
 	string spritePath;
 	int id;
+	string effect = " hello";
 
 };
 

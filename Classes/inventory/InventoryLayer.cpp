@@ -32,25 +32,21 @@ bool InventoryLayer::init(Player* player, Scene* scene)
     Size screenSize = Director::getInstance()->getVisibleSize();
 
     // Tạo khung nhỏ cho shop
-    auto layer = LayerColor::create(Color4B(0, 0, 0, 0), 300, 400);
-    layer->setPosition(Vec2(origin.x + screenSize.width / 2.5, screenSize.height / 3)); // Vị trí khung trên bản đồ
+    auto layer = LayerColor::create(Color4B(0, 0, 0, 0), 300* Common::scaleSizeXY(), 400 * Common::scaleSizeXY());
 
-     //Thêm hình nền cho khung
+    //Thêm hình nền cho khung
     //auto background = Sprite::create("inventory/bg.png");
     auto background = Sprite::create("ui/shopbg.png");
-    background->setPosition(Vec2(150 * Common::scaleSizeX(), 200 * Common::scaleSizeY())); // Giữa khung
+    background->setPosition(Vec2(150 *Common::scaleSizeXY(), 200 *Common::scaleSizeXY())); // Giữa khung
     background->setScale(1.2 * Common::scaleSizeXY());
     layer->addChild(background, -1); // Thêm hình nền dưới các mục khác
 
     auto header = Sprite::create("ui/header_upgrade.png");
-    header->setPosition(Vec2(150 * Common::scaleSizeX(), 500 * Common::scaleSizeY()));
+    header->setPosition(Vec2(150 * Common::scaleSizeX(), 600 * Common::scaleSizeY()));
     header->setScale(Common::scaleSizeXY());
     layer->addChild(header);
 
-    int skillPostX = 40 * Common::scaleSizeX();
-    int pricePostX = 100 * Common::scaleSizeX();
-    int spaceY = 400 * Common::scaleSizeXY();
-
+    int spaceY = 470 * Common::scaleSizeXY();
     for (const auto& charm : player->equipment)
     {
         MenuItemImage* offItem = cocos2d::MenuItemImage::create(
@@ -60,12 +56,20 @@ bool InventoryLayer::init(Player* player, Scene* scene)
         );
         
         offItem->setScale(0.5 * Common::scaleSizeXY());
-        offItem->setPosition(0, spaceY);
+        offItem->setPosition(-60* Common::scaleSizeXY(), spaceY);
         offItem->setUserData(charm);
         if (charm->getIsActive()) {
             offItem->setColor(cocos2d::Color3B::RED);
         }
         offItem->setTag(charm->id);
+        // Tạo các mục shop
+        auto itemLabel = MenuItemLabel::create(
+            Label::createWithSystemFont(charm->effect, "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        );
+        itemLabel->setPosition(20* Common::scaleSizeXY(), spaceY);
+        itemLabel->setAnchorPoint(Vec2(0,1));
+        layer->addChild(itemLabel);
+
         spaceY -= 100* Common::scaleSizeXY();
         Common::zoomAction(offItem);
         menuItems.pushBack(offItem);
@@ -76,7 +80,7 @@ bool InventoryLayer::init(Player* player, Scene* scene)
         Label::createWithSystemFont("Cancel", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY()),
         CC_CALLBACK_1(InventoryLayer::menuCloseCallback, this)
     );
-    closeItem->setPosition(Vec2(80 * Common::scaleSizeX(), 30 * Common::scaleSizeY()));
+    closeItem->setPosition(Vec2(80 * Common::scaleSizeX(), -130 * Common::scaleSizeY()));
     closeItem->setColor(cocos2d::Color3B(180, 57, 67));
     // Thêm nút trở về
     auto okItem = MenuItemLabel::create(
@@ -84,7 +88,7 @@ bool InventoryLayer::init(Player* player, Scene* scene)
         CC_CALLBACK_1(InventoryLayer::menuOKCallback, this)
     );
     okItem->setColor(cocos2d::Color3B(180, 57, 67));
-    okItem->setPosition(Vec2(200 * Common::scaleSizeX(), 30 * Common::scaleSizeY()));
+    okItem->setPosition(Vec2(200 * Common::scaleSizeX(), -130 * Common::scaleSizeY()));
     Menu* menuButton = Menu::create(closeItem, okItem, nullptr);
     menuButton->setPosition(Vec2::ZERO);  // Đặt vị trí menu gốc
     layer->addChild(menuButton); // Thêm menu vào scene
@@ -111,6 +115,7 @@ void InventoryLayer::selectCharm(cocos2d::Ref* sender) {
     for (const auto& menuItem : menuItems) {
         if (item != menuItem) {
             menuItem->setColor(cocos2d::Color3B::WHITE);
+            static_cast<Charm*>(static_cast<MenuItemImage*>(menuItem)->getUserData())->setIsActive(false);
         }
     }
 }

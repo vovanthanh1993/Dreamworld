@@ -111,5 +111,7 @@ public:
 	float damage = 1;
 
 	void changeCharm(Charm* charm);
+
+	Charm* currentCharm;
 };
 
