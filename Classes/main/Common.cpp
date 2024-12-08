@@ -52,14 +52,17 @@ namespace common {
     }
 
     int Common::randomNum(int from, int to) {
-        // Khởi tạo seed cho bộ sinh số ngẫu nhiên
-        std::random_device rd;  // Thiết bị ngẫu nhiên để tạo seed
-        std::mt19937 gen(rd());  // Sử dụng Mersenne Twister
-        // Đặt khoảng giá trị ngẫu nhiên (ví dụ từ 1 đến 100)
-        std::uniform_int_distribution<> distrib(from, to);
+        int random_number = 0;
+        while (random_number == 0) {
+            std::random_device rd;  // Thiết bị ngẫu nhiên để tạo seed
+            std::mt19937 gen(rd());  // Sử dụng Mersenne Twister
+            // Đặt khoảng giá trị ngẫu nhiên (ví dụ từ 1 đến 100)
+            std::uniform_int_distribution<> distrib(from, to);
 
-        // Tạo và in ra một số nguyên ngẫu nhiên
-        int random_number = distrib(gen);
+            // Tạo và in ra một số nguyên ngẫu nhiên
+            random_number = distrib(gen);
+        }
+
         return random_number;
     }
 

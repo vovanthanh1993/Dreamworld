@@ -108,7 +108,7 @@ public:
 	void initMouseEvent();
 	void initKeyEvent();
 	void addEquipment(Charm* eq);
-	float damage = 1;
+	
 
 	void changeCharm(Charm* charm);
 
@@ -116,5 +116,9 @@ public:
 	void readCharmFromFile();
 	void writeCharmToFile();
 	void setSpriteCharm(Charm* charm);
+
+	float slashDamage = 10;
+	float stickDamage = 10;
+	float eagleDamage = 10;
 };
 

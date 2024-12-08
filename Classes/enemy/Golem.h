@@ -24,7 +24,7 @@ protected:
 	bool isAlive = true;
 	float scale = 0.35;
 	float attackRange = 3;
-	int health = 2;
+	int health = 13;
 	SlashEnemyPool* slashEnemyPool;
 public:
 	Golem(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);

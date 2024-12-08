@@ -27,9 +27,9 @@ private:
 	float attackCooldown =0.5f;  // Thời gian chờ giữa các đợt tấn công
 	float timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
 	bool canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
-	int health = 20;
+	int health = 200;
 	int count = 1;
-	int maxHealth = 20;
+	int maxHealth = 200;
 	cocos2d::Sprite* healthBar; // Sprite cho thanh máu
 	cocos2d::Sprite* healthBarBg; // Sprite cho nền thanh máu
 	bool isHit = false;

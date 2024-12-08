@@ -3,9 +3,11 @@ Charm::Charm(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* body
 bool Charm::init(Vec2 position) {
     scale = 0.3;
     id = Common::randomNum(1, 6);
-    manaBonus = Common::randomNum(-10, 10);
-    healthBonus = Common::randomNum(-10, 10);
-    damageBonus = Common::randomNum(-1 , 2);
+    manaBonus = Common::randomNum(-3, 3);
+    healthBonus = Common::randomNum(-3, 3);
+    slashDamageBonus = Common::randomNum(-5 , 5);
+    stickDamageBonus = Common::randomNum(-5, 5);
+    eagleDamageBonus = Common::randomNum(-5, 5);
     getEffectString();
 
     spritePath = "inventory/charm" + to_string(id) + ".png";
@@ -52,8 +54,8 @@ void Charm::saveToFile(ofstream& out) {
 }
 
 void Charm::getEffectString() {
-    string manaBonusS = manaBonus >= 0 ? "+" + to_string(manaBonus) : to_string(manaBonus);
-    string healthBonusS = healthBonus >= 0 ? "+" + to_string(healthBonus) : to_string(healthBonus);
-    string dameBonusS = damageBonus >= 0 ? "+" + to_string(damageBonus) : to_string(damageBonus);
-    effect = manaBonusS + " mana, " + healthBonusS + " health, " + dameBonusS + " damage";
+    string slashDamageBonusS = slashDamageBonus >= 0 ? "+" + to_string(slashDamageBonus) : to_string(slashDamageBonus);
+    string stickDamageBonusS = stickDamageBonus >= 0 ? "+" + to_string(stickDamageBonus) : to_string(stickDamageBonus);
+    string eagleDamageBonusS = eagleDamageBonus >= 0 ? "+" + to_string(eagleDamageBonus) : to_string(eagleDamageBonus);
+    effect = slashDamageBonusS + " slash damage, " + stickDamageBonusS + " stick damage, " + eagleDamageBonusS + " eagle damage";
 }

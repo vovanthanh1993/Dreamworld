@@ -23,7 +23,7 @@ protected:
 	bool isAlive = true;
 	float scale = 0.4f;
 	float attackRange = 15;
-	int health = 2;
+	int health = 13;
 public:
 	Hedgehog(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init();

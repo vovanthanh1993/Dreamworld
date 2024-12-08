@@ -14,7 +14,9 @@ public:
 	bool init(Vec2 position);
 	int manaBonus = 0;
 	int healthBonus = 0;
-	int damageBonus = 0;
+	int slashDamageBonus = 0;
+	int stickDamageBonus = 0;
+	int eagleDamageBonus = 0;
 	string name;
 	string spritePath;
 	int id;

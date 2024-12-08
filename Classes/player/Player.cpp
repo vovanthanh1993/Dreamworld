@@ -303,11 +303,14 @@ void Player::savePlayerDataInit() {
         outFile << maxHealth << "\n"; 
         outFile << maxMana << "\n"; 
         outFile << maxStickNum << "\n";
-        outFile << gem << "\n"; 
         outFile << health << "\n";
         outFile << mana << "\n";
         outFile << stickNum << "\n";
         outFile << gourdNum << "\n";
+        outFile << gem << "\n";
+        outFile << slashDamage << "\n";
+        outFile << stickDamage << "\n";
+        outFile << eagleDamage << "\n";
         outFile.close();
         std::cout << "Data saved successfully." << std::endl;
     }
@@ -324,11 +327,14 @@ void Player::loadPlayerDataInit(bool isNew) {
         inFile >> maxHealth; 
         inFile >> maxMana; 
         inFile >> maxStickNum; 
-        inFile >> gem;
         inFile >> health;
         inFile >> mana;
         inFile >> stickNum;
         inFile >> gourdNum;
+        inFile >> gem;
+        inFile >> slashDamage;
+        inFile >> stickDamage;
+        inFile >> eagleDamage;
         inFile.close();
         healthVector.clear();
         uiNode->removeAllChildrenWithCleanup(true);
@@ -336,6 +342,9 @@ void Player::loadPlayerDataInit(bool isNew) {
             health = maxHealth;
             stickNum = maxStickNum;
             mana = maxMana;
+            slashDamage = 10;
+            stickDamage = 10;
+            eagleDamage = 10;
         }
         
         initGUI();
@@ -600,21 +609,25 @@ void Player::changeCharm(Charm* charm) {
     
     if (currentCharm == charm) return;
     if (currentCharm) {
-        maxHealth -= currentCharm->healthBonus;
+        /*maxHealth -= currentCharm->healthBonus;
         maxMana -= currentCharm->manaBonus;
         updateHealth(currentCharm->healthBonus);
-        addMana(-currentCharm->manaBonus);
-        damage -= currentCharm->damageBonus;
+        addMana(-currentCharm->manaBonus);*/
+        slashDamage -= currentCharm->slashDamageBonus;
+        stickDamage -= currentCharm->stickDamageBonus;
+        eagleDamage -= currentCharm->eagleDamageBonus;
     }
     currentCharm = charm;
 
     setSpriteCharm(charm);
 
-    maxHealth += charm->healthBonus;
+    /*maxHealth += charm->healthBonus;
     maxMana += charm->manaBonus;
     updateHealth(-charm->healthBonus);
-    addMana(charm->manaBonus);
-    damage += charm->damageBonus;
+    addMana(charm->manaBonus);*/
+    slashDamage += charm->slashDamageBonus;
+    stickDamage += currentCharm->stickDamageBonus;
+    eagleDamage += currentCharm->eagleDamageBonus;
 }
 
 void Player::writeCharmToFile() {
@@ -623,7 +636,7 @@ void Player::writeCharmToFile() {
     if (outFile.is_open()) {
         // Ghi mỗi đối tượng vào file
         for (auto& charm : charmVector) {
-            outFile << charm->id << "," << charm->healthBonus << "," << charm->manaBonus << "," << charm->damageBonus << "," <<charm->getIsActive() << endl;
+            outFile << charm->id << "," << charm->healthBonus << "," << charm->manaBonus  << "," << charm->slashDamageBonus << "," << charm->stickDamageBonus << "," << charm->eagleDamageBonus << "," << charm->getIsActive() << endl;
         }
         outFile.close();
     }
@@ -650,10 +663,15 @@ void Player::readCharmFromFile() {
             charm->manaBonus = std::stoi(temp);
 
             std::getline(ss, temp, ',');  // Get damageBonus
-            charm->damageBonus = std::stoi(temp);
+            charm->slashDamageBonus = std::stoi(temp);
+
+            std::getline(ss, temp, ',');  // Get damageBonus
+            charm->stickDamageBonus = std::stoi(temp);
+
+            std::getline(ss, temp, ',');  // Get damageBonus
+            charm->eagleDamageBonus = std::stoi(temp);
 
             charm->getEffectString();
-            
 
             std::getline(ss, temp, ',');  // Get damageBonus
             charm->setIsActive(false);
