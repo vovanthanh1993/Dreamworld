@@ -67,7 +67,7 @@ public:
 	void getDamage(int damage);
 	void healing(int num);
 	void updateStickNum(int stick);
-	void initItem();
+	void initGUI();
 	int maxStickNum = 10;
 	int gem = 0;
 	void updateGem(int i);
@@ -115,5 +115,6 @@ public:
 	Charm* currentCharm;
 	void readCharmFromFile();
 	void writeCharmToFile();
+	void setSpriteCharm(Charm* charm);
 };
 

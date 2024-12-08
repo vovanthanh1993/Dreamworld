@@ -127,7 +127,7 @@ void InventoryLayer::menuCloseCallback(cocos2d::Ref* Sender) {
 }
 
 void InventoryLayer::menuOKCallback(cocos2d::Ref* Sender) {
-    player->savePlayerDataInit();
+    //player->savePlayerDataInit();
     this->removeFromParentAndCleanup(true);
 }
 void InventoryLayer::upgradeManaItem(cocos2d::Ref* Sender) {

@@ -223,7 +223,7 @@ void Player::updateStickNum(int stick) {
     }
 }
 
-void Player::initItem() {
+void Player::initGUI() {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     Size screenSize = Director::getInstance()->getVisibleSize();
     int y = screenSize.height;
@@ -337,9 +337,10 @@ void Player::loadPlayerDataInit(bool isNew) {
             stickNum = maxStickNum;
             mana = maxMana;
         }
-        readCharmFromFile();
-        initItem();
+        
+        initGUI();
         initHealth();
+        readCharmFromFile();
     }
 }
 
@@ -607,22 +608,8 @@ void Player::changeCharm(Charm* charm) {
     }
     currentCharm = charm;
 
-    if (charmSprite != nullptr) {
-        charmSprite->removeFromParentAndCleanup(true);
-    }
-    
-    charmSprite = Sprite::create(charm->spritePath);
-    charmSprite->setAnchorPoint(Vec2(0,1));
-    charmSprite->setScale(0.3 * Common::scaleSizeXY());
-    //Common::zoomAction(charmSprite);
+    setSpriteCharm(charm);
 
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    Size screenSize = Director::getInstance()->getVisibleSize();
-    int y = screenSize.height;
-
-    //Charm
-    charmSprite->setPosition(origin.x, y - 150*Common::scaleSizeXY());
-    uiNode->addChild(charmSprite);
     maxHealth += charm->healthBonus;
     maxMana += charm->manaBonus;
     updateHealth(-charm->healthBonus);
@@ -654,6 +641,7 @@ void Player::readCharmFromFile() {
             std::string temp;
             std::getline(ss, temp, ',');  // Get id
             charm->id = std::stoi(temp);   // Convert the string to an integer
+            charm->spritePath = "inventory/charm" + to_string(charm->id) + ".png";
 
             std::getline(ss, temp, ',');  // Get healthBonus
             charm->healthBonus = std::stoi(temp);
@@ -664,18 +652,37 @@ void Player::readCharmFromFile() {
             std::getline(ss, temp, ',');  // Get damageBonus
             charm->damageBonus = std::stoi(temp);
 
+            charm->getEffectString();
+            
+
             std::getline(ss, temp, ',');  // Get damageBonus
             charm->setIsActive(false);
             if (temp == "1") {
                 charm->setIsActive(true);
-                changeCharm(charm);
+                currentCharm = charm;
+                setSpriteCharm(charm);
             }
-
-
-            charm->spritePath = "inventory/charm" + to_string(charm->id) + ".png";
-            charm->getEffectString();
-            charmVector.pushBack(charm);  // Thêm đối tượng vào vector
+            charmVector.pushBack(charm);
+            // Thêm đối tượng vào vector
         }
         inFile.close();
     }
+}
+
+void Player::setSpriteCharm(Charm* charm) {
+    if (charmSprite != nullptr) {
+        charmSprite->removeFromParentAndCleanup(true);
+    }
+
+    charmSprite = Sprite::create(charm->spritePath);
+    charmSprite->setAnchorPoint(Vec2(0, 1));
+    charmSprite->setScale(0.3 * Common::scaleSizeXY());
+
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    Size screenSize = Director::getInstance()->getVisibleSize();
+    int y = screenSize.height;
+
+    //Charm
+    charmSprite->setPosition(origin.x, y - 150 * Common::scaleSizeXY());
+    uiNode->addChild(charmSprite);
 }
