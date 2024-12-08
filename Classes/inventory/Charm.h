@@ -14,11 +14,12 @@ public:
 	bool init(Vec2 position);
 	int manaBonus = 0;
 	int healthBonus = 0;
-	int dameBonus = 0;
+	int damageBonus = 0;
 	string name;
 	string spritePath;
 	int id;
 	string effect = " hello";
-
+	void saveToFile(ofstream& out);
+	void getEffectString();
 };
 

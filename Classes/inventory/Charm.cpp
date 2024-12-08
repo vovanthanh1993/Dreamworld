@@ -5,11 +5,8 @@ bool Charm::init(Vec2 position) {
     id = Common::randomNum(1, 6);
     manaBonus = Common::randomNum(-10, 10);
     healthBonus = Common::randomNum(-10, 10);
-    dameBonus = Common::randomNum(-1 , 2);
-    string manaBonusS = manaBonus >= 0 ? "+" + to_string(manaBonus) : to_string(manaBonus);
-    string healthBonusS = healthBonus >= 0 ? "+" + to_string(healthBonus) : to_string(healthBonus);
-    string dameBonusS = dameBonus >= 0 ? "+" + to_string(dameBonus) : to_string(dameBonus);
-    effect = manaBonusS + " mana, " + healthBonusS + " health, " + dameBonusS + " damage";
+    damageBonus = Common::randomNum(-1 , 2);
+    getEffectString();
 
     spritePath = "inventory/charm" + to_string(id) + ".png";
     sprite = Sprite::create(spritePath);
@@ -47,4 +44,16 @@ bool Charm::init(Vec2 position) {
     scene->addChild(this);
     Common::zoomAction(sprite);
     return true;
+}
+
+// Hàm để ghi đối tượng vào file
+void Charm::saveToFile(ofstream& out) {
+    
+}
+
+void Charm::getEffectString() {
+    string manaBonusS = manaBonus >= 0 ? "+" + to_string(manaBonus) : to_string(manaBonus);
+    string healthBonusS = healthBonus >= 0 ? "+" + to_string(healthBonus) : to_string(healthBonus);
+    string dameBonusS = damageBonus >= 0 ? "+" + to_string(damageBonus) : to_string(damageBonus);
+    effect = manaBonusS + " mana, " + healthBonusS + " health, " + dameBonusS + " damage";
 }

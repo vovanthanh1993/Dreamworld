@@ -47,7 +47,7 @@ bool InventoryLayer::init(Player* player, Scene* scene)
     layer->addChild(header);
 
     int spaceY = 470 * Common::scaleSizeXY();
-    for (const auto& charm : player->equipment)
+    for (const auto& charm : player->charmVector)
     {
         MenuItemImage* offItem = cocos2d::MenuItemImage::create(
             charm->spritePath,   // image when button is off

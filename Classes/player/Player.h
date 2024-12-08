@@ -44,7 +44,7 @@ private:
 	
 public:
 	Sprite* charmSprite = nullptr;
-	Vector<Charm*> equipment;
+	Vector<Charm*> charmVector;
 	bool isAlive = true;
 	Node* uiNode = Node::create();
 	Label* stickLabel;
@@ -113,5 +113,7 @@ public:
 	void changeCharm(Charm* charm);
 
 	Charm* currentCharm;
+	void readCharmFromFile();
+	void writeCharmToFile();
 };
 

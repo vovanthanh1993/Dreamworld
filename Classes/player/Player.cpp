@@ -314,6 +314,8 @@ void Player::savePlayerDataInit() {
     else {
         std::cerr << "Unable to open file for writing." << std::endl;
     }
+
+    writeCharmToFile();
 }
 
 void Player::loadPlayerDataInit(bool isNew) {
@@ -335,7 +337,7 @@ void Player::loadPlayerDataInit(bool isNew) {
             stickNum = maxStickNum;
             mana = maxMana;
         }
-        
+        readCharmFromFile();
         initItem();
         initHealth();
     }
@@ -581,7 +583,7 @@ void Player::initKeyEvent() {
 }
 
 void Player::addEquipment(Charm* charmInput) {
-    for (auto& charm : equipment) {
+    for (auto& charm : charmVector) {
         if (charmInput->id == charm->id) {
             if (currentCharm != nullptr && currentCharm->id == charm->id) {
                 return;
@@ -590,7 +592,7 @@ void Player::addEquipment(Charm* charmInput) {
             return;
         }
     }
-    equipment.pushBack(charmInput);
+    charmVector.pushBack(charmInput);
 }
 
 void Player::changeCharm(Charm* charm) {
@@ -601,7 +603,7 @@ void Player::changeCharm(Charm* charm) {
         maxMana -= currentCharm->manaBonus;
         updateHealth(currentCharm->healthBonus);
         addMana(-currentCharm->manaBonus);
-        damage -= currentCharm->dameBonus;
+        damage -= currentCharm->damageBonus;
     }
     currentCharm = charm;
 
@@ -625,5 +627,55 @@ void Player::changeCharm(Charm* charm) {
     maxMana += charm->manaBonus;
     updateHealth(-charm->healthBonus);
     addMana(charm->manaBonus);
-    damage += charm->dameBonus;
+    damage += charm->damageBonus;
+}
+
+void Player::writeCharmToFile() {
+    // Mở file để lưu thông tin
+    ofstream outFile("charm.txt");
+    if (outFile.is_open()) {
+        // Ghi mỗi đối tượng vào file
+        for (auto& charm : charmVector) {
+            outFile << charm->id << "," << charm->healthBonus << "," << charm->manaBonus << "," << charm->damageBonus << "," <<charm->getIsActive() << endl;
+        }
+        outFile.close();
+    }
+}
+
+void Player::readCharmFromFile() {
+    charmVector.clear();
+    ifstream inFile("charm.txt");
+    if (inFile.is_open()) {
+        string line;
+        while (getline(inFile, line)) {
+            stringstream ss(line);
+            Charm* charm = new Charm(world, scene, bodyToSpriteMap);
+
+            std::string temp;
+            std::getline(ss, temp, ',');  // Get id
+            charm->id = std::stoi(temp);   // Convert the string to an integer
+
+            std::getline(ss, temp, ',');  // Get healthBonus
+            charm->healthBonus = std::stoi(temp);
+
+            std::getline(ss, temp, ',');  // Get manaBonus
+            charm->manaBonus = std::stoi(temp);
+
+            std::getline(ss, temp, ',');  // Get damageBonus
+            charm->damageBonus = std::stoi(temp);
+
+            std::getline(ss, temp, ',');  // Get damageBonus
+            charm->setIsActive(false);
+            if (temp == "1") {
+                charm->setIsActive(true);
+                changeCharm(charm);
+            }
+
+
+            charm->spritePath = "inventory/charm" + to_string(charm->id) + ".png";
+            charm->getEffectString();
+            charmVector.pushBack(charm);  // Thêm đối tượng vào vector
+        }
+        inFile.close();
+    }
 }
