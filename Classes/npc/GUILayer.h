@@ -4,13 +4,12 @@
 #include "cocos2d.h"
 #include "player/Player.h"
 #include "main/Effect.h"
+#include "base/BaseLayer.h"
 
-class GUILayer : public cocos2d::Layer {
+class GUILayer : public BaseLayer {
 public:
-    LayerColor* shopFrame;
-    Player* player;
-    CREATE_FUNC(GUILayer); // Macro tạo lớp
-    GUILayer();
+    static GUILayer* createLayer(Player* player, Scene* scene);
+    bool init(Player* player, Scene* scene);
 private:
     void menuOKCallback(cocos2d::Ref* pSender);
 };

@@ -1,8 +1,8 @@
 ﻿#include "NPC2.h"
 
-NPC2::NPC2(b2World* world, Scene* scene, Vec2 position) :BaseNode(world, scene, position) {};
+NPC2::NPC2(b2World* world, Scene* scene) :BaseNode(world, scene) {};
 
-bool NPC2::init() {
+bool NPC2::init(Vec2 position) {
     spriteNode = SpriteBatchNode::create("NPC/NPC2/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("NPC/NPC2/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Druid_2_Idle_0.png");

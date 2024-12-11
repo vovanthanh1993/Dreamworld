@@ -1,10 +1,17 @@
 ﻿#include "BossMap3.h"
 
-BossMap3::BossMap3(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+BossMap3::BossMap3(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseEnemy(world, scene, bodyToSpriteMap) {
 };
 
-bool BossMap3::init() {
+bool BossMap3::init(Vec2 position) {
     scale = 0.6;
+    attackCooldown = 2.5f;  // Thời gian chờ giữa các đợt tấn công
+    timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
+    canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
+    health = 200;
+    direction = -1;
+    speed = 10;
+    isAlive = true;
 
     spriteNode = SpriteBatchNode::create("Enemy/BossMap3/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/BossMap3/sprites.plist");
@@ -55,7 +62,7 @@ bool BossMap3::init() {
     return true;
 }
 void BossMap3::idle() {
-    if (isALive) {
+    if (isAlive) {
         sprite->stopAllActions();
         auto animateW = Animate::create(Common::createAnimation("bossbat_idle Blinking_", 17, 0.04));
         animateW->retain();
@@ -92,7 +99,7 @@ void BossMap3::walk() {
 }
 
 void BossMap3::die() {
-    isALive = false;
+    isAlive = false;
     for (Bat* bat : batPool->getPool()) {
         if (bat->isAlive) {
             bat->die();
@@ -134,7 +141,7 @@ void BossMap3::die() {
 
     auto animate = Animate::create(Common::createAnimation("bossbat_smoke_", 9, 0.05));
     auto callback2 = [this]() {
-            if (!isALive) {
+            if (!isAlive) {
                 Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, 10);
                 BaseNode::destroyNode();
             }
@@ -147,7 +154,7 @@ void BossMap3::die() {
 }
 
 void BossMap3::update(float dt) {
-    if (isALive) {
+    if (isAlive) {
         updateHealthBarPosition();
 
         // Cập nhật thời gian đã trôi qua

@@ -1,9 +1,19 @@
 ﻿#include "BossMap1.h"
 
-BossMap1::BossMap1(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+BossMap1::BossMap1(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseEnemy(world, scene, bodyToSpriteMap) {
 };
 
-bool BossMap1::init() {
+bool BossMap1::init(Vec2 position) {
+    attackCooldown = 2.0f;  // Thời gian chờ giữa các đợt tấn công
+    timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
+    canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
+    health = 200;
+    scale = 1;
+    attackRange = 1000;
+    isAlive = true;
+    direction = -1;
+    speed = 10;
+
     spriteNode = SpriteBatchNode::create("Enemy/Bossmap1/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Bossmap1/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("0_boss_idle_0.png");
@@ -54,7 +64,7 @@ bool BossMap1::init() {
     return true;
 }
 void BossMap1::idle() {
-    if (isALive) {
+    if (isAlive) {
         b2Vec2 velocity(0, 0);
         body->SetLinearVelocity(velocity);
         sprite->stopAllActions();
@@ -65,7 +75,7 @@ void BossMap1::idle() {
 }
 
 void BossMap1::walk() {
-    if (isALive) {
+    if (isAlive) {
         auto animateW = Animate::create(Common::createAnimation("0_boss_walk_", 19, 0.04));
         animateW->retain();
         sprite->runAction(RepeatForever::create(animateW));
@@ -73,7 +83,7 @@ void BossMap1::walk() {
 }
 
 void BossMap1::die() {
-    isALive = false;
+    isAlive = false;
 
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
@@ -107,7 +117,7 @@ void BossMap1::die() {
 
     auto animate = Animate::create(Common::createAnimation("0_boss_die_", 19, 0.05));
     auto callback2 = [this]() {
-            if (!isALive) {
+            if (!isAlive) {
                 Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, 10);
                 BaseNode::destroyNode();
             }
@@ -123,7 +133,7 @@ void BossMap1::throwStoneBall() {
    
     // Run animation with a callback
     if (isHit) return;
-    if (isALive) {
+    if (isAlive) {
         auto animate = Animate::create(Common::createAnimation("0_boss_attack_", 19, 0.02));
         Effect::soundMagicFire();
         auto callback2 = [this]() {
@@ -139,7 +149,7 @@ void BossMap1::throwStoneBall() {
 void BossMap1::charge() {
     // Run animation with a callback
     if (isHit) return;
-    if (isALive) {
+    if (isAlive) {
         auto animate = Animate::create(Common::createAnimation("0_boss_specialty_", 19, 0.02));
         Effect::soundMagicFire();
         followPlayer();
@@ -264,7 +274,7 @@ void BossMap1::followPlayer() {
 
 void BossMap1::update(float dt) {
 
-    if (isALive) {
+    if (isAlive) {
         updateHealthBarPosition();
 
         if (isHit) return;

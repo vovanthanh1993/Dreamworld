@@ -48,29 +48,14 @@ void VillageScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d
     if (player->isEnable) {
         if (keyCode == (EventKeyboard::KeyCode::KEY_E)) {
             if (b2Distance(player->getBody()->GetPosition(), npc1->getBody()->GetPosition()) <= Constants::TALK_RANGE* Common::scaleSizeXY()) {
-                shopLayer = new ShopLayer();
-                shopLayer->player = player;
-                this->addChild(shopLayer->shopFrame, 5);
-                player->getBody()->SetLinearVelocity(b2Vec2_zero);
-                player->idle();
-                player->isEnable = false;
+                shopLayer = ShopLayer::createLayer(player, this);
             }
 
             if (b2Distance(player->getBody()->GetPosition(), npc2->getBody()->GetPosition()) <= Constants::TALK_RANGE * Common::scaleSizeXY()) {
-                guiLayer = new GUILayer();
-                guiLayer->player = player;
-                this->addChild(guiLayer->shopFrame, 5);
-                player->getBody()->SetLinearVelocity(b2Vec2_zero);
-                player->idle();
-                player->isEnable = false;
+                guiLayer = GUILayer::createLayer(player, this);
             }
             if (b2Distance(player->getBody()->GetPosition(), npc3->getBody()->GetPosition()) <= Constants::TALK_RANGE * Common::scaleSizeXY()) {
-                skillShopLayer = new SkillShopLayer();
-                skillShopLayer->player = player;
-                this->addChild(skillShopLayer->shopFrame,5);
-                player->getBody()->SetLinearVelocity(b2Vec2_zero);
-                player->idle();
-                player->isEnable = false;
+                skillShopLayer = SkillShopLayer::createLayer(player, this);
             }
         }
     }
@@ -102,8 +87,8 @@ void VillageScene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = npc1Layer->getTileAt(Vec2(x, y));
             if (tile) {
-                npc1 = new NPC1(world, this, Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                npc1->init();
+                npc1 = new NPC1(world, this);
+                npc1->init(Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
             }
         }
     }
@@ -114,8 +99,8 @@ void VillageScene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = npc3Layer->getTileAt(Vec2(x, y));
             if (tile) {
-                npc3 = new NPC3(world, this, Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                npc3->init();
+                npc3 = new NPC3(world, this);
+                npc3->init(Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
             }
         }
     }
@@ -127,8 +112,8 @@ void VillageScene::spawnObject() {
             auto tile = npc2Layer->getTileAt(Vec2(x, y));
             if (tile) {
 
-                npc2 = new NPC2(world, this, Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                npc2->init();
+                npc2 = new NPC2(world, this);
+                npc2->init(Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
             }
         }
     }
@@ -140,8 +125,8 @@ void VillageScene::spawnObject() {
             auto tile = npcMonkeyLayer->getTileAt(Vec2(x, y));
             if (tile) {
 
-                NPCMonkey* npcMonkey = new NPCMonkey(world, this, Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
-                npcMonkey->init();
+                NPCMonkey* npcMonkey = new NPCMonkey(world, this, bodyToSpriteMap);
+                npcMonkey->init(Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
             }
         }
     }

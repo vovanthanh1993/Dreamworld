@@ -1,15 +1,13 @@
 ﻿#include "NPC1.h"
 
-NPC1::NPC1(b2World* world, Scene* scene, Vec2 position) :BaseNode(world, scene, position) {};
+NPC1::NPC1(b2World* world, Scene* scene) :BaseNode(world, scene) {};
 
-bool NPC1::init() {
+bool NPC1::init(Vec2 position) {
     spriteNode = SpriteBatchNode::create("NPC/NPC1/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("NPC/NPC1/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Druid_1_Idle_0.png");
     sprite->setScale(Common::scaleSizeXY());
 
-    int* userData = new int(-1);
-    sprite->setUserData(userData);
     sprite->setPosition(position);
     spriteNode->addChild(sprite);
     scene->addChild(spriteNode, 0);

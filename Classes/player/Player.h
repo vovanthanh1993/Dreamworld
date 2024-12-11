@@ -25,10 +25,10 @@ private:
 	float mana = 5;
 	int stickNum = 5;
 	int gourdNum = 1;
-	cocos2d::Sprite* healthBar; // Sprite cho thanh máu
-	cocos2d::Sprite* healthBarBg; // Sprite cho nền thanh máu
-	cocos2d::Sprite* manaBar; // Sprite cho thanh máu
-	cocos2d::Sprite* manaBarBg; // Sprite cho nền thanh máu
+	Sprite* healthBar; // Sprite cho thanh máu
+	Sprite* healthBarBg; // Sprite cho nền thanh máu
+	Sprite* manaBar; // Sprite cho thanh máu
+	Sprite* manaBarBg; // Sprite cho nền thanh máu
 	Label* healthLabel;
 	map<EventKeyboard::KeyCode, bool> keys;
 	float attackCooldown = 0.5f; // Khoảng thời gian chờ giữa các lần tấn công

@@ -14,8 +14,6 @@ private:
     void menuCloseCallback(cocos2d::Ref* pSender); // Callback cho nút trở về
     void menuOKCallback(cocos2d::Ref* pSender);
     void selectCharm(cocos2d::Ref* sender); // Xử lý mua vật phẩm
-    void purchaseHealthItem(cocos2d::Ref* sender);
-    void upgradeManaItem(cocos2d::Ref* pSender);
     Vector<MenuItem*> menuItems;
 };
 

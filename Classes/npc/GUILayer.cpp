@@ -1,26 +1,43 @@
 ﻿#include "GUILayer.h"
 
 USING_NS_CC;
+GUILayer* GUILayer::createLayer(Player* player, Scene* scene)
+{
+    GUILayer* ret = new GUILayer();
+    if (ret && ret->init(player, scene)) {
+        ret->autorelease();  // Tự động giải phóng bộ nhớ
+        return ret;
+    }
+    else {
+        delete ret;
+        return nullptr;
+    }
+}
 
-GUILayer::GUILayer() {
+//on "init" you need to initialize your instance
+bool GUILayer::init(Player* player, Scene* scene) {
+
+    this->player = player;
+    player->isEnable = false;
+    player->getBody()->SetLinearVelocity(b2Vec2_zero);
+    player->idle();
+
     Size screenSize = Director::getInstance()->getVisibleSize();
     // Tạo khung nhỏ cho shop
-    shopFrame = LayerColor::create(Color4B(0, 0, 0, 0), 300* Common::scaleSizeX(), 400 * Common::scaleSizeY());
+    auto layer = LayerColor::create(Color4B(0, 0, 0, 0), 300* Common::scaleSizeX(), 400 * Common::scaleSizeY());
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    shopFrame->setPosition(origin+screenSize/3); // Vị trí khung trên bản đồ
-    //this->addChild(shopFrame);
+    layer->setPosition(origin+screenSize/3); // Vị trí khung trên bản đồ
 
-    
      //Thêm hình nền cho khung
     auto background = Sprite::create("ui/shopbg.png"); // Đường dẫn đến hình nền
     background->setPosition(Common::scalePos(Vec2(150, 200))); // Giữa khung
     background->setScale(0.8 * Common::scaleSizeXY());
-    shopFrame->addChild(background, -1); // Thêm hình nền dưới các mục khác
+    layer->addChild(background, -1); // Thêm hình nền dưới các mục khác
 
     auto header = Sprite::create("ui/header_fight.png");
     header->setPosition(Vec2(150, 370) * Common::scaleSizeXY());
     header->setScale(Common::scaleSizeXY());
-    shopFrame->addChild(header);
+    layer->addChild(header);
     
     // Tạo các mục shop
     auto itemLabel1 = MenuItemLabel::create(
@@ -58,7 +75,7 @@ GUILayer::GUILayer() {
 
     auto menuItem = Menu::create(itemLabel1, itemLabel2, itemLabel3, itemLabel4, itemLabel5, itemLabel6, nullptr);
     menuItem->setPosition(Vec2::ZERO);
-    shopFrame->addChild(menuItem); // Thêm menu vào layer
+    layer->addChild(menuItem); // Thêm menu vào layer
 
     // Thêm nút trở về
     auto okItem = MenuItemLabel::create(
@@ -69,11 +86,14 @@ GUILayer::GUILayer() {
     okItem->setColor(cocos2d::Color3B(180, 57, 67));
     auto menu = Menu::create(okItem, nullptr);
     menu->setPosition(Vec2::ZERO);
-    shopFrame->addChild(menu); // Thêm menu vào khung
-    shopFrame->setName("shop");
+    layer->addChild(menu); // Thêm menu vào khung
+
+    this->setName("shop");
+    this->addChild(layer);
+    scene->addChild(this, 100);
+    return true;
 }
 
 void GUILayer::menuOKCallback(cocos2d::Ref* pSender) {
-    shopFrame->removeFromParentAndCleanup(true);
-    
+    this->removeFromParentAndCleanup(true);  
 }

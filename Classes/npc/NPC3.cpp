@@ -1,7 +1,7 @@
 ﻿#include "NPC3.h"
-NPC3::NPC3(b2World* world, Scene* scene, Vec2 position) :BaseNode(world, scene, position) {};
+NPC3::NPC3(b2World* world, Scene* scene) :BaseNode(world, scene) {};
 
-bool NPC3::init() {
+bool NPC3::init(Vec2 position) {
     spriteNode = SpriteBatchNode::create("NPC/NPC3/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("NPC/NPC3/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Mater_Idle_0.png");

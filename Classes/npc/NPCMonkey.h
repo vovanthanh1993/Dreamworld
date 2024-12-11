@@ -13,8 +13,10 @@ using namespace cocos2d;
 class NPCMonkey: public BaseNode
 {
 public:
-	bool init();
-	NPCMonkey(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	bool init(Vec2 position);
+	NPCMonkey(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	void walk();
+	int direction = -1;
+	int speed = 6;
 };
 #endif // __NPCMonkey_H__

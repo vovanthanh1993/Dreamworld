@@ -200,7 +200,6 @@ void MyContactListener::BeginContact(b2Contact* contact) {
 
         // check golem and limit
         if (tagB == Constants::TAG_BAT && tagA == Constants::TAG_LIMIT) {
-            // Lấy vận tốc hiện tại của đối tượng
             Bat* w = static_cast<Bat*>(spriteB->getUserData());
             w->direction *= -1;
             bodyB->SetLinearVelocity(b2Vec2(w->direction * w->speed * Common::scaleSizeXY(), 0));
@@ -210,12 +209,10 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         // check npc and limit
         if (tagB == Constants::TAG_NPC && tagA == Constants::TAG_LIMIT) {
             // Lấy vận tốc hiện tại của đối tượng
-            int* storedData = static_cast<int*>(spriteB->getUserData());
-            *storedData = -*storedData;
-            bodyB->SetLinearVelocity(b2Vec2(*storedData * -Constants::SPEED_ENEMY* Common::scaleSizeXY(), 0));
-            Common::scaleAll(spriteB, 0.03);
-            spriteB->setScaleX(*storedData * spriteB->getScale());
-            spriteB->setUserData(storedData);
+            NPCMonkey* w = static_cast<NPCMonkey*>(spriteB->getUserData());
+            w->direction *= -1;
+            bodyB->SetLinearVelocity(b2Vec2(w->direction * w->speed * Common::scaleSizeXY(), 0));
+            spriteB->setScaleX(-spriteB->getScaleX());
         }
 
         // check boss and limit
@@ -246,10 +243,9 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         // check enemy and limit
         if (tagB == Constants::TAG_BRIDGE && tagA == Constants::TAG_LIMIT) {
             // Lấy vận tốc hiện tại của đối tượng
-            int* storedData = static_cast<int*>(spriteB->getUserData());
-            *storedData = -*storedData;
-            bodyB->SetLinearVelocity(b2Vec2(0, *storedData * -Constants::SPEED_BRIDGE * Common::scaleSizeXY()));
-            spriteB->setUserData(storedData);
+            Bridge* w = static_cast<Bridge*>(spriteB->getUserData());
+            w->direction *= -1;
+            bodyB->SetLinearVelocity(b2Vec2(0, w->direction* w->speed* Common::scaleSizeXY()));
         }
 
         // check player and bridgebreak

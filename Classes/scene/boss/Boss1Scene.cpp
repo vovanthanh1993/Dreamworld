@@ -34,13 +34,13 @@ void Boss1Scene::update(float dt) {
 
     //-------------------CAP NHAT LAI SPRITE--------------------------
     // Boss map 1
-    if (bossmap1->isALive) {
+    if (bossmap1->isAlive) {
         AudioEngine::setVolume(settingInit->getBgMusicId(), settingInit->getVolume());
     }
     else {
         AudioEngine::setVolume(settingInit->getBgMusicId(), settingInit->getVolume() * 0.2);
     }
-    if (contactListener->isNext && !bossmap1->isALive) {
+    if (contactListener->isNext && !bossmap1->isAlive) {
         player->savePlayerDataInit();
         auto newScene = Map2Scene::createScene("map/bglv1.png", "sound/bg2.mp3", "map2", true);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
@@ -74,9 +74,9 @@ void Boss1Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = bossLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                bossmap1 = new BossMap1(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
+                bossmap1 = new BossMap1(world, this, bodyToSpriteMap);
                 bossmap1->player = player;
-                bossmap1->init();
+                bossmap1->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
                 break;
             }
         }

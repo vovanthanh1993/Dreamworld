@@ -51,7 +51,7 @@ private:
         ShopLayer* shopLayer;
         GUILayer* guiLayer;
         SkillShopLayer* skillShopLayer;
-        void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event);
+        void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
 };
 
 #endif // __VillageScene_H__

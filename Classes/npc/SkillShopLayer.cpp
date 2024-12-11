@@ -2,28 +2,43 @@
 #include "main/Effect.h"
 #include "scene/MenuScene.h"
 
-SkillShopLayer::SkillShopLayer() {
-    //if (!Layer::init()) {
-    //    return false; // Kiểm tra khởi tạo
-    //}
+SkillShopLayer* SkillShopLayer::createLayer(Player* player, Scene* scene)
+{
+    SkillShopLayer* ret = new SkillShopLayer();
+    if (ret && ret->init(player, scene)) {
+        ret->autorelease();  // Tự động giải phóng bộ nhớ
+        return ret;
+    }
+    else {
+        delete ret;
+        return nullptr;
+    }
+}
+
+//on "init" you need to initialize your instance
+bool SkillShopLayer::init(Player* player, Scene* scene) {
+    this->player = player;
+    player->isEnable = false;
+    player->getBody()->SetLinearVelocity(b2Vec2_zero);
+    player->idle();
+
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     Size screenSize = Director::getInstance()->getVisibleSize();
     // Tạo khung nhỏ cho shop
-    shopFrame = LayerColor::create(Color4B(0, 0, 0, 0), 300, 400);
-    shopFrame->setPosition(Vec2(origin.x+screenSize.width / 2, screenSize.height / 3));
-    //this->addChild(shopFrame);
+    auto layer = LayerColor::create(Color4B(0, 0, 0, 0), 300, 400);
+    layer->setPosition(Vec2(origin.x+screenSize.width / 2, screenSize.height / 3));
 
     
      //Thêm hình nền cho khung
     auto background = Sprite::create("ui/shopbg.png"); // Đường dẫn đến hình nền
     background->setPosition(Vec2(150, 200) * Common::scaleSizeXY()); // Giữa khung
     background->setScale(0.8 * Common::scaleSizeXY());
-    shopFrame->addChild(background, -1); // Thêm hình nền dưới các mục khác
+    layer->addChild(background, -1); // Thêm hình nền dưới các mục khác
 
     auto header = Sprite::create("ui/header_shop.png");
     header->setPosition(Vec2(150, 370) * Common::scaleSizeXY());
     header->setScale(Common::scaleSizeXY());
-    shopFrame->addChild(header);
+    layer->addChild(header);
 
     int skillPostX = 50 * Common::scaleSizeX();
     int pricePostX = 100 * Common::scaleSizeX();
@@ -32,14 +47,14 @@ SkillShopLayer::SkillShopLayer() {
     Sprite* skill1 = Sprite::create("player/skill/YellowEyes.png");
     skill1->setPosition(skillPostX, 300 * Common::scaleSizeY());
     skill1->setScale(0.15 * Common::scaleSizeXY());
-    shopFrame->addChild(skill1, 10);
+    layer->addChild(skill1, 10);
     auto skill1Label = MenuItemLabel::create(
         Label::createWithSystemFont("Fiery yellow eyes", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     skill1Label->setColor(cocos2d::Color3B(0, 0, 0));
     skill1Label->setPosition(pricePostX, 300*Common::scaleSizeY());
     skill1Label->setAnchorPoint(Vec2(0,0));
-    shopFrame->addChild(skill1Label);
+    layer->addChild(skill1Label);
     
     auto itemLabel1 = MenuItemLabel::create(
         Label::createWithSystemFont("50000 Gem", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY()),
@@ -55,7 +70,7 @@ SkillShopLayer::SkillShopLayer() {
     Sprite* skill2 = Sprite::create("Item/gourd/gourd.png");
     skill2->setPosition(skillPostX, 180* Common::scaleSizeY());
     skill2->setScale(0.5 * Common::scaleSizeXY());
-    shopFrame->addChild(skill2, 10);
+    layer->addChild(skill2, 10);
 
     auto skill2Label = MenuItemLabel::create(
         Label::createWithSystemFont("Gourd", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
@@ -64,7 +79,7 @@ SkillShopLayer::SkillShopLayer() {
     skill2Label->setColor(cocos2d::Color3B(0, 0, 0));
     skill2Label->setPosition(pricePostX, 180 * Common::scaleSizeY());
     skill2Label->setAnchorPoint(Vec2(0, 0));
-    shopFrame->addChild(skill2Label);
+    layer->addChild(skill2Label);
     auto itemLabel2 = MenuItemLabel::create(
         Label::createWithSystemFont("50 Gem", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY()),
         CC_CALLBACK_1(SkillShopLayer::purchaseGourd, this)
@@ -77,7 +92,7 @@ SkillShopLayer::SkillShopLayer() {
 
     auto menuItem = Menu::create(itemLabel1, itemLabel2, nullptr);
     menuItem->setPosition(Vec2::ZERO);
-    shopFrame->addChild(menuItem); // Thêm menu vào layer
+    layer->addChild(menuItem); // Thêm menu vào layer
 
     // Thêm nút trở về
     auto closeItem = MenuItemLabel::create(
@@ -96,8 +111,12 @@ SkillShopLayer::SkillShopLayer() {
 
     auto menu = Menu::create(closeItem, okItem, nullptr);
     menu->setPosition(Vec2::ZERO);
-    shopFrame->addChild(menu); // Thêm menu vào khung
-    shopFrame->setName("shop");
+    layer->addChild(menu); // Thêm menu vào khung
+
+    this->setName("shop");
+    this->addChild(layer);
+    scene->addChild(this, 100);
+    return true;
 }
 
 void SkillShopLayer::purchaseGourd(cocos2d::Ref* sender) {
@@ -124,11 +143,11 @@ void SkillShopLayer::purchaseEyesSkill(cocos2d::Ref* sender) {
 
 void SkillShopLayer::menuCloseCallback(cocos2d::Ref* pSender) {
     player->loadPlayerDataInit(true);
-    shopFrame->removeFromParentAndCleanup(true);
+    this->removeFromParentAndCleanup(true);
     
 }
 
 void SkillShopLayer::menuOKCallback(cocos2d::Ref* pSender) {
     player->savePlayerDataInit();
-    shopFrame->removeFromParentAndCleanup(true);
+    this->removeFromParentAndCleanup(true);
 }

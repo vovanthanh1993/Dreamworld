@@ -1,9 +1,18 @@
 ﻿#include "BossMap2.h"
 
-BossMap2::BossMap2(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+BossMap2::BossMap2(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseEnemy(world, scene, bodyToSpriteMap) {
 };
 
-bool BossMap2::init() {
+bool BossMap2::init(Vec2 position) {
+    attackCooldown = 0.5f;  // Thời gian chờ giữa các đợt tấn công
+    timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
+    canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
+    health = 200;
+    scale = 1;
+    direction = -1;
+    speed = 15;
+    isAlive = true;
+
     spriteNode = SpriteBatchNode::create("Enemy/Bossmap2/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Bossmap2/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Wraith_1_Moving Forward_0.png");
@@ -53,7 +62,7 @@ bool BossMap2::init() {
     return true;
 }
 void BossMap2::idle() {
-    if (isALive) {
+    if (isAlive) {
         b2Vec2 velocity(0, 0);
         body->SetLinearVelocity(velocity);
         sprite->stopAllActions();
@@ -79,7 +88,7 @@ void BossMap2::hurt() {
 }
 
 void BossMap2::walk() {
-    if (isALive) {
+    if (isAlive) {
         auto animateW = Animate::create(Common::createAnimation("Wraith_1_Moving Forward_", 11, 0.04));
         animateW->retain();
         sprite->runAction(RepeatForever::create(animateW));
@@ -93,7 +102,7 @@ void BossMap2::die() {
         }
     }
 
-    isALive = false;
+    isAlive = false;
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
@@ -129,7 +138,7 @@ void BossMap2::die() {
 
     auto animate = Animate::create(Common::createAnimation("Wraith_1_Dying_", 14, 0.05));
     auto callback2 = [this]() {
-            if (!isALive) {
+            if (!isAlive) {
                 Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap,10);
                 BaseNode::destroyNode();
             }
@@ -162,7 +171,7 @@ void BossMap2::boneRain() {
 }
 
 void BossMap2::update(float dt) {
-    if (isALive) {
+    if (isAlive) {
         updateHealthBarPosition();
 
         // Cập nhật thời gian đã trôi qua
@@ -265,7 +274,7 @@ void BossMap2::throwWarrior() {
 
         auto callback2 = [this]() {
                 
-                if (isALive) {
+                if (isAlive) {
                     int check = 1;
                     // check huong nhan vat
                     if (sprite->getScaleX() < 0) {

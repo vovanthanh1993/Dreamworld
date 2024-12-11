@@ -10,6 +10,7 @@ Player::Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body
 };
 bool Player::init(bool isNew) {
     currentCharm = nullptr;
+    charmSprite = nullptr;
 
     spriteNode = SpriteBatchNode::create("player/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("player/sprites.plist");
@@ -556,7 +557,6 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
             }
             if (keyCode == (EventKeyboard::KeyCode::KEY_I)) {
                 auto camera = scene->getDefaultCamera();
-                //Director::getInstance()->pause();
                 auto inventoryLayer = InventoryLayer::createLayer(this, scene);
                 Vec2 pos = camera->getPosition();
                 inventoryLayer->setPosition(Vec2(pos.x -250*Common::scaleSizeXY(), pos.y - 250 * Common::scaleSizeXY()));

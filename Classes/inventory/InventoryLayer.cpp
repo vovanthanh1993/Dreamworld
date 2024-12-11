@@ -120,24 +120,10 @@ void InventoryLayer::selectCharm(cocos2d::Ref* sender) {
     }
 }
 
-void InventoryLayer::menuCloseCallback(cocos2d::Ref* Sender) {
-    //player->loadPlayerDataInit(true);
-    this->removeFromParentAndCleanup(true);
-    
-}
-
-void InventoryLayer::menuOKCallback(cocos2d::Ref* Sender) {
-    //player->savePlayerDataInit();
+void InventoryLayer::menuCloseCallback(Ref* Sender) {
     this->removeFromParentAndCleanup(true);
 }
-void InventoryLayer::upgradeManaItem(cocos2d::Ref* Sender) {
-    auto item = static_cast<MenuItemLabel*>(Sender);
-    int price = item->getTag(); // Lấy giá của vật phẩm
 
-    if (player->gem >= price) {
-        player->setMaxMana(player->getMaxMana() + 1);
-        player->addMana(1);
-        player->updateGem(-price);
-    }
-    else Effect::soundError();
+void InventoryLayer::menuOKCallback(Ref* Sender) {
+    this->removeFromParentAndCleanup(true);
 }

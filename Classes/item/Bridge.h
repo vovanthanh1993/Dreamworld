@@ -13,5 +13,7 @@ public:
 	Bridge(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init(Vec2 position);
 	int type;
+	int speed = 10;
+	int direction = -1;
 };
 

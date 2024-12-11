@@ -12,8 +12,7 @@ bool Bridge::init(Vec2 position) {
     sprite->setPosition(position);
     sprite->setTag(Constants::TAG_BRIDGE);
     scene->addChild(sprite);
-    int* userData = new int(-1);
-    sprite->setUserData(userData);
+    sprite->setUserData(this);
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
@@ -31,7 +30,7 @@ bool Bridge::init(Vec2 position) {
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
-    fixtureDef.density = 1000.0f;
+    fixtureDef.density = 10000.0f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
@@ -41,7 +40,7 @@ bool Bridge::init(Vec2 position) {
     body->CreateFixture(&fixtureDef);
     body->SetGravityScale(0.0f);
     (*bodyToSpriteMap)[body] = sprite;
-    b2Vec2 velocity(0, Constants::SPEED_BRIDGE * Common::scaleSizeXY());
+    b2Vec2 velocity(0, direction * speed * Common::scaleSizeXY());
     body->SetLinearVelocity(velocity);
 
     return true;

@@ -22,8 +22,8 @@ private:
 	cocos2d::Label* _nameLabel; // Label hiển thị tên
 public:
 	void idle();
-	NPC3(b2World* world, Scene* scene, Vec2 position);
-	bool init();
+	NPC3(b2World* world, Scene* scene);
+	bool init(Vec2 position);
 	void startConversation(Scene* scene);
 };
 #endif // __NPC3_H__

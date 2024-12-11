@@ -3,19 +3,18 @@
 
 #include "cocos2d.h"
 #include "player/Player.h"
-
-class ShopLayer : public cocos2d::Layer {
+#include "base/BaseLayer.h"
+USING_NS_CC;
+class ShopLayer : public BaseLayer {
 public:
-    LayerColor* shopFrame;
-    CREATE_FUNC(ShopLayer); // Macro tạo lớp
-    Player* player;
-    ShopLayer();
+    static ShopLayer* createLayer(Player* player, Scene* scene);
+    bool init(Player* player, Scene* scene);
 private:
-    void menuCloseCallback(cocos2d::Ref* pSender); // Callback cho nút trở về
-    void menuOKCallback(cocos2d::Ref* pSender);
-    void purchaseStickItem(cocos2d::Ref* sender); // Xử lý mua vật phẩm
-    void purchaseHealthItem(cocos2d::Ref* sender);
-    void upgradeManaItem(cocos2d::Ref* pSender);
+    void menuCloseCallback(Ref* pSender); // Callback cho nút trở về
+    void menuOKCallback(Ref* pSender);
+    void purchaseStickItem(Ref* sender); // Xử lý mua vật phẩm
+    void purchaseHealthItem(Ref* sender);
+    void upgradeManaItem(Ref* pSender);
 };
 
 #endif // __SHOP_LAYER_H__

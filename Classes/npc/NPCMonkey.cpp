@@ -1,16 +1,15 @@
 ﻿#include "NPCMonkey.h"
-NPCMonkey::NPCMonkey(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+NPCMonkey::NPCMonkey(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {
 };
 
-bool NPCMonkey::init() {
+bool NPCMonkey::init(Vec2 position) {
     spriteNode = SpriteBatchNode::create("npc/NPCMonkey/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("npc/NPCMonkey/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("MonkeyNPCRun_0.png");
     Common::scaleAll(sprite, 0.03);
     sprite->setTag(Constants::TAG_NPC);
-    
-    int* userData = new int(-1);
-    sprite->setUserData(userData);
+
+    sprite->setUserData(this);
     sprite->setPosition(position);
     spriteNode->addChild(sprite);
     scene->addChild(spriteNode, 0);
@@ -37,7 +36,7 @@ bool NPCMonkey::init() {
 
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-    b2Vec2 velocity(Constants::SPEED_ENEMY* Common::scaleSizeXY(), 0);
+    b2Vec2 velocity(direction* speed* Common::scaleSizeXY(), 0);
     body->SetLinearVelocity(velocity);
     sprite->setScaleX(-sprite->getScale());
     (*bodyToSpriteMap)[body] = sprite;
