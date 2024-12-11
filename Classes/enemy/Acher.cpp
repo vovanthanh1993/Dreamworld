@@ -117,6 +117,7 @@ void Acher::update(float dt) {
                 // Reset thời gian và cờ tấn công
                 timeSinceLastAttack = 0.0f;
                 canAttack = false;
+                followPlayer();
             }
         }
     }
@@ -177,4 +178,23 @@ void Acher::hurt() {
     auto callFunc = CallFunc::create(callback);
     auto sequence = Sequence::create(animate, callFunc, nullptr);
     sprite->runAction(sequence);
+}
+
+void Acher::followPlayer() {
+    // Lấy vị trí của enemy và player
+    b2Vec2 playerPos = player->getBody()->GetPosition();
+    b2Vec2 enemyPos = body->GetPosition();
+
+    // Tính toán vector hướng từ enemy tới player
+    b2Vec2 direction = playerPos - enemyPos;
+    direction.Normalize();
+
+    if (direction.x < 0) {
+        sprite->setScaleX(-scale);
+        this->direction = -1;
+    }
+    else {
+        sprite->setScaleX(scale);
+        this->direction = 1;
+    }
 }

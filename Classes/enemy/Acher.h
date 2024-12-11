@@ -24,7 +24,7 @@ public:
 	void hit();
 	void update(float dt);
 	void die();
-	
+	void followPlayer();
 	void getDamage(int damage);
 	void hurt();
 };

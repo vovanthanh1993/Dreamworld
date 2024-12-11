@@ -340,11 +340,6 @@ void Player::loadPlayerDataInit(bool isNew) {
         healthVector.clear();
         uiNode->removeAllChildrenWithCleanup(true);
         
-        
-        initGUI();
-        initHealth();
-        readCharmFromFile();
-
         if (isNew) {
             health = maxHealth;
             stickNum = maxStickNum;
@@ -353,6 +348,11 @@ void Player::loadPlayerDataInit(bool isNew) {
             stickDamage = 10;
             eagleDamage = 10;
         }
+        initGUI();
+        initHealth();
+
+        if (!isNew)
+            readCharmFromFile();
     }
 }
 
@@ -383,6 +383,8 @@ void Player::die() {
 }
 
 void Player::updateHealth(int damage) {
+    if (!isAlive) return;
+
     health -= damage;
     updateHealthBar(health);
     if(damage >0) hurt();
@@ -390,7 +392,7 @@ void Player::updateHealth(int damage) {
     if (health <= 0) {
         healthBar->removeFromParentAndCleanup(true);
         die();
-
+        return;
     }
 }
 
@@ -703,6 +705,6 @@ void Player::setSpriteCharm(Charm* charm) {
     int y = screenSize.height;
 
     //Charm
-    charmSprite->setPosition(origin.x, y - 150 * Common::scaleSizeXY());
+    charmSprite->setPosition(origin.x+ 50 * Common::scaleSizeXY(), y - 150 * Common::scaleSizeXY());
     uiNode->addChild(charmSprite);
 }

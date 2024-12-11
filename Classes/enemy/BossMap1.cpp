@@ -19,9 +19,8 @@ bool BossMap1::init(Vec2 position) {
     sprite = Sprite::createWithSpriteFrameName("0_boss_idle_0.png");
     sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_BOSSMAP1);
-    
-    int* userData = new int(-1);
-    sprite->setUserData(userData);
+  
+    sprite->setUserData(this);
     sprite->setPosition(position);
     spriteNode->addChild(sprite);
     scene->addChild(spriteNode);

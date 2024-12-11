@@ -77,6 +77,7 @@ void VillageScene::spawnObject() {
                 player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
                 player->init(true);
                 player->isInVillage = true;
+                break;
             }
         }
     }

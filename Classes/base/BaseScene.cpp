@@ -76,6 +76,8 @@ bool BaseScene::init(string bg, string bgMusic, string mapName, bool isMoveCamer
 
 // update
 void BaseScene::update(float dt) {
+    if (!player->isAlive) return;
+
     world->Step(dt, 8, 3); // Cập nhật thế giới Box2D
     Common::updatePosition(world, bodyToSpriteMap);
 
