@@ -855,6 +855,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\Classes\item\Port.h" />
     <ClInclude Include="..\Classes\item\Stone.h" />
     <ClInclude Include="..\Classes\main\Constants.h" />
+    <ClInclude Include="..\Classes\npc\Miko.h" />
     <ClInclude Include="..\Classes\npc\SkillShopLayer.h" />
     <ClInclude Include="..\Classes\player\skill\EaglePool.h" />
     <ClInclude Include="..\Classes\player\skill\Slash.h" />
@@ -864,6 +865,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\Classes\scene\boss\Boss3Scene.h" />
     <ClInclude Include="..\Classes\scene\Map1Scene.h" />
     <ClInclude Include="..\Classes\scene\Map3Scene.h" />
+    <ClInclude Include="..\Classes\scene\MikoScene.h" />
     <ClInclude Include="..\Classes\skill\ArrowPool.h" />
     <ClInclude Include="..\Classes\skill\BoneRainPool.h" />
     <ClInclude Include="..\Classes\skill\PoisonRain.h" />
@@ -932,6 +934,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\Classes\item\Port.cpp" />
     <ClCompile Include="..\Classes\item\Stone.cpp" />
     <ClCompile Include="..\Classes\main\Constants.cpp" />
+    <ClCompile Include="..\Classes\npc\Miko.cpp" />
     <ClCompile Include="..\Classes\player\skill\EaglePool.cpp" />
     <ClCompile Include="..\Classes\player\skill\Slash.cpp" />
     <ClCompile Include="..\Classes\player\skill\SlashPool.cpp" />
@@ -940,6 +943,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\Classes\scene\boss\Boss3Scene.cpp" />
     <ClCompile Include="..\Classes\scene\Map1Scene.cpp" />
     <ClCompile Include="..\Classes\scene\Map3Scene.cpp" />
+    <ClCompile Include="..\Classes\scene\MikoScene.cpp" />
     <ClCompile Include="..\Classes\skill\ArrowPool.cpp" />
     <ClCompile Include="..\Classes\skill\BoneRainPool.cpp" />
     <ClCompile Include="..\Classes\skill\PoisonRain.cpp" />

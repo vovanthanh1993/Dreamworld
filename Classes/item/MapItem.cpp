@@ -98,11 +98,11 @@ void MapItem::spawnBrokenBridge() {
 }
 
 void MapItem::spawnStone() {
-    auto box = map->getLayer("stone");
-    if (box != nullptr) {
+    auto stoneLayer = map->getLayer("stone");
+    if (stoneLayer != nullptr) {
         for (int x = 0; x < map->getMapSize().width; ++x) {
             for (int y = 0; y < map->getMapSize().height; ++y) {
-                auto tile = box->getTileAt(Vec2(x, y));
+                auto tile = stoneLayer->getTileAt(Vec2(x, y));
                 if (tile) {
                     Stone* item = new Stone(world, scene, bodyToSpriteMap);
                     item->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
@@ -154,77 +154,82 @@ void MapItem::spawnWallAndLimit() {
 
     // Spawn limit
     auto limitLayer = map->getLayer("limit");
-    for (int x = 0; x < map->getMapSize().width; ++x) {
-        for (int y = 0; y < map->getMapSize().height; ++y) {
-            auto tile = limitLayer->getTileAt(Vec2(x, y));
-            if (tile) {
+    if (limitLayer != nullptr) {
+        for (int x = 0; x < map->getMapSize().width; ++x) {
+            for (int y = 0; y < map->getMapSize().height; ++y) {
+                auto tile = limitLayer->getTileAt(Vec2(x, y));
+                if (tile) {
 
-                // Tạo body definition
-                b2BodyDef bodyDef;
-                bodyDef.type = b2_kinematicBody; // Body tinh
-                bodyDef.position.Set(origin.x / Constants::PIXELS_PER_METER + tile->getPositionX() / Constants::PIXELS_PER_METER * Common::scaleSizeXY(), tile->getPositionY() / Constants::PIXELS_PER_METER * Common::scaleSizeXY());
+                    // Tạo body definition
+                    b2BodyDef bodyDef;
+                    bodyDef.type = b2_kinematicBody; // Body tinh
+                    bodyDef.position.Set(origin.x / Constants::PIXELS_PER_METER + tile->getPositionX() / Constants::PIXELS_PER_METER * Common::scaleSizeXY(), tile->getPositionY() / Constants::PIXELS_PER_METER * Common::scaleSizeXY());
 
-                b2Body* body = world->CreateBody(&bodyDef);
-                tile->setTag(Constants::TAG_LIMIT);
-                body->SetUserData(tile);
+                    b2Body* body = world->CreateBody(&bodyDef);
+                    tile->setTag(Constants::TAG_LIMIT);
+                    body->SetUserData(tile);
 
-                // Tạo shape definition
-                b2PolygonShape dynamicBox;
-                dynamicBox.SetAsBox((tile->getContentSize().width / 2) / Constants::PIXELS_PER_METER * Common::scaleSizeXY(),
-                    (tile->getContentSize().height / 2) / Constants::PIXELS_PER_METER * Common::scaleSizeXY());
+                    // Tạo shape definition
+                    b2PolygonShape dynamicBox;
+                    dynamicBox.SetAsBox((tile->getContentSize().width / 2) / Constants::PIXELS_PER_METER * Common::scaleSizeXY(),
+                        (tile->getContentSize().height / 2) / Constants::PIXELS_PER_METER * Common::scaleSizeXY());
 
-                //// Tạo fixture definition
-                b2FixtureDef fixtureDef;
-                fixtureDef.shape = &dynamicBox;
-                fixtureDef.density = 1.0f; // Mật độ của vật thể
-                fixtureDef.friction = 0.0f; // Ma sát
-                fixtureDef.restitution = 0; // Độ hồi phục (bouncing)
-                fixtureDef.filter.categoryBits = Constants::CATEGORY_LIMIT;
-                fixtureDef.filter.maskBits = Constants::CATEGORY_NPC | Constants::CATEGORY_ENEMY | Constants::CATEGORY_WALL | Constants::CATEGORY_STONE;
+                    //// Tạo fixture definition
+                    b2FixtureDef fixtureDef;
+                    fixtureDef.shape = &dynamicBox;
+                    fixtureDef.density = 1.0f; // Mật độ của vật thể
+                    fixtureDef.friction = 0.0f; // Ma sát
+                    fixtureDef.restitution = 0; // Độ hồi phục (bouncing)
+                    fixtureDef.filter.categoryBits = Constants::CATEGORY_LIMIT;
+                    fixtureDef.filter.maskBits = Constants::CATEGORY_NPC | Constants::CATEGORY_ENEMY | Constants::CATEGORY_WALL | Constants::CATEGORY_STONE;
 
-                //// Gán fixture cho body
-                body->CreateFixture(&fixtureDef);
+                    //// Gán fixture cho body
+                    body->CreateFixture(&fixtureDef);
+                }
             }
         }
     }
+    
 
     // Spawn limit map
     auto limitMapObject = map->getObjectGroup("limitmap");
-    for (const auto& obj : limitMapObject->getObjects()) {
-        auto object = obj.asValueMap();
+    if (limitMapObject != nullptr) {
+        for (const auto& obj : limitMapObject->getObjects()) {
+            auto object = obj.asValueMap();
 
-        // Lấy thông tin đối tượng
-        float x = origin.x / Constants::PIXELS_PER_METER + object["x"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
-        float y = object["y"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
-        float width = object["width"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
-        float height = object["height"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+            // Lấy thông tin đối tượng
+            float x = origin.x / Constants::PIXELS_PER_METER + object["x"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+            float y = object["y"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+            float width = object["width"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
+            float height = object["height"].asFloat() / Constants::PIXELS_PER_METER * Common::scaleSizeXY();
 
-        // Tạo body definition
-        b2BodyDef bodyDef;
-        bodyDef.type = b2_kinematicBody; // Hoặc b2_dynamicBody tùy vào yêu cầu
-        bodyDef.position.Set(x + width / 2, y + height / 2);
+            // Tạo body definition
+            b2BodyDef bodyDef;
+            bodyDef.type = b2_kinematicBody; // Hoặc b2_dynamicBody tùy vào yêu cầu
+            bodyDef.position.Set(x + width / 2, y + height / 2);
 
-        b2Body* body = world->CreateBody(&bodyDef);
+            b2Body* body = world->CreateBody(&bodyDef);
 
-        // Tạo shape
-        b2PolygonShape boxShape;
-        boxShape.SetAsBox(width / 2, height / 2);
+            // Tạo shape
+            b2PolygonShape boxShape;
+            boxShape.SetAsBox(width / 2, height / 2);
 
-        // Tạo fixture definition
-        b2FixtureDef fixtureDef;
-        fixtureDef.shape = &boxShape;
-        fixtureDef.density = 1.0f;
-        fixtureDef.friction = 0.0f;
-        fixtureDef.restitution = 0.0f;
-        fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
-        fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER;
+            // Tạo fixture definition
+            b2FixtureDef fixtureDef;
+            fixtureDef.shape = &boxShape;
+            fixtureDef.density = 1.0f;
+            fixtureDef.friction = 0.0f;
+            fixtureDef.restitution = 0.0f;
+            fixtureDef.filter.categoryBits = Constants::CATEGORY_WALL;
+            fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER;
 
-        body->CreateFixture(&fixtureDef);
+            body->CreateFixture(&fixtureDef);
 
-        Sprite* sprite = new Sprite();
-        sprite->setTag(Constants::TAG_LIMIT);
-        body->SetUserData(sprite);
-    }
+            Sprite* sprite = new Sprite();
+            sprite->setTag(Constants::TAG_LIMIT);
+            body->SetUserData(sprite);
+        }
+    } 
 }
 
 void MapItem::spawnEndGate() {

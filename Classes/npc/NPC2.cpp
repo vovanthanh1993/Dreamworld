@@ -1,13 +1,12 @@
 ﻿#include "NPC2.h"
 
-NPC2::NPC2(b2World* world, Scene* scene) :BaseNode(world, scene) {};
+NPC2::NPC2(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {};
 
 bool NPC2::init(Vec2 position) {
     spriteNode = SpriteBatchNode::create("NPC/NPC2/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("NPC/NPC2/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Druid_2_Idle_0.png");
     sprite->setScale(Common::scaleSizeXY());
-    //sprite->setTag(Constants::TAG_ENEMY);
     
     int* userData = new int(-1);
     sprite->setUserData(userData);
@@ -19,7 +18,6 @@ bool NPC2::init(Vec2 position) {
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác
     bodyDef.position.Set(sprite->getPositionX() / Constants::PIXELS_PER_METER, sprite->getPositionY() / Constants::PIXELS_PER_METER);
     bodyDef.fixedRotation = true;
-    //bodyDef.bullet = true;
 
     body = world->CreateBody(&bodyDef);
     body->SetUserData(sprite);
@@ -37,6 +35,8 @@ bool NPC2::init(Vec2 position) {
     fixtureDef.filter.maskBits = Constants::CATEGORY_WALL;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
+    (*bodyToSpriteMap)[body] = sprite;
+    sprite->setScaleX(-Common::scaleSizeXY());
     idle();
 
     return true;

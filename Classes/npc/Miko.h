@@ -1,6 +1,6 @@
 ﻿#pragma once
-#ifndef __NPC2_H__
-#define __NPC2_H__
+#ifndef __Miko_H__
+#define __Miko_H__
 
 #include "cocos2d.h"
 #include "main/Common.h"
@@ -14,7 +14,7 @@
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
-class NPC2:public BaseNode
+class Miko: public BaseNode
 {
 private:
 	void displayMessage(const std::string& message, Scene* scene);
@@ -22,8 +22,9 @@ private:
 	cocos2d::Label* _nameLabel; // Label hiển thị tên
 public:
 	void idle();
-	NPC2(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	Miko(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init(Vec2 position);
 	void startConversation(Scene* scene);
 };
-#endif // __NPC2_H__
+
+#endif // __Miko_H__

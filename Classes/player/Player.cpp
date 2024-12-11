@@ -563,6 +563,13 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
                 Vec2 pos = camera->getPosition();
                 inventoryLayer->setPosition(Vec2(pos.x -250*Common::scaleSizeXY(), pos.y - 250 * Common::scaleSizeXY()));
             }
+
+            if (keyCode == (EventKeyboard::KeyCode::KEY_1)) {
+                health = maxHealth;
+                mana = maxMana;
+                updateHealth(0);
+                addMana(0);
+            }
         } 
     }
     if (keyCode == (EventKeyboard::KeyCode::KEY_ESCAPE)) {

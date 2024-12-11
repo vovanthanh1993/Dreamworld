@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>miko_Idle Blinking_0.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{443,1194},{219,296}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{107,79},{219,296}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_1.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{222,898},{220,296}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{107,79},{220,296}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_10.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,300},{221,299}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{99,76},{221,299}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_11.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,1201},{221,299}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{99,76},{221,299}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_12.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{222,299}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{98,76},{222,299}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_13.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{222,599},{220,298}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{100,77},{220,298}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_14.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{222,300},{220,298}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{101,77},{220,298}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_15.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{222,1195},{220,298}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{102,77},{220,298}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_16.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{444,0},{219,297}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{104,78},{219,297}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_17.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{443,597},{219,297}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{105,78},{219,297}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{222,1494},{220,296}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{108,79},{220,296}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_3.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,1501},{221,296}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{108,79},{221,296}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_4.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{443,299},{220,297}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{107,78},{220,297}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_5.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{223,0},{220,298}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{105,77},{220,298}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{443,895},{219,298}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{104,77},{219,298}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{443,1491},{219,299}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{102,76},{219,299}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_8.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,901},{221,299}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{100,76},{221,299}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+			<key>miko_Idle Blinking_9.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,600},{221,300}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{99,75},{221,300}}</string>
+				<key>sourceSize</key>
+				<string>{219,296}</string>
+			</dict>
+
+		</dict>
+
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>2</integer>
+			<key>size</key>
+			<string>{1024,2048}</string>
+			<key>textureFileName</key>
+			<string>sprites.png</string>
+			</dict>
+		</dict>
+</plist>

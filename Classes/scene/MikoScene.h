@@ -22,23 +22,26 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#ifndef __Boss3Scene_H__
-#define __Boss3Scene_H__
-#include "enemy/BossMap3.h"
-#include "base/BaseScene.h"
-#include "scene/MikoScene.h"
+#ifndef __MikoScene_H__
+#define __MikoScene_H__
 
-class Boss3Scene : public BaseScene
+#include <string>
+#include "base/BaseScene.h"
+#include "npc/ShopLayer.h"
+#include "scene/Map1Scene.h"
+#include "npc/Miko.h"
+#include "inventory/InventoryLayer.h"
+
+class MikoScene : public BaseScene
 {
 public:
     static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
     bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
-    
-
 private:
-        void update(float dt);
-        BossMap3* bossmap3;
+        void update(float dt) override;
         void spawnObject();
+        Miko* miko;
+        void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
 };
 
-#endif // __Boss1Scene_H__
+#endif // __MikoScene_H__

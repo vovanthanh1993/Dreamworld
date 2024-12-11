@@ -1,12 +1,13 @@
 ﻿#include "NPC1.h"
 
-NPC1::NPC1(b2World* world, Scene* scene) :BaseNode(world, scene) {};
+NPC1::NPC1(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {};
 
 bool NPC1::init(Vec2 position) {
     spriteNode = SpriteBatchNode::create("NPC/NPC1/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("NPC/NPC1/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Druid_1_Idle_0.png");
     sprite->setScale(Common::scaleSizeXY());
+    
 
     sprite->setPosition(position);
     spriteNode->addChild(sprite);
@@ -34,6 +35,8 @@ bool NPC1::init(Vec2 position) {
     fixtureDef.filter.maskBits = Constants::CATEGORY_WALL;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
+    (*bodyToSpriteMap)[body] = sprite;
+    sprite->setScaleX(-Common::scaleSizeXY());
     idle();
 
     return true;

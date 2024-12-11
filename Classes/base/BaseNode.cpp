@@ -9,13 +9,6 @@ BaseNode::BaseNode(b2World* world, Scene* scene, Vec2 position, unordered_map<b2
     
 }
 
-BaseNode::BaseNode(b2World* world, Scene* scene, Vec2 position) {
-
-    this->scene = scene;
-    this->world = world;
-    this->position = position;
-}
-
 BaseNode::BaseNode(b2World* world, Scene* scene) {
     this->scene = scene;
     this->world = world;

@@ -232,6 +232,12 @@
     <ClCompile Include="..\Classes\base\BaseEnemy.cpp">
       <Filter>Source Files\Classes\base</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\scene\MikoScene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\npc\Miko.cpp">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h">
@@ -2548,6 +2554,12 @@
       <Filter>Source Files\Classes\base</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\npc\SkillShopLayer.h">
+      <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\MikoScene.h">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\npc\Miko.h">
       <Filter>Source Files\Classes\npc</Filter>
     </ClInclude>
   </ItemGroup>
