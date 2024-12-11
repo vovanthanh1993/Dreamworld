@@ -338,6 +338,12 @@ void Player::loadPlayerDataInit(bool isNew) {
         inFile.close();
         healthVector.clear();
         uiNode->removeAllChildrenWithCleanup(true);
+        
+        
+        initGUI();
+        initHealth();
+        readCharmFromFile();
+
         if (isNew) {
             health = maxHealth;
             stickNum = maxStickNum;
@@ -346,10 +352,6 @@ void Player::loadPlayerDataInit(bool isNew) {
             stickDamage = 10;
             eagleDamage = 10;
         }
-        
-        initGUI();
-        initHealth();
-        readCharmFromFile();
     }
 }
 

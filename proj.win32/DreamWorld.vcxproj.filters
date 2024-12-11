@@ -229,6 +229,9 @@
     <ClCompile Include="..\Classes\inventory\Charm.cpp">
       <Filter>Source Files\Classes\Inventory</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\base\BaseEnemy.cpp">
+      <Filter>Source Files\Classes\base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h">
@@ -2543,6 +2546,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\inventory\Charm.h">
       <Filter>Source Files\Classes\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\base\BaseEnemy.h">
+      <Filter>Source Files\Classes\base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -184,8 +184,8 @@ void BossMap3::spawnBat() {
                     Bat* w = batPool->getFromPool();
                     if (w != nullptr) {
                         w->player = player;
-                        w->attackRange = 1000;
                         w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                        w->attackRange = 1000;
 
                         // Lặp qua tất cả các fixture của body
                         for (b2Fixture* fixture = w->getBody()->GetFixtureList(); fixture; fixture = fixture->GetNext()) {

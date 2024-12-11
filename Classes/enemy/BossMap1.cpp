@@ -182,7 +182,7 @@ int BossMap1::getHealth() {
     return health;
 }
 
-void BossMap1::updateHealth(int damage) {
+void BossMap1::getDamage(int damage) {
         health -= damage;
         updateHealthBar(health);
         hurt();

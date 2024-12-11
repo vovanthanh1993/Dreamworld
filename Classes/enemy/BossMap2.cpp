@@ -274,8 +274,8 @@ void BossMap2::throwWarrior() {
                     Warrior* w = warriorPool->getFromPool();
                     if (w != nullptr) {
                         w->player = player;
-                        w->speed = 8;
                         w->init(sprite->getPosition());
+                        w->speed = 8;
                         w->isFollowPlayer = true;
                         w->followPlayer();
                     }

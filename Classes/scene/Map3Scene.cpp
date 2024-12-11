@@ -83,9 +83,9 @@ void Map3Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = hedgehogLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                Hedgehog* w = new Hedgehog(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
+                Hedgehog* w = new Hedgehog(world, this, bodyToSpriteMap);
                 w->player = player;
-                w->init();
+                w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
             }
         }
     }
@@ -96,9 +96,9 @@ void Map3Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = golemLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                Golem* w = new Golem(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
+                Golem* w = new Golem(world, this, bodyToSpriteMap);
                 w->player = player;
-                w->init();
+                w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
             }
         }
     }

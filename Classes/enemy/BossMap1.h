@@ -44,7 +44,7 @@ public:
 	void setHealth(int h);
 	int getHealth();
 	void charge();
-	void updateHealth(int damage);
+	void getDamage(int damage);
 	void updateHealthBar(float health);
 	void createHealthBar();
 	void updateHealthBarPosition();

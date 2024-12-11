@@ -833,6 +833,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\base\BaseEnemy.h" />
     <ClInclude Include="..\Classes\base\BaseLayer.h" />
     <ClInclude Include="..\Classes\base\BaseNode.h" />
     <ClInclude Include="..\Classes\base\BaseScene.h" />
@@ -909,6 +910,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\Git\Dreamworld\Classes\skill\SlashEnemy.h" />
     <ClInclude Include="D:\Git\Dreamworld\proj.win32\main.h" />
     <ClInclude Include="D:\Git\Dreamworld\proj.win32\resource.h" />
+    <ClCompile Include="..\Classes\base\BaseEnemy.cpp" />
     <ClCompile Include="..\Classes\base\BaseLayer.cpp" />
     <ClCompile Include="..\Classes\base\BaseNode.cpp" />
     <ClCompile Include="..\Classes\base\BaseScene.cpp" />

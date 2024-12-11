@@ -53,9 +53,9 @@ void Map1Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = layerAcher->getTileAt(Vec2(x, y));
             if (tile) {
-                Acher* w = new Acher(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
+                Acher* w = new Acher(world, this, bodyToSpriteMap);
                 w->player = player;
-                w->init();
+                w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
                 
             }
         }

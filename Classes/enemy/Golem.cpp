@@ -1,8 +1,19 @@
 ﻿#include "Golem.h"
-Golem::Golem(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+Golem::Golem(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseEnemy(world, scene, bodyToSpriteMap) {
+   
 };
 
-bool Golem::init() {
+bool Golem::init(Vec2 position) {
+    attackCooldown = 2.0f;  // Thời gian chờ giữa các đợt tấn công
+    timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
+    canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
+    isAlive = true;
+    scale = 0.35;
+    attackRange = 3;
+    health = 13;
+    direction = -1;
+    speed = 6;
+
     spriteNode = SpriteBatchNode::create("enemy/Golem/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/Golem/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("0_Golem_Idle_0.png");

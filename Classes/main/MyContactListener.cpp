@@ -28,9 +28,9 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             if (tagA != Constants::TAG_WALL && tagA != Constants::TAG_BRIDGE_BREAK) {
                 player->addMana(1);
             }
-            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->die();
-            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->die();
-            else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(player->stickDamage);
+            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->getDamage(player->stickDamage);
+            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->getDamage(player->stickDamage);
+            else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->stickDamage);
             else if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->stickDamage);
             else if (tagA == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->stickDamage);
             else if (tagA == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(player->stickDamage);
@@ -42,9 +42,9 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             if (tagB != Constants::TAG_WALL && tagB != Constants::TAG_BRIDGE_BREAK) {
                 player->addMana(1);
             }
-            if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->die();
-            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->die();
-            else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(player->stickDamage);
+            if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->getDamage(player->stickDamage);
+            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->getDamage(player->stickDamage);
+            else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->stickDamage);
             else if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->stickDamage);
             else if (tagB == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->stickDamage);
             else if (tagB == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(player->stickDamage);
@@ -56,9 +56,9 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         // Tha qua trung ke dich
         if (tagB == Constants::TAG_EAGLE) {
             bodiesToRemove.insert(bodyB);
-            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->die();
-            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->die();
-            else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(player->eagleDamage);
+            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->getDamage(player->eagleDamage);
+            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->getDamage(player->eagleDamage);
+            else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->eagleDamage);
             else if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->eagleDamage);
             else if (tagA == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->eagleDamage);
             else if (tagA == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(player->eagleDamage);
@@ -68,9 +68,9 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         
         if (tagA == Constants::TAG_EAGLE) {
             bodiesToRemove.insert(bodyA);
-            if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->die();
-            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->die();
-            else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(player->eagleDamage);
+            if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->getDamage(player->eagleDamage);
+            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->getDamage(player->eagleDamage);
+            else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->eagleDamage);
             else if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->eagleDamage);
             else if (tagB == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->eagleDamage);
             else if (tagB == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(player->eagleDamage);
@@ -83,10 +83,10 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         // chem trung ke dich
         if (tagA == Constants::TAG_SLASH || tagB == Constants::TAG_SLASH) {
             player->addMana(1);
-            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->die();
-            else if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->die();
-            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->die();
-            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->die();
+            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->getDamage(player->slashDamage);
+            else if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->getDamage(player->slashDamage);
+            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->getDamage(player->slashDamage);
+            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->getDamage(player->slashDamage);
             else if (tagA == Constants::TAG_HED) static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(player->slashDamage);
             else if (tagB == Constants::TAG_HED) static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(player->slashDamage);
             else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(player->slashDamage);
@@ -95,7 +95,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->slashDamage);
 
 
-            else if (tagA == Constants::TAG_BOSSMAP1 || tagB == Constants::TAG_BOSSMAP1) bossmap1->updateHealth(player->slashDamage);
+            else if (tagA == Constants::TAG_BOSSMAP1 || tagB == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->slashDamage);
             else if (tagA == Constants::TAG_BOSSMAP2 || tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->slashDamage);
             else if (tagA == Constants::TAG_BOSSMAP3 || tagB == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->slashDamage);
         }

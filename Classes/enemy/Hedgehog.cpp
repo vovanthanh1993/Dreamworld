@@ -1,8 +1,18 @@
 ﻿#include "Hedgehog.h"
-Hedgehog::Hedgehog(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+Hedgehog::Hedgehog(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseEnemy(world, scene, bodyToSpriteMap) {
 };
 
-bool Hedgehog::init() {
+bool Hedgehog::init(Vec2 position) {
+    attackCooldown = 0.0f;  // Thời gian chờ giữa các đợt tấn công
+    timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
+    canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
+    isAlive = true;
+    scale = 0.4f;
+    attackRange = 15;
+    health = 13;
+    direction = -1;
+    speed = 50;
+
     spriteNode = SpriteBatchNode::create("enemy/hedgehog/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/hedgehog/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Hed_idle_0.png");

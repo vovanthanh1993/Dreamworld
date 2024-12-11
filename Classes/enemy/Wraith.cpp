@@ -1,9 +1,14 @@
 ﻿#include "Wraith.h"
 
-Wraith::Wraith(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+Wraith::Wraith(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseEnemy(world, scene, bodyToSpriteMap) {
 };
 
-bool Wraith::init() {
+bool Wraith::init(Vec2 position) {
+    attackCooldown = 3.0f;  // Thời gian chờ giữa các đợt tấn công
+    timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
+    canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
+    attackRange = 25;
+
     spriteNode = SpriteBatchNode::create("Enemy/Wraith/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Wraith/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Wraith_3_Idle_0.png");
@@ -109,7 +114,7 @@ void Wraith::update(float dt) {
             canAttack = true;
         }
         if (canAttack) {
-            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= Constants::ATTACK_RANGE_WRAITH * Common::scaleSizeXY()) {
+            if (b2Distance(body->GetPosition(), player->getBody()->GetPosition()) <= attackRange * Common::scaleSizeXY()) {
 
                 // Attack logic
                 hit();

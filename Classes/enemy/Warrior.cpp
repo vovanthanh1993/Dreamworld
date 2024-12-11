@@ -1,17 +1,24 @@
 ﻿#include "Warrior.h"
-Warrior::Warrior(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+Warrior::Warrior(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseEnemy(world, scene, bodyToSpriteMap) {
 };
 
 bool Warrior::init(Vec2 position) {
-    scale = 0.2;
+    attackCooldown = 1.5f;  // Thời gian chờ giữa các đợt tấn công
+    timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
+    canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
+    attackRange = 3;
+    scale = 0.4;
     isAlive = true;
     isActive = true;
     canAttack = false;
+    direction = -1;
+    speed = 6;
+    health = 11;
 
     spriteNode = SpriteBatchNode::create("enemy/warrior/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/warrior/sprites.plist");
-    sprite = Sprite::createWithSpriteFrameName("Idle_0.png");
-    sprite->setScale(Constants::WARRIOR_SCALE* Common::scaleSizeXY());
+    sprite = Sprite::createWithSpriteFrameName("war_idle_0.png");
+    sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_WAR);
     
     sprite->setUserData(this);
@@ -57,7 +64,7 @@ bool Warrior::init(Vec2 position) {
 void Warrior::idle() {
     if (isAlive) {
         sprite->stopAllActions();
-        auto animateW = Animate::create(Common::createAnimation("Idle_", 11, 0.04));
+        auto animateW = Animate::create(Common::createAnimation("war_idle_", 11, 0.04));
         animateW->retain();
         sprite->runAction(RepeatForever::create(animateW));
     } 
@@ -66,7 +73,7 @@ void Warrior::idle() {
 void Warrior::walk() {
     if (isAlive) {
         sprite->stopAllActions();
-        auto animateW = Animate::create(Common::createAnimation("Walking_", 17, 0.04));
+        auto animateW = Animate::create(Common::createAnimation("war_walking_", 17, 0.04));
         animateW->retain();
         sprite->runAction(RepeatForever::create(animateW));
     }  
@@ -77,7 +84,7 @@ void Warrior::die() {
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
-    auto animate = Animate::create(Common::createAnimation("Dying_", 14, 0.05));
+    auto animate = Animate::create(Common::createAnimation("war_dying_", 14, 0.05));
     Effect::enemyDie();
 
     // Lặp qua tất cả các fixture của body
@@ -111,7 +118,7 @@ void Warrior::hit() {
     
     if (isAlive) {
         sprite->stopAllActions();
-        auto animate = Animate::create(Common::createAnimation("Attacking_", 11, 0.015));
+        auto animate = Animate::create(Common::createAnimation("war_attacking_", 11, 0.015));
 
         auto callback = [this]() {
             if (isAlive) {
@@ -172,5 +179,26 @@ void Warrior::followPlayer() {
     }
     b2Vec2 velocity = Common::scaleSizeXY() * speed * direction;
     body->SetLinearVelocity(velocity);
+}
+
+void Warrior::getDamage(int damage) {
+    health -= damage;
+    if (health <= 0) {
+        die();
+        return;
+    }
+    hurt();
+}
+
+void Warrior::hurt() {
+    sprite->stopAllActions();
+    auto animate = Animate::create(Common::createAnimation("war_hurt_", 11, 0.02));
+    animate->setTag(4);
+    auto callback = [this]() {
+        walk();
+        };
+    auto callFunc = CallFunc::create(callback);
+    auto sequence = Sequence::create(animate, callFunc, nullptr);
+    sprite->runAction(sequence);
 }
 

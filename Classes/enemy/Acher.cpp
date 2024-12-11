@@ -1,16 +1,24 @@
 ﻿#include "Acher.h"
 
-Acher::Acher(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
+Acher::Acher(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseEnemy(world, scene, bodyToSpriteMap) {
+    attackCooldown = 2.5f;  // Thời gian chờ giữa các đợt tấn công
+    timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
+    canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
+    isAlive = true;
+    attackRange = 15;
+    direction = -1;
+    health = 11;
+    scale = 0.3;
 };
 
-bool Acher::init() {
+bool Acher::init(Vec2 position) {
     if (!Node::init()) {
         return false;
     }
     spriteNode = SpriteBatchNode::create("Enemy/Acher/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Enemy/Acher/sprites.plist");
-    sprite = Sprite::createWithSpriteFrameName("0_Archer_Idle_0.png");
-    sprite->setScale(Constants::ACHER_SCALE * Common::scaleSizeXY());
+    sprite = Sprite::createWithSpriteFrameName("archer_Idle Blinking_0.png");
+    sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_ACHER);
     sprite->setUserData(this);
     sprite->setPosition(position);
@@ -38,7 +46,7 @@ bool Acher::init() {
     fixtureDef.filter.maskBits = Constants::CATEGORY_STICK| Constants::CATEGORY_WALL| Constants::CATEGORY_LIMIT| Constants::CATEGORY_SLASH;
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
-    sprite->setScaleX(-Constants::ACHER_SCALE * Common::scaleSizeXY());
+    sprite->setScaleX(-scale * Common::scaleSizeXY());
     idle();
     (*bodyToSpriteMap)[body] = sprite;
 
@@ -52,7 +60,7 @@ bool Acher::init() {
 void Acher::idle() {
     if (isAlive) {
         sprite->stopAllActions();
-        auto animateW = Animate::create(Common::createAnimation("0_Archer_Idle_", 9, 0.04));
+        auto animateW = Animate::create(Common::createAnimation("archer_Idle Blinking_", 17, 0.04));
         animateW->retain();
         sprite->runAction(RepeatForever::create(animateW));
     } 
@@ -61,7 +69,7 @@ void Acher::idle() {
 void Acher::walk() {
     if (isAlive) {
         sprite->stopAllActions();
-        auto animateW = Animate::create(Common::createAnimation("Walking_", 17, 0.04));
+        auto animateW = Animate::create(Common::createAnimation("archer_walking_", 17, 0.04));
         animateW->retain();
         sprite->runAction(RepeatForever::create(animateW));
     }  
@@ -71,7 +79,7 @@ void Acher::hit() {
     // Run animation with a callback
     if (isAlive) {
         sprite->stopAllActions();
-        auto animate = Animate::create(Common::createAnimation("0_Archer_Shooting_", 8, 0.05));
+        auto animate = Animate::create(Common::createAnimation("archer_Shooting_", 8, 0.05));
         auto callback = [this]() {
             if (sprite != nullptr) {
                 Arrow* arrow = arrowPool->getFromPool();
@@ -121,7 +129,7 @@ void Acher::die() {
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
-    auto animate = Animate::create(Common::createAnimation("0_Archer_Dying_", 14, 0.05));
+    auto animate = Animate::create(Common::createAnimation("archer_Dying_", 14, 0.05));
     Effect::enemyDie();
 
     // Lặp qua tất cả các fixture của body
@@ -144,6 +152,27 @@ void Acher::die() {
             Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, Common::randomNum(1, 3));
             BaseNode::destroyNode();
         }
+        };
+    auto callFunc = CallFunc::create(callback);
+    auto sequence = Sequence::create(animate, callFunc, nullptr);
+    sprite->runAction(sequence);
+}
+
+void Acher::getDamage(int damage) {
+    health -= damage;
+    if (health <= 0) {
+        die();
+        return;
+    }
+    hurt();
+}
+
+void Acher::hurt() {
+    sprite->stopAllActions();
+    auto animate = Animate::create(Common::createAnimation("archer_Hurt_", 11, 0.04));
+    animate->setTag(4);
+    auto callback = [this]() {
+        idle();
         };
     auto callFunc = CallFunc::create(callback);
     auto sequence = Sequence::create(animate, callFunc, nullptr);

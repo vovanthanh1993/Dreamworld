@@ -1,12 +1,19 @@
 ﻿#include "Bat.h"
-Bat::Bat(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {
+Bat::Bat(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseEnemy(world, scene, bodyToSpriteMap) {
+     
 };
 
 bool Bat::init(Vec2 position) {
+    attackCooldown = 0;  // Thời gian chờ giữa các đợt tấn công
+    timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
+    canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
     scale = 0.4;
+    health = 1;
+    attackRange = 20;
+    direction = 1;
+    speed = 6;
     isActive = true;
     isAlive = true;
-    health = 1;
 
     spriteNode = SpriteBatchNode::create("enemy/Bat/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/Bat/sprites.plist");
