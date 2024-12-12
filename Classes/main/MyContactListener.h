@@ -16,6 +16,7 @@
 #include "main/Effect.h"
 #include "enemy/Golem.h"
 #include "enemy/Bat.h"
+#include "enemy/Wukong.h"
 #include "main/Constants.h"
 #include "skill/StoneBall.h"
 #include "inventory/Charm.h"

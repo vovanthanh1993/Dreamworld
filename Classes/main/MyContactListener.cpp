@@ -36,6 +36,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagA == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(player->stickDamage);
             else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(player->stickDamage);
             else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(player->stickDamage);
+            else if (tagA == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteA->getUserData())->getDamage(player->stickDamage);
         }
         if (tagA == Constants::TAG_STICK) {
             bodiesToRemove.insert(bodyA);
@@ -50,6 +51,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagB == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(player->stickDamage);
             else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(player->stickDamage);
             else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->stickDamage);
+            else if (tagB == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteB->getUserData())->getDamage(player->stickDamage);
         }
         
 
@@ -64,10 +66,12 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagA == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(player->eagleDamage);
             else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(player->eagleDamage);
             else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(player->eagleDamage);
+            else if (tagA == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteA->getUserData())->getDamage(player->eagleDamage);
         }
         
         if (tagA == Constants::TAG_EAGLE) {
             bodiesToRemove.insert(bodyA);
+
             if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->getDamage(player->eagleDamage);
             else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->getDamage(player->eagleDamage);
             else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->eagleDamage);
@@ -76,6 +80,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagB == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(player->eagleDamage);
             else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(player->eagleDamage);
             else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->eagleDamage);
+            else if (tagB == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteB->getUserData())->getDamage(player->eagleDamage);
 
         }
         
@@ -83,7 +88,9 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         // chem trung ke dich
         if (tagA == Constants::TAG_SLASH || tagB == Constants::TAG_SLASH) {
             player->addMana(1);
-            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->getDamage(player->slashDamage);
+            if (tagA == Constants::TAG_WUKONG) static_cast<Wukong*>(spriteA->getUserData())->getDamage(player->slashDamage);
+            else if (tagB == Constants::TAG_WUKONG) static_cast<Wukong*>(spriteB->getUserData())->getDamage(player->slashDamage);
+            else if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->getDamage(player->slashDamage);
             else if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->getDamage(player->slashDamage);
             else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->getDamage(player->slashDamage);
             else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->getDamage(player->slashDamage);
@@ -184,6 +191,15 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         if (tagB == Constants::TAG_WAR && tagA == Constants::TAG_LIMIT) {
             // Lấy vận tốc hiện tại của đối tượng
             Warrior* w = static_cast<Warrior*>(spriteB->getUserData());
+            w->direction *= -1;
+            bodyB->SetLinearVelocity(b2Vec2(w->direction * w->speed * Common::scaleSizeXY(), 0));
+            spriteB->setScaleX(-spriteB->getScaleX());
+        }
+
+        // check enemy and limit
+        if (tagB == Constants::TAG_WUKONG && tagA == Constants::TAG_LIMIT) {
+            // Lấy vận tốc hiện tại của đối tượng
+            Wukong* w = static_cast<Wukong*>(spriteB->getUserData());
             w->direction *= -1;
             bodyB->SetLinearVelocity(b2Vec2(w->direction * w->speed * Common::scaleSizeXY(), 0));
             spriteB->setScaleX(-spriteB->getScaleX());

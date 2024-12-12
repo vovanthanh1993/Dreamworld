@@ -22,21 +22,32 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#ifndef __Boss3Scene_H__
-#define __Boss3Scene_H__
-#include "enemy/BossMap3.h"
-#include "base/BaseScene.h"
-#include "scene/MikoScene.h"
+#ifndef __MemoryScene_H__
+#define __MemoryScene_H__
 
-class Boss3Scene : public BaseScene
+#include <string>
+#include "base/BaseScene.h"
+#include "npc/ShopLayer.h"
+#include "scene/Map1Scene.h"
+#include "npc/Miko.h"
+#include "inventory/InventoryLayer.h"
+#include "enemy/Wukong.h"
+#include "enemy/WukongPool.h"
+#include "enemy/BatPool.h"
+#include "enemy/Bat.h"
+
+class MemoryScene : public BaseScene
 {
 public:
     static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
     bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
 private:
-        void update(float dt);
-        BossMap3* bossmap3;
+        void update(float dt) override;
         void spawnObject();
+        void spawnWukong();
+        void spawnBat();
+        WukongPool* wukongPool;
+        BatPool* batPool;
 };
 
-#endif // __Boss1Scene_H__
+#endif // __MemoryScene_H__

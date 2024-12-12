@@ -178,7 +178,6 @@ void BossMap3::update(float dt) {
 }
 
 void BossMap3::spawnBat() {
-
     // spawn bat
     int i = Common::randomNum(1, 5);
     int count = 0;
@@ -213,6 +212,7 @@ void BossMap3::spawnBat() {
         }
     }
 }
+
 void BossMap3::setHealth(int h) {
     health = h;
 };

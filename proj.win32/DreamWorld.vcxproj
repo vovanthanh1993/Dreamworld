@@ -843,6 +843,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\Classes\enemy\Golem.h" />
     <ClInclude Include="..\Classes\enemy\Hedgehog.h" />
     <ClInclude Include="..\Classes\enemy\WarriorPool.h" />
+    <ClInclude Include="..\Classes\enemy\Wukong.h" />
+    <ClInclude Include="..\Classes\enemy\WukongPool.h" />
     <ClInclude Include="..\Classes\inventory\Charm.h" />
     <ClInclude Include="..\Classes\inventory\InventoryLayer.h" />
     <ClInclude Include="..\Classes\item\BackStick.h" />
@@ -865,6 +867,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\Classes\scene\boss\Boss3Scene.h" />
     <ClInclude Include="..\Classes\scene\Map1Scene.h" />
     <ClInclude Include="..\Classes\scene\Map3Scene.h" />
+    <ClInclude Include="..\Classes\scene\MemoryScene.h" />
     <ClInclude Include="..\Classes\scene\MikoScene.h" />
     <ClInclude Include="..\Classes\skill\ArrowPool.h" />
     <ClInclude Include="..\Classes\skill\BoneRainPool.h" />
@@ -922,6 +925,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\Classes\enemy\Golem.cpp" />
     <ClCompile Include="..\Classes\enemy\Hedgehog.cpp" />
     <ClCompile Include="..\Classes\enemy\WarriorPool.cpp" />
+    <ClCompile Include="..\Classes\enemy\Wukong.cpp" />
+    <ClCompile Include="..\Classes\enemy\WukongPool.cpp" />
     <ClCompile Include="..\Classes\inventory\Charm.cpp" />
     <ClCompile Include="..\Classes\inventory\InventoryLayer.cpp" />
     <ClCompile Include="..\Classes\item\BackStick.cpp" />
@@ -943,6 +948,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\Classes\scene\boss\Boss3Scene.cpp" />
     <ClCompile Include="..\Classes\scene\Map1Scene.cpp" />
     <ClCompile Include="..\Classes\scene\Map3Scene.cpp" />
+    <ClCompile Include="..\Classes\scene\MemoryScene.cpp" />
     <ClCompile Include="..\Classes\scene\MikoScene.cpp" />
     <ClCompile Include="..\Classes\skill\ArrowPool.cpp" />
     <ClCompile Include="..\Classes\skill\BoneRainPool.cpp" />

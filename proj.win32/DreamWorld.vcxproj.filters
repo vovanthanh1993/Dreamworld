@@ -238,6 +238,15 @@
     <ClCompile Include="..\Classes\npc\Miko.cpp">
       <Filter>Source Files\Classes\npc</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\enemy\Wukong.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\MemoryScene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\enemy\WukongPool.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h">
@@ -2561,6 +2570,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\npc\Miko.h">
       <Filter>Source Files\Classes\npc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\Wukong.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\MemoryScene.h">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\WukongPool.h">
+      <Filter>Source Files\Classes\enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

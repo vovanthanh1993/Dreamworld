@@ -112,7 +112,6 @@ void VillageScene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = npc2Layer->getTileAt(Vec2(x, y));
             if (tile) {
-
                 npc2 = new NPC2(world, this, bodyToSpriteMap);
                 npc2->init(Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
             }

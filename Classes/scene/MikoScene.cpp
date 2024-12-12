@@ -38,7 +38,7 @@ void MikoScene::update(float dt) {
 
     if (contactListener->isNext) {
         player->savePlayerDataInit();
-        auto newScene = Map1Scene::createScene("map/bglv1.png", "sound/bg1.mp3", "map1", true);
+        auto newScene = MemoryScene::createScene("map/bglv1.png", "sound/bg1.mp3", "MemoryMap", false);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
         contactListener->isNext = false;
     }
@@ -49,6 +49,9 @@ void MikoScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::E
         if (keyCode == (EventKeyboard::KeyCode::KEY_E)) {
             if (b2Distance(player->getBody()->GetPosition(), miko->getBody()->GetPosition()) <= Constants::TALK_RANGE* Common::scaleSizeXY()) {
                 //shopLayer = ShopLayer::createLayer(player, this);
+                Port* p = new Port(world, this, bodyToSpriteMap);
+                p->map = map;
+                p->init();
             }
         }
     }
@@ -67,7 +70,7 @@ void MikoScene::spawnObject() {
             auto tile = playerLayer->getTileAt(Vec2(x, y));
             if (tile) {
                 player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
-                player->init(true);
+                player->init(false);
                 player->isInVillage = true;
                 break;
             }
@@ -84,18 +87,6 @@ void MikoScene::spawnObject() {
                 miko->init(Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
 
                 break;
-            }
-        }
-    }
-
-    // Spawn player
-    auto npc1Layer = map->getLayer("npc1");
-    for (int x = 0; x < map->getMapSize().width; ++x) {
-        for (int y = 0; y < map->getMapSize().height; ++y) {
-            auto tile = npc1Layer->getTileAt(Vec2(x, y));
-            if (tile) {
-                NPC1* npc1 = new NPC1(world, this, bodyToSpriteMap);
-                npc1->init(Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
             }
         }
     }

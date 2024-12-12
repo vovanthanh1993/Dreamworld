@@ -1,18 +1,11 @@
 ﻿#include "Port.h"
-
-Sprite* Port::getSprite() {
-    return sprite;
-}
-
-b2Body* Port::getBody() {
-    return body;
-}
-Port::Port(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap, TMXTiledMap* map) {
+Port::Port(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {};
+bool Port::init() {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    auto box = map->getLayer("port");
+    auto port = map->getLayer("port");
     for (int x = 0; x < map->getMapSize().width; ++x) {
         for (int y = 0; y < map->getMapSize().height; ++y) {
-            auto tile = box->getTileAt(Vec2(x, y));
+            auto tile = port->getTileAt(Vec2(x, y));
             if (tile) {
                 
                 auto spriteNode = SpriteBatchNode::create("map/port/sprites.png");
@@ -51,8 +44,9 @@ Port::Port(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* _bodyT
 
                 // Gán fixture cho body
                 body->CreateFixture(&fixtureDef);
-                (*_bodyToSpriteMap)[body] = sprite;
+                (*bodyToSpriteMap)[body] = sprite;
             }
         }
     }
+    return true;
 }
