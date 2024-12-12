@@ -357,6 +357,7 @@ void MyContactListener::removeObject() {
                 b2Vec2 velocity(0, 60 * Common::scaleSizeXY());
                 charm->getBody()->SetLinearVelocity(velocity);
                 Effect::chest();
+                Common::spawnGem(world, scene, pos, bodyToSpriteMap, Common::randomNum(2, 6));
             }
             else if (Constants::TAG_RAIN == tag) {
                 Effect::destroyRain(world, scene, pos);

@@ -38,7 +38,7 @@ bool InventoryLayer::init(Player* player, Scene* scene)
     //auto background = Sprite::create("inventory/bg.png");
     auto background = Sprite::create("ui/shopbg.png");
     background->setPosition(Vec2(150 *Common::scaleSizeXY(), 200 *Common::scaleSizeXY())); // Giữa khung
-    background->setScale(1.2 * Common::scaleSizeXY());
+    background->setScale(1.5 * Common::scaleSizeXY());
     layer->addChild(background, -1); // Thêm hình nền dưới các mục khác
 
     auto header = Sprite::create("ui/header_upgrade.png");
@@ -56,7 +56,7 @@ bool InventoryLayer::init(Player* player, Scene* scene)
         );
         
         offItem->setScale(0.5 * Common::scaleSizeXY());
-        offItem->setPosition(-60* Common::scaleSizeXY(), spaceY);
+        offItem->setPosition(-120* Common::scaleSizeXY(), spaceY);
         offItem->setUserData(charm);
         if (charm->getIsActive()) {
             offItem->setColor(cocos2d::Color3B::RED);
@@ -64,10 +64,11 @@ bool InventoryLayer::init(Player* player, Scene* scene)
         offItem->setTag(charm->id);
         // Tạo các mục shop
         auto itemLabel = MenuItemLabel::create(
-            Label::createWithSystemFont(charm->effect, "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+            Label::createWithSystemFont(charm->effect, "fonts/Marker Felt.ttf", 25 * Common::scaleSizeXY())
         );
-        itemLabel->setPosition(20* Common::scaleSizeXY(), spaceY);
+        itemLabel->setPosition(-40* Common::scaleSizeXY(), spaceY);
         itemLabel->setAnchorPoint(Vec2(0,1));
+        itemLabel->setColor(cocos2d::Color3B(0, 0, 0));
         layer->addChild(itemLabel);
 
         spaceY -= 100* Common::scaleSizeXY();
