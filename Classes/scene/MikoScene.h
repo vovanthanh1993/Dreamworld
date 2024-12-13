@@ -32,6 +32,7 @@
 #include "npc/Miko.h"
 #include "inventory/InventoryLayer.h"
 #include "item/Port.h"
+#include "scene/VillageScene.h"
 
 class MikoScene : public BaseScene
 {
@@ -43,6 +44,7 @@ private:
         void spawnObject();
         Miko* miko;
         void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
+        bool isHasGate = false;
 };
 
 #endif // __MikoScene_H__

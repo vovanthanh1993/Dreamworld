@@ -30,7 +30,7 @@ namespace common {
 		static void zoomAction(MenuItemImage* item);
 		static int playBackgroundMusic(float volume, string path);
 		static void changeSpriteColor(Sprite* sprite, bool& isHit);
-		static void showBossText(Scene* scene, string text);
+		static void showText(Scene* scene, string text);
 		static void saveRound(int round);
 		static int loadRound();
 		static void zoomAction(MenuItemLabel* item);

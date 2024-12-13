@@ -161,8 +161,8 @@ void MenuScene::loadingbar() {
            //auto villageScene = VillageScene::createScene("map/bglv1.png", "sound/bg1.mp3", "village", false);
            // auto villageScene =Boss3Scene::createScene("map/bg2.png", "Enemy/Bossmap3/sound/bg.mp3", "boss3", false);
            //auto villageScene = Map3Scene::createScene("map/bg2.png", "sound/bg3.mp3", "map3", true);
-            //auto villageScene = MikoScene::createScene("map/bg2.png", "sound/bg3.mp3", "mikomap", false);
-            auto villageScene = MemoryScene::createScene("map/bglv1.png", "sound/bg1.mp3", "MemoryMap", false);
+            auto villageScene = MikoScene::createScene("map/bg2.png", "sound/bg3.mp3", "mikomap", false);
+            //auto villageScene = MemoryScene::createScene("map/bglv1.png", "sound/bg1.mp3", "MemoryMap", false);
             Director::getInstance()->replaceScene(villageScene);
         }
         }, 0.01f, "updateLoadingBar");// thoi gian chay 1% la 0,01s, ten cua schedule la "updateLoadingBar"

@@ -39,6 +39,8 @@
 #include "item/HeartPool.h"
 #include "item/BackStick.h"
 #include "item/BackStickPool.h"
+#include "item/Soul.h"
+#include "item/SoulPool.h"
 
 class MemoryScene : public BaseScene
 {
@@ -54,8 +56,11 @@ private:
         WukongFlyPool* wukongFlyPool;
         HeartPool* heartPool;
         BackStickPool* backStickPool;
+        SoulPool* soulPool;
         void spawnHeart();
         void spawnBackStick();
+        void spawnSoul();
+        bool isEnd = false;
 };
 
 #endif // __MemoryScene_H__

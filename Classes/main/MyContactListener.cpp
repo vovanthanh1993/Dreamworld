@@ -308,6 +308,15 @@ void MyContactListener::BeginContact(b2Contact* contact) {
                 bodiesToRemove.insert(bodyA);
                 
             }
+            if (tagB == Constants::TAG_SOUL) {
+                player->addSoul();
+                bodiesToRemove.insert(bodyB);
+            }
+            if (tagA == Constants::TAG_SOUL) {
+                player->addSoul();
+                bodiesToRemove.insert(bodyA);
+
+            }
             if (tagB == Constants::TAG_HEART) {
                 player->healing(1);
                 bodiesToRemove.insert(bodyB);
@@ -399,12 +408,10 @@ void MyContactListener::removeObject() {
                 type = 2;
                 Effect::smoke(world, scene, pos);
             }
-            else if (Constants::TAG_HEART == tag) {
+            else if (Constants::TAG_HEART == tag || Constants::TAG_STICK_ITEM == tag || Constants::TAG_SOUL == tag) {
                 type = 2;
             }
-            else if (Constants::TAG_STICK_ITEM == tag) {
-                type = 2;
-            }
+            
             /*else if (Constants::TAG_FIRE_RAIN == tag) {
                 Effect::destroyFireRain(world, scene, pos);
             }

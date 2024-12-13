@@ -41,7 +41,8 @@ private:
 	StickPool* stickPool;
 	EaglePool* eaglePool;
 	int direction = 1;
-	
+	int soul = 0;
+
 public:
 	Sprite* charmSprite = nullptr;
 	Vector<Charm*> charmVector;
@@ -120,5 +121,10 @@ public:
 	float slashDamage = 10;
 	float stickDamage = 10;
 	float eagleDamage = 10;
+
+	int getSoul();
+	void addSoul();
+	bool isComplete();
+	
 };
 

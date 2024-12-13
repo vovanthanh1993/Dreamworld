@@ -23,6 +23,13 @@ bool MikoScene::init(string bg, string bgMusic, string mapName, bool isMoveCamer
         return false;
     }
 
+    if (player->isComplete()) {
+        Common::showText(this, "Good work");
+    }
+    else {
+        Common::showText(this, "Is it you again,little monkey?");
+    }
+
     // Press
     auto keyboardListener = EventListenerKeyboard::create();
     keyboardListener->onKeyPressed = CC_CALLBACK_2(MikoScene::onKeyPressed, this);
@@ -39,6 +46,9 @@ void MikoScene::update(float dt) {
     if (contactListener->isNext) {
         player->savePlayerDataInit();
         auto newScene = MemoryScene::createScene("map/bglv1.png", "sound/bg1.mp3", "MemoryMap", false);
+        if (player->isComplete()) {
+            newScene  = VillageScene::createScene("map/bglv1.png", "sound/bg1.mp3", "village", false);;
+        }
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
         contactListener->isNext = false;
     }
@@ -49,9 +59,13 @@ void MikoScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::E
         if (keyCode == (EventKeyboard::KeyCode::KEY_E)) {
             if (b2Distance(player->getBody()->GetPosition(), miko->getBody()->GetPosition()) <= Constants::TALK_RANGE* Common::scaleSizeXY()) {
                 //shopLayer = ShopLayer::createLayer(player, this);
-                Port* p = new Port(world, this, bodyToSpriteMap);
-                p->map = map;
-                p->init();
+                if (!isHasGate) {
+                    Port* p = new Port(world, this, bodyToSpriteMap);
+                    p->map = map;
+                    p->init();
+                    isHasGate = true;
+                    Common::showText(this, "Enter the gate, and you will find what you are looking for...");
+                }
             }
         }
     }

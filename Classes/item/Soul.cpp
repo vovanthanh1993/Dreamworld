@@ -1,13 +1,13 @@
-﻿#include "Heart.h"
-Heart::Heart(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {};
-bool Heart::init(Vec2 position) {
-    scale = 0.08;
+﻿#include "Soul.h"
+Soul::Soul(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {};
+bool Soul::init(Vec2 position) {
+    scale = 0.3;
     isActive = true;
 
-    auto sprite = Sprite::create("Item/gourd/heart.png");
+    auto sprite = Sprite::create("Item/soul/soul.png");
     sprite->setPosition(position);
     sprite->setScale(scale * Common::scaleSizeXY());
-    sprite->setTag(Constants::TAG_HEART);
+    sprite->setTag(Constants::TAG_SOUL);
     scene->addChild(sprite);
     sprite->setUserData(this);
 

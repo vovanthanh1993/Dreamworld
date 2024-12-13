@@ -6,7 +6,7 @@ bool BackStick::init(Vec2 position) {
 
     auto sprite = Sprite::create("Item/backstick/backstick2.png");
     sprite->setPosition(position);
-    sprite->setScale(0.35 * Common::scaleSizeXY());
+    sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_STICK_ITEM);
     scene->addChild(sprite);
     sprite->setUserData(this);

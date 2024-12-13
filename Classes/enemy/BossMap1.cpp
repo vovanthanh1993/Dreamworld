@@ -91,16 +91,16 @@ void BossMap1::die() {
 
     int round = Common::loadRound();
     if (round == 1) {
-        Common::showBossText(scene, "Hmm. It really reminds me of the way you killed me back then...");
+        Common::showText(scene, "Hmm. It really reminds me of the way you killed me back then...");
     }
     else if (round == 2) {
-        Common::showBossText(scene, "We will meet again...");
+        Common::showText(scene, "We will meet again...");
     }
     else if (round == 3) {
-        Common::showBossText(scene, "No. I lost again...");
+        Common::showText(scene, "No. I lost again...");
     }
     else {
-        Common::showBossText(scene, "You still have to kill me a thousand times...");
+        Common::showText(scene, "You still have to kill me a thousand times...");
     }
 
     // Lặp qua tất cả các fixture của body

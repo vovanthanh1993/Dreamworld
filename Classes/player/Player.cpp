@@ -312,6 +312,7 @@ void Player::savePlayerDataInit() {
         outFile << slashDamage << "\n";
         outFile << stickDamage << "\n";
         outFile << eagleDamage << "\n";
+        outFile << soul << "\n";
         outFile.close();
         std::cout << "Data saved successfully." << std::endl;
     }
@@ -336,6 +337,7 @@ void Player::loadPlayerDataInit(bool isNew) {
         inFile >> slashDamage;
         inFile >> stickDamage;
         inFile >> eagleDamage;
+        inFile >> soul;
         inFile.close();
         healthVector.clear();
         uiNode->removeAllChildrenWithCleanup(true);
@@ -347,6 +349,7 @@ void Player::loadPlayerDataInit(bool isNew) {
             slashDamage = 10;
             stickDamage = 10;
             eagleDamage = 10;
+            soul = 0;
         }
         initGUI();
         initHealth();
@@ -714,4 +717,24 @@ void Player::setSpriteCharm(Charm* charm) {
     //Charm
     charmSprite->setPosition(origin.x+ 50 * Common::scaleSizeXY(), y - 150 * Common::scaleSizeXY());
     uiNode->addChild(charmSprite);
+}
+
+int Player::getSoul() {
+    return soul;
+}
+void Player::addSoul() {
+    soul++;
+    if(soul == 1) Common::showText(scene, "Enter the gate, and you will find what you are looking for...");
+    else if(soul == 2) Common::showText(scene, "Hehehe");
+    else if (soul == 3) Common::showText(scene, "Hehehe");
+    else if (soul == 4) Common::showText(scene, "Hehehe");
+    else if (soul == 5) Common::showText(scene, "Hehehe");
+    else if (soul == 6) Common::showText(scene, "Hehehe");
+    else if (soul == 7) Common::showText(scene, "Hehehe");
+    else if (soul == 8) Common::showText(scene, "Hehehe");
+    else if (soul == 9) Common::showText(scene, "Hehehe");
+}
+
+bool Player::isComplete() {
+    return soul >= 10;
 }

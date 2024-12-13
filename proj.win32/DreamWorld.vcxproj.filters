@@ -259,6 +259,12 @@
     <ClCompile Include="..\Classes\item\BackStickPool.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\item\Soul.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\item\SoulPool.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h">
@@ -2602,6 +2608,12 @@
       <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\item\BackStickPool.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\item\Soul.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\item\SoulPool.h">
       <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
   </ItemGroup>

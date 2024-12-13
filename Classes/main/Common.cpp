@@ -131,9 +131,14 @@ namespace common {
         auto sequence = Sequence::create(delay, resetColor, nullptr);
         sprite->runAction(sequence);
     }
-    void Common::showBossText(Scene* scene, string text) {
+    void Common::showText(Scene* scene, string text) {
+        if (scene->getChildByName("text") != nullptr) {
+            scene->removeChildByName("text");
+        }
+
         Size screenSize = Director::getInstance()->getVisibleSize();
         auto label = Label::createWithTTF(text, "fonts/Marker Felt.ttf", 60);
+        label->setName("text");
         label->setPosition(scene->getDefaultCamera()->getPosition());
         
 
