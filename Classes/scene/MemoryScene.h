@@ -33,8 +33,12 @@
 #include "inventory/InventoryLayer.h"
 #include "enemy/Wukong.h"
 #include "enemy/WukongPool.h"
-#include "enemy/BatPool.h"
-#include "enemy/Bat.h"
+#include "enemy/WukongFlyPool.h"
+#include "enemy/WukongFly.h"
+#include "item/Heart.h"
+#include "item/HeartPool.h"
+#include "item/BackStick.h"
+#include "item/BackStickPool.h"
 
 class MemoryScene : public BaseScene
 {
@@ -47,7 +51,11 @@ private:
         void spawnWukong();
         void spawnBat();
         WukongPool* wukongPool;
-        BatPool* batPool;
+        WukongFlyPool* wukongFlyPool;
+        HeartPool* heartPool;
+        BackStickPool* backStickPool;
+        void spawnHeart();
+        void spawnBackStick();
 };
 
 #endif // __MemoryScene_H__

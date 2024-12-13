@@ -247,6 +247,18 @@
     <ClCompile Include="..\Classes\enemy\WukongPool.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\enemy\WukongFly.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\enemy\WukongFlyPool.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\item\HeartPool.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\item\BackStickPool.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h">
@@ -2579,6 +2591,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\enemy\WukongPool.h">
       <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\WukongFly.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\WukongFlyPool.h">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\item\HeartPool.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\item\BackStickPool.h">
+      <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

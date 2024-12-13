@@ -33,10 +33,21 @@ bool MemoryScene::init(string bg, string bgMusic, string mapName, bool isMoveCam
         }, 3, "spawn_wukong");
 
     // Pool for bat
-    batPool = new BatPool(world, this, bodyToSpriteMap, 10);
+    wukongFlyPool = new WukongFlyPool(world, this, bodyToSpriteMap, 10);
     this->schedule([this](float dt) {
         spawnBat();
         }, 5, "spawn_bat");
+    
+    heartPool = new HeartPool(world, this, bodyToSpriteMap, 1);
+    this->schedule([this](float dt) {
+        spawnHeart();
+        }, 10, "spawn_heart");
+
+    backStickPool = new BackStickPool(world, this, bodyToSpriteMap, 1);
+    this->schedule([this](float dt) {
+        spawnBackStick();
+        }, 10, "spawn_back_stick");
+
     return true;
 }
 
@@ -77,31 +88,33 @@ void MemoryScene::spawnBat() {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     int i = Common::randomNum(1, 4);
     int count = 0;
-    auto batLayer = map->getLayer("bat");
-    for (int x = 0; x < map->getMapSize().width; ++x) {
-        for (int y = 0; y < map->getMapSize().height; ++y) {
-            auto tile = batLayer->getTileAt(Vec2(x, y));
-            if (tile) {
-                if (i == ++count) {
-                    Bat* w = batPool->getFromPool();
-                    if (w != nullptr) {
-                        w->player = player;
-                        w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                        w->attackRange = 1000;
+    auto layer = map->getLayer("wukongfly");
+    if (layer != nullptr) {
+        for (int x = 0; x < map->getMapSize().width; ++x) {
+            for (int y = 0; y < map->getMapSize().height; ++y) {
+                auto tile = layer->getTileAt(Vec2(x, y));
+                if (tile) {
+                    if (i == ++count) {
+                        WukongFly* w = wukongFlyPool->getFromPool();
+                        if (w != nullptr) {
+                            w->player = player;
+                            w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                            w->attackRange = 1000;
 
-                        // Lặp qua tất cả các fixture của body
-                        for (b2Fixture* fixture = w->getBody()->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
-                            // Lấy dữ liệu bộ lọc hiện tại
-                            b2Filter filter = fixture->GetFilterData();
+                            // Lặp qua tất cả các fixture của body
+                            for (b2Fixture* fixture = w->getBody()->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
+                                // Lấy dữ liệu bộ lọc hiện tại
+                                b2Filter filter = fixture->GetFilterData();
 
-                            // Cập nhật categoryBits và maskBits
-                            filter.categoryBits = Constants::CATEGORY_ENEMY;
-                            filter.maskBits = Constants::CATEGORY_STICK | Constants::CATEGORY_SLASH | Constants::CATEGORY_PLAYER;
+                                // Cập nhật categoryBits và maskBits
+                                filter.categoryBits = Constants::CATEGORY_ENEMY;
+                                filter.maskBits = Constants::CATEGORY_STICK | Constants::CATEGORY_SLASH | Constants::CATEGORY_PLAYER;
 
-                            // Thiết lập lại dữ liệu bộ lọc
-                            fixture->SetFilterData(filter);
+                                // Thiết lập lại dữ liệu bộ lọc
+                                fixture->SetFilterData(filter);
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
             }
@@ -114,16 +127,64 @@ void MemoryScene::spawnWukong() {
     int i = Common::randomNum(1, 4);
     int count = 0;
     auto wukongLayer = map->getLayer("wukong");
-    for (int x = 0; x < map->getMapSize().width; ++x) {
-        for (int y = 0; y < map->getMapSize().height; ++y) {
-            auto tile = wukongLayer->getTileAt(Vec2(x, y));
-            if (tile) {
-                if (i == ++count) {
-                    Wukong* w = wukongPool->getFromPool();
-                    if (w != nullptr) {
-                        w->player = player;
-                        w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                        break;
+    if (wukongLayer != nullptr) {
+        for (int x = 0; x < map->getMapSize().width; ++x) {
+            for (int y = 0; y < map->getMapSize().height; ++y) {
+                auto tile = wukongLayer->getTileAt(Vec2(x, y));
+                if (tile) {
+                    if (i == ++count) {
+                        Wukong* w = wukongPool->getFromPool();
+                        if (w != nullptr) {
+                            w->player = player;
+                            w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+void MemoryScene::spawnHeart() {
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    int i = Common::randomNum(1, 4);
+    int count = 0;
+    auto wukongLayer = map->getLayer("heart");
+    if (wukongLayer != nullptr) {
+        for (int x = 0; x < map->getMapSize().width; ++x) {
+            for (int y = 0; y < map->getMapSize().height; ++y) {
+                auto tile = wukongLayer->getTileAt(Vec2(x, y));
+                if (tile) {
+                    if (i == ++count) {
+                        Heart* w = heartPool->getFromPool();
+                        if (w != nullptr) {
+                            w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+void MemoryScene::spawnBackStick() {
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    int i = Common::randomNum(1, 4);
+    int count = 0;
+    auto wukongLayer = map->getLayer("backstick");
+    if (wukongLayer != nullptr) {
+        for (int x = 0; x < map->getMapSize().width; ++x) {
+            for (int y = 0; y < map->getMapSize().height; ++y) {
+                auto tile = wukongLayer->getTileAt(Vec2(x, y));
+                if (tile) {
+                    if (i == ++count) {
+                        BackStick* w = backStickPool->getFromPool();
+                        if (w != nullptr) {
+                            w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                            break;
+                        }
                     }
                 }
             }

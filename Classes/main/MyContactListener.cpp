@@ -37,6 +37,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(player->stickDamage);
             else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(player->stickDamage);
             else if (tagA == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteA->getUserData())->getDamage(player->stickDamage);
+            else if (tagA == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteA->getUserData())->getDamage(player->stickDamage);
         }
         if (tagA == Constants::TAG_STICK) {
             bodiesToRemove.insert(bodyA);
@@ -52,6 +53,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(player->stickDamage);
             else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->stickDamage);
             else if (tagB == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteB->getUserData())->getDamage(player->stickDamage);
+            else if (tagB == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteB->getUserData())->getDamage(player->stickDamage);
         }
         
 
@@ -67,6 +69,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(player->eagleDamage);
             else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(player->eagleDamage);
             else if (tagA == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteA->getUserData())->getDamage(player->eagleDamage);
+            else if (tagA == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteA->getUserData())->getDamage(player->eagleDamage);
         }
         
         if (tagA == Constants::TAG_EAGLE) {
@@ -81,6 +84,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(player->eagleDamage);
             else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->eagleDamage);
             else if (tagB == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteB->getUserData())->getDamage(player->eagleDamage);
+            else if (tagB == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteB->getUserData())->getDamage(player->eagleDamage);
 
         }
         
@@ -100,6 +104,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(player->slashDamage);
             else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(player->slashDamage);
             else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->slashDamage);
+            else if (tagB == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteB->getUserData())->getDamage(player->slashDamage);
 
 
             else if (tagA == Constants::TAG_BOSSMAP1 || tagB == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->slashDamage);
@@ -138,6 +143,16 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         }
         else if (tagB == Constants::TAG_PLAYER && tagA == Constants::TAG_BAT) {
             static_cast<Bat*>(spriteA->getUserData())->getDamage(1);
+            player->getDamage(2);
+        }
+
+        // Player va cham voi Bat
+        if (tagA == Constants::TAG_PLAYER && tagB == Constants::TAG_WUKONG_FLY) {
+            static_cast<WukongFly*>(spriteB->getUserData())->getDamage(1);
+            player->getDamage(2);
+        }
+        else if (tagB == Constants::TAG_PLAYER && tagA == Constants::TAG_WUKONG_FLY) {
+            static_cast<WukongFly*>(spriteA->getUserData())->getDamage(1);
             player->getDamage(2);
         }
 
@@ -291,6 +306,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             if (tagA == Constants::TAG_HEART) {
                 player->healing(1);
                 bodiesToRemove.insert(bodyA);
+                
             }
             if (tagB == Constants::TAG_HEART) {
                 player->healing(1);
@@ -383,6 +399,12 @@ void MyContactListener::removeObject() {
                 type = 2;
                 Effect::smoke(world, scene, pos);
             }
+            else if (Constants::TAG_HEART == tag) {
+                type = 2;
+            }
+            else if (Constants::TAG_STICK_ITEM == tag) {
+                type = 2;
+            }
             /*else if (Constants::TAG_FIRE_RAIN == tag) {
                 Effect::destroyFireRain(world, scene, pos);
             }
@@ -398,10 +420,7 @@ void MyContactListener::removeObject() {
             world->DestroyBody(body);
             body = nullptr;
             sprite->removeFromParentAndCleanup(true);
-            sprite = nullptr;
-            
-            
-            
+            sprite = nullptr; 
     }
     // Xóa danh sách body đã xóa
     bodiesToRemove.clear();

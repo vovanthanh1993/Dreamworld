@@ -2,14 +2,14 @@
 BackStick::BackStick(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {};
 bool BackStick::init(Vec2 position) {
     scale = 0.35;
+    isActive = true;
 
     auto sprite = Sprite::create("Item/backstick/backstick2.png");
     sprite->setPosition(position);
     sprite->setScale(0.35 * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_STICK_ITEM);
     scene->addChild(sprite);
-    auto rotateAction = RotateBy::create(2.0f, 360); // Thời gian 2 giây, góc 360 độ
-    sprite->runAction(RepeatForever::create(rotateAction)); // Lặp lại mãi mãi
+    sprite->setUserData(this);
 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody; // Hoặc loại cơ thể phù hợp khác

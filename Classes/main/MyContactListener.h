@@ -17,11 +17,13 @@
 #include "enemy/Golem.h"
 #include "enemy/Bat.h"
 #include "enemy/Wukong.h"
+#include "enemy/WukongFly.h"
 #include "main/Constants.h"
 #include "skill/StoneBall.h"
 #include "inventory/Charm.h"
 #include "npc/NPCMonkey.h"
 #include "item/Bridge.h"
+#include "item/Heart.h"
 
 using namespace constants;
 using namespace common;

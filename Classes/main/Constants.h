@@ -84,6 +84,7 @@ namespace constants {
 		static const int TAG_STONE_BALL = 33;
 		static const int TAG_EQUIPMENT = 34;
 		static const int TAG_WUKONG = 35;
+		static const int TAG_WUKONG_FLY = 36;
 		
 
 		static const int MAX_HEALTH = 10;
