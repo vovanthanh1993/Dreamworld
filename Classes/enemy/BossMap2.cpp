@@ -109,16 +109,16 @@ void BossMap2::die() {
 
     int round = Common::loadRound();
     if (round == 1) {
-        Common::showText(scene, "You don't know who I am, do you?");
+        Common::showText(scene, "You don't know who I am, do you?", 3);
     }
     else if (round == 2) {
-        Common::showText(scene, "Next time we meet, I won't hold back...");
+        Common::showText(scene, "Next time we meet, I won't hold back...", 3);
     }
     else if (round == 3) {
-        Common::showText(scene, "Ha! Ha! Ha!");
+        Common::showText(scene, "Ha! Ha! Ha!", 3);
     }
     else {
-        Common::showText(scene, "I will come back...");
+        Common::showText(scene, "I will come back...", 3);
     }
     
     Effect::soundCreepyLaughter();

@@ -45,6 +45,12 @@ private:
         Miko* miko;
         void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
         bool isHasGate = false;
+        int index = 0;
+        vector<string> chatVector = { "This is Dream World, a place where the souls of the deceased are kept...", 
+            "World", 
+            "C++", 
+            "Programming" };
+        ;
 };
 
 #endif // __MikoScene_H__

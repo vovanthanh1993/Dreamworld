@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="24" tileheight="24" infinite="0" nextlayerid="9" nextobjectid="4">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="24" tileheight="24" infinite="0" nextlayerid="9" nextobjectid="6">
  <tileset firstgid="1" name="Cave - Platforms" tilewidth="24" tileheight="24" tilecount="37107" columns="217">
   <image source="Cave - Platforms.png" width="5222" height="4111"/>
  </tileset>
  <layer id="1" name="bg2" width="80" height="45">
   <data encoding="base64" compression="zlib">
-   eJzt0MVtBFEUBdG/m+nJxczMGZiZOQMzM2dgZuboXEm01LKqpLN9unohmJmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmf3fzlMhXOASV7jGDW5xh3s84BFPeMYLXvGGd3zgE1/4xg9+U/HsPeXuWSo5u+fSIcxjAYtYwjJWsIo1rGMDm9jCNnawiz3s4wCHOMIxTtLx/G+Gu7Pp5OxujUJoQzs60IkudKMHvehDPwYwiCEMYwSjGMM4JjCJKUxH8fyvmbstUXJ252RCyEUe8lGAQhShGCUoRRnKUYFKVKEaNahFHerRgEY0ZeL5XxZ3szPJ2f0H3wNdXQ==
+   eJzt1ElOlFEUhuE7q2YBVQVIp2NBQBQUREV2ACIgAiKduAMapbND+hVAlVRDq4gCK5BWpFmHiiAoDHhHlTitUKk/5HuTZ3pzcpJ7jFFKKaWUUkoppZRSSimllFJKKaWUUkop5XIZ44YHcYhHAi4gEUlIRgpScdEV64mt1Q/28RO/sIff2McB/uAQR/iLfzjW/v7rq9uYZaxgFWtYxwa+YRPfsYVt7LhjPbG1GvUYMwYvfHiPcfgRQBAhTGASU55YT3w2RXK3LunvhYvkbp1of+EiuVu7ul3hIrlb0+fkdimlVKzy2bi3GIcfAQQRwgQmMYVpzGAWH/ARc/iEeXzGFyxgEUu26Mw7xrtem3XmbrMb047neIEOdKIL3ejBS7zCa7zBW/TiHfrQjwEMYgjDGLFHZ38tvNtqt87c9x3GlOIBylCOCjxEJR6hCtWowWPU4gnqUI8GNKIJT9GMZ47o7K+Yd0sc1pk73WnMFWQgE1m4imxcw3XkIBc3cBN5yMctFOA27uAuCnEPRc7o7O8y76Y5rTP3KaZgqzQ=
   </data>
  </layer>
  <objectgroup id="4" name="limitmap">
@@ -19,7 +19,7 @@
  </layer>
  <layer id="6" name="miko" width="80" height="45">
   <data encoding="base64" compression="zlib">
-   eJztzkENAAAIBKCLYP+wzhTOh5CABAAAAAAAAAAAAAAAgA1d1wMAPhscCQEP
+   eJztzkENAAAIBKBLYFb7v4yhbpCABAAAAAAAAAAAAAAA+KxrewAAXDQ6JgB/
   </data>
  </layer>
  <layer id="2" name="bg1" width="80" height="45">
@@ -29,10 +29,12 @@
  </layer>
  <objectgroup id="3" name="wall">
   <object id="1" x="-4" y="1000" width="1922" height="80.6667"/>
+  <object id="4" x="1192" y="821" width="292" height="47"/>
+  <object id="5" x="1622" y="723.5" width="292" height="47"/>
  </objectgroup>
  <layer id="8" name="port" width="80" height="45">
   <data encoding="base64" compression="zlib">
-   eJztziEBAAAIA7AHoH8eolEAhcFsCZYAAAAAAAAAAAAAALDp+h4AAMDdANZsAM0=
+   eJztzgENAAAIA6BHsH9ZjaFukIAEAAAAAAAAAADu69oeAAAAAAD8MtGiARA=
   </data>
  </layer>
 </map>

@@ -24,10 +24,10 @@ bool MikoScene::init(string bg, string bgMusic, string mapName, bool isMoveCamer
     }
 
     if (player->isComplete()) {
-        Common::showText(this, "Good work");
+        Common::showText(this, "Good work", 1000);
     }
     else {
-        Common::showText(this, "Is it you again,little monkey?");
+        Common::showText(this, "Is it you again,little monkey?", 1000);
     }
 
     // Press
@@ -59,12 +59,23 @@ void MikoScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::E
         if (keyCode == (EventKeyboard::KeyCode::KEY_E)) {
             if (b2Distance(player->getBody()->GetPosition(), miko->getBody()->GetPosition()) <= Constants::TALK_RANGE* Common::scaleSizeXY()) {
                 //shopLayer = ShopLayer::createLayer(player, this);
-                if (!isHasGate) {
+                if (!isHasGate && !player->isComplete()) {
                     Port* p = new Port(world, this, bodyToSpriteMap);
                     p->map = map;
                     p->init();
                     isHasGate = true;
-                    Common::showText(this, "Enter the gate, and you will find what you are looking for...");
+                    Common::showText(this, "Enter the gate, collect 10 souls for me, and I will reveal the truth to you...", 1000);
+                }
+                if (player->isComplete()) {
+                    
+                    if(index < chatVector.size()) Common::showText(this, chatVector[index], 1000);
+                    if (!isHasGate && index == chatVector.size() -1) {
+                        Port* p = new Port(world, this, bodyToSpriteMap);
+                        p->map = map;
+                        p->init();
+                        isHasGate = true;
+                    }
+                    index++;
                 }
             }
         }

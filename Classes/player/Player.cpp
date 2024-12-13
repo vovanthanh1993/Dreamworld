@@ -724,17 +724,17 @@ int Player::getSoul() {
 }
 void Player::addSoul() {
     soul++;
-    if(soul == 1) Common::showText(scene, "Enter the gate, and you will find what you are looking for...");
-    else if(soul == 2) Common::showText(scene, "Hehehe");
-    else if (soul == 3) Common::showText(scene, "Hehehe");
-    else if (soul == 4) Common::showText(scene, "Hehehe");
-    else if (soul == 5) Common::showText(scene, "Hehehe");
-    else if (soul == 6) Common::showText(scene, "Hehehe");
-    else if (soul == 7) Common::showText(scene, "Hehehe");
-    else if (soul == 8) Common::showText(scene, "Hehehe");
-    else if (soul == 9) Common::showText(scene, "Hehehe");
+    if(soul == 1) Common::showText(scene, "This is Dream World, a place where the souls of the deceased are kept...", 1000);
+    else if(soul == 2) Common::showText(scene, "Hehehe", 1000);
+    else if (soul == 3) Common::showText(scene, "Hehehe", 1000);
+    else if (soul == 4) Common::showText(scene, "Hehehe", 1000);
+    else if (soul == 5) Common::showText(scene, "Hehehe", 1000);
+    else if (soul == 6) Common::showText(scene, "Hehehe", 1000);
+    else if (soul == 7) Common::showText(scene, "Hehehe", 1000);
+    else if (soul == 8) Common::showText(scene, "Hehehe", 1000);
+    else if (soul == 9) Common::showText(scene, "Hehehe", 1000);
 }
 
 bool Player::isComplete() {
-    return soul >= 10;
+    return soul >= 5;
 }

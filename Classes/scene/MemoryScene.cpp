@@ -46,7 +46,7 @@ bool MemoryScene::init(string bg, string bgMusic, string mapName, bool isMoveCam
     backStickPool = new BackStickPool(world, this, bodyToSpriteMap, 1);
     this->schedule([this](float dt) {
         spawnBackStick();
-        }, 10, "spawn_back_stick");
+        }, 8, "spawn_back_stick");
 
     soulPool = new SoulPool(world, this, bodyToSpriteMap, 1);
     this->schedule([this](float dt) {

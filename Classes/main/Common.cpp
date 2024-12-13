@@ -131,21 +131,21 @@ namespace common {
         auto sequence = Sequence::create(delay, resetColor, nullptr);
         sprite->runAction(sequence);
     }
-    void Common::showText(Scene* scene, string text) {
+    void Common::showText(Scene* scene, string text, float fadeOutTime) {
         if (scene->getChildByName("text") != nullptr) {
             scene->removeChildByName("text");
         }
 
         Size screenSize = Director::getInstance()->getVisibleSize();
-        auto label = Label::createWithTTF(text, "fonts/Marker Felt.ttf", 60);
+        auto label = Label::createWithTTF(text, "fonts/Marker Felt.ttf", 50* scaleSizeXY());
         label->setName("text");
         label->setPosition(scene->getDefaultCamera()->getPosition());
         
 
         label->setOpacity(0);
         scene->addChild(label,2);
-        auto fadeIn = FadeIn::create(3.0f); // 2 giây cho hiệu ứng fade in
-        auto fadeOut = FadeOut::create(3.0f); // 5 giây cho hiệu ứng fade out
+        auto fadeIn = FadeIn::create(2.0f);
+        auto fadeOut = FadeOut::create(fadeOutTime);
         auto sequence = Sequence::create(fadeIn, fadeOut, nullptr);
         label->runAction(sequence);
     }
