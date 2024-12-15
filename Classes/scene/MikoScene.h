@@ -46,10 +46,22 @@ private:
         void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
         bool isHasGate = false;
         int index = 0;
-        vector<string> chatVector = { "This is Dream World, a place where the souls of the deceased are kept...", 
-            "World", 
-            "C++", 
-            "Programming" };
+        vector<string> welcomeChatVector = {
+            "So, you failed in the last attempt!",
+            "Then let me introduce myself again from the beginning...",
+            "This is Dream World, a place where the souls of the deceased are kept...",
+            "My name is Miko, the guardian of the gate to the memories of this forest...",
+            "If you want to escape this forest, you must let go of the attachments and sorrows from the past...",
+            "This gate will lead you to the land of memories..." };
+        ;
+        vector<string> completeChatVector = {
+            "Originally, both you and I had already died and become trapped in this forest...",
+            "We have made many mistakes in the past..."
+            "I have been imprisoned here for over 1,000 years to guide people like you...",
+            "If I want to leave, someone must accept to take my place..",
+            "If you step into the gate on your right, you will be freed from here...",
+            "If you step into the gate on your left, you will become me, waiting here for the next one...",
+            "The choice is yours..." };
         ;
 };
 

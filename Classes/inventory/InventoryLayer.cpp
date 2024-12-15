@@ -56,7 +56,7 @@ bool InventoryLayer::init(Player* player, Scene* scene)
         );
         
         offItem->setScale(0.5 * Common::scaleSizeXY());
-        offItem->setPosition(-120* Common::scaleSizeXY(), spaceY);
+        offItem->setPosition(-150* Common::scaleSizeXY(), spaceY);
         offItem->setUserData(charm);
         if (charm->getIsActive()) {
             offItem->setColor(cocos2d::Color3B::RED);
@@ -66,7 +66,7 @@ bool InventoryLayer::init(Player* player, Scene* scene)
         auto itemLabel = MenuItemLabel::create(
             Label::createWithSystemFont(charm->effect, "fonts/Marker Felt.ttf", 25 * Common::scaleSizeXY())
         );
-        itemLabel->setPosition(-40* Common::scaleSizeXY(), spaceY);
+        itemLabel->setPosition(-80* Common::scaleSizeXY(), spaceY);
         itemLabel->setAnchorPoint(Vec2(0,1));
         itemLabel->setColor(cocos2d::Color3B(0, 0, 0));
         layer->addChild(itemLabel);

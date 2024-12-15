@@ -35,7 +35,7 @@ bool GUILayer::init(Player* player, Scene* scene) {
     layer->addChild(background, -1); // Thêm hình nền dưới các mục khác
 
     auto header = Sprite::create("ui/header_fight.png");
-    header->setPosition(Vec2(150, 370) * Common::scaleSizeXY());
+    header->setPosition(Vec2(150 * Common::scaleSizeX(), 370 * Common::scaleSizeY()));
     header->setScale(Common::scaleSizeXY());
     layer->addChild(header);
     

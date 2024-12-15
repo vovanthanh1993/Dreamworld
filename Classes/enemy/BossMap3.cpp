@@ -37,7 +37,7 @@ bool BossMap3::init(Vec2 position) {
 
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
-    fixtureDef.density = 10000.0f;
+    fixtureDef.density = 100000.0f;
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_ENEMY;
@@ -143,6 +143,7 @@ void BossMap3::die() {
     auto callback2 = [this]() {
             if (!isAlive) {
                 Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, 10);
+                Common::spawnCharm(world, scene, sprite->getPosition(), bodyToSpriteMap, Common::randomNum(1, 4));
                 BaseNode::destroyNode();
             }
         };

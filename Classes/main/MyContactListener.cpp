@@ -392,13 +392,9 @@ void MyContactListener::removeObject() {
                 type = 2;
             } 
             else if (Constants::TAG_CHEST == tag) {
-                //Common::spawnGem(world, scene, pos, bodyToSpriteMap, Common::randomNum(3, 10));
-                Charm* charm = new Charm(world, scene, bodyToSpriteMap);
-                charm->init(pos);
-                b2Vec2 velocity(0, 60 * Common::scaleSizeXY());
-                charm->getBody()->SetLinearVelocity(velocity);
                 Effect::chest();
-                Common::spawnGem(world, scene, pos, bodyToSpriteMap, Common::randomNum(2, 6));
+                Common::spawnGem(world, scene, pos, bodyToSpriteMap, Common::randomNum(0, 6));
+                Common::spawnCharm(world, scene, pos, bodyToSpriteMap, 1);
             }
             else if (Constants::TAG_RAIN == tag) {
                 Effect::destroyRain(world, scene, pos);

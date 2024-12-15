@@ -2583,9 +2583,6 @@
     <ClInclude Include="..\Classes\npc\SkillShopLayer.h">
       <Filter>Source Files\Classes\npc</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\scene\MikoScene.h">
-      <Filter>Source Files\Classes\scene</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\npc\Miko.h">
       <Filter>Source Files\Classes\npc</Filter>
     </ClInclude>
@@ -2615,6 +2612,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\item\SoulPool.h">
       <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\MikoScene.h">
+      <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

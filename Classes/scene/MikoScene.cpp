@@ -58,25 +58,21 @@ void MikoScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::E
     if (player->isEnable) {
         if (keyCode == (EventKeyboard::KeyCode::KEY_E)) {
             if (b2Distance(player->getBody()->GetPosition(), miko->getBody()->GetPosition()) <= Constants::TALK_RANGE* Common::scaleSizeXY()) {
-                //shopLayer = ShopLayer::createLayer(player, this);
-                if (!isHasGate && !player->isComplete()) {
+                auto chat = welcomeChatVector;
+                if (player->isComplete()) {
+                    chat = completeChatVector;
+                }
+                if (!isHasGate && index == chat.size() -1) {
                     Port* p = new Port(world, this, bodyToSpriteMap);
                     p->map = map;
                     p->init();
                     isHasGate = true;
-                    Common::showText(this, "Enter the gate, collect 10 souls for me, and I will reveal the truth to you...", 1000);
                 }
-                if (player->isComplete()) {
-                    
-                    if(index < chatVector.size()) Common::showText(this, chatVector[index], 1000);
-                    if (!isHasGate && index == chatVector.size() -1) {
-                        Port* p = new Port(world, this, bodyToSpriteMap);
-                        p->map = map;
-                        p->init();
-                        isHasGate = true;
-                    }
+                if (index < chat.size()) {
+                    Common::showText(this, chat[index], 1000);
                     index++;
                 }
+                
             }
         }
     }

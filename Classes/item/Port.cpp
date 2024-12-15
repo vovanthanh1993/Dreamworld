@@ -11,7 +11,7 @@ bool Port::init() {
                 auto spriteNode = SpriteBatchNode::create("map/port/sprites.png");
                 SpriteFrameCache::getInstance()->addSpriteFramesWithFile("map/port/sprites.plist");
                 sprite = Sprite::createWithSpriteFrameName("Explosion_0.png");
-                sprite->setPosition(Vec2(origin.x+x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE));
+                sprite->setPosition(Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
                 sprite->setScale(Constants::PORT_SCALE * Common::scaleSizeXY());
                 sprite->setTag(Constants::TAG_ENDGATE);
                 spriteNode->addChild(sprite);

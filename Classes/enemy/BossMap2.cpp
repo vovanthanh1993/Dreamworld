@@ -140,6 +140,7 @@ void BossMap2::die() {
     auto callback2 = [this]() {
             if (!isAlive) {
                 Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap,10);
+                Common::spawnCharm(world, scene, sprite->getPosition(), bodyToSpriteMap, Common::randomNum(1, 3));
                 BaseNode::destroyNode();
             }
         };

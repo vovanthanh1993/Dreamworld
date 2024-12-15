@@ -272,10 +272,25 @@ namespace common {
         return false;
     }
 
-    void Common::spawnGem(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap, int num) {
+    void Common::spawnCharm(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap, int num) {
         int x = 0;
         if (num > 1) {
             x = -(num / 2)*30* Common::scaleSizeXY();
+        }
+        for (int i = 0; i < num; i++) {
+
+            Charm* charm = new Charm(world, scene, bodyToSpriteMap);
+            charm->init(Vec2(position.x + x, position.y));
+            b2Vec2 velocity(0, 60 * Common::scaleSizeXY());
+            charm->getBody()->SetLinearVelocity(velocity);
+            x += 30 * Common::scaleSizeXY();
+        }
+    }
+
+    void Common::spawnGem(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap, int num) {
+        int x = 0;
+        if (num > 1) {
+            x = -(num / 2) * 30 * Common::scaleSizeXY();
         }
         for (int i = 0; i < num; i++) {
             Gem* gem = new Gem(world, scene, bodyToSpriteMap);
