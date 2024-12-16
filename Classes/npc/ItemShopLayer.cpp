@@ -117,7 +117,7 @@ bool ItemShopLayer::init(Player* player, Scene* scene) {
     menu->setPosition(Vec2::ZERO);
     layer->addChild(menu); // Thêm menu vào khung
 
-    this->setName("shop");
+    this->setName("popup");
     this->addChild(layer);
     scene->addChild(this, 100);
     return true;

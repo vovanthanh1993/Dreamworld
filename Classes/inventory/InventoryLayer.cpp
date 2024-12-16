@@ -99,7 +99,7 @@ bool InventoryLayer::init(Player* player, Scene* scene)
     menu->setPosition(Vec2::ZERO);  // Đặt vị trí menu gốc
     layer->addChild(menu); // Thêm menu vào scene
 
-    this->setName("shop");
+    this->setName("popup");
     this->addChild(layer);
     scene->addChild(this, 100);
     return true;

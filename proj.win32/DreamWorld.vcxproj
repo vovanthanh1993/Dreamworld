@@ -862,6 +862,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\Classes\item\Soul.h" />
     <ClInclude Include="..\Classes\item\SoulPool.h" />
     <ClInclude Include="..\Classes\item\Stone.h" />
+    <ClInclude Include="..\Classes\layer\PlayerStatsLayer.h" />
     <ClInclude Include="..\Classes\main\Constants.h" />
     <ClInclude Include="..\Classes\npc\Miko.h" />
     <ClInclude Include="..\Classes\npc\ItemShopLayer.h" />
@@ -950,6 +951,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\Classes\item\Soul.cpp" />
     <ClCompile Include="..\Classes\item\SoulPool.cpp" />
     <ClCompile Include="..\Classes\item\Stone.cpp" />
+    <ClCompile Include="..\Classes\layer\PlayerStatsLayer.cpp" />
     <ClCompile Include="..\Classes\main\Constants.cpp" />
     <ClCompile Include="..\Classes\npc\Miko.cpp" />
     <ClCompile Include="..\Classes\player\skill\EaglePool.cpp" />

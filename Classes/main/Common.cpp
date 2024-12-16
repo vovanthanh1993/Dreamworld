@@ -83,7 +83,7 @@ namespace common {
             setting.loadSettingData();
             //playBackgroundMusic(setting.getVolume(), "sound/background2.mp3");
             scene->removeChildByName("Menu"); // Xóa menu pause
-            if (scene->getChildByName("shop") == nullptr) isEnable = true;
+            if (scene->getChildByName("popup") == nullptr) isEnable = true;
         }
     }
     void Common::zoomAction(MenuItemLabel* item) {

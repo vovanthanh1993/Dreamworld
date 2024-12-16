@@ -5,6 +5,7 @@
 #include "scene/GameOver.h"
 #include <iostream>
 #include <fstream>
+#include "layer/PlayerStatsLayer.h"
 
 Player::Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
 };
@@ -545,7 +546,7 @@ float Player::getMaxHealth() const {
 
 void Player::update(float dt) {
 
-    if (scene->getChildByName("shop") == nullptr) {
+    if (scene->getChildByName("popup") == nullptr) {
         isEnable = true;
     }
     if (!isEnable||!isAlive) return;
@@ -584,6 +585,20 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
                 Common::isCollision(body, Constants::TAG_BRIDGE_BREAK)|| Common::isCollision(body, Constants::TAG_BOX))) {
             jump();
         }
+        if (keyCode == (EventKeyboard::KeyCode::KEY_J)) {
+            auto camera = scene->getDefaultCamera();
+            auto playerStatsLayer = PlayerStatsLayer::createLayer(this, scene);
+            Vec2 pos = camera->getPosition();
+            playerStatsLayer->setPosition(Vec2(pos.x - 250 * Common::scaleSizeXY(), pos.y - 250 * Common::scaleSizeXY()));
+        }
+
+        if (keyCode == (EventKeyboard::KeyCode::KEY_I)) {
+            auto camera = scene->getDefaultCamera();
+            auto inventoryLayer = InventoryLayer::createLayer(this, scene);
+            Vec2 pos = camera->getPosition();
+            inventoryLayer->setPosition(Vec2(pos.x - 250 * Common::scaleSizeXY(), pos.y - 250 * Common::scaleSizeXY()));
+        }
+
         if (!isInVillage) {
             if (keyCode == (EventKeyboard::KeyCode::KEY_E)) {
                 throwStick();
@@ -597,12 +612,6 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
             }
             if (keyCode == (EventKeyboard::KeyCode::KEY_Q)) {
                 throwEagle();
-            }
-            if (keyCode == (EventKeyboard::KeyCode::KEY_I)) {
-                auto camera = scene->getDefaultCamera();
-                auto inventoryLayer = InventoryLayer::createLayer(this, scene);
-                Vec2 pos = camera->getPosition();
-                inventoryLayer->setPosition(Vec2(pos.x -250*Common::scaleSizeXY(), pos.y - 250 * Common::scaleSizeXY()));
             }
 
             if (keyCode == (EventKeyboard::KeyCode::KEY_TAB)) {
@@ -661,10 +670,6 @@ void Player::changeCharm(Charm* charm) {
     
     if (currentCharm == charm) return;
     if (currentCharm) {
-        /*maxHealth -= currentCharm->healthBonus;
-        maxMana -= currentCharm->manaBonus;
-        updateHealth(currentCharm->healthBonus);
-        addMana(-currentCharm->manaBonus);*/
         slashDamage -= currentCharm->slashDamageBonus;
         stickDamage -= currentCharm->stickDamageBonus;
         eagleDamage -= currentCharm->eagleDamageBonus;
@@ -672,11 +677,6 @@ void Player::changeCharm(Charm* charm) {
     currentCharm = charm;
 
     setSpriteCharm(charm);
-
-    /*maxHealth += charm->healthBonus;
-    maxMana += charm->manaBonus;
-    updateHealth(-charm->healthBonus);
-    addMana(charm->manaBonus);*/
     slashDamage += charm->slashDamageBonus;
     stickDamage += currentCharm->stickDamageBonus;
     eagleDamage += currentCharm->eagleDamageBonus;

@@ -31,19 +31,18 @@ bool UpgradeShopLayer::init(Player* player, Scene* scene) {
 
      //Thêm hình nền cho khung
     auto background = Sprite::create("ui/shopbg.png"); // Đường dẫn đến hình nền
-    //auto background = Sprite::create("ui/shopbg.png"); // Đường dẫn đến hình nền
     background->setPosition(Vec2(150 * Common::scaleSizeX(), 200 * Common::scaleSizeY())); // Giữa khung
     background->setScaleX(0.8* Common::scaleSizeXY());
     background->setScaleY(1 * Common::scaleSizeY());
     layer->addChild(background, -1); // Thêm hình nền dưới các mục khác
 
     auto header = Sprite::create("ui/header_upgrade.png");
-    header->setPosition(Vec2(150 * Common::scaleSizeX(), 435 * Common::scaleSizeY()));
+    header->setPosition(Common::scalePos(Vec2(150, 435)));
     header->setScale(Common::scaleSizeXY());
     layer->addChild(header);
 
-    int skillPostX = 40 * Common::scaleSizeX();
-    int pricePostX = 100 * Common::scaleSizeX();
+    int skillPostX = 30 * Common::scaleSizeX();
+    int pricePostX = 90 * Common::scaleSizeX();
 
     // Health Upgrade
     Sprite* healthUpgrade = Sprite::create("Item/gourd/heart.png");
@@ -143,7 +142,7 @@ bool UpgradeShopLayer::init(Player* player, Scene* scene) {
     menu->setPosition(Vec2::ZERO);
     layer->addChild(menu); // Thêm menu vào khung
 
-    this->setName("shop");
+    this->setName("popup");
     this->addChild(layer);
     scene->addChild(this, 100);
     return true;

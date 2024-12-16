@@ -265,6 +265,9 @@
     <ClCompile Include="..\Classes\item\SoulPool.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\layer\PlayerStatsLayer.cpp">
+      <Filter>Source Files\Classes\layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h">
@@ -2616,6 +2619,9 @@
     <ClInclude Include="..\Classes\scene\MikoScene.h">
       <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\layer\PlayerStatsLayer.h">
+      <Filter>Source Files\Classes\layer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\Git\Dreamworld\CMakeLists.txt" />
@@ -2892,6 +2898,9 @@
     </Filter>
     <Filter Include="Source Files\Classes\inventory">
       <UniqueIdentifier>{3231212b-4ecd-4438-b961-dcbe506949f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Classes\layer">
+      <UniqueIdentifier>{7f480439-808b-4d4b-b0f8-a5ac1af38296}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
