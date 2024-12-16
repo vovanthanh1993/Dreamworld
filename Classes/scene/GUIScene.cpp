@@ -60,7 +60,7 @@ bool GUIScene::init()
     headerLabel->setPosition(Vec2(Common::getCenter().x, visibleSize.height - (headerLabel->getContentSize().height+150) * Common::scaleSizeY()));
     this->addChild(headerLabel);
 
-    int space = 80 * Common::scaleSizeY();
+    int space = 70 * Common::scaleSizeY();
 
     // Tạo các mục shop
     auto itemLabel0 = MenuItemLabel::create(
@@ -85,23 +85,30 @@ bool GUIScene::init()
     itemLabel3->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 3));
 
     auto itemLabel4 = MenuItemLabel::create(
-        Label::createWithSystemFont("R to use Gourd", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("Q to throw Eagle", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     
     itemLabel4->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 4));
 
     auto itemLabel5 = MenuItemLabel::create(
-        Label::createWithSystemFont("Left mouse to Slash", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("1 to use Health Potion", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel5->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 5));
     auto itemLabel6 = MenuItemLabel::create(
-        Label::createWithSystemFont("1 2 3 4 to use Skill", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("2 to use Mana Potion", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel6->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 6));
+
+    auto itemLabel7 = MenuItemLabel::create(
+        Label::createWithSystemFont("Left mouse to Slash", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+    );
+    itemLabel7->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 7));
+
+
     // Ok
     auto menuImages1 = MenuItemImage::create("UI/scale/ok.png", "UI/scale/ok.png",
         CC_CALLBACK_1(GUIScene::goBack, this));
-    menuImages1->setPosition(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 7);
+    menuImages1->setPosition(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 8);
     Common::scaleAll(menuImages1, 0.05);
 
     // Cancel
@@ -111,7 +118,7 @@ bool GUIScene::init()
     Common::scaleAll(menuImages2, 0.04);
 
     // Tạo menu
-    auto menu = Menu::create(itemLabel0, itemLabel1, itemLabel2, itemLabel3, itemLabel4, itemLabel5, itemLabel6, menuImages1, menuImages2, nullptr);
+    auto menu = Menu::create(itemLabel0, itemLabel1, itemLabel2, itemLabel3, itemLabel4, itemLabel5, itemLabel6, itemLabel7, menuImages1, menuImages2, nullptr);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu);
     Common::zoomAction(menuImages2);

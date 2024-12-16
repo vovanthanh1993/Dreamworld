@@ -50,30 +50,42 @@ bool GUILayer::init(Player* player, Scene* scene) {
         Label::createWithSystemFont("E to throw Stick", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     auto itemLabel4 = MenuItemLabel::create(
-        Label::createWithSystemFont("R to use Gourd", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("1 to use Health Potion", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     auto itemLabel5 = MenuItemLabel::create(
-        Label::createWithSystemFont("1 2 3 4 to use Skill", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("2 to use Mana Potion", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     auto itemLabel6 = MenuItemLabel::create(
         Label::createWithSystemFont("Left mouse to Slash", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
+    auto itemLabel7 = MenuItemLabel::create(
+        Label::createWithSystemFont("Q to throw Eagle", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+    );
     
     // Vị trí các mục nằm trong khung
-    itemLabel1->setPosition(Vec2(150, 350) * Common::scaleSizeXY()); // Vị trí trong khung
+    int posY = 380;
+    itemLabel1->setPosition(Vec2(150, posY) * Common::scaleSizeXY()); // Vị trí trong khung
     itemLabel1->setColor(cocos2d::Color3B(0, 0, 0));
-    itemLabel2->setPosition(Vec2(150, 300) * Common::scaleSizeXY()); // Vị trí trong khung
+    posY -= 50;
+    itemLabel2->setPosition(Vec2(150, posY) * Common::scaleSizeXY()); // Vị trí trong khung
     itemLabel2->setColor(cocos2d::Color3B(0, 0, 0));
-    itemLabel3->setPosition(Vec2(150, 250) * Common::scaleSizeXY()); // Vị trí trong khung
+    posY -= 50;
+    itemLabel3->setPosition(Vec2(150, posY) * Common::scaleSizeXY()); // Vị trí trong khung
     itemLabel3->setColor(cocos2d::Color3B(0, 0, 0));
-    itemLabel4->setPosition(Vec2(150, 200) * Common::scaleSizeXY()); // Vị trí trong khung
+    posY -= 50;
+    itemLabel4->setPosition(Vec2(150, posY) * Common::scaleSizeXY()); // Vị trí trong khung
     itemLabel4->setColor(cocos2d::Color3B(0, 0, 0));
-    itemLabel5->setPosition(Vec2(150, 150) * Common::scaleSizeXY()); // Vị trí trong khung
+    posY -= 50;
+    itemLabel5->setPosition(Vec2(150, posY) * Common::scaleSizeXY()); // Vị trí trong khung
     itemLabel5->setColor(cocos2d::Color3B(0, 0, 0));
-    itemLabel6->setPosition(Vec2(150, 100) * Common::scaleSizeXY()); // Vị trí trong khung
+    posY -= 50;
+    itemLabel6->setPosition(Vec2(150, posY) * Common::scaleSizeXY()); // Vị trí trong khung
     itemLabel6->setColor(cocos2d::Color3B(0, 0, 0));
+    posY -= 50;
+    itemLabel7->setPosition(Vec2(150, posY) * Common::scaleSizeXY()); // Vị trí trong khung
+    itemLabel7->setColor(cocos2d::Color3B(0, 0, 0));
 
-    auto menuItem = Menu::create(itemLabel1, itemLabel2, itemLabel3, itemLabel4, itemLabel5, itemLabel6, nullptr);
+    auto menuItem = Menu::create(itemLabel1, itemLabel2, itemLabel3, itemLabel4, itemLabel5, itemLabel6, itemLabel7, nullptr);
     menuItem->setPosition(Vec2::ZERO);
     layer->addChild(menuItem); // Thêm menu vào layer
 
