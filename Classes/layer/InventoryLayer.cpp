@@ -32,17 +32,17 @@ bool InventoryLayer::init(Player* player, Scene* scene)
     Size screenSize = Director::getInstance()->getVisibleSize();
 
     // Tạo khung nhỏ cho shop
-    auto layer = LayerColor::create(Color4B(0, 0, 0, 0), 300* Common::scaleSizeXY(), 400 * Common::scaleSizeXY());
+    auto layer = LayerColor::create(Color4B(0, 0, 0, 0), 300* Common::scaleSizeX(), 400 * Common::scaleSizeY());
 
     //Thêm hình nền cho khung
     //auto background = Sprite::create("inventory/bg.png");
     auto background = Sprite::create("ui/shopbg.png");
-    background->setPosition(Vec2(150 *Common::scaleSizeXY(), 200 *Common::scaleSizeXY())); // Giữa khung
+    background->setPosition(Common::scalePos(150,200)); // Giữa khung
     background->setScale(1.5 * Common::scaleSizeXY());
     layer->addChild(background, -1); // Thêm hình nền dưới các mục khác
 
     auto header = Sprite::create("ui/header_upgrade.png");
-    header->setPosition(Vec2(150 * Common::scaleSizeX(), 600 * Common::scaleSizeY()));
+    header->setPosition(Common::scalePos(150, 600));
     header->setScale(Common::scaleSizeXY());
     layer->addChild(header);
 

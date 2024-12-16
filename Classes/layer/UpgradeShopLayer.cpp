@@ -26,18 +26,18 @@ bool UpgradeShopLayer::init(Player* player, Scene* scene) {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     Size screenSize = Director::getInstance()->getVisibleSize();
     // Tạo khung nhỏ cho shop
-    auto layer = LayerColor::create(Color4B(0, 0, 0, 0), 300, 400);
+    auto layer = LayerColor::create(Color4B(0, 0, 0, 0), 300 * Common::scaleSizeX(), 400 * Common::scaleSizeY());
     layer->setPosition(Vec2(origin.x+screenSize.width/2.5, screenSize.height/3)); // Vị trí khung trên bản đồ
 
      //Thêm hình nền cho khung
     auto background = Sprite::create("ui/shopbg.png"); // Đường dẫn đến hình nền
-    background->setPosition(Vec2(150 * Common::scaleSizeX(), 200 * Common::scaleSizeY())); // Giữa khung
+    background->setPosition(Common::scalePos(150,200)); // Giữa khung
     background->setScaleX(0.8* Common::scaleSizeXY());
     background->setScaleY(1 * Common::scaleSizeY());
     layer->addChild(background, -1); // Thêm hình nền dưới các mục khác
 
     auto header = Sprite::create("ui/header_upgrade.png");
-    header->setPosition(Common::scalePos(Vec2(150, 435)));
+    header->setPosition(Common::scalePos(150, 435));
     header->setScale(Common::scaleSizeXY());
     layer->addChild(header);
 

@@ -178,8 +178,8 @@ namespace common {
         return round;
     }
 
-    Vec2 Common::scalePos(Vec2 pos) {
-        return Vec2(pos.x * scaleSizeX(), pos.y * scaleSizeY());
+    Vec2 Common::scalePos(int x, int y) {
+        return Vec2(x * scaleSizeX(), y * scaleSizeY());
     }
 
     void Common::checkAndRemoveSprite(cocos2d::Sprite* sprite, cocos2d::Camera* camera) {

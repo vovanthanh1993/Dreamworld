@@ -24,18 +24,18 @@ bool PlayerStatsLayer::init(Player* player, Scene* scene) {
 
     Size screenSize = Director::getInstance()->getVisibleSize();
     // Tạo khung nhỏ cho shop
-    auto layer = LayerColor::create(Color4B(0, 0, 0, 0), 300* Common::scaleSizeX(), 400 * Common::scaleSizeY());
+    auto layer = LayerColor::create(Color4B(0, 0, 0, 0), 300 * Common::scaleSizeX(), 400 * Common::scaleSizeY());
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
      //Thêm hình nền cho khung
     auto background = Sprite::create("ui/shopbg.png"); // Đường dẫn đến hình nền
-    background->setPosition(Common::scalePos(Vec2(150, 200))); // Giữa khung
+    background->setPosition(Common::scalePos(150, 200)); // Giữa khung
     background->setScale(0.8 * Common::scaleSizeXY());
     layer->addChild(background, -1); // Thêm hình nền dưới các mục khác
 
     auto header = Sprite::create("ui/header_fight.png");
     //auto header = Sprite::create("ui/head2.png"); 
-    header->setPosition(Vec2(150 * Common::scaleSizeX(), 370 * Common::scaleSizeY()));
+    header->setPosition(Common::scalePos(150, 370));
     header->setScale(Common::scaleSizeXY());
     layer->addChild(header);
     
@@ -62,18 +62,18 @@ bool PlayerStatsLayer::init(Player* player, Scene* scene) {
     itemLabel5->setAnchorPoint(Vec2(0, 0.5));
     
     // Vị trí các mục nằm trong khung
-    int posX = 10;
+    int posX = 20;
     int posY = 330;
     int spaceY = 50;
-    itemLabel1->setPosition(Vec2(posX, posY) * Common::scaleSizeXY()); // Vị trí trong khung
+    itemLabel1->setPosition(Common::scalePos(posX, posY)); // Vị trí trong khung
     itemLabel1->setColor(cocos2d::Color3B(0, 0, 0));
-    itemLabel2->setPosition(Vec2(posX, posY - spaceY) * Common::scaleSizeXY()); // Vị trí trong khung
+    itemLabel2->setPosition(Common::scalePos(posX, posY - spaceY)); // Vị trí trong khung
     itemLabel2->setColor(cocos2d::Color3B(0, 0, 0));
-    itemLabel3->setPosition(Vec2(posX, posY - spaceY*2) * Common::scaleSizeXY()); // Vị trí trong khung
+    itemLabel3->setPosition(Common::scalePos(posX, posY - spaceY*2)); // Vị trí trong khung
     itemLabel3->setColor(cocos2d::Color3B(0, 0, 0));
-    itemLabel4->setPosition(Vec2(posX, posY - spaceY*3) * Common::scaleSizeXY()); // Vị trí trong khung
+    itemLabel4->setPosition(Common::scalePos(posX, posY - spaceY*3)); // Vị trí trong khung
     itemLabel4->setColor(cocos2d::Color3B(0, 0, 0));
-    itemLabel5->setPosition(Vec2(posX, posY - spaceY*4) * Common::scaleSizeXY()); // Vị trí trong khung
+    itemLabel5->setPosition(Common::scalePos(posX, posY - spaceY*4)); // Vị trí trong khung
     itemLabel5->setColor(cocos2d::Color3B(0, 0, 0));
 
     auto menuItem = Menu::create(itemLabel1, itemLabel2, itemLabel3, itemLabel4, itemLabel5, nullptr);
@@ -85,7 +85,7 @@ bool PlayerStatsLayer::init(Player* player, Scene* scene) {
         Label::createWithSystemFont("Ok", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY()),
         CC_CALLBACK_1(PlayerStatsLayer::menuOKCallback, this)
     );
-    okItem->setPosition(Vec2(150* Common::scaleSizeX(), 35* Common::scaleSizeY()));
+    okItem->setPosition(Common::scalePos(150, 35));
     okItem->setColor(cocos2d::Color3B(180, 57, 67));
     auto menu = Menu::create(okItem, nullptr);
     menu->setPosition(Vec2::ZERO);

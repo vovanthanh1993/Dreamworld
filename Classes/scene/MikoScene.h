@@ -29,7 +29,7 @@
 #include "base/BaseScene.h"
 #include "scene/MemoryScene.h"
 #include "npc/Miko.h"
-#include "inventory/InventoryLayer.h"
+#include "layer/InventoryLayer.h"
 #include "item/Port.h"
 #include "scene/VillageScene.h"
 

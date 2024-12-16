@@ -37,12 +37,6 @@
     <ClCompile Include="D:\Git\Dreamworld\Classes\main\MyContactListener.cpp">
       <Filter>Source Files\Classes\main</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\npc\DialogueBox.cpp">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\npc\GUILayer.cpp">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\npc\NPC1.cpp">
       <Filter>Source Files\Classes\npc</Filter>
     </ClCompile>
@@ -53,12 +47,6 @@
       <Filter>Source Files\Classes\npc</Filter>
     </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\npc\NPCMonkey.cpp">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\npc\UpgradeShopLayer.cpp">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\npc\ItemShopLayer.cpp">
       <Filter>Source Files\Classes\npc</Filter>
     </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\player\Player.cpp">
@@ -220,9 +208,6 @@
     <ClCompile Include="..\Classes\item\Stone.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\inventory\InventoryLayer.cpp">
-      <Filter>Source Files\Classes\inventory</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\base\BaseLayer.cpp">
       <Filter>Source Files\Classes\base</Filter>
     </ClCompile>
@@ -268,6 +253,18 @@
     <ClCompile Include="..\Classes\layer\PlayerStatsLayer.cpp">
       <Filter>Source Files\Classes\layer</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\layer\GUILayer.cpp">
+      <Filter>Source Files\Classes\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\layer\ItemShopLayer.cpp">
+      <Filter>Source Files\Classes\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\layer\UpgradeShopLayer.cpp">
+      <Filter>Source Files\Classes\layer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\layer\InventoryLayer.cpp">
+      <Filter>Source Files\Classes\layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Git\Dreamworld\Classes\enemy\Acher.h">
@@ -306,12 +303,6 @@
     <ClInclude Include="D:\Git\Dreamworld\Classes\main\MyContactListener.h">
       <Filter>Source Files\Classes\main</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\npc\DialogueBox.h">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\npc\GUILayer.h">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\npc\NPC1.h">
       <Filter>Source Files\Classes\npc</Filter>
     </ClInclude>
@@ -322,9 +313,6 @@
       <Filter>Source Files\Classes\npc</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\npc\NPCMonkey.h">
-      <Filter>Source Files\Classes\npc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\npc\UpgradeShopLayer.h">
       <Filter>Source Files\Classes\npc</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\player\Player.h">
@@ -2571,9 +2559,6 @@
     <ClInclude Include="..\Classes\item\Stone.h">
       <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\inventory\InventoryLayer.h">
-      <Filter>Source Files\Classes\inventory</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\base\BaseLayer.h">
       <Filter>Source Files\Classes\base</Filter>
     </ClInclude>
@@ -2582,9 +2567,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\base\BaseEnemy.h">
       <Filter>Source Files\Classes\base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\npc\ItemShopLayer.h">
-      <Filter>Source Files\Classes\npc</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\npc\Miko.h">
       <Filter>Source Files\Classes\npc</Filter>
@@ -2620,6 +2602,18 @@
       <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\layer\PlayerStatsLayer.h">
+      <Filter>Source Files\Classes\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\layer\InventoryLayer.h">
+      <Filter>Source Files\Classes\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\layer\UpgradeShopLayer.h">
+      <Filter>Source Files\Classes\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\layer\GUILayer.h">
+      <Filter>Source Files\Classes\layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\layer\ItemShopLayer.h">
       <Filter>Source Files\Classes\layer</Filter>
     </ClInclude>
   </ItemGroup>

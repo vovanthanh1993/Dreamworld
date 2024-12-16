@@ -8,7 +8,6 @@
 #include "item/Gem.h"
 #include "main/Constants.h"
 #include "main/Effect.h"
-#include "npc/DialogueBox.h"
 #include "base/BaseNode.h"
 
 using namespace constants;

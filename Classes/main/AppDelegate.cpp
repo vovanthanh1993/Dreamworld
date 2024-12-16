@@ -62,10 +62,10 @@ int x = 1;
 //static cocos2d::Size mediumResolutionSize = cocos2d::Size(2688, 1242);
 //static cocos2d::Size largeResolutionSize = cocos2d::Size(2688, 1242);
 
-static cocos2d::Size designResolutionSize = cocos2d::Size(1920, 1080);
-static cocos2d::Size smallResolutionSize = cocos2d::Size(1920, 1080);
-static cocos2d::Size mediumResolutionSize = cocos2d::Size(1920, 1080);
-static cocos2d::Size largeResolutionSize = cocos2d::Size(1920, 1080);
+//static cocos2d::Size designResolutionSize = cocos2d::Size(1920, 1080);
+//static cocos2d::Size smallResolutionSize = cocos2d::Size(1920, 1080);
+//static cocos2d::Size mediumResolutionSize = cocos2d::Size(1920, 1080);
+//static cocos2d::Size largeResolutionSize = cocos2d::Size(1920, 1080);
 
 //static cocos2d::Size designResolutionSize = cocos2d::Size(1280, 720);
 //static cocos2d::Size smallResolutionSize = cocos2d::Size(1280, 720);
@@ -82,10 +82,10 @@ static cocos2d::Size largeResolutionSize = cocos2d::Size(1920, 1080);
 //static cocos2d::Size mediumResolutionSize = cocos2d::Size(2340, 1080);
 //static cocos2d::Size largeResolutionSize = cocos2d::Size(2340, 1080);
 
-//static cocos2d::Size designResolutionSize = cocos2d::Size(2778, 1284);
-//static cocos2d::Size smallResolutionSize = cocos2d::Size(2778, 1284);
-//static cocos2d::Size mediumResolutionSize = cocos2d::Size(2778, 1284);
-//static cocos2d::Size largeResolutionSize = cocos2d::Size(2778, 1284);
+static cocos2d::Size designResolutionSize = cocos2d::Size(2778, 1284);
+static cocos2d::Size smallResolutionSize = cocos2d::Size(2778, 1284);
+static cocos2d::Size mediumResolutionSize = cocos2d::Size(2778, 1284);
+static cocos2d::Size largeResolutionSize = cocos2d::Size(2778, 1284);
 
 
 AppDelegate::AppDelegate()

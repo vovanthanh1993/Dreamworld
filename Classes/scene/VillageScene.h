@@ -27,15 +27,15 @@
 
 #include <string>
 #include "npc/NPC2.h"
-#include "npc/GUILayer.h"
+#include "layer/GUILayer.h"
 #include "npc/NPC3.h"
-#include "npc/ItemShopLayer.h"
+#include "layer/ItemShopLayer.h"
 #include "base/BaseScene.h"
 #include "npc/NPC1.h"
-#include "npc/UpgradeShopLayer.h"
+#include "layer/UpgradeShopLayer.h"
 #include "scene/Map1Scene.h"
 #include "npc/NPCMonkey.h"
-#include "inventory/InventoryLayer.h"
+#include "layer/InventoryLayer.h"
 
 class VillageScene : public BaseScene
 {

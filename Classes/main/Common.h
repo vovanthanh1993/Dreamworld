@@ -21,7 +21,7 @@ namespace common {
 		static float scaleSizeY();
 		static float scaleSizeX();
 		static float scaleSizeXY();
-		static Vec2 scalePos(Vec2 pos);
+		static Vec2 scalePos(int x, int y);
 		static void updatePosition(b2World* world, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap);
 		static void destroyObject(b2World* world, b2Body* body, unordered_map<b2Body*, Sprite*>& _bodyToSpriteMap);
 				

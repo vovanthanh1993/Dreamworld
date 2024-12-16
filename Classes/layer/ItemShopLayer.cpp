@@ -25,7 +25,7 @@ bool ItemShopLayer::init(Player* player, Scene* scene) {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     Size screenSize = Director::getInstance()->getVisibleSize();
     // Tạo khung nhỏ cho shop
-    auto layer = LayerColor::create(Color4B(0, 0, 0, 0), 300, 400);
+    auto layer = LayerColor::create(Color4B(0, 0, 0, 0), 300 * Common::scaleSizeX(), 400 * Common::scaleSizeY());
     layer->setPosition(Vec2(origin.x+screenSize.width / 2, screenSize.height / 3));
 
     

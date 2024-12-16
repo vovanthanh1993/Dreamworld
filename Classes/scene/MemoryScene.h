@@ -27,10 +27,10 @@
 
 #include <string>
 #include "base/BaseScene.h"
-#include "npc/UpgradeShopLayer.h"
+#include "layer/UpgradeShopLayer.h"
 #include "scene/Map1Scene.h"
 #include "npc/Miko.h"
-#include "inventory/InventoryLayer.h"
+#include "layer/InventoryLayer.h"
 #include "enemy/Wukong.h"
 #include "enemy/WukongPool.h"
 #include "enemy/WukongFlyPool.h"
