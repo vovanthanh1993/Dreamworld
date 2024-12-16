@@ -41,6 +41,7 @@ namespace common {
 		static bool isCollision(b2Body* body, int compareTag);
 		static void spawnGem(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap, int num);
 		static void spawnCharm(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap, int num);
+		static void zoomAction(MenuItemImage* item, float time, float scale);
 
 		template <typename T>
 		static void scaleAll(T* node, float ratio) {

@@ -605,7 +605,7 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
                 inventoryLayer->setPosition(Vec2(pos.x -250*Common::scaleSizeXY(), pos.y - 250 * Common::scaleSizeXY()));
             }
 
-            if (keyCode == (EventKeyboard::KeyCode::KEY_1)) {
+            if (keyCode == (EventKeyboard::KeyCode::KEY_TAB)) {
                 health = maxHealth;
                 mana = maxMana;
                 updateHealth(0);

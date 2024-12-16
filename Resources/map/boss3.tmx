@@ -18,12 +18,12 @@
    eJzt2jERACAAxLB6wD9a0fDHmkjo3Kp7YqQZAAAAAAAAAAAAAABsvPg7zQD48QCvhgLF
   </data>
  </layer>
- <layer id="15" name="point" width="80" height="45" opacity="0">
+ <layer id="15" name="point" width="80" height="45" opacity="0.31">
   <data encoding="base64" compression="zlib">
-   eJzt2rENACAMA8FIlGyamq1Zgi2SSNxN8IVLRwDAH87qLgAAACrc3V3AJPYAAAAAAABUSj81AACGeWpbAtE=
+   eJzt2rENACAMA8FIlIhFqdmaJZgCEom7Cb5w6QgA+MNq2QUAAMALu2cXUNmwDwAAAAAA4KLppwYAQDEH1YoB8w==
   </data>
  </layer>
- <layer id="16" name="limit" width="80" height="45" opacity="0">
+ <layer id="16" name="limit" width="80" height="45" opacity="0.54">
   <data encoding="base64" compression="zlib">
    eJzt2rENACAMA8EUdEhsxv7rsARYRLob4CuXrgKA3vb4qwMAALyxZo8mWXYBAAAAAACk3PyY+asBAJByAFP8Aak=
   </data>
@@ -36,7 +36,7 @@
  <objectgroup id="10" name="limitmap" opacity="0">
   <object id="3" x="-6.66667" y="-5.33333" width="8" height="1016"/>
  </objectgroup>
- <layer id="6" name="boss" width="80" height="45" opacity="0">
+ <layer id="6" name="boss" width="80" height="45" opacity="0.6">
   <data encoding="base64" compression="zlib">
    eJztzkENAAAIBKBLYFf7f2yhm4MEJADwW9f1AAAAAAAAAAAAAAAAYN8AskYAgA==
   </data>
@@ -55,11 +55,6 @@
   <object id="15" x="1306" y="220" width="343" height="46"/>
   <object id="16" x="513.5" y="246" width="343" height="46"/>
  </objectgroup>
- <layer id="8" name="limit" width="80" height="45" opacity="0">
-  <data encoding="base64" compression="zlib">
-   eJztziEBAAAIA7BbQtK/BgkwGMyWYAkAAAAAAAAAAAAAALDp+h4AANwMuBQAZw==
-  </data>
- </layer>
  <objectgroup id="3" name="endgate" opacity="0">
   <object id="1" x="1916" y="-8" width="9.33333" height="1088"/>
  </objectgroup>

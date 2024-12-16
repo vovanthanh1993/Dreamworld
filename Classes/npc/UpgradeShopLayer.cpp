@@ -45,39 +45,37 @@ bool UpgradeShopLayer::init(Player* player, Scene* scene) {
     int skillPostX = 40 * Common::scaleSizeX();
     int pricePostX = 100 * Common::scaleSizeX();
 
-    // Skill 1
-    Sprite* skill1 = Sprite::create("Item/gourd/heart.png");
-    skill1->setPosition(skillPostX, 340 * Common::scaleSizeY());
-    skill1->setScale(0.2 * Common::scaleSizeXY());
-    layer->addChild(skill1, 10);
-    auto skill1Label = MenuItemLabel::create(
+    // Health Upgrade
+    Sprite* healthUpgrade = Sprite::create("Item/gourd/heart.png");
+    healthUpgrade->setPosition(skillPostX, 340 * Common::scaleSizeY());
+    healthUpgrade->setScale(0.2 * Common::scaleSizeXY());
+
+    layer->addChild(healthUpgrade, 10);
+    auto healthUpgradeLabel = MenuItemLabel::create(
         Label::createWithSystemFont("Upgrade max health", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
-    skill1Label->setColor(cocos2d::Color3B(0, 0, 0));
-    skill1Label->setPosition(pricePostX, 360 * Common::scaleSizeY());
-    skill1Label->setAnchorPoint(Vec2(0, 0));
-    layer->addChild(skill1Label);
+    healthUpgradeLabel->setColor(cocos2d::Color3B(0, 0, 0));
+    healthUpgradeLabel->setPosition(pricePostX, 360 * Common::scaleSizeY());
+    healthUpgradeLabel->setAnchorPoint(Vec2(0, 0));
+    layer->addChild(healthUpgradeLabel);
 
-    /*auto itemLabel1 = MenuItemLabel::create(
-        Label::createWithSystemFont("200 Gem", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY()),
-        CC_CALLBACK_1(UpgradeShopLayer::purchaseHealthItem, this)
-    );*/
 
-    auto itemLabel1 = MenuItemImage::create(
+    auto healthPrice = MenuItemImage::create(
         "shop/200.png",   // image when button is off
         "shop/200.png",   // image when button is pressed
         CC_CALLBACK_1(UpgradeShopLayer::upgradeHealth, this)
     );
-    itemLabel1->setScale(0.6 * Common::scaleSizeXY());
-    itemLabel1->setTag(200); // Đặt tag cho vật phẩm
-    itemLabel1->setAnchorPoint(Vec2(0, 0.5));
-    itemLabel1->setPosition(Vec2(pricePostX, 320 * Common::scaleSizeY()));
-    Common::zoomAction(itemLabel1);
+    healthPrice->setScale(0.6 * Common::scaleSizeXY());
+    healthPrice->setTag(200); // Đặt tag cho vật phẩm
+    healthPrice->setAnchorPoint(Vec2(0, 0.5));
+    healthPrice->setPosition(Vec2(pricePostX, 320 * Common::scaleSizeY()));
 
-    // update mana ---------------------------------------------
+
+    // Mana upgrade ---------------------------------------------
     Sprite* manaUpgrade = Sprite::create("shop/mana.png");
     manaUpgrade->setPosition(skillPostX, 210 * Common::scaleSizeXY());
     manaUpgrade->setScale(0.2 * Common::scaleSizeXY());
+
     layer->addChild(manaUpgrade, 10);
     auto manaUpgradeLabel = MenuItemLabel::create(
         Label::createWithSystemFont("Upgrade max mana", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
@@ -90,41 +88,39 @@ bool UpgradeShopLayer::init(Player* player, Scene* scene) {
     auto manaUpgradeLabelPrice = MenuItemImage::create(
         "shop/200.png",   // image when button is off
         "shop/200.png",   // image when button is pressed
-        CC_CALLBACK_1(UpgradeShopLayer::upgradeHealth, this)
+        CC_CALLBACK_1(UpgradeShopLayer::upgradeMana, this)
     );
     manaUpgradeLabelPrice->setScale(0.6 * Common::scaleSizeXY());
-    //manaUpgradeLabelPrice->setColor(cocos2d::Color3B(255, 255, 0));
     manaUpgradeLabelPrice->setTag(200); // Đặt tag cho vật phẩm
     manaUpgradeLabelPrice->setAnchorPoint(Vec2(0, 0.5));
     manaUpgradeLabelPrice->setPosition(Vec2(pricePostX, 190 * Common::scaleSizeY()));
-    Common::zoomAction(manaUpgradeLabelPrice);
 
-    // ----------------------------------------skill 2
-    Sprite* skill2 = Sprite::create("ui/BackStick.png");
-    skill2->setPosition(skillPostX, 90 * Common::scaleSizeY());
-    skill2->setScale(0.25 * Common::scaleSizeXY());
-    layer->addChild(skill2, 10);
 
-    auto skill2Label = MenuItemLabel::create(
+    // stick upgrade
+    Sprite* stickUpgrade = Sprite::create("ui/BackStick.png");
+    stickUpgrade->setPosition(skillPostX, 90 * Common::scaleSizeY());
+    stickUpgrade->setScale(0.25 * Common::scaleSizeXY());
+    layer->addChild(stickUpgrade, 10);
+
+    auto stickUpgradeLabel = MenuItemLabel::create(
         Label::createWithSystemFont("Upgrade max stick", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
-    skill2Label->setColor(cocos2d::Color3B(0, 0, 0));
-    skill2Label->setPosition(pricePostX, 110 * Common::scaleSizeY());
-    skill2Label->setAnchorPoint(Vec2(0, 0));
-    layer->addChild(skill2Label);
-    auto itemLabel2 = MenuItemImage::create(
+    stickUpgradeLabel->setColor(cocos2d::Color3B(0, 0, 0));
+    stickUpgradeLabel->setPosition(pricePostX, 110 * Common::scaleSizeY());
+    stickUpgradeLabel->setAnchorPoint(Vec2(0, 0));
+    layer->addChild(stickUpgradeLabel);
+    auto stickPrice = MenuItemImage::create(
         "shop/200.png",   // image when button is off
         "shop/200.png",   // image when button is pressed
-        CC_CALLBACK_1(UpgradeShopLayer::upgradeHealth, this)
+        CC_CALLBACK_1(UpgradeShopLayer::upgradeStick, this)
     );
-    itemLabel2->setScale(0.6 * Common::scaleSizeXY());
-    //itemLabel2->setColor(cocos2d::Color3B(255, 255, 0));
-    itemLabel2->setTag(200); // Đặt tag cho vật phẩm
-    itemLabel2->setAnchorPoint(Vec2(0, 0.5));
-    itemLabel2->setPosition(Vec2(pricePostX, 70 * Common::scaleSizeY())); // Vị trí trong khung
-    Common::zoomAction(itemLabel2);
+    stickPrice->setScale(0.6 * Common::scaleSizeXY());
+    stickPrice->setTag(200); // Đặt tag cho vật phẩm
+    stickPrice->setAnchorPoint(Vec2(0, 0.5));
+    stickPrice->setPosition(Vec2(pricePostX, 70 * Common::scaleSizeY())); // Vị trí trong khung
 
-    auto menuItem = Menu::create(itemLabel1, manaUpgradeLabelPrice, itemLabel2, nullptr);
+
+    auto menuItem = Menu::create(healthPrice, manaUpgradeLabelPrice, stickPrice, nullptr);
     menuItem->setPosition(Vec2::ZERO);
     layer->addChild(menuItem); // Thêm menu vào layer
 
@@ -154,8 +150,8 @@ bool UpgradeShopLayer::init(Player* player, Scene* scene) {
 }
 
 void UpgradeShopLayer::upgradeStick(cocos2d::Ref* sender) {
-    auto item = static_cast<MenuItemLabel*>(sender);
-    item->setColor(cocos2d::Color3B(255, 255, 0));
+    auto item = static_cast<MenuItemImage*>(sender);
+    Common::zoomAction(item, 0.1, 1.1);
     int price = item->getTag(); // Lấy giá của vật phẩm
 
     if (player->gem >= price) {
@@ -169,8 +165,8 @@ void UpgradeShopLayer::upgradeStick(cocos2d::Ref* sender) {
 }
 
 void UpgradeShopLayer::upgradeHealth(cocos2d::Ref* sender) {
-    auto item = static_cast<MenuItemLabel*>(sender);
-    item->setColor(cocos2d::Color3B(255, 255, 0));
+    auto item = static_cast<MenuItemImage*>(sender);
+    Common::zoomAction(item, 0.1, 1.1);
 
     int price = item->getTag(); // Lấy giá của vật phẩm
 
@@ -193,8 +189,8 @@ void UpgradeShopLayer::menuOKCallback(cocos2d::Ref* Sender) {
     this->removeFromParentAndCleanup(true);
 }
 void UpgradeShopLayer::upgradeMana(cocos2d::Ref* Sender) {
-    auto item = static_cast<MenuItemLabel*>(Sender);
-    item->setColor(cocos2d::Color3B(255, 255, 0));
+    auto item = static_cast<MenuItemImage*>(Sender);
+    Common::zoomAction(item, 0.1, 1.1);
 
     int price = item->getTag(); // Lấy giá của vật phẩm
 

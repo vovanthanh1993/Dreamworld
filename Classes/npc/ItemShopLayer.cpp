@@ -45,14 +45,14 @@ bool ItemShopLayer::init(Player* player, Scene* scene) {
 
     // Skill 1
     Sprite* healthPotionShop = Sprite::create("Item/potions/health.png");
-    healthPotionShop->setPosition(itemPosX, 300 * Common::scaleSizeY());
+    healthPotionShop->setPosition(itemPosX, 280 * Common::scaleSizeY());
     healthPotionShop->setScale(0.18 * Common::scaleSizeXY());
     layer->addChild(healthPotionShop, 10);
     auto healthPotionLabel = MenuItemLabel::create(
         Label::createWithSystemFont("Health Potion", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     healthPotionLabel->setColor(cocos2d::Color3B(0, 0, 0));
-    healthPotionLabel->setPosition(pricePosX, 320*Common::scaleSizeY());
+    healthPotionLabel->setPosition(pricePosX, 300*Common::scaleSizeY());
     healthPotionLabel->setAnchorPoint(Vec2(0,0));
     layer->addChild(healthPotionLabel);
     
@@ -62,15 +62,15 @@ bool ItemShopLayer::init(Player* player, Scene* scene) {
         CC_CALLBACK_1(ItemShopLayer::purchaseHealthPotion, this)
     );
 
-    Common::zoomAction(healthBuyButton);
+    //Common::zoomAction(healthBuyButton);
     healthBuyButton->setScale(0.6 * Common::scaleSizeXY());
     healthBuyButton->setTag(50); // Đặt tag cho vật phẩm
     healthBuyButton->setAnchorPoint(Vec2(0, 0));
-    healthBuyButton->setPosition(Vec2(pricePosX, 250 * Common::scaleSizeY()));
+    healthBuyButton->setPosition(Vec2(pricePosX, 230 * Common::scaleSizeY()));
     
     // ----------------------------------------skill 2
     Sprite* manaPotionShop = Sprite::create("Item/potions/mana.png");
-    manaPotionShop->setPosition(itemPosX, 160* Common::scaleSizeY());
+    manaPotionShop->setPosition(itemPosX, 140* Common::scaleSizeY());
     manaPotionShop->setScale(0.18 * Common::scaleSizeXY());
     layer->addChild(manaPotionShop, 10);
 
@@ -79,7 +79,7 @@ bool ItemShopLayer::init(Player* player, Scene* scene) {
     );
     
     manaPotionLabel->setColor(cocos2d::Color3B(0, 0, 0));
-    manaPotionLabel->setPosition(pricePosX, 180 * Common::scaleSizeY());
+    manaPotionLabel->setPosition(pricePosX, 160 * Common::scaleSizeY());
     manaPotionLabel->setAnchorPoint(Vec2(0, 0));
     layer->addChild(manaPotionLabel);
 
@@ -88,11 +88,11 @@ bool ItemShopLayer::init(Player* player, Scene* scene) {
         "shop/50.png",   // image when button is pressed
         CC_CALLBACK_1(ItemShopLayer::purchaseManaPotion, this)
     );
-    Common::zoomAction(manaBuyButton);
+
     manaBuyButton->setScale(0.6 * Common::scaleSizeXY());
     manaBuyButton->setTag(50); // Đặt tag cho vật phẩm
     manaBuyButton->setAnchorPoint(Vec2(0, 0));
-    manaBuyButton->setPosition(Vec2(pricePosX, 110 * Common::scaleSizeY())); // Vị trí trong khung
+    manaBuyButton->setPosition(Vec2(pricePosX, 90 * Common::scaleSizeY())); // Vị trí trong khung
 
     auto menuItem = Menu::create(healthBuyButton, manaBuyButton, nullptr);
     menuItem->setPosition(Vec2::ZERO);
@@ -124,8 +124,14 @@ bool ItemShopLayer::init(Player* player, Scene* scene) {
 }
 
 void ItemShopLayer::purchaseHealthPotion(cocos2d::Ref* sender) {
-    auto item = static_cast<MenuItemLabel*>(sender);
+    auto item = static_cast<MenuItemImage*>(sender);
     int price = item->getTag(); // Lấy giá của vật phẩm
+    if (!item->getActionByTag(1)) {
+        auto zoomIn = ScaleBy::create(0.1f, 1.1f);
+        auto acSq = Sequence::create(zoomIn, zoomIn->reverse(), nullptr);
+        acSq->setTag(1);
+        item->runAction(acSq);
+    }
 
     if (player->gem >= price) {
         player->addHealthPotion(1);
@@ -135,7 +141,9 @@ void ItemShopLayer::purchaseHealthPotion(cocos2d::Ref* sender) {
 }
 
 void ItemShopLayer::purchaseManaPotion(cocos2d::Ref* sender) {
-    auto item = static_cast<MenuItemLabel*>(sender);
+    auto item = static_cast<MenuItemImage*>(sender);
+    Common::zoomAction(item, 0.1, 1.1);
+
     int price = item->getTag(); // Lấy giá của vật phẩm
     if (player->gem >= price) {
         player->addManaPotion(1);

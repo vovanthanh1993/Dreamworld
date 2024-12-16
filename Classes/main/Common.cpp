@@ -99,12 +99,19 @@ namespace common {
         auto acSq = Sequence::create(zoomIn, zoomIn->reverse(), nullptr);
         auto actionRepeat = RepeatForever::create(acSq);
         item->runAction(actionRepeat);
+    }
 
+    void Common::zoomAction(MenuItemImage* item, float time, float scale) {
+        if (!item->getActionByTag(1)) {
+            auto zoomIn = ScaleBy::create(time, scale);
+            auto acSq = Sequence::create(zoomIn, zoomIn->reverse(), nullptr);
+            acSq->setTag(1);
+            item->runAction(acSq);
+        }
     }
 
     void Common::zoomAction(Sprite* item) {
         auto zoomIn = ScaleBy::create(.7f, 1.3f);
-        // Tạo hành động xoay
         auto acSq = Sequence::create(zoomIn, zoomIn->reverse(), nullptr);
         auto actionRepeat = RepeatForever::create(acSq);
         item->runAction(actionRepeat);

@@ -82,7 +82,7 @@ bool GUILayer::init(Player* player, Scene* scene) {
         Label::createWithSystemFont("Ok", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY()),
         CC_CALLBACK_1(GUILayer::menuOKCallback, this)
     );
-    okItem->setPosition(Vec2(150, 30) * Common::scaleSizeXY());
+    okItem->setPosition(Vec2(150* Common::scaleSizeX(), 35* Common::scaleSizeY()));
     okItem->setColor(cocos2d::Color3B(180, 57, 67));
     auto menu = Menu::create(okItem, nullptr);
     menu->setPosition(Vec2::ZERO);
