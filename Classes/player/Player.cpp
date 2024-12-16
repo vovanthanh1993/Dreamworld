@@ -214,6 +214,7 @@ void Player::healing(int num) {
     updateHealthBar(health);
 }
 
+
 void Player::updateStickNum(int stick) {
     stickNum += stick;
     stickNum = stickNum < 0 ? 0 : stickNum;
@@ -250,26 +251,42 @@ void Player::initGUI() {
     uiNode->addChild(stickLabel);
     
     xs += 50* Common::scaleSizeXY();
-    Sprite* gourd = Sprite::create("Item/gourd/gourd.png");
-    gourd->setAnchorPoint(Vec2(0, 0.5));
-    gourd->setPosition(xs, y - 115 * Common::scaleSizeXY());
-    gourd->setScale(0.35* Common::scaleSizeXY());
-    uiNode->addChild(gourd);
-    xs += 60 * Common::scaleSizeXY();
-    gourdLabel = Label::createWithTTF("x" + to_string(gourdNum), "fonts/Marker Felt.ttf", 30);
-    gourdLabel->setPosition(xs, stickLabel->getPositionY());
-    gourdLabel->setScale(Common::scaleSizeXY());
-    uiNode->addChild(gourdLabel);
-
+    Sprite* healthPotionSprite = Sprite::create("Item/potions/health.png");
+    healthPotionSprite->setAnchorPoint(Vec2(0, 0.5));
+    healthPotionSprite->setPosition(xs, y - 115 * Common::scaleSizeXY());
+    healthPotionSprite->setScale(0.11* Common::scaleSizeXY());
+    uiNode->addChild(healthPotionSprite);
     xs += 40 * Common::scaleSizeXY();
+    healthPotionLabel = Label::createWithTTF("x" + to_string(healthPotionNum), "fonts/Marker Felt.ttf", 30);
+    healthPotionLabel->setAnchorPoint(Vec2(0,0.5));
+    healthPotionLabel->setPosition(xs, stickLabel->getPositionY());
+    healthPotionLabel->setScale(Common::scaleSizeXY());
+    uiNode->addChild(healthPotionLabel);
+
+    // mana
+    xs += 60 * Common::scaleSizeXY();
+    Sprite* manaPotionSprite = Sprite::create("Item/potions/mana.png");
+    manaPotionSprite->setAnchorPoint(Vec2(0, 0.5));
+    manaPotionSprite->setPosition(xs, y - 115 * Common::scaleSizeXY());
+    manaPotionSprite->setScale(0.11 * Common::scaleSizeXY());
+    uiNode->addChild(manaPotionSprite);
+    xs += 40 * Common::scaleSizeXY();
+    manaPotionLabel = Label::createWithTTF("x" + to_string(manaPotionNum), "fonts/Marker Felt.ttf", 30);
+    manaPotionLabel->setPosition(xs, stickLabel->getPositionY());
+    manaPotionLabel->setAnchorPoint(Vec2(0, 0.5));
+    manaPotionLabel->setScale(Common::scaleSizeXY());
+    uiNode->addChild(manaPotionLabel);
+
+    xs += 60 * Common::scaleSizeXY();
     Sprite* gemSprite = Sprite::create("item/gem/gem.png");
     gemSprite->setPosition(xs, y - 100 * Common::scaleSizeXY());
     gemSprite->setAnchorPoint(Vec2(0, 1));
     uiNode->addChild(gemSprite);
     gemSprite->setScale(0.1* Common::scaleSizeXY());
-    xs += 70 * Common::scaleSizeXY();
+    xs += 40 * Common::scaleSizeXY();
     gemLabel = Label::createWithTTF("x" + to_string(gem), "fonts/Marker Felt.ttf", 30);
     gemLabel->setPosition(xs, stickLabel->getPositionY());
+    gemLabel->setAnchorPoint(Vec2(0, 0.5));
     gemLabel->setScale(Common::scaleSizeXY());
     uiNode->addChild(gemLabel);
 }
@@ -281,15 +298,31 @@ void Player::updateGem(int i) {
     Effect::soundTing();
 }
 
-void Player::updateGourd(int i) {
-    gourdNum += i;
-    gourdLabel->setString("x" + to_string(gourdNum));
+void Player::addHealthPotion(int i) {
+    healthPotionNum += i;
+    healthPotionLabel->setString("x" + to_string(healthPotionNum));
 }
-void Player::useGourd() {
-    if (gourdNum > 0) {
+void Player::useHealthPotion() {
+    if (healthPotionNum > 0) {
         Effect::healing(world, scene, sprite->getPosition());
-        updateGourd(-1);
+        addHealthPotion(-1);
         healing(1);
+    }
+    else {
+        Effect::soundError();
+    }
+}
+
+void Player::addManaPotion(int i) {
+    manaPotionNum += i;
+    manaPotionLabel->setString("x" + to_string(manaPotionNum));
+}
+void Player::useManaPotion() {
+    if (manaPotionNum > 0) {
+        Effect::healing(world, scene, sprite->getPosition());
+        Effect::soundHealth();
+        addManaPotion(-1);
+        addMana(2);
     }
     else {
         Effect::soundError();
@@ -307,7 +340,8 @@ void Player::savePlayerDataInit() {
         outFile << health << "\n";
         outFile << mana << "\n";
         outFile << stickNum << "\n";
-        outFile << gourdNum << "\n";
+        outFile << healthPotionNum << "\n";
+        outFile << manaPotionNum << "\n";
         outFile << gem << "\n";
         outFile << slashDamage << "\n";
         outFile << stickDamage << "\n";
@@ -332,7 +366,8 @@ void Player::loadPlayerDataInit(bool isNew) {
         inFile >> health;
         inFile >> mana;
         inFile >> stickNum;
-        inFile >> gourdNum;
+        inFile >> healthPotionNum;
+        inFile >> manaPotionNum;
         inFile >> gem;
         inFile >> slashDamage;
         inFile >> stickDamage;
@@ -554,8 +589,11 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
                 throwStick();
             }
 
-            if (keyCode == (EventKeyboard::KeyCode::KEY_R)) {
-                useGourd();
+            if (keyCode == (EventKeyboard::KeyCode::KEY_1)) {
+                useHealthPotion();
+            }
+            if (keyCode == (EventKeyboard::KeyCode::KEY_2)) {
+                useManaPotion();
             }
             if (keyCode == (EventKeyboard::KeyCode::KEY_Q)) {
                 throwEagle();

@@ -24,7 +24,8 @@ private:
 	float maxMana = Constants::MAX_MANA;
 	float mana = 5;
 	int stickNum = 5;
-	int gourdNum = 1;
+	int healthPotionNum = 1;
+	int manaPotionNum = 1;
 	Sprite* healthBar; // Sprite cho thanh máu
 	Sprite* healthBarBg; // Sprite cho nền thanh máu
 	Sprite* manaBar; // Sprite cho thanh máu
@@ -50,7 +51,8 @@ public:
 	Node* uiNode = Node::create();
 	Label* stickLabel;
 	Label* gemLabel;
-	Label* gourdLabel;
+	Label* healthPotionLabel;
+	Label* manaPotionLabel;
 	void walk();
 	void die();
 	void idle();
@@ -78,8 +80,10 @@ public:
 	void hurt();
 	void savePlayerDataInit();
 	void loadPlayerDataInit(bool isNew);
-	void updateGourd(int i);
-	void useGourd();
+	void addHealthPotion(int i);
+	void useHealthPotion();
+	void addManaPotion(int i);
+	void useManaPotion();
 	void updateHealth(int damage);
 	void updateHealthBar(float health);
 	void createHealthBar();

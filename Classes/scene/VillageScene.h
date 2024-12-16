@@ -29,7 +29,7 @@
 #include "npc/NPC2.h"
 #include "npc/GUILayer.h"
 #include "npc/NPC3.h"
-#include "npc/SkillShopLayer.h"
+#include "npc/ItemShopLayer.h"
 #include "base/BaseScene.h"
 #include "npc/NPC1.h"
 #include "npc/ShopLayer.h"
@@ -50,7 +50,7 @@ private:
         NPC2* npc2;
         ShopLayer* shopLayer;
         GUILayer* guiLayer;
-        SkillShopLayer* skillShopLayer;
+        ItemShopLayer* itemShopLayer;
         void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
 };
 

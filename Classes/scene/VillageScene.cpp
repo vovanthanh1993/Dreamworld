@@ -55,7 +55,7 @@ void VillageScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d
                 guiLayer = GUILayer::createLayer(player, this);
             }
             if (b2Distance(player->getBody()->GetPosition(), npc3->getBody()->GetPosition()) <= Constants::TALK_RANGE * Common::scaleSizeXY()) {
-                skillShopLayer = SkillShopLayer::createLayer(player, this);
+                itemShopLayer = ItemShopLayer::createLayer(player, this);
             }
         }
     }

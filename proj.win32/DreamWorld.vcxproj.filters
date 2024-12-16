@@ -58,7 +58,7 @@
     <ClCompile Include="D:\Git\Dreamworld\Classes\npc\ShopLayer.cpp">
       <Filter>Source Files\Classes\npc</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\npc\SkillShopLayer.cpp">
+    <ClCompile Include="..\Classes\npc\ItemShopLayer.cpp">
       <Filter>Source Files\Classes\npc</Filter>
     </ClCompile>
     <ClCompile Include="D:\Git\Dreamworld\Classes\player\Player.cpp">
@@ -2580,7 +2580,7 @@
     <ClInclude Include="..\Classes\base\BaseEnemy.h">
       <Filter>Source Files\Classes\base</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\npc\SkillShopLayer.h">
+    <ClInclude Include="..\Classes\npc\ItemShopLayer.h">
       <Filter>Source Files\Classes\npc</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\npc\Miko.h">

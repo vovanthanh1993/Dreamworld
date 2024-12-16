@@ -62,16 +62,16 @@ void MikoScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::E
                 if (player->isComplete()) {
                     chat = completeChatVector;
                 }
+                if (index < chat.size()) {
+                    Common::showText(this, chat[index], 1000);
+                }
                 if (!isHasGate && index == chat.size() -1) {
                     Port* p = new Port(world, this, bodyToSpriteMap);
                     p->map = map;
                     p->init();
                     isHasGate = true;
                 }
-                if (index < chat.size()) {
-                    Common::showText(this, chat[index], 1000);
-                    index++;
-                }
+                index++;
                 
             }
         }

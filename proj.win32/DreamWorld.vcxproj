@@ -864,7 +864,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\Classes\item\Stone.h" />
     <ClInclude Include="..\Classes\main\Constants.h" />
     <ClInclude Include="..\Classes\npc\Miko.h" />
-    <ClInclude Include="..\Classes\npc\SkillShopLayer.h" />
+    <ClInclude Include="..\Classes\npc\ItemShopLayer.h" />
     <ClInclude Include="..\Classes\player\skill\EaglePool.h" />
     <ClInclude Include="..\Classes\player\skill\Slash.h" />
     <ClInclude Include="..\Classes\player\skill\SlashPool.h" />
@@ -988,7 +988,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\Git\Dreamworld\Classes\npc\NPC3.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\npc\NPCMonkey.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\npc\ShopLayer.cpp" />
-    <ClCompile Include="D:\Git\Dreamworld\Classes\npc\SkillShopLayer.cpp" />
+    <ClCompile Include="..\Classes\npc\ItemShopLayer.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\player\Player.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\player\skill\Eagle.cpp" />
     <ClCompile Include="D:\Git\Dreamworld\Classes\scene\GUIScene.cpp" />
