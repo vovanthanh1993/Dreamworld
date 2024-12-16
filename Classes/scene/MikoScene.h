@@ -27,7 +27,6 @@
 
 #include <string>
 #include "base/BaseScene.h"
-#include "npc/ShopLayer.h"
 #include "scene/MemoryScene.h"
 #include "npc/Miko.h"
 #include "inventory/InventoryLayer.h"

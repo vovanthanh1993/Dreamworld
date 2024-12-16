@@ -32,7 +32,7 @@
 #include "npc/ItemShopLayer.h"
 #include "base/BaseScene.h"
 #include "npc/NPC1.h"
-#include "npc/ShopLayer.h"
+#include "npc/UpgradeShopLayer.h"
 #include "scene/Map1Scene.h"
 #include "npc/NPCMonkey.h"
 #include "inventory/InventoryLayer.h"
@@ -48,7 +48,7 @@ private:
         NPC1* npc1;
         NPC3* npc3;
         NPC2* npc2;
-        ShopLayer* shopLayer;
+        UpgradeShopLayer* upgradeShopLayer;
         GUILayer* guiLayer;
         ItemShopLayer* itemShopLayer;
         void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);

@@ -57,12 +57,12 @@ bool ItemShopLayer::init(Player* player, Scene* scene) {
     layer->addChild(healthPotionLabel);
     
     auto healthBuyButton = MenuItemImage::create(
-        "shop/50gem.png",   // image when button is off
-        "shop/50gem.png",   // image when button is pressed
+        "shop/50.png",   // image when button is off
+        "shop/50.png",   // image when button is pressed
         CC_CALLBACK_1(ItemShopLayer::purchaseHealthPotion, this)
     );
 
-    //Common::zoomAction(healthBuyButton);
+    Common::zoomAction(healthBuyButton);
     healthBuyButton->setScale(0.6 * Common::scaleSizeXY());
     healthBuyButton->setTag(50); // Đặt tag cho vật phẩm
     healthBuyButton->setAnchorPoint(Vec2(0, 0));
@@ -70,7 +70,7 @@ bool ItemShopLayer::init(Player* player, Scene* scene) {
     
     // ----------------------------------------skill 2
     Sprite* manaPotionShop = Sprite::create("Item/potions/mana.png");
-    manaPotionShop->setPosition(itemPosX, 180* Common::scaleSizeY());
+    manaPotionShop->setPosition(itemPosX, 160* Common::scaleSizeY());
     manaPotionShop->setScale(0.18 * Common::scaleSizeXY());
     layer->addChild(manaPotionShop, 10);
 
@@ -79,20 +79,20 @@ bool ItemShopLayer::init(Player* player, Scene* scene) {
     );
     
     manaPotionLabel->setColor(cocos2d::Color3B(0, 0, 0));
-    manaPotionLabel->setPosition(pricePosX, 200 * Common::scaleSizeY());
+    manaPotionLabel->setPosition(pricePosX, 180 * Common::scaleSizeY());
     manaPotionLabel->setAnchorPoint(Vec2(0, 0));
     layer->addChild(manaPotionLabel);
 
     auto manaBuyButton = MenuItemImage::create(
-        "shop/50gem.png",   // image when button is off
-        "shop/50gem.png",   // image when button is pressed
+        "shop/50.png",   // image when button is off
+        "shop/50.png",   // image when button is pressed
         CC_CALLBACK_1(ItemShopLayer::purchaseManaPotion, this)
     );
-    //Common::zoomAction(healthBuy);
+    Common::zoomAction(manaBuyButton);
     manaBuyButton->setScale(0.6 * Common::scaleSizeXY());
     manaBuyButton->setTag(50); // Đặt tag cho vật phẩm
     manaBuyButton->setAnchorPoint(Vec2(0, 0));
-    manaBuyButton->setPosition(Vec2(pricePosX, 130 * Common::scaleSizeY())); // Vị trí trong khung
+    manaBuyButton->setPosition(Vec2(pricePosX, 110 * Common::scaleSizeY())); // Vị trí trong khung
 
     auto menuItem = Menu::create(healthBuyButton, manaBuyButton, nullptr);
     menuItem->setPosition(Vec2::ZERO);

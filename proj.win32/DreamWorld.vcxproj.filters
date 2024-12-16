@@ -55,7 +55,7 @@
     <ClCompile Include="D:\Git\Dreamworld\Classes\npc\NPCMonkey.cpp">
       <Filter>Source Files\Classes\npc</Filter>
     </ClCompile>
-    <ClCompile Include="D:\Git\Dreamworld\Classes\npc\ShopLayer.cpp">
+    <ClCompile Include="..\Classes\npc\UpgradeShopLayer.cpp">
       <Filter>Source Files\Classes\npc</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\npc\ItemShopLayer.cpp">
@@ -321,7 +321,7 @@
     <ClInclude Include="D:\Git\Dreamworld\Classes\npc\NPCMonkey.h">
       <Filter>Source Files\Classes\npc</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Git\Dreamworld\Classes\npc\ShopLayer.h">
+    <ClInclude Include="..\Classes\npc\UpgradeShopLayer.h">
       <Filter>Source Files\Classes\npc</Filter>
     </ClInclude>
     <ClInclude Include="D:\Git\Dreamworld\Classes\player\Player.h">

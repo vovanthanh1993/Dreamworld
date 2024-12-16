@@ -3,7 +3,6 @@
 #include "scene/GameOver.h"
 #include <iostream>
 #include <fstream>
-#include <npc/ShopLayer.h>
 
 // Constructor khởi tạo âm lượng mặc định
 Setting::Setting() : volume(50), gameplayVol(50),sub(1), vsyn(1) {}

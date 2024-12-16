@@ -48,7 +48,7 @@ void VillageScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d
     if (player->isEnable) {
         if (keyCode == (EventKeyboard::KeyCode::KEY_E)) {
             if (b2Distance(player->getBody()->GetPosition(), npc1->getBody()->GetPosition()) <= Constants::TALK_RANGE* Common::scaleSizeXY()) {
-                shopLayer = ShopLayer::createLayer(player, this);
+                upgradeShopLayer = UpgradeShopLayer::createLayer(player, this);
             }
 
             if (b2Distance(player->getBody()->GetPosition(), npc2->getBody()->GetPosition()) <= Constants::TALK_RANGE * Common::scaleSizeXY()) {
