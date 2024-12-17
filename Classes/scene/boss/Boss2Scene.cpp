@@ -23,6 +23,7 @@ bool Boss2Scene::init(string bg, string bgMusic, string mapName, bool isMoveCame
         return false;
     }
     contactListener->bossmap2 = bossmap2;
+    Common::addMapName(this, "Grim Reaper");
     return true;
 }
 

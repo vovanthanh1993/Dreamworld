@@ -46,6 +46,7 @@ public:
 	void createHealthBar();
 	void updateHealthBarPosition();
 	TMXTiledMap* map;
+	void castShadow();
 };
 
 #endif // __BossMap3_H__

@@ -613,18 +613,56 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
             if (keyCode == (EventKeyboard::KeyCode::KEY_Q)) {
                 throwEagle();
             }
-
-            if (keyCode == (EventKeyboard::KeyCode::KEY_TAB)) {
-                health = maxHealth;
-                mana = maxMana;
-                updateHealth(0);
-                addMana(0);
-            }
         } 
     }
     if (keyCode == (EventKeyboard::KeyCode::KEY_ESCAPE)) {
         Common::togglePause(isEnable, scene);
     }
+
+    // Cheat code
+    if (keyCode == (EventKeyboard::KeyCode::KEY_F1)) {
+        auto villageScene = VillageScene::createScene("map/bglv1.png", "sound/bg1.mp3", "village", false);
+        Director::getInstance()->replaceScene(villageScene);
+    }
+    if (keyCode == (EventKeyboard::KeyCode::KEY_F2)) {
+        auto villageScene = Map1Scene::createScene("map/bglv1.png", "sound/background2.mp3", "map1", true);
+        Director::getInstance()->replaceScene(villageScene);
+    }
+    if (keyCode == (EventKeyboard::KeyCode::KEY_F3)) {
+        auto villageScene = Boss1Scene::createScene("map/bglv1.png", "Enemy/Bossmap1/sound/bg.mp3", "boss1", false);
+        Director::getInstance()->replaceScene(villageScene);
+    }
+    if (keyCode == (EventKeyboard::KeyCode::KEY_F4)) {
+        auto villageScene = Map2Scene::createScene("map/bglv1.png", "sound/bg2.mp3", "map2", true);
+        Director::getInstance()->replaceScene(villageScene);
+    }
+    if (keyCode == (EventKeyboard::KeyCode::KEY_F5)) {
+        auto villageScene = Boss2Scene::createScene("map/bglv1.png", "Enemy/Bossmap2/sound/bg.mp3", "boss2", false);
+        Director::getInstance()->replaceScene(villageScene);
+    }
+    if (keyCode == (EventKeyboard::KeyCode::KEY_F6)) {
+        auto villageScene = Map3Scene::createScene("map/bg2.png", "sound/bg3.mp3", "map3", true);
+        Director::getInstance()->replaceScene(villageScene);
+    }
+    if (keyCode == (EventKeyboard::KeyCode::KEY_F7)) {
+        auto villageScene = Boss3Scene::createScene("map/bg2.png", "Enemy/Bossmap3/sound/bg.mp3", "boss3", false);
+        Director::getInstance()->replaceScene(villageScene);
+    }
+    if (keyCode == (EventKeyboard::KeyCode::KEY_F8)) {
+        auto villageScene = MikoScene::createScene("map/bg2.png", "sound/bg3.mp3", "mikomap", false);
+        Director::getInstance()->replaceScene(villageScene);
+    }
+    if (keyCode == (EventKeyboard::KeyCode::KEY_F9)) {
+        auto villageScene = MemoryScene::createScene("map/bglv1.png", "sound/bg1.mp3", "MemoryMap", false);
+        Director::getInstance()->replaceScene(villageScene);
+    }
+    if (keyCode == (EventKeyboard::KeyCode::KEY_TAB)) {
+        health = maxHealth;
+        mana = maxMana;
+        updateHealth(0);
+        addMana(0);
+    }
+    
 }
 
 // Mouse event

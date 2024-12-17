@@ -25,7 +25,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0C2A1FEE-A313-36C3-B9A1-07BAE3F3E060}</ProjectGuid>
+    <ProjectGuid>{1C7DFF99-F2CF-396C-8084-1B4DFDF40D9B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>Win32</Platform>
@@ -108,11 +108,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Git\Dreamworld\cocos2d\cocos\CMakeLists.txt">
+    <CustomBuild Include="D:\DreamWorld\cocos2d\cocos\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/Git/Dreamworld/cocos2d/cocos/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/DreamWorld/cocos2d/cocos/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Dreamworld -BD:/Git/Dreamworld/proj.win32 --check-stamp-file D:/Git/Dreamworld/proj.win32/engine/cocos/core/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/DreamWorld -BD:/DreamWorld/proj.win32 --check-stamp-file D:/DreamWorld/proj.win32/engine/cocos/core/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -120,12 +120,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Git\Dreamworld\cocos2d\cocos\2d\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\3d\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\audio\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\base\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\editor-support\cocostudio\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\math\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\navmesh\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\network\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\physics\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\physics3d\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\platform\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\renderer\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\ui\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\extensions\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Git\Dreamworld\proj.win32\engine\cocos\core\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\DreamWorld\cocos2d\cocos\2d\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\3d\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\audio\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\base\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\editor-support\cocostudio\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\math\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\navmesh\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\network\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\physics\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\physics3d\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\platform\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\renderer\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\ui\CMakeLists.txt;D:\DreamWorld\cocos2d\extensions\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\DreamWorld\proj.win32\engine\cocos\core\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/Git/Dreamworld/cocos2d/cocos/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/DreamWorld/cocos2d/cocos/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Dreamworld -BD:/Git/Dreamworld/proj.win32 --check-stamp-file D:/Git/Dreamworld/proj.win32/engine/cocos/core/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/DreamWorld -BD:/DreamWorld/proj.win32 --check-stamp-file D:/DreamWorld/proj.win32/engine/cocos/core/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -133,12 +133,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Git\Dreamworld\cocos2d\cocos\2d\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\3d\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\audio\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\base\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\editor-support\cocostudio\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\math\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\navmesh\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\network\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\physics\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\physics3d\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\platform\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\renderer\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\ui\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\extensions\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Git\Dreamworld\proj.win32\engine\cocos\core\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\DreamWorld\cocos2d\cocos\2d\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\3d\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\audio\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\base\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\editor-support\cocostudio\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\math\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\navmesh\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\network\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\physics\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\physics3d\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\platform\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\renderer\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\ui\CMakeLists.txt;D:\DreamWorld\cocos2d\extensions\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\DreamWorld\proj.win32\engine\cocos\core\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/Git/Dreamworld/cocos2d/cocos/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/DreamWorld/cocos2d/cocos/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Dreamworld -BD:/Git/Dreamworld/proj.win32 --check-stamp-file D:/Git/Dreamworld/proj.win32/engine/cocos/core/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/DreamWorld -BD:/DreamWorld/proj.win32 --check-stamp-file D:/DreamWorld/proj.win32/engine/cocos/core/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -146,12 +146,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\Git\Dreamworld\cocos2d\cocos\2d\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\3d\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\audio\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\base\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\editor-support\cocostudio\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\math\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\navmesh\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\network\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\physics\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\physics3d\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\platform\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\renderer\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\ui\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\extensions\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\Git\Dreamworld\proj.win32\engine\cocos\core\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\DreamWorld\cocos2d\cocos\2d\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\3d\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\audio\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\base\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\editor-support\cocostudio\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\math\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\navmesh\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\network\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\physics\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\physics3d\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\platform\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\renderer\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\ui\CMakeLists.txt;D:\DreamWorld\cocos2d\extensions\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\DreamWorld\proj.win32\engine\cocos\core\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/Git/Dreamworld/cocos2d/cocos/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/DreamWorld/cocos2d/cocos/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Dreamworld -BD:/Git/Dreamworld/proj.win32 --check-stamp-file D:/Git/Dreamworld/proj.win32/engine/cocos/core/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/DreamWorld -BD:/DreamWorld/proj.win32 --check-stamp-file D:/DreamWorld/proj.win32/engine/cocos/core/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -159,66 +159,66 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\Git\Dreamworld\cocos2d\cocos\2d\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\3d\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\audio\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\base\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\editor-support\cocostudio\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\math\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\navmesh\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\network\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\physics\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\physics3d\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\platform\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\renderer\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\cocos\ui\CMakeLists.txt;D:\Git\Dreamworld\cocos2d\extensions\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\Git\Dreamworld\proj.win32\engine\cocos\core\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\DreamWorld\cocos2d\cocos\2d\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\3d\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\audio\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\base\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\editor-support\cocostudio\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\math\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\navmesh\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\network\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\physics\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\physics3d\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\platform\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\renderer\CMakeLists.txt;D:\DreamWorld\cocos2d\cocos\ui\CMakeLists.txt;D:\DreamWorld\cocos2d\extensions\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\DreamWorld\proj.win32\engine\cocos\core\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\Git\Dreamworld\proj.win32\ZERO_CHECK.vcxproj">
-      <Project>{97C0002D-3EE1-3E8D-AF57-D4AAFC70F278}</Project>
+    <ProjectReference Include="D:\DreamWorld\proj.win32\ZERO_CHECK.vcxproj">
+      <Project>{80A6CB7C-DB9C-3D7E-906F-B0BCE57E08E0}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\Git\Dreamworld\proj.win32\engine\cocos\core\cocos2d.vcxproj">
-      <Project>{0CA8B9B2-7B1B-33A8-87E9-C6DBFF1F644E}</Project>
+    <ProjectReference Include="D:\DreamWorld\proj.win32\engine\cocos\core\cocos2d.vcxproj">
+      <Project>{0255E38C-E10E-3B76-AC3C-DF98ED337C45}</Project>
       <Name>cocos2d</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Git\Dreamworld\proj.win32\engine\external\clipper\ext_clipper.vcxproj">
-      <Project>{87CD4B6C-F96C-3526-BB1A-54B8FD7B5A55}</Project>
+    <ProjectReference Include="D:\DreamWorld\proj.win32\engine\external\clipper\ext_clipper.vcxproj">
+      <Project>{780BF35E-CB0A-33A0-AC5D-7CBB857F5169}</Project>
       <Name>ext_clipper</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Git\Dreamworld\proj.win32\engine\external\ConvertUTF\ext_convertUTF.vcxproj">
-      <Project>{2C00C2EB-5466-39BE-B413-D2B85E69F93D}</Project>
+    <ProjectReference Include="D:\DreamWorld\proj.win32\engine\external\ConvertUTF\ext_convertUTF.vcxproj">
+      <Project>{AD33FB95-5DA4-3007-8287-DF208394D7C9}</Project>
       <Name>ext_convertUTF</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Git\Dreamworld\proj.win32\engine\external\edtaa3func\ext_edtaa3func.vcxproj">
-      <Project>{E5E8B5AF-38BD-3246-AF36-A23CB0CB79F6}</Project>
+    <ProjectReference Include="D:\DreamWorld\proj.win32\engine\external\edtaa3func\ext_edtaa3func.vcxproj">
+      <Project>{4352436B-AA05-3D7B-A7DE-9D769AEFBFB0}</Project>
       <Name>ext_edtaa3func</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Git\Dreamworld\proj.win32\engine\external\md5\ext_md5.vcxproj">
-      <Project>{F55BBDD0-A841-39F0-A06C-768C56DA387E}</Project>
+    <ProjectReference Include="D:\DreamWorld\proj.win32\engine\external\md5\ext_md5.vcxproj">
+      <Project>{8FF6BC22-F374-3634-94DB-753054779A02}</Project>
       <Name>ext_md5</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Git\Dreamworld\proj.win32\engine\external\poly2tri\ext_poly2tri.vcxproj">
-      <Project>{AF4E4DFF-0495-327E-A268-2D3939386E1E}</Project>
+    <ProjectReference Include="D:\DreamWorld\proj.win32\engine\external\poly2tri\ext_poly2tri.vcxproj">
+      <Project>{6AA22EE6-D1A3-378F-BAD7-F69A502B90C2}</Project>
       <Name>ext_poly2tri</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Git\Dreamworld\proj.win32\engine\external\recast\ext_recast.vcxproj">
-      <Project>{13BCA501-8568-3BA0-B05C-0E0A4B3A6472}</Project>
+    <ProjectReference Include="D:\DreamWorld\proj.win32\engine\external\recast\ext_recast.vcxproj">
+      <Project>{E8CDBA03-0B07-3BC6-B699-26DD99970AA9}</Project>
       <Name>ext_recast</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Git\Dreamworld\proj.win32\engine\external\tinyxml2\ext_tinyxml2.vcxproj">
-      <Project>{669682D3-AD19-350D-85FF-54D301C8CD0A}</Project>
+    <ProjectReference Include="D:\DreamWorld\proj.win32\engine\external\tinyxml2\ext_tinyxml2.vcxproj">
+      <Project>{D812B076-1418-3AE5-B5F3-35A8FE556EE7}</Project>
       <Name>ext_tinyxml2</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Git\Dreamworld\proj.win32\engine\external\unzip\ext_unzip.vcxproj">
-      <Project>{C56B5312-2F75-309B-81D7-015AA61E8F93}</Project>
+    <ProjectReference Include="D:\DreamWorld\proj.win32\engine\external\unzip\ext_unzip.vcxproj">
+      <Project>{46EE33BD-F797-3C78-ABD9-CD5C239C046B}</Project>
       <Name>ext_unzip</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Git\Dreamworld\proj.win32\engine\external\xxhash\ext_xxhash.vcxproj">
-      <Project>{A2C1F231-4DDF-3A9C-83CB-2CCA2FFFEE4D}</Project>
+    <ProjectReference Include="D:\DreamWorld\proj.win32\engine\external\xxhash\ext_xxhash.vcxproj">
+      <Project>{4AD2F70A-DDDB-3E11-B309-ABF113301210}</Project>
       <Name>ext_xxhash</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Git\Dreamworld\proj.win32\engine\external\xxtea\ext_xxtea.vcxproj">
-      <Project>{F4B3925B-E828-3E19-985D-A860F779D329}</Project>
+    <ProjectReference Include="D:\DreamWorld\proj.win32\engine\external\xxtea\ext_xxtea.vcxproj">
+      <Project>{7B5A7DF1-6061-3028-8A62-D6E9743AB36E}</Project>
       <Name>ext_xxtea</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\Git\Dreamworld\proj.win32\engine\external\external.vcxproj">
-      <Project>{7A811875-45E8-3629-A461-62E1237D9DCD}</Project>
+    <ProjectReference Include="D:\DreamWorld\proj.win32\engine\external\external.vcxproj">
+      <Project>{81C6DF11-8FD6-3369-85D5-FF2247BB1CDD}</Project>
       <Name>external</Name>
     </ProjectReference>
   </ItemGroup>

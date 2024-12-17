@@ -24,6 +24,7 @@ bool Boss1Scene::init(string bg, string bgMusic, string mapName, bool isMoveCame
     }
 
     contactListener->bossmap1 = bossmap1;
+    Common::addMapName(this, "Lonely Rock");
     return true;
 }
 

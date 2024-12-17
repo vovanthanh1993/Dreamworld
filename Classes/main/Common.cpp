@@ -157,6 +157,15 @@ namespace common {
         label->runAction(sequence);
     }
 
+    void Common::addMapName(Scene* scene, string text) {
+        auto origin = Director::getInstance()->getVisibleOrigin();
+        Size screenSize = Director::getInstance()->getVisibleSize();
+        auto label = Label::createWithTTF(text, "fonts/Marker Felt.ttf", 40 * scaleSizeXY());
+        label->setAnchorPoint(Vec2(1, 1));
+        label->setPosition(origin.x + screenSize.width, origin.x + screenSize.height);
+        scene->addChild(label, 90);
+    }
+
     void Common::saveRound(int round) {
         std::ofstream outFile("round.txt");
         if (outFile.is_open()) {

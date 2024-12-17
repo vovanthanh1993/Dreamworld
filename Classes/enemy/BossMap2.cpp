@@ -254,10 +254,11 @@ void BossMap2::moveBodyToPoint() {
 }
 
 void BossMap2::moveBodyToInit() {
-    auto box = map->getLayer("boss");
+    Common::showText(scene, "No one can escape from me...", 5);
+    auto boss = map->getLayer("boss");
     for (int x = 0; x < map->getMapSize().width; ++x) {
         for (int y = 0; y < map->getMapSize().height; ++y) {
-            auto tile = box->getTileAt(Vec2(x, y));
+            auto tile = boss->getTileAt(Vec2(x, y));
             if (tile) {
                 float newAngle = 0.0f;
                 body->SetTransform(b2Vec2((x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2) / Constants::PIXELS_PER_METER* Common::scaleSizeXY(), (map->getMapSize().height - y) * Constants::TITLE_SIZE / Constants::PIXELS_PER_METER * Common::scaleSizeXY()), newAngle);
@@ -268,6 +269,9 @@ void BossMap2::moveBodyToInit() {
 }
 
 void BossMap2::throwWarrior() {
+
+    Common::showText(scene, "I can hold someone else's life...", 5);
+
     // Run animation with a callback
     if (sprite != nullptr) {
         auto animate = Animate::create(Common::createAnimation("Wraith_1_Casting Spells_", 10, 0.01));

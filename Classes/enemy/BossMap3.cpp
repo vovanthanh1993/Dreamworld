@@ -71,17 +71,17 @@ void BossMap3::idle() {
 }
 
 void BossMap3::hurt() {
+    castShadow();
     Effect::soundBoss3Hurt();
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("bossbat_hurt_", 11, 0.01));
     auto callback = [this]() {
         idle();
     };
-
     
-        auto callback1 = [this]() {
-            moveBodyToPoint();
-        };
+    auto callback1 = [this]() {
+        moveBodyToPoint();
+    };
     auto callFunc = CallFunc::create(callback);
     auto callFunc1 = CallFunc::create(callback1);
     auto sequence = Sequence::create(animate, callFunc, callFunc1, nullptr);
@@ -280,4 +280,16 @@ void BossMap3::updateHealthBarPosition() {
     b2Vec2 position = body->GetPosition();
     healthBar->setPosition(position.x * Constants::PIXELS_PER_METER - healthBar->getContentSize().width / 4 * Common::scaleSizeXY(), position.y * Constants::PIXELS_PER_METER + sprite->getContentSize().height / 2 * Common::scaleSizeXY());
     healthBarBg->setPosition(position.x * Constants::PIXELS_PER_METER - healthBar->getContentSize().width / 4 * Common::scaleSizeXY(), position.y * Constants::PIXELS_PER_METER + sprite->getContentSize().height / 2 * Common::scaleSizeXY());
+}
+
+void BossMap3::castShadow() {
+    // Thêm một lớp phủ màu đen (LayerColor) lên toàn bộ màn hình
+    auto blackLayer = cocos2d::LayerColor::create(cocos2d::Color4B(0, 0, 0, 0), cocos2d::Director::getInstance()->getVisibleSize().width, cocos2d::Director::getInstance()->getVisibleSize().height);
+    scene->addChild(blackLayer, 200);  // Đặt lên trên các đối tượng khác
+
+    // Tạo một hiệu ứng fade để lớp phủ này từ trong suốt (alpha = 0) đến đen hoàn toàn (alpha = 255) trong 2 giây
+    auto whiteToDark = FadeTo::create(2.0f, 255);
+    auto darkToWhite = FadeTo::create(2.5f, 0);
+    auto sequence = Sequence::create(whiteToDark, darkToWhite, nullptr);
+    blackLayer->runAction(sequence);
 }

@@ -50,6 +50,8 @@ void Boss3Scene::update(float dt) {
 }
 
 void Boss3Scene::spawnObject() {
+    Common::addMapName(this, "Darkness Bat");
+
     MapItem* item = new MapItem(world, this, bodyToSpriteMap, map);
     item->spawnWallAndLimit();
     item->spawnEndGate();

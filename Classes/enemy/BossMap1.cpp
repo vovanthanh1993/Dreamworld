@@ -91,16 +91,16 @@ void BossMap1::die() {
 
     int round = Common::loadRound();
     if (round == 1) {
-        Common::showText(scene, "Hmm. It really reminds me of the way you killed me back then...", 3);
+        Common::showText(scene, "Why doesn't anyone want to play with me?", 5);
     }
     else if (round == 2) {
-        Common::showText(scene, "We will meet again...", 3);
+        Common::showText(scene, "We will meet again...", 5);
     }
     else if (round == 3) {
-        Common::showText(scene, "No. I lost again...", 3);
+        Common::showText(scene, "No. I lost again...", 5);
     }
     else {
-        Common::showText(scene, "You still have to kill me a thousand times...", 3);
+        Common::showText(scene, "Why doesn't anyone want to play with me?", 5);
     }
 
     // Lặp qua tất cả các fixture của body
@@ -147,6 +147,8 @@ void BossMap1::throwStoneBall() {
 }
 
 void BossMap1::charge() {
+    Common::showText(scene, "I want to hug you.", 2);
+
     // Run animation with a callback
     if (isHit) return;
     if (isAlive) {
@@ -240,10 +242,10 @@ void BossMap1::updateHealthBarPosition() {
 void BossMap1::hurt() {
     Effect::soundBoss1Hurt();
     Common::changeSpriteColor(sprite, isHit);
-
 }
 
 void BossMap1::createStoneBall() {
+    Common::showText(scene, "Play with me!", 2);
     StoneBall* stoneball = stoneBallPool->getFromPool();
     if (stoneball != nullptr) {
         stoneball->init(Vec2(sprite->getPositionX(), sprite->getPositionY() + 200 * Common::scaleSizeXY()));
