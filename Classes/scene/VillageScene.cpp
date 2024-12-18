@@ -22,7 +22,7 @@ bool VillageScene::init(string bg, string bgMusic, string mapName, bool isMoveCa
     if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
         return false;
     }
-
+    Common::showTextRandom(this, callTextVector, 5);
     // Press
     auto keyboardListener = EventListenerKeyboard::create();
     keyboardListener->onKeyPressed = CC_CALLBACK_2(VillageScene::onKeyPressed, this);

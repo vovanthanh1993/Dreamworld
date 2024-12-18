@@ -46,14 +46,12 @@ private:
     bool isHasGate = false;
     int index = 0;
     vector<string> welcomeChatVector = {
-        "So, you failed in the last attempt!",
-        "Then let me introduce myself again from the beginning...",
-        "This is Dream World, a place where the souls of the deceased are kept...",
-        "My name is Miko, the guardian of the gate to the memories of this forest...",
-        "If you want to escape this forest, you must let go of the attachments and sorrows from the past...",
-        "If you can break free from the painful memories, you will be liberated...",
+        "Finally, you have arrived here...",
+        "This place is Dreamworld, the forest that hides your fears...",
+        "I am Miko, the guardian of this place...",
+        "If you want to escape this forest, you must face the fears of your own self...",
         "Otherwise, it will consume everything you remember about this world...",
-        "This gate will lead you to the land of memories. Be careful!"};
+        "This door will lead you to your greatest fear. Be careful!"};
     vector<string> completeChatVector = {
         "Originally, both you and I had already died and become trapped in this forest...",
         "We have made many mistakes in the past...",

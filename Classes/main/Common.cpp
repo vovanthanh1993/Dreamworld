@@ -157,6 +157,25 @@ namespace common {
         label->runAction(sequence);
     }
 
+    void Common::showTextRandom(Scene* scene, vector<string> textVector, float fadeOutTime) {
+        if (scene->getChildByName("text") != nullptr) {
+            scene->removeChildByName("text");
+        }
+
+        Size screenSize = Director::getInstance()->getVisibleSize();
+        auto label = Label::createWithTTF(textVector[random(0, (int)textVector.size()-1)], "fonts/Marker Felt.ttf", 50 * scaleSizeXY());
+        label->setName("text");
+        label->setPosition(scene->getDefaultCamera()->getPosition());
+
+
+        label->setOpacity(0);
+        scene->addChild(label, 2);
+        auto fadeIn = FadeIn::create(2.0f);
+        auto fadeOut = FadeOut::create(fadeOutTime);
+        auto sequence = Sequence::create(fadeIn, fadeOut, nullptr);
+        label->runAction(sequence);
+    }
+
     void Common::addMapName(Scene* scene, string text) {
         auto origin = Director::getInstance()->getVisibleOrigin();
         Size screenSize = Director::getInstance()->getVisibleSize();

@@ -30,6 +30,13 @@ private:
 	void spawnBat();
 	BatPool* batPool;
 	int lastPoint = 3;
+	vector<string> textVector = {
+		"You cannot escape from the darkness...",
+		"You cannot know what is in the darkness...",
+		"What can you do when the darkness envelops everything?",
+		"The darkness holds a truth you do not want to face...",
+		"What do you see in the darkest place?"
+	};
 public:
 	BossMap3(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init(Vec2 position);

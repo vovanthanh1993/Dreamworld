@@ -34,6 +34,24 @@ private:
 	BoneRainPool* boneRainPool;
 	WarriorPool* warriorPool;
 	int countPhase2 = 1;
+	vector<string> initTextVector = {
+		"No one can escape from me! No one can escape death!",
+		"All that you have loved will eventually turn to dust...",
+		"I understand your fear. It is the last emotion you will ever know...",
+		"The ones you love are with me. Do you wish to join them?"
+	};
+	vector<string> throwWarTextVector = {
+		"I can hold someone else's life...",
+		"I create life, I end life...",
+		"Rise and destroy the enemy, my children...",
+		"I bring life to you, fight for me..."
+
+	};
+	vector<string> dieTextVector = {
+		"I will wait for the moment we meet again...",
+		"We will meet again, whether you resist or not...",
+		"No! No! No"
+	};
 public:
 	BossMap2(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init(Vec2 position);

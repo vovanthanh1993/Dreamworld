@@ -88,20 +88,7 @@ void BossMap1::die() {
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
     Effect::soundLaughter();
-
-    int round = Common::loadRound();
-    if (round == 1) {
-        Common::showText(scene, "Why doesn't anyone want to play with me?", 5);
-    }
-    else if (round == 2) {
-        Common::showText(scene, "We will meet again...", 5);
-    }
-    else if (round == 3) {
-        Common::showText(scene, "No. I lost again...", 5);
-    }
-    else {
-        Common::showText(scene, "Why doesn't anyone want to play with me?", 5);
-    }
+    Common::showTextRandom(scene, dieTextVector, 5);
 
     // Lặp qua tất cả các fixture của body
     for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
@@ -147,7 +134,7 @@ void BossMap1::throwStoneBall() {
 }
 
 void BossMap1::charge() {
-    Common::showText(scene, "I want to hug you.", 2);
+    Common::showTextRandom(scene, hugTextVector, 5);
 
     // Run animation with a callback
     if (isHit) return;
@@ -245,7 +232,7 @@ void BossMap1::hurt() {
 }
 
 void BossMap1::createStoneBall() {
-    Common::showText(scene, "Play with me!", 2);
+    Common::showTextRandom(scene, throwStoneTextVector, 5);
     StoneBall* stoneball = stoneBallPool->getFromPool();
     if (stoneball != nullptr) {
         stoneball->init(Vec2(sprite->getPositionX(), sprite->getPositionY() + 200 * Common::scaleSizeXY()));

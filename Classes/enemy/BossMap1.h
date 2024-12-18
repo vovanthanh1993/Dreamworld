@@ -27,6 +27,22 @@ private:
 	bool isHit = false;
 	vector<StoneBall*> stoneBallVector;
 	StoneBallPool* stoneBallPool;
+	vector<string> hugTextVector = {
+		"I want to hug you..",
+		"Roll with me! Roll with me!",
+		"I like to roll, I like to roll!"
+	};
+	vector<string> throwStoneTextVector = {
+		"Play with me! Play with me!",
+		"I'm passing the ball to you!",
+		"Stone ! Stone!  Without father or mother, without friends..."
+	};
+	vector<string> dieTextVector = {
+		"Why doesn't anyone want to play with me?",
+		"I just want to have fun with you!",
+		"I once had friends... but then everything disappeared..."
+	};
+
 public:
 	void followPlayer();
 	bool init(Vec2 position);

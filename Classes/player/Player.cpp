@@ -659,6 +659,8 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
     if (keyCode == (EventKeyboard::KeyCode::KEY_TAB)) {
         health = maxHealth;
         mana = maxMana;
+        gem = 5000;
+        updateGem(0);
         updateHealth(0);
         addMana(0);
     }
@@ -800,7 +802,7 @@ int Player::getSoul() {
 }
 void Player::addSoul() {
     soul++;
-    if(soul == 1) Common::showText(scene, "This is Dream World, a place where the souls of the deceased are kept...", 1000);
+    /*if(soul == 1) Common::showText(scene, "This is Dream World, a place where the souls of the deceased are kept...", 1000);
     else if(soul == 2) Common::showText(scene, "Hehehe", 1000);
     else if (soul == 3) Common::showText(scene, "Hehehe", 1000);
     else if (soul == 4) Common::showText(scene, "Hehehe", 1000);
@@ -808,7 +810,7 @@ void Player::addSoul() {
     else if (soul == 6) Common::showText(scene, "Hehehe", 1000);
     else if (soul == 7) Common::showText(scene, "Hehehe", 1000);
     else if (soul == 8) Common::showText(scene, "Hehehe", 1000);
-    else if (soul == 9) Common::showText(scene, "Hehehe", 1000);
+    else if (soul == 9) Common::showText(scene, "Hehehe", 1000);*/
 }
 
 bool Player::isComplete() {

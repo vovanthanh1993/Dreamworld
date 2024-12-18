@@ -59,6 +59,7 @@ bool BossMap3::init(Vec2 position) {
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "BossMap3");
     scene->addChild(this);
+    castShadow();
     return true;
 }
 void BossMap3::idle() {
@@ -71,7 +72,7 @@ void BossMap3::idle() {
 }
 
 void BossMap3::hurt() {
-    castShadow();
+    Common::showTextRandom(scene, textVector, 5);
     Effect::soundBoss3Hurt();
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("bossbat_hurt_", 11, 0.01));
@@ -288,8 +289,9 @@ void BossMap3::castShadow() {
     scene->addChild(blackLayer, 200);  // Đặt lên trên các đối tượng khác
 
     // Tạo một hiệu ứng fade để lớp phủ này từ trong suốt (alpha = 0) đến đen hoàn toàn (alpha = 255) trong 2 giây
-    auto whiteToDark = FadeTo::create(2.0f, 255);
-    auto darkToWhite = FadeTo::create(2.5f, 0);
-    auto sequence = Sequence::create(whiteToDark, darkToWhite, nullptr);
-    blackLayer->runAction(sequence);
+    auto whiteToDark = FadeTo::create(3.0f, 255);
+    auto darkToWhite = FadeTo::create(3.0f, 0);
+    auto delay = DelayTime::create(.6f);
+    auto sequence = Sequence::create(whiteToDark, delay, darkToWhite, nullptr);
+    blackLayer->runAction(RepeatForever::create(sequence));
 }

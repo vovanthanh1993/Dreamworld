@@ -43,6 +43,7 @@ namespace common {
 		static void spawnCharm(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap, int num);
 		static void zoomAction(MenuItemImage* item, float time, float scale);
 		static void addMapName(Scene* scene, string text);
+		static void showTextRandom(Scene* scene, vector<string> textVector, float fadeOutTime);
 
 		template <typename T>
 		static void scaleAll(T* node, float ratio) {

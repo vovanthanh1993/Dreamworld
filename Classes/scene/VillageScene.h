@@ -52,6 +52,10 @@ private:
         GUILayer* guiLayer;
         ItemShopLayer* itemShopLayer;
         void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
+        vector<string> callTextVector = {
+        "Find me if you can...",
+        "Overcome your fear, and you will meet me...",
+        };
 };
 
 #endif // __VillageScene_H__

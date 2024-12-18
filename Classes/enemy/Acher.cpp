@@ -1,6 +1,9 @@
 ﻿#include "Acher.h"
 
 Acher::Acher(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseEnemy(world, scene, bodyToSpriteMap) {
+};
+
+bool Acher::init(Vec2 position) {
     attackCooldown = 2.5f;  // Thời gian chờ giữa các đợt tấn công
     timeSinceLastAttack = 0.0f;  // Thời gian đã trôi qua kể từ lần tấn công cuối cùng
     canAttack = false;  // Cờ để xác định liệu kẻ thù có thể tấn công không
@@ -9,9 +12,7 @@ Acher::Acher(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* body
     direction = -1;
     health = 11;
     scale = 0.3;
-};
 
-bool Acher::init(Vec2 position) {
     if (!Node::init()) {
         return false;
     }
