@@ -155,6 +155,12 @@ namespace common {
         AudioEngine::setVolume(AudioEngine::play2d("Enemy/warrior/die.mp3"), settingInit.getGameplayVol());
     }
 
+    void Effect::enemyHurt() {
+        Setting settingInit;
+        settingInit.loadSettingData();
+        AudioEngine::setVolume(AudioEngine::play2d("sound/enemyhurt.mp3"), settingInit.getGameplayVol());
+    }
+
     void Effect::playerJump() {
         Setting settingInit;
         settingInit.loadSettingData();

@@ -2,7 +2,7 @@
 #include "cocos2d.h"
 #include "main/Common.h"
 #include "main/Constants.h"
-#include "Soul.h"
+#include "enemy/Soul.h"
 
 using namespace constants;
 using namespace common;

@@ -106,6 +106,8 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->slashDamage);
             else if (tagA == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteA->getUserData())->getDamage(player->slashDamage);
             else if (tagB == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteB->getUserData())->getDamage(player->slashDamage);
+            else if (tagA == Constants::TAG_SOUL)  static_cast<Soul*>(spriteA->getUserData())->getDamage(player->slashDamage);
+            else if (tagB == Constants::TAG_SOUL)  static_cast<Soul*>(spriteB->getUserData())->getDamage(player->slashDamage);
 
 
             else if (tagA == Constants::TAG_BOSSMAP1 || tagB == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->slashDamage);
@@ -309,7 +311,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
                 bodiesToRemove.insert(bodyA);
                 
             }
-            if (tagB == Constants::TAG_SOUL) {
+           /* if (tagB == Constants::TAG_SOUL) {
                 player->addSoul();
                 bodiesToRemove.insert(bodyB);
             }
@@ -317,7 +319,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
                 player->addSoul();
                 bodiesToRemove.insert(bodyA);
 
-            }
+            }*/
             if (tagB == Constants::TAG_HEART) {
                 player->healing(1);
                 bodiesToRemove.insert(bodyB);

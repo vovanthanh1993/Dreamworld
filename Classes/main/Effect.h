@@ -41,6 +41,7 @@ namespace common {
 		static void eagle();
 		static void getStick();
 		static void soundBoss3Hurt();
+		static void enemyHurt();
 	};
 }
 

@@ -163,6 +163,7 @@ void Golem::getDamage(int damage) {
 }
 
 void Golem::hurt() {
+    Effect::enemyHurt();
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("0_Golem_Hurt_", 11, 0.04));
     animate->setTag(4);

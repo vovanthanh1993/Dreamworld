@@ -192,6 +192,7 @@ void Wukong::getDamage(int damage) {
 }
 
 void Wukong::hurt() {
+    Effect::enemyHurt();
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("ew-GetHit_", 13, 0.02));
     animate->setTag(4);

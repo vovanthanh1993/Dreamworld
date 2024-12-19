@@ -170,6 +170,7 @@ void Acher::getDamage(int damage) {
 }
 
 void Acher::hurt() {
+    Effect::enemyHurt();
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("archer_Hurt_", 11, 0.04));
     animate->setTag(4);

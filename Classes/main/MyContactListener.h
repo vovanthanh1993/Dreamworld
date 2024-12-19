@@ -18,6 +18,7 @@
 #include "enemy/Bat.h"
 #include "enemy/Wukong.h"
 #include "enemy/WukongFly.h"
+#include "enemy/Soul.h"
 #include "main/Constants.h"
 #include "skill/StoneBall.h"
 #include "inventory/Charm.h"

@@ -191,6 +191,7 @@ void Warrior::getDamage(int damage) {
 }
 
 void Warrior::hurt() {
+    Effect::enemyHurt();
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("war_hurt_", 11, 0.02));
     animate->setTag(4);

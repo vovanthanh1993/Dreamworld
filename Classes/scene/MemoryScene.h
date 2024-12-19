@@ -39,7 +39,7 @@
 #include "item/HeartPool.h"
 #include "item/BackStick.h"
 #include "item/BackStickPool.h"
-#include "item/Soul.h"
+#include "enemy/Soul.h"
 #include "item/SoulPool.h"
 
 class MemoryScene : public BaseScene

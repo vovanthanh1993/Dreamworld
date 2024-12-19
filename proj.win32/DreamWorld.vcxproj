@@ -833,6 +833,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\enemy\Soul.h" />
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseEnemy.h" />
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseLayer.h" />
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseNode.h" />
@@ -866,7 +867,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\DreamWorld\Classes\item\HeartPool.h" />
     <ClInclude Include="D:\DreamWorld\Classes\item\MapItem.h" />
     <ClInclude Include="D:\DreamWorld\Classes\item\Port.h" />
-    <ClInclude Include="D:\DreamWorld\Classes\item\Soul.h" />
     <ClInclude Include="D:\DreamWorld\Classes\item\SoulPool.h" />
     <ClInclude Include="D:\DreamWorld\Classes\item\Stone.h" />
     <ClInclude Include="D:\DreamWorld\Classes\layer\GUILayer.h" />
@@ -921,6 +921,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\DreamWorld\Classes\skill\StoneBallPool.h" />
     <ClInclude Include="D:\DreamWorld\proj.win32\main.h" />
     <ClInclude Include="D:\DreamWorld\proj.win32\resource.h" />
+    <ClCompile Include="..\Classes\enemy\Soul.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\base\BaseEnemy.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\base\BaseLayer.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\base\BaseNode.cpp" />
@@ -954,7 +955,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\DreamWorld\Classes\item\HeartPool.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\item\MapItem.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\item\Port.cpp" />
-    <ClCompile Include="D:\DreamWorld\Classes\item\Soul.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\item\SoulPool.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\item\Stone.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\layer\GUILayer.cpp" />

@@ -30,7 +30,7 @@ bool Slash::init(Vec2 position) {
     fixtureDef.friction = 0.0f;
     fixtureDef.restitution = 0.0f;
     fixtureDef.filter.categoryBits = Constants::CATEGORY_SLASH;
-    fixtureDef.filter.maskBits = Constants::CATEGORY_ENEMY | Constants::CATEGORY_WALL | Constants::CATEGORY_CHEST;
+    fixtureDef.filter.maskBits = Constants::CATEGORY_ENEMY | Constants::CATEGORY_WALL | Constants::CATEGORY_CHEST | Constants::CATEGORY_ITEM;
 
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);

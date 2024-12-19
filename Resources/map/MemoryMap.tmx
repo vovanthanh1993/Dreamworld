@@ -18,9 +18,9 @@
    eJzt2EEJAEAMA8H4N1R7RzWUchRmFCx5JmGifgccZjsAAAAAADZUfNAAAAAAAAAA0B6v3gLd
   </data>
  </layer>
- <layer id="11" name="soul" width="80" height="45">
+ <layer id="11" name="soul" width="80" height="45" opacity="0.62">
   <data encoding="base64" compression="zlib">
-   eJzt18EJADAIA0ARuv/KxR2sPno3QfIKiQC6nNxOMO/HzgAAAFB8YgDoYVMBAAAAAAAA3rnoTAAd
+   eJztzgENAAAIA6Dbv4wRjeG+QQISAAAAAAAA6LHzPQAAAAAAAADocIjLALI=
   </data>
  </layer>
  <layer id="9" name="heart" width="80" height="45">

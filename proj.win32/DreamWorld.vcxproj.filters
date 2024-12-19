@@ -100,9 +100,6 @@
     <ClCompile Include="D:\DreamWorld\Classes\item\Port.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\item\Soul.cpp">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\item\SoulPool.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
@@ -265,6 +262,9 @@
     <ClCompile Include="D:\DreamWorld\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\enemy\Soul.cpp">
+      <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseEnemy.h">
@@ -364,9 +364,6 @@
       <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\item\Port.h">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\item\Soul.h">
       <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\item\SoulPool.h">
@@ -2702,6 +2699,9 @@
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Resources\sound\ting.mp3">
       <Filter>Resources\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\enemy\Soul.h">
+      <Filter>Source Files\Classes\enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

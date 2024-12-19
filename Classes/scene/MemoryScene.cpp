@@ -48,10 +48,10 @@ bool MemoryScene::init(string bg, string bgMusic, string mapName, bool isMoveCam
         spawnBackStick();
         }, 8, "spawn_back_stick");
 
-    soulPool = new SoulPool(world, this, bodyToSpriteMap, 1);
+   /* soulPool = new SoulPool(world, this, bodyToSpriteMap, 1);
     this->schedule([this](float dt) {
         spawnSoul();
-        }, 2, "spawn_soul");
+        }, 2, "spawn_soul");*/
 
     return true;
 }
@@ -94,6 +94,10 @@ void MemoryScene::spawnObject() {
             }
         }
     }
+    spawnSoul();
+    // start and end
+    boundaryBodyStart = Common::createBoundary(world, true);
+    boundaryBodyEnd = Common::createBoundary(world, false);
 }
 void MemoryScene::spawnBat() {
     // spawn bat
@@ -206,21 +210,17 @@ void MemoryScene::spawnBackStick() {
 
 void MemoryScene::spawnSoul() {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    int i = Common::randomNum(1, 4);
-    int count = 0;
-    auto wukongLayer = map->getLayer("soul");
-    if (wukongLayer != nullptr) {
+    /*int i = Common::randomNum(1, 4);
+    int count = 0;*/
+    auto soulLayer = map->getLayer("soul");
+    if (soulLayer != nullptr) {
         for (int x = 0; x < map->getMapSize().width; ++x) {
             for (int y = 0; y < map->getMapSize().height; ++y) {
-                auto tile = wukongLayer->getTileAt(Vec2(x, y));
+                auto tile = soulLayer->getTileAt(Vec2(x, y));
                 if (tile) {
-                    if (i == ++count) {
-                        Soul* w = soulPool->getFromPool();
-                        if (w != nullptr) {
-                            w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                            break;
-                        }
-                    }
+                    Soul* w  =  new Soul(world, this, bodyToSpriteMap);
+                    w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                    break;
                 }
             }
         }

@@ -625,7 +625,7 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
         Director::getInstance()->replaceScene(villageScene);
     }
     if (keyCode == (EventKeyboard::KeyCode::KEY_F2)) {
-        auto villageScene = Map1Scene::createScene("map/bglv1.png", "sound/background2.mp3", "map1", true);
+        auto villageScene = Map1Scene::createScene("map/bglv1.png", "sound/bg1.mp3", "map1", true);
         Director::getInstance()->replaceScene(villageScene);
     }
     if (keyCode == (EventKeyboard::KeyCode::KEY_F3)) {
@@ -633,7 +633,7 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
         Director::getInstance()->replaceScene(villageScene);
     }
     if (keyCode == (EventKeyboard::KeyCode::KEY_F4)) {
-        auto villageScene = Map2Scene::createScene("map/bglv1.png", "sound/bg2.mp3", "map2", true);
+        auto villageScene = Map2Scene::createScene("map/bglv1.png", "sound/bg22.mp3", "map2", true);
         Director::getInstance()->replaceScene(villageScene);
     }
     if (keyCode == (EventKeyboard::KeyCode::KEY_F5)) {
@@ -653,7 +653,7 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
         Director::getInstance()->replaceScene(villageScene);
     }
     if (keyCode == (EventKeyboard::KeyCode::KEY_F9)) {
-        auto villageScene = MemoryScene::createScene("map/bglv1.png", "sound/bg1.mp3", "MemoryMap", false);
+        auto villageScene = MemoryScene::createScene("map/bglv1.png", "sound/bg4.mp3", "MemoryMap", false);
         Director::getInstance()->replaceScene(villageScene);
     }
     if (keyCode == (EventKeyboard::KeyCode::KEY_TAB)) {

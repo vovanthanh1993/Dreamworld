@@ -35,7 +35,7 @@ private:
 	vector<string> throwStoneTextVector = {
 		"Play with me! Play with me!",
 		"I'm passing the ball to you!",
-		"Stone ! Stone!  Without father or mother, without friends..."
+		"Stone ! Stone! Without father and mother, without friends..."
 	};
 	vector<string> dieTextVector = {
 		"Why doesn't anyone want to play with me?",
