@@ -33,7 +33,6 @@ void Boss1Scene::update(float dt) {
     if (!player->isAlive) return;
     BaseScene::update(dt);
 
-    //-------------------CAP NHAT LAI SPRITE--------------------------
     // Boss map 1
     if (bossmap1->isAlive) {
         AudioEngine::setVolume(settingInit->getBgMusicId(), settingInit->getVolume());

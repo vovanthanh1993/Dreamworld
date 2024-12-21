@@ -100,9 +100,6 @@
     <ClCompile Include="D:\DreamWorld\Classes\item\Port.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\item\SoulPool.cpp">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\item\Stone.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
@@ -187,9 +184,6 @@
     <ClCompile Include="D:\DreamWorld\Classes\scene\Map3Scene.cpp">
       <Filter>Source Files\Classes\scene</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\scene\MemoryScene.cpp">
-      <Filter>Source Files\Classes\scene</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\scene\MenuScene.cpp">
       <Filter>Source Files\Classes\scene</Filter>
     </ClCompile>
@@ -262,8 +256,11 @@
     <ClCompile Include="D:\DreamWorld\cocos2d\cocos\precheader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\enemy\Soul.cpp">
+    <ClCompile Include="..\Classes\enemy\BossMap4.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\scene\boss\Boss4Scene.cpp">
+      <Filter>Source Files\Classes\scene\boss</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -366,9 +363,6 @@
     <ClInclude Include="D:\DreamWorld\Classes\item\Port.h">
       <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\item\SoulPool.h">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\item\Stone.h">
       <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
@@ -451,9 +445,6 @@
       <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\scene\Map3Scene.h">
-      <Filter>Source Files\Classes\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\scene\MemoryScene.h">
       <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\scene\MenuScene.h">
@@ -2700,8 +2691,11 @@
     <ClInclude Include="D:\DreamWorld\Resources\sound\ting.mp3">
       <Filter>Resources\sound</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\enemy\Soul.h">
+    <ClInclude Include="..\Classes\enemy\BossMap4.h">
       <Filter>Source Files\Classes\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\boss\Boss4Scene.h">
+      <Filter>Source Files\Classes\scene\boss</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -13,7 +13,6 @@
 #include "Inventory/charm.h"
 
 
-
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
@@ -44,7 +43,7 @@ private:
 	StickPool* stickPool;
 	EaglePool* eaglePool;
 	int direction = 1;
-	int soul = 0;
+	int bossmap4 = 0;
 
 public:
 	Sprite* charmSprite = nullptr;

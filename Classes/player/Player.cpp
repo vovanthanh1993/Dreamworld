@@ -7,6 +7,7 @@
 #include <fstream>
 #include "layer/PlayerStatsLayer.h"
 
+
 Player::Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
 };
 bool Player::init(bool isNew) {
@@ -347,7 +348,7 @@ void Player::savePlayerDataInit() {
         outFile << slashDamage << "\n";
         outFile << stickDamage << "\n";
         outFile << eagleDamage << "\n";
-        outFile << soul << "\n";
+        outFile << bossmap4 << "\n";
         outFile.close();
         std::cout << "Data saved successfully." << std::endl;
     }
@@ -373,7 +374,7 @@ void Player::loadPlayerDataInit(bool isNew) {
         inFile >> slashDamage;
         inFile >> stickDamage;
         inFile >> eagleDamage;
-        inFile >> soul;
+        inFile >> bossmap4;
         inFile.close();
         healthVector.clear();
         uiNode->removeAllChildrenWithCleanup(true);
@@ -385,7 +386,7 @@ void Player::loadPlayerDataInit(bool isNew) {
             slashDamage = 10;
             stickDamage = 10;
             eagleDamage = 10;
-            soul = 0;
+            bossmap4 = 0;
         }
         initGUI();
         initHealth();
@@ -653,7 +654,7 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
         Director::getInstance()->replaceScene(villageScene);
     }
     if (keyCode == (EventKeyboard::KeyCode::KEY_F9)) {
-        auto villageScene = MemoryScene::createScene("map/bglv1.png", "sound/bg4.mp3", "MemoryMap", false);
+        auto villageScene = Boss4Scene::createScene("map/bg2.png", "sound/bg4.mp3", "boss4", false);
         Director::getInstance()->replaceScene(villageScene);
     }
     if (keyCode == (EventKeyboard::KeyCode::KEY_TAB)) {
@@ -798,10 +799,10 @@ void Player::setSpriteCharm(Charm* charm) {
 }
 
 int Player::getSoul() {
-    return soul;
+    return bossmap4;
 }
 void Player::addSoul() {
-    soul++;
+    bossmap4++;
     /*if(soul == 1) Common::showText(scene, "This is Dream World, a place where the souls of the deceased are kept...", 1000);
     else if(soul == 2) Common::showText(scene, "Hehehe", 1000);
     else if (soul == 3) Common::showText(scene, "Hehehe", 1000);
@@ -814,5 +815,5 @@ void Player::addSoul() {
 }
 
 bool Player::isComplete() {
-    return soul >= 5;
+    return bossmap4 >= 5;
 }

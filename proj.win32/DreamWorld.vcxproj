@@ -833,7 +833,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Classes\enemy\Soul.h" />
+    <ClInclude Include="..\Classes\enemy\BossMap4.h" />
+    <ClInclude Include="..\Classes\scene\boss\Boss4Scene.h" />
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseEnemy.h" />
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseLayer.h" />
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseNode.h" />
@@ -867,7 +868,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\DreamWorld\Classes\item\HeartPool.h" />
     <ClInclude Include="D:\DreamWorld\Classes\item\MapItem.h" />
     <ClInclude Include="D:\DreamWorld\Classes\item\Port.h" />
-    <ClInclude Include="D:\DreamWorld\Classes\item\SoulPool.h" />
     <ClInclude Include="D:\DreamWorld\Classes\item\Stone.h" />
     <ClInclude Include="D:\DreamWorld\Classes\layer\GUILayer.h" />
     <ClInclude Include="D:\DreamWorld\Classes\layer\InventoryLayer.h" />
@@ -896,7 +896,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\DreamWorld\Classes\scene\Map1Scene.h" />
     <ClInclude Include="D:\DreamWorld\Classes\scene\Map2Scene.h" />
     <ClInclude Include="D:\DreamWorld\Classes\scene\Map3Scene.h" />
-    <ClInclude Include="D:\DreamWorld\Classes\scene\MemoryScene.h" />
     <ClInclude Include="D:\DreamWorld\Classes\scene\MenuScene.h" />
     <ClInclude Include="D:\DreamWorld\Classes\scene\MikoScene.h" />
     <ClInclude Include="D:\DreamWorld\Classes\scene\PauseMenu.h" />
@@ -921,7 +920,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\DreamWorld\Classes\skill\StoneBallPool.h" />
     <ClInclude Include="D:\DreamWorld\proj.win32\main.h" />
     <ClInclude Include="D:\DreamWorld\proj.win32\resource.h" />
-    <ClCompile Include="..\Classes\enemy\Soul.cpp" />
+    <ClCompile Include="..\Classes\enemy\BossMap4.cpp" />
+    <ClCompile Include="..\Classes\scene\boss\Boss4Scene.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\base\BaseEnemy.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\base\BaseLayer.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\base\BaseNode.cpp" />
@@ -955,7 +955,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\DreamWorld\Classes\item\HeartPool.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\item\MapItem.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\item\Port.cpp" />
-    <ClCompile Include="D:\DreamWorld\Classes\item\SoulPool.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\item\Stone.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\layer\GUILayer.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\layer\InventoryLayer.cpp" />
@@ -984,7 +983,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\DreamWorld\Classes\scene\Map1Scene.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\scene\Map2Scene.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\scene\Map3Scene.cpp" />
-    <ClCompile Include="D:\DreamWorld\Classes\scene\MemoryScene.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\scene\MenuScene.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\scene\MikoScene.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\scene\PauseMenu.cpp" />

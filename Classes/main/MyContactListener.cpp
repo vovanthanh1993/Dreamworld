@@ -38,6 +38,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(player->stickDamage);
             else if (tagA == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteA->getUserData())->getDamage(player->stickDamage);
             else if (tagA == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteA->getUserData())->getDamage(player->stickDamage);
+            else if (tagA == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteA->getUserData())->getDamage(player->stickDamage);
         }
         if (tagA == Constants::TAG_STICK) {
             bodiesToRemove.insert(bodyA);
@@ -54,6 +55,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->stickDamage);
             else if (tagB == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteB->getUserData())->getDamage(player->stickDamage);
             else if (tagB == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteB->getUserData())->getDamage(player->stickDamage);
+            else if (tagB == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteB->getUserData())->getDamage(player->stickDamage);
         }
         
 
@@ -70,6 +72,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(player->eagleDamage);
             else if (tagA == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteA->getUserData())->getDamage(player->eagleDamage);
             else if (tagA == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteA->getUserData())->getDamage(player->eagleDamage);
+            else if (tagA == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteA->getUserData())->getDamage(player->eagleDamage);
         }
         
         if (tagA == Constants::TAG_EAGLE) {
@@ -85,7 +88,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->eagleDamage);
             else if (tagB == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteB->getUserData())->getDamage(player->eagleDamage);
             else if (tagB == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteB->getUserData())->getDamage(player->eagleDamage);
-
+            else if (tagB == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteB->getUserData())->getDamage(player->eagleDamage);
         }
         
 
@@ -106,8 +109,8 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->slashDamage);
             else if (tagA == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteA->getUserData())->getDamage(player->slashDamage);
             else if (tagB == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteB->getUserData())->getDamage(player->slashDamage);
-            else if (tagA == Constants::TAG_SOUL)  static_cast<Soul*>(spriteA->getUserData())->getDamage(player->slashDamage);
-            else if (tagB == Constants::TAG_SOUL)  static_cast<Soul*>(spriteB->getUserData())->getDamage(player->slashDamage);
+            else if (tagA == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteA->getUserData())->getDamage(player->slashDamage);
+            else if (tagB == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteB->getUserData())->getDamage(player->slashDamage);
 
 
             else if (tagA == Constants::TAG_BOSSMAP1 || tagB == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->slashDamage);
@@ -407,7 +410,7 @@ void MyContactListener::removeObject() {
                 type = 2;
                 Effect::smoke(world, scene, pos);
             }
-            else if (Constants::TAG_HEART == tag || Constants::TAG_STICK_ITEM == tag || Constants::TAG_SOUL == tag) {
+            else if (Constants::TAG_HEART == tag || Constants::TAG_STICK_ITEM == tag || Constants::TAG_BOSSMAP4 == tag) {
                 type = 2;
             }
             

@@ -27,7 +27,7 @@
 
 #include <string>
 #include "base/BaseScene.h"
-#include "scene/MemoryScene.h"
+#include "scene/boss/Boss4Scene.h"
 #include "npc/Miko.h"
 #include "layer/InventoryLayer.h"
 #include "item/Port.h"

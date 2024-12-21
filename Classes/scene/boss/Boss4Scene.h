@@ -22,8 +22,8 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#ifndef __MemoryScene_H__
-#define __MemoryScene_H__
+#ifndef __Boss4Scene_H__
+#define __Boss4Scene_H__
 
 #include <string>
 #include "base/BaseScene.h"
@@ -39,10 +39,9 @@
 #include "item/HeartPool.h"
 #include "item/BackStick.h"
 #include "item/BackStickPool.h"
-#include "enemy/Soul.h"
-#include "item/SoulPool.h"
+#include "enemy/BossMap4.h"
 
-class MemoryScene : public BaseScene
+class Boss4Scene : public BaseScene
 {
 public:
     static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
@@ -50,17 +49,11 @@ public:
 private:
         void update(float dt) override;
         void spawnObject();
-        void spawnWukong();
-        void spawnBat();
-        WukongPool* wukongPool;
-        WukongFlyPool* wukongFlyPool;
         HeartPool* heartPool;
         BackStickPool* backStickPool;
-        SoulPool* soulPool;
         void spawnHeart();
         void spawnBackStick();
-        void spawnSoul();
-        bool isEnd = false;
+        BossMap4* bossmap4;
 };
 
-#endif // __MemoryScene_H__
+#endif // __Boss4Scene_H__

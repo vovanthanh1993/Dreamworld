@@ -38,7 +38,6 @@ void Boss3Scene::update(float dt) {
         AudioEngine::setVolume(settingInit->getBgMusicId(), settingInit->getVolume()*0.2);
     }
 
-    //-------------------CAP NHAT LAI SPRITE--------------------------
     if (contactListener->isNext && !bossmap3->isAlive) {
         player->savePlayerDataInit();
         auto newScene = MikoScene::createScene("map/bg2.png", "sound/bg3.mp3", "mikomap", false);

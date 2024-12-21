@@ -45,7 +45,7 @@ void MikoScene::update(float dt) {
 
     if (contactListener->isNext) {
         player->savePlayerDataInit();
-        auto newScene = MemoryScene::createScene("map/bglv1.png", "sound/bg4.mp3", "MemoryMap", false);
+        auto newScene = Boss4Scene::createScene("map/bg2.png", "sound/bg4.mp3", "boss4", false);
         if (player->isComplete()) {
             newScene  = VillageScene::createScene("map/bglv1.png", "sound/bg1.mp3", "village", false);;
         }
