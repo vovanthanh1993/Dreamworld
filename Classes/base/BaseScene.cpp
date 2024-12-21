@@ -32,9 +32,9 @@ bool BaseScene::init(string bg, string bgMusic, string mapName, bool isMoveCamer
         return false;
     }
     this->isMoveCamera = isMoveCamera;
+
     // Phát nhạc nền
     settingInit->loadSettingData();
-    //SimpleAudioEngine::getInstance()->playBackgroundMusic("background_music.mp3", true);
     settingInit->setBgMusicId(Common::playBackgroundMusic(settingInit->getVolume(), bgMusic));
 
     // Tạo một Camera

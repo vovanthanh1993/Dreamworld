@@ -262,6 +262,9 @@
     <ClCompile Include="..\Classes\scene\boss\Boss4Scene.cpp">
       <Filter>Source Files\Classes\scene\boss</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\scene\EndScene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseEnemy.h">
@@ -2696,6 +2699,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\scene\boss\Boss4Scene.h">
       <Filter>Source Files\Classes\scene\boss</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\EndScene.h">
+      <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

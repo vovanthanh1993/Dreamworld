@@ -22,39 +22,33 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#ifndef __Boss4Scene_H__
-#define __Boss4Scene_H__
+#ifndef __EndScene_H__
+#define __EndScene_H__
 
 #include <string>
 #include "base/BaseScene.h"
-#include "layer/UpgradeShopLayer.h"
-#include "scene/Map1Scene.h"
-#include "npc/Miko.h"
+#include "scene/boss/Boss4Scene.h"
 #include "layer/InventoryLayer.h"
-#include "enemy/Wukong.h"
-#include "enemy/WukongPool.h"
-#include "enemy/WukongFlyPool.h"
-#include "enemy/WukongFly.h"
-#include "item/Heart.h"
-#include "item/HeartPool.h"
-#include "item/BackStick.h"
-#include "item/BackStickPool.h"
-#include "enemy/BossMap4.h"
-#include "scene/EndScene.h"
+#include "item/Port.h"
+#include "scene/VillageScene.h"
 
-class Boss4Scene : public BaseScene
+class EndScene : public Scene
 {
 public:
-    static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
-    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
+    static Scene* createScene();
+    bool init();
 private:
-        void update(float dt) override;
-        void spawnObject();
-        HeartPool* heartPool;
-        BackStickPool* backStickPool;
-        void spawnHeart();
-        void spawnBackStick();
-        BossMap4* bossmap4;
+    void update(float dt) override;
+    //void spawnObject();
+    //void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
+    int index = 0;
+    vector<string> welcomeChatVector = {
+        "Finally, you have arrived here...",
+        "This place is Dreamworld, the forest that hides your fears...",
+        "I am Miko, the guardian of this place...",
+        "If you want to escape this forest, you must face the fears of your own self...",
+        "Otherwise, it will consume everything you remember about this world...",
+        "This door will lead you to your greatest fear. Be careful!"};
 };
 
-#endif // __Boss4Scene_H__
+#endif // __EndScene_H__
