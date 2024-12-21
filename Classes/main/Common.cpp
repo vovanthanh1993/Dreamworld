@@ -181,7 +181,7 @@ namespace common {
         Size screenSize = Director::getInstance()->getVisibleSize();
         auto label = Label::createWithTTF(text, "fonts/Marker Felt.ttf", 40 * scaleSizeXY());
         label->setAnchorPoint(Vec2(1, 1));
-        label->setPosition(origin.x + screenSize.width, origin.x + screenSize.height);
+        label->setPosition(origin.x + screenSize.width, origin.y + screenSize.height);
         scene->addChild(label, 90);
     }
 

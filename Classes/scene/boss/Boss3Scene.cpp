@@ -28,7 +28,6 @@ bool Boss3Scene::init(string bg, string bgMusic, string mapName, bool isMoveCame
 
 // update
 void Boss3Scene::update(float dt) {
-    if (!player->isAlive) return;
     BaseScene::update(dt);
 
     if (bossmap3->isAlive) {

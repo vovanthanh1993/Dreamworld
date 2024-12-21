@@ -88,18 +88,23 @@ void BossMap4:: die() {
     }
 
     isAlive = false;
-    /*auto animate = Animate::create(Common::createAnimation("0_boss_die_", 19, 0.05));*/
     Effect::smoke(world, scene, sprite->getPosition());
     auto callback2 = [this]() {
         if (!isAlive) {
             Common::spawnGem(world, scene, sprite->getPosition(), bodyToSpriteMap, 10);
             Common::spawnCharm(world, scene, sprite->getPosition(), bodyToSpriteMap, Common::randomNum(1, 2));
             BaseNode::destroyNode();
+
+            Port* p = new Port(world, scene, bodyToSpriteMap);
+            p->map = map;
+            p->init();
+            p->getBody()->SetLinearVelocity(b2Vec2(0, -4));
         }
-        };
+    };
     auto callFunc2 = CallFunc::create(callback2);
 
     auto sequence = Sequence::create(callFunc2, nullptr);
+    
     sprite->runAction(sequence);
 }
 

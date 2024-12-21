@@ -813,7 +813,3 @@ void Player::addSoul() {
     else if (soul == 8) Common::showText(scene, "Hehehe", 1000);
     else if (soul == 9) Common::showText(scene, "Hehehe", 1000);*/
 }
-
-bool Player::isComplete() {
-    return bossmap4 >= 5;
-}

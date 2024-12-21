@@ -30,7 +30,7 @@
 #include "scene/boss/Boss4Scene.h"
 #include "layer/InventoryLayer.h"
 #include "item/Port.h"
-#include "scene/VillageScene.h"
+#include "scene/MenuScene.h"
 
 class EndScene : public Scene
 {
@@ -39,6 +39,7 @@ public:
     bool init();
 private:
     void update(float dt) override;
+    void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
     //void spawnObject();
     //void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
     int index = 0;

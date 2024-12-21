@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="24" tileheight="24" infinite="0" nextlayerid="15" nextobjectid="15">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="24" tileheight="24" infinite="0" nextlayerid="17" nextobjectid="16">
  <tileset firstgid="1" name="Cave - Platforms" tilewidth="24" tileheight="24" tilecount="37107" columns="217">
   <image source="Cave - Platforms.png" width="5222" height="4111"/>
  </tileset>
- <layer id="3" name="soul" width="80" height="45">
+ <layer id="3" name="soul" width="80" height="45" opacity="0.48">
   <data encoding="base64" compression="zlib">
    eJztzkENAAAIBKBLYF/bOzu4+YEEJAAAAKyu7wEAAAAAAAAAAAAA3Bn3XACI
+  </data>
+ </layer>
+ <layer id="15" name="port" width="80" height="45">
+  <data encoding="base64" compression="zlib">
+   eJztzgEJAAAIA7CDke0PxlBhS7Dktq7tAQAAAAAAAAAAAAAAAAD8M910AHc=
+  </data>
+ </layer>
+ <layer id="16" name="miko" width="80" height="45">
+  <data encoding="base64" compression="zlib">
+   eJztziEBAAAIA7AbUtC/JxaPwGwJlgAAAAAAAAAAAAAA3HV9DwAAgG0ArMoAIQ==
   </data>
  </layer>
  <layer id="4" name="wukong" width="80" height="45" opacity="0.42">
@@ -20,11 +30,12 @@
  </layer>
  <layer id="5" name="limit" width="80" height="45">
   <data encoding="base64" compression="zlib">
-   eJzt0qENAEAIwEAcFvf7b/ojkGAQ3E1Q0QgAAAAAAAAAAAAAAKDzcruAq8p7AAx9zt0ANg==
+   eJzt0rENACAIAEEKEls792H/odzBhhjuJvjiIwAAAAAAYJ7K7gIAAAAAAOA3Z3UXMNX2HgCPLt4gAHw=
   </data>
  </layer>
  <objectgroup id="8" name="limitmap">
   <object id="1" x="-18.6667" y="-17.3333" width="22.6667" height="1106.67"/>
+  <object id="15" x="1914.68" y="-1.54161" width="7.70806" height="1096.09"/>
  </objectgroup>
  <objectgroup id="9" name="wall">
   <object id="2" x="6.66667" y="958.667" width="1913.33" height="120"/>
@@ -40,9 +51,6 @@
    eJztziEBAAAIA7ALmtG/ExXuMFuCJUBj53sAAAAAAAAAAAAAAAAA0DvxmgBI
   </data>
  </layer>
- <objectgroup id="10" name="endgate">
-  <object id="8" x="1916" y="-2" width="14" height="1086"/>
- </objectgroup>
  <layer id="13" name="bg1" width="80" height="45">
   <data encoding="base64" compression="zlib">
    eJzt1kdSFVEUgOHGgYRHMGfdgQIKmLPuQEFBzFl3YM4578Ccc96MkjFnnfptgIEFD/o9z1/1TfueW9V9qpMkiqIoiqIoiqIoiqIoiqIoiqIoiqIof6ungRWspJEmVtGch+f2dZUFSVJFNVOZRg211BXk37l9XdGgJCmmhAyllFFOxaD8O7evazFrK22000EnXXRn8R4DdW5v6mnfpLW07cVc2TdpnTNX9s1Az9nTd5or+6anOfvrfyet739v6697DfT7n63661658p3+a/l6ryiKouj/63JhklzhKte4zg1ucovb3OEu97jPAx7yiMc84SnPeM4LXvKK14XpmTsb7SpKkt3sYS/72M8BDnKIwxzhKMc4zglOcorTnOEs5zjPBS5yqSg9c2ejZcVJspx6GljBShppYhXNrGYNa1nHejawkU1sZgtb2cZ2drCzOD1zZ6PJJUkyhUqqqGYq06ihljqmM4OZzGI2c5jLPOazgIUsYjFLWFqSnrmz0eBMkhRSRDElZCiljHIqGMJQhjGcEYxkFKMZw1jGMZ4JTGRSJj1zZ6M3nvuWFlppo50OOumim3e85wMf+cRnvvCVb3znBz/5xW/+pGjuvzqcsLA=

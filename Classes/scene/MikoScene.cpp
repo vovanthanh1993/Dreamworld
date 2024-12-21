@@ -22,13 +22,7 @@ bool MikoScene::init(string bg, string bgMusic, string mapName, bool isMoveCamer
     if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
         return false;
     }
-
-    if (player->isComplete()) {
-        Common::showText(this, "Good work", 1000);
-    }
-    else {
-        Common::showText(this, "Is it you again,little monkey?", 1000);
-    }
+    Common::showText(this, "Is it you again,little monkey?", 1000);
 
     // Press
     auto keyboardListener = EventListenerKeyboard::create();
@@ -46,9 +40,6 @@ void MikoScene::update(float dt) {
     if (contactListener->isNext) {
         player->savePlayerDataInit();
         auto newScene = Boss4Scene::createScene("map/bg2.png", "sound/bg4.mp3", "boss4", false);
-        if (player->isComplete()) {
-            newScene  = VillageScene::createScene("map/bglv1.png", "sound/bg1.mp3", "village", false);;
-        }
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
         contactListener->isNext = false;
     }
@@ -59,9 +50,6 @@ void MikoScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::E
         if (keyCode == (EventKeyboard::KeyCode::KEY_E)) {
             if (b2Distance(player->getBody()->GetPosition(), miko->getBody()->GetPosition()) <= Constants::TALK_RANGE* Common::scaleSizeXY()) {
                 auto chat = welcomeChatVector;
-                if (player->isComplete()) {
-                    chat = completeChatVector;
-                }
                 if (index < chat.size()) {
                     Common::showText(this, chat[index], 1000);
                 }

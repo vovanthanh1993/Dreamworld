@@ -30,15 +30,31 @@ bool EndScene::init()
     //settingInit->loadSettingData();
     //settingInit->setBgMusicId(Common::playBackgroundMusic(settingInit->getVolume(), bgMusic));
 
-  
+    
+
     // Thêm lớp ảnh (hình nền)
-    auto background = cocos2d::Sprite::create("map/end.png");
+    auto background = cocos2d::Sprite::create("map/endbg.png");
     background->setAnchorPoint(cocos2d::Vec2(0, 0));
     background->setPosition(cocos2d::Vec2(0, 0));
     Common::scaleAll(background, 1);
     this->addChild(background, 0);
 
-    // Schedule the update method
+    auto origin = Director::getInstance()->getVisibleOrigin();
+    Size screenSize = Director::getInstance()->getVisibleSize();
+    auto label = Label::createWithTTF("Press ESC to return menu", "fonts/Marker Felt.ttf", 20 * Common::scaleSizeXY());
+    label->setAnchorPoint(Vec2(1, 0));
+    label->setPosition(origin.x + screenSize.width, origin.y);
+    this->addChild(label, 90);
+    
+    auto zoomIn = ScaleBy::create(1.0f, 1.1f);
+    auto acSq = Sequence::create(zoomIn, zoomIn->reverse(), nullptr);
+    auto actionRepeat = RepeatForever::create(acSq);
+    label->runAction(actionRepeat);
+
+    // Press
+    auto keyboardListener = EventListenerKeyboard::create();
+    keyboardListener->onKeyPressed = CC_CALLBACK_2(EndScene::onKeyPressed, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
     this->scheduleUpdate();
     return true;
 }
@@ -58,6 +74,13 @@ void EndScene::update(float dt) {
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
         contactListener->isNext = false;
     }*/
+}
+
+void EndScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event) {
+    if (keyCode == (EventKeyboard::KeyCode::KEY_ESCAPE)) {
+        auto scene = MenuScene::createScene();
+        Director::getInstance()->replaceScene(scene);
+    }
 }
 
 

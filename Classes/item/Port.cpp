@@ -40,7 +40,7 @@ bool Port::init() {
                 fixtureDef.friction = 0.0f;
                 fixtureDef.restitution = 0.0f;
                 fixtureDef.filter.categoryBits = Constants::CATEGORY_STONE;
-                fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER | Constants::CATEGORY_ARROW | Constants::CATEGORY_LIMIT | Constants::CATEGORY_WALL;
+                fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER | Constants::CATEGORY_LIMIT | Constants::CATEGORY_WALL;
 
                 // Gán fixture cho body
                 body->CreateFixture(&fixtureDef);

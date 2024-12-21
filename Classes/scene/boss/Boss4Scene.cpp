@@ -24,19 +24,6 @@ bool Boss4Scene::init(string bg, string bgMusic, string mapName, bool isMoveCame
     if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
         return false;
     }
-
-    
-    //// Schedule the spawnEnemies function every 5 seconds
-    //wukongPool = new WukongPool(world, this, bodyToSpriteMap, 5);
-    //this->schedule([this](float dt) {
-    //    spawnWukong();
-    //    }, 3, "spawn_wukong");
-
-    //// Pool for bat
-    //wukongFlyPool = new WukongFlyPool(world, this, bodyToSpriteMap, 10);
-    //this->schedule([this](float dt) {
-    //    spawnBat();
-    //    }, 5, "spawn_wukong_fly");
     
     /*heartPool = new HeartPool(world, this, bodyToSpriteMap, 1);
     this->schedule([this](float dt) {
@@ -52,7 +39,6 @@ bool Boss4Scene::init(string bg, string bgMusic, string mapName, bool isMoveCame
 
 // update
 void Boss4Scene::update(float dt) {
-    if (!player->isAlive) return;
     BaseScene::update(dt);
 
     if (bossmap4->isAlive) {
@@ -62,15 +48,12 @@ void Boss4Scene::update(float dt) {
         AudioEngine::setVolume(settingInit->getBgMusicId(), settingInit->getVolume() * 0.2);
     }
 
-    //-------------------CAP NHAT LAI SPRITE--------------------------
     if (contactListener->isNext && !bossmap4->isAlive) {
         player->savePlayerDataInit();
         auto newScene = EndScene::createScene();
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
-
+        isEnd = true;
     }
-
-    contactListener->isNext = false;
     settingInit->loadSettingData();
 }
 
@@ -78,7 +61,6 @@ void Boss4Scene::spawnObject() {
 
     item = new MapItem(world, this, bodyToSpriteMap, map);
     item->spawnWallAndLimit();
-    item->spawnEndGate();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     // Spawn player
