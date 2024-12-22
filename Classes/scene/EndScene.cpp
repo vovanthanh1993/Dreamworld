@@ -26,9 +26,9 @@ bool EndScene::init()
         return false;
     }
 
-    //// Phát nhạc nền
-    //settingInit->loadSettingData();
-    //settingInit->setBgMusicId(Common::playBackgroundMusic(settingInit->getVolume(), bgMusic));
+    // Phát nhạc nền
+    settingInit->loadSettingData();
+    settingInit->setBgMusicId(Common::playBackgroundMusic(settingInit->getVolume(), "sound/endbg.mp3"));
 
     
 

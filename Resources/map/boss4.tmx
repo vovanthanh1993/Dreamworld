@@ -28,9 +28,9 @@
    eJzt2EEJAAAIBEF/ZrB/UTsIIsJMhOVeVxkMlXYAAAAA63wwXLE9AAAAAAAAAAC+azJ9AIE=
   </data>
  </layer>
- <layer id="5" name="limit" width="80" height="45">
+ <layer id="5" name="limit" width="80" height="45" opacity="0.34">
   <data encoding="base64" compression="zlib">
-   eJzt0rENACAIAEEKEls792H/odzBhhjuJvjiIwAAAAAAYJ7K7gIAAAAAAOA3Z3UXMNX2HgCPLt4gAHw=
+   eJzt0qENAEAIwEAcFvf7b/ojkGAQ3E1Q0QgAAAAAAAAAAAAAAKDzcruAq8p7AAx9zt0ANg==
   </data>
  </layer>
  <objectgroup id="8" name="limitmap">

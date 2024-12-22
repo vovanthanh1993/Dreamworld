@@ -129,5 +129,6 @@ public:
 
 	int getSoul();
 	void addSoul();
+	bool isComplete = false;
 };
 

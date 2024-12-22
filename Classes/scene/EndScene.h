@@ -40,8 +40,7 @@ public:
 private:
     void update(float dt) override;
     void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
-    //void spawnObject();
-    //void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
+    Setting* settingInit = new Setting();
     int index = 0;
     vector<string> welcomeChatVector = {
         "Finally, you have arrived here...",

@@ -74,7 +74,7 @@ namespace common {
             auto camera = scene->getDefaultCamera();
             Director::getInstance()->pause();
             auto pauseMenu = new PauseMenu(camera->getPosition());
-            scene->addChild(pauseMenu->menu, 100); // Đặt z-order cao hơn
+            scene->addChild(pauseMenu->menu, 9999); // Đặt z-order cao hơn
         }
         else {
             Director::getInstance()->resume(); // Tiếp tục game

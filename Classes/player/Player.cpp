@@ -654,7 +654,7 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
         Director::getInstance()->replaceScene(villageScene);
     }
     if (keyCode == (EventKeyboard::KeyCode::KEY_F9)) {
-        auto villageScene = Boss4Scene::createScene("map/bg2.png", "sound/bg4.mp3", "boss4", false);
+        auto villageScene = Boss4Scene::createScene("map/bg2.png", "enemy/Bossmap4/sound/bg.mp3", "boss4", false);
         Director::getInstance()->replaceScene(villageScene);
     }
     if (keyCode == (EventKeyboard::KeyCode::KEY_TAB)) {

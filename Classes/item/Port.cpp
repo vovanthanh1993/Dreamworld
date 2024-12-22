@@ -39,8 +39,8 @@ bool Port::init() {
                 fixtureDef.density = 20.0f;
                 fixtureDef.friction = 0.0f;
                 fixtureDef.restitution = 0.0f;
-                fixtureDef.filter.categoryBits = Constants::CATEGORY_STONE;
-                fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER | Constants::CATEGORY_LIMIT | Constants::CATEGORY_WALL;
+                fixtureDef.filter.categoryBits = Constants::CATEGORY_ITEM;
+                fixtureDef.filter.maskBits = Constants::CATEGORY_PLAYER;
 
                 // Gán fixture cho body
                 body->CreateFixture(&fixtureDef);
@@ -48,5 +48,14 @@ bool Port::init() {
             }
         }
     }
+    // Lên lịch gọi update mỗi frame
+    scene->schedule([this](float dt) { this->update(dt); }, "Port");
     return true;
+}
+
+void Port::update(float dt) {
+    Size screenSize = Director::getInstance()->getVisibleSize();
+    if (sprite->getPosition().y <= screenSize.height/2) {
+        body->SetLinearVelocity(b2Vec2_zero);
+    }
 }

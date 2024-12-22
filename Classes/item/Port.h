@@ -13,5 +13,6 @@ public:
 	Port(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* _bodyToSpriteMap);
 	bool init();
 	TMXTiledMap* map;
+	void update(float dt);
 };
 

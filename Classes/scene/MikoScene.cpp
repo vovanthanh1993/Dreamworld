@@ -39,7 +39,8 @@ void MikoScene::update(float dt) {
 
     if (contactListener->isNext) {
         player->savePlayerDataInit();
-        auto newScene = Boss4Scene::createScene("map/bg2.png", "sound/bg4.mp3", "boss4", false);
+        auto newScene = Boss4Scene::createScene("map/bg2.png", "enemy/Bossmap4/sound/bg.mp3", "boss4", false);
+        if(player->isComplete) newScene = EndScene::createScene();
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
         contactListener->isNext = false;
     }
