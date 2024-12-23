@@ -21,27 +21,15 @@ namespace common {
 		static void destroyStick(b2World* world, Scene* scene, Vec2 position);
 		static void destroyArrow(b2World* world, Scene* scene, Vec2 position);
 		static void destroyFire(b2World* world, Scene* scene, Vec2 position);
-		static void soundTing();
-		static void enemyDie();
-		static void playerJump();
-		static void playerSlash();
-		static void  chest();
-		static void soundHealth();
-		static void soundError();
+		
 		static void destroyRain(b2World* world, Scene* scene, Vec2 position);
 		static void smoke(b2World* world, Scene* scene, Vec2 position);
 		static void destroyFireRain(b2World* world, Scene* scene, Vec2 position);
-		static void soundLaughter();
-		static void soundCreepyLaughter();
-		static void soundBoss1Hurt();
-		static void soundMagicFire();
-		static void soundDarkMagic();
-		static void playerHurt();
+		
 		static void healing(b2World* world, Scene* scene, Vec2 position);
 		static void eagle();
 		static void getStick();
-		static void soundBoss3Hurt();
-		static void enemyHurt();
+		
 	};
 }
 

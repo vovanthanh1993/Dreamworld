@@ -4,7 +4,7 @@ Slash::Slash(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* body
 
 bool Slash::init(Vec2 position) {
     scale = 0.3;
-    Effect::playerSlash();
+    MusicManager::getInstance()->playerSlash();
     sprite = Sprite::create("Slash.png");
     sprite->setPosition(position);
     sprite->setScale(scale * Common::scaleSizeXY());

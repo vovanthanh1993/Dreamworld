@@ -87,7 +87,7 @@ void BossMap1::die() {
     b2Vec2 velocity(0, 0);
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
-    Effect::soundLaughter();
+    MusicManager::getInstance()->soundLaughter();
     Common::showTextRandom(scene, dieTextVector, 5);
 
     // Lặp qua tất cả các fixture của body
@@ -122,7 +122,7 @@ void BossMap1::throwStoneBall() {
     if (isHit) return;
     if (isAlive) {
         auto animate = Animate::create(Common::createAnimation("0_boss_attack_", 19, 0.02));
-        Effect::soundMagicFire();
+        MusicManager::getInstance()->soundMagicFire();
         auto callback2 = [this]() {
             createStoneBall();
         };
@@ -140,7 +140,7 @@ void BossMap1::charge() {
     if (isHit) return;
     if (isAlive) {
         auto animate = Animate::create(Common::createAnimation("0_boss_specialty_", 19, 0.02));
-        Effect::soundMagicFire();
+        MusicManager::getInstance()->soundMagicFire();
         followPlayer();
         body->SetLinearVelocity(b2Vec2(direction * 60 * Common::scaleSizeXY(), 0));
 
@@ -227,7 +227,7 @@ void BossMap1::updateHealthBarPosition() {
 }
 
 void BossMap1::hurt() {
-    Effect::soundBoss1Hurt();
+    MusicManager::getInstance()->soundBoss1Hurt();
     Common::changeSpriteColor(sprite, isHit);
 }
 

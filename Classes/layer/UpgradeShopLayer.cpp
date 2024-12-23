@@ -160,7 +160,7 @@ void UpgradeShopLayer::upgradeStick(cocos2d::Ref* sender) {
         player->updateGem(0);
         
     }
-    else Effect::soundError();
+    else MusicManager::getInstance()->soundError();
 }
 
 void UpgradeShopLayer::upgradeHealth(cocos2d::Ref* sender) {
@@ -174,7 +174,7 @@ void UpgradeShopLayer::upgradeHealth(cocos2d::Ref* sender) {
         player->healing(1);
         player->updateGem(-price);
     }
-    else Effect::soundError();
+    else MusicManager::getInstance()->soundError();
 }
 
 void UpgradeShopLayer::menuCloseCallback(cocos2d::Ref* Sender) {
@@ -198,5 +198,5 @@ void UpgradeShopLayer::upgradeMana(cocos2d::Ref* Sender) {
         player->addMana(1);
         player->updateGem(-price);
     }
-    else Effect::soundError();
+    else MusicManager::getInstance()->soundError();
 }

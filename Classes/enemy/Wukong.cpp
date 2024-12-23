@@ -85,7 +85,7 @@ void Wukong::die() {
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("ew-Death_", 25, 0.01));
-    Effect::enemyDie();
+    MusicManager::getInstance()->enemyDie();
 
     // Lặp qua tất cả các fixture của body
     for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
@@ -192,7 +192,7 @@ void Wukong::getDamage(int damage) {
 }
 
 void Wukong::hurt() {
-    Effect::enemyHurt();
+    MusicManager::getInstance()->enemyHurt();
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("ew-GetHit_", 13, 0.02));
     animate->setTag(4);

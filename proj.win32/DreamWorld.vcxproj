@@ -835,6 +835,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClInclude Include="..\Classes\base\BasePool.h" />
     <ClInclude Include="..\Classes\enemy\BossMap4.h" />
+    <ClInclude Include="..\Classes\main\MusicManager.h" />
     <ClInclude Include="..\Classes\scene\boss\Boss4Scene.h" />
     <ClInclude Include="..\Classes\scene\EndScene.h" />
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseEnemy.h" />
@@ -908,6 +909,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\DreamWorld\proj.win32\resource.h" />
     <ClCompile Include="..\Classes\base\BasePool.cpp" />
     <ClCompile Include="..\Classes\enemy\BossMap4.cpp" />
+    <ClCompile Include="..\Classes\main\MusicManager.cpp" />
     <ClCompile Include="..\Classes\scene\boss\Boss4Scene.cpp" />
     <ClCompile Include="..\Classes\scene\EndScene.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\base\BaseEnemy.cpp" />

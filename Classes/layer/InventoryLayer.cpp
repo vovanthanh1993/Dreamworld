@@ -110,7 +110,7 @@ void InventoryLayer::selectCharm(cocos2d::Ref* sender) {
     Charm* charm = static_cast<Charm*>(item->getUserData());
     charm->setIsActive(true);
     item->setColor(cocos2d::Color3B::RED);
-    Effect::soundTing();
+    MusicManager::getInstance()->soundTing();
     player->changeCharm(charm);
 
     for (const auto& menuItem : menuItems) {

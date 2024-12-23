@@ -137,7 +137,7 @@ void ItemShopLayer::purchaseHealthPotion(cocos2d::Ref* sender) {
         player->addHealthPotion(1);
         player->updateGem(-price);
     }
-    else Effect::soundError();
+    else MusicManager::getInstance()->soundError();
 }
 
 void ItemShopLayer::purchaseManaPotion(cocos2d::Ref* sender) {
@@ -149,7 +149,7 @@ void ItemShopLayer::purchaseManaPotion(cocos2d::Ref* sender) {
         player->addManaPotion(1);
         player->updateGem(-price);
     }
-    else Effect::soundError();
+    else MusicManager::getInstance()->soundError();
 }
 
 void ItemShopLayer::menuCloseCallback(cocos2d::Ref* pSender) {

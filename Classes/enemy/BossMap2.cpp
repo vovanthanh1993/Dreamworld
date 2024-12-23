@@ -74,7 +74,7 @@ void BossMap2::idle() {
 
 void BossMap2::hurt() {
 
-    Effect::soundBoss1Hurt();
+    MusicManager::getInstance()->soundBoss1Hurt();
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("Wraith_1_Hurt_", 11, 0.04));
     auto callback = [this]() {
@@ -109,7 +109,7 @@ void BossMap2::die() {
     sprite->stopAllActions();
     Common::showTextRandom(scene, dieTextVector, 5);
     
-    Effect::soundCreepyLaughter();
+    MusicManager::getInstance()->soundCreepyLaughter();
 
     // Lặp qua tất cả các fixture của body
     for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
@@ -144,7 +144,7 @@ void BossMap2::boneRain() {
     // Run animation with a callback
     if (sprite != nullptr) {
         auto animate = Animate::create(Common::createAnimation("Wraith_1_Casting Spells_", 10, 0.01));
-        Effect::soundDarkMagic();
+        MusicManager::getInstance()->soundDarkMagic();
         auto callback2 = [this](){
             BoneRain* rain = boneRainPool->getFromPool();
             if (rain != nullptr) {
@@ -263,7 +263,7 @@ void BossMap2::throwWarrior() {
     // Run animation with a callback
     if (sprite != nullptr) {
         auto animate = Animate::create(Common::createAnimation("Wraith_1_Casting Spells_", 10, 0.01));
-        Effect::soundCreepyLaughter();
+        MusicManager::getInstance()->soundCreepyLaughter();
 
         auto callback2 = [this]() {
                 

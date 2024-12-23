@@ -15,6 +15,7 @@
 #include "enemy/Warrior.h"
 #include "base/BasePool.h"
 #include <vector>
+#include "main/MusicManager.h"
 
 using namespace constants;
 using namespace common;

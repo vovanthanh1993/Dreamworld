@@ -46,7 +46,8 @@ bool MenuScene::init()
     }
     
     settingInit->loadSettingData();
-    settingInit->setBgMusicId(Common::playBackgroundMusic(settingInit->getVolume(), "sound/bg1.mp3"));
+    MusicManager::getInstance()->playBackgroundMusic("sound/bg1.mp3", true);
+    MusicManager::getInstance()->setVolume(settingInit->getVolume());
 
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -110,7 +111,7 @@ bool MenuScene::init()
 }
 void MenuScene::update(float dt) {
     settingInit->loadSettingData();
-    AudioEngine::setVolume(settingInit->getBgMusicId() , settingInit->getVolume());
+    AudioEngine::setVolume(MusicManager::getInstance()->currentMusicId, settingInit->getVolume());
 }
 void MenuScene::onClickMenuItem(Ref* sender) {
     loadingbar();

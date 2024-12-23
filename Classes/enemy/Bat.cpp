@@ -91,7 +91,7 @@ void Bat::die() {
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("bat_smoke_", 9, 0.04));
-    Effect::enemyDie();
+    MusicManager::getInstance()->enemyDie();
 
     auto callback = [this]() {
         if (!isAlive) {

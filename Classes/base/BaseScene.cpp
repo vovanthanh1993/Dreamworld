@@ -35,7 +35,9 @@ bool BaseScene::init(string bg, string bgMusic, string mapName, bool isMoveCamer
 
     // Phát nhạc nền
     settingInit->loadSettingData();
-    settingInit->setBgMusicId(Common::playBackgroundMusic(settingInit->getVolume(), bgMusic));
+    //settingInit->setBgMusicId(Common::playBackgroundMusic(settingInit->getVolume(), bgMusic));
+    MusicManager::getInstance()->playBackgroundMusic(bgMusic, true);
+    MusicManager::getInstance()->setVolume(settingInit->getVolume());
 
     // Tạo một Camera
     auto camera = Camera::create();
@@ -111,7 +113,7 @@ void BaseScene::update(float dt) {
     // xoa cac vat the duoc danh dau
     contactListener->removeObject();
     settingInit->loadSettingData();
-    AudioEngine::setVolume(settingInit->getBgMusicId(), settingInit->getVolume());
+    AudioEngine::setVolume(MusicManager::getInstance()->currentMusicId, settingInit->getVolume());
 }
 
 void BaseScene::spawnObject() {

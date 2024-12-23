@@ -85,7 +85,7 @@ void Warrior::die() {
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("war_dying_", 14, 0.05));
-    Effect::enemyDie();
+    MusicManager::getInstance()->enemyDie();
 
     // Lặp qua tất cả các fixture của body
     for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
@@ -191,7 +191,7 @@ void Warrior::getDamage(int damage) {
 }
 
 void Warrior::hurt() {
-    Effect::enemyHurt();
+    MusicManager::getInstance()->enemyHurt();
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("war_hurt_", 11, 0.02));
     animate->setTag(4);

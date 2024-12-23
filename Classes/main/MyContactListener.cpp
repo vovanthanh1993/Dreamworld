@@ -398,7 +398,7 @@ void MyContactListener::removeObject() {
                 type = 2;
             } 
             else if (Constants::TAG_CHEST == tag) {
-                Effect::chest();
+                MusicManager::getInstance()->chest();
                 Common::spawnGem(world, scene, pos, bodyToSpriteMap, Common::randomNum(0, 6));
                 Common::spawnCharm(world, scene, pos, bodyToSpriteMap, 1);
             }

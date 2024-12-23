@@ -3,6 +3,7 @@
 #include "main/Common.h"
 #include "main/Constants.h"
 #include "main/Constants.h"
+#include "main/MusicManager.h"
 #include "base/BaseNode.h"
 
 using namespace constants;

@@ -94,7 +94,7 @@ void Elemental::die() {
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("Elemental_1_Dying_", 14, 0.05));
-    Effect::enemyDie();
+    MusicManager::getInstance()->enemyDie();
     // Lặp qua tất cả các fixture của body
     for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
         // Lấy dữ liệu bộ lọc hiện tại

@@ -220,6 +220,9 @@
     <ClCompile Include="..\Classes\base\BasePool.cpp">
       <Filter>Source Files\Classes\base</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\main\MusicManager.cpp">
+      <Filter>Source Files\Classes\main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseEnemy.h">
@@ -2612,6 +2615,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\base\BasePool.h">
       <Filter>Source Files\Classes\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\main\MusicManager.h">
+      <Filter>Source Files\Classes\main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

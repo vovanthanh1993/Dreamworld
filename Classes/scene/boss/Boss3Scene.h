@@ -27,6 +27,7 @@
 #include "enemy/BossMap3.h"
 #include "base/BaseScene.h"
 #include "scene/MikoScene.h"
+#include "main/MusicManager.h"
 
 class Boss3Scene : public BaseScene
 {

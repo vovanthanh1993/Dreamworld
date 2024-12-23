@@ -73,7 +73,7 @@ void BossMap3::idle() {
 
 void BossMap3::hurt() {
     Common::showTextRandom(scene, textVector, 5);
-    Effect::soundBoss3Hurt();
+    MusicManager::getInstance()->soundBoss3Hurt();
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("bossbat_hurt_", 11, 0.01));
     auto callback = [this]() {
@@ -125,7 +125,7 @@ void BossMap3::die() {
         Common::showText(scene, "I will come back...", 3);
     }
 
-    Effect::soundCreepyLaughter();
+    MusicManager::getInstance()->soundCreepyLaughter();
 
     // Lặp qua tất cả các fixture của body
     for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {

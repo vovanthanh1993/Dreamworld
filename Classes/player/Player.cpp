@@ -94,7 +94,7 @@ void Player::jump() {
     if (!isAlive) return;
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("Wukong-Jump_", 9, 0.0001));
-    Effect::playerJump();
+    MusicManager::getInstance()->playerJump();
     b2Vec2 velocity(body->GetLinearVelocity().x, Constants::JUMP_PLAYER * Common::scaleSizeXY());
     body->SetLinearVelocity(velocity);
     auto repeatAnimate = RepeatForever::create(animate);
@@ -208,7 +208,7 @@ void Player::getDamage(int damage) {
 }
 void Player::healing(int num) {
     healing();
-    Effect::soundHealth();
+    MusicManager::getInstance()->soundHealth();
     health += num;
     health = health > maxHealth ? maxHealth : health;
     updateHealthBar(health);
@@ -295,7 +295,7 @@ void Player::initGUI() {
 void Player::updateGem(int i) {
     gem+=i;
     gemLabel->setString("x" + to_string(gem));
-    Effect::soundTing();
+    MusicManager::getInstance()->soundTing();
 }
 
 void Player::addHealthPotion(int i) {
@@ -309,7 +309,7 @@ void Player::useHealthPotion() {
         healing(1);
     }
     else {
-        Effect::soundError();
+        MusicManager::getInstance()->soundError();
     }
 }
 
@@ -320,12 +320,12 @@ void Player::addManaPotion(int i) {
 void Player::useManaPotion() {
     if (manaPotionNum > 0) {
         Effect::healing(world, scene, sprite->getPosition());
-        Effect::soundHealth();
+        MusicManager::getInstance()->soundHealth();
         addManaPotion(-1);
         addMana(2);
     }
     else {
-        Effect::soundError();
+        MusicManager::getInstance()->soundError();
     }
 }
 
@@ -396,7 +396,7 @@ void Player::loadPlayerDataInit(bool isNew) {
 
 void Player::hurt() {
     if (!isAlive) return;
-    Effect::playerHurt();
+    MusicManager::getInstance()->playerHurt();
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("Wukong-GetHit_", 13, 0.02));
     animate->setTag(4);
@@ -406,7 +406,7 @@ void Player::hurt() {
 void Player::die() {
     savePlayerDataInit();
     isAlive = false;
-    Effect::playerHurt();
+    MusicManager::getInstance()->playerHurt();
     body->SetLinearVelocity(b2Vec2_zero);
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("Wukong-Death_", 25, 0.02));

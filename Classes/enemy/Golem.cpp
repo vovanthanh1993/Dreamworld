@@ -85,7 +85,7 @@ void Golem::die() {
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("0_Golem_Dying_", 14, 0.05));
-    Effect::enemyDie();
+    MusicManager::getInstance()->enemyDie();
 
     // Lặp qua tất cả các fixture của body
     for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
@@ -163,7 +163,7 @@ void Golem::getDamage(int damage) {
 }
 
 void Golem::hurt() {
-    Effect::enemyHurt();
+    MusicManager::getInstance()->enemyHurt();
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("0_Golem_Hurt_", 11, 0.04));
     animate->setTag(4);

@@ -7,6 +7,7 @@
 #include "main/Constants.h"
 #include "main/Effect.h"
 #include "base/BaseEnemy.h"
+#include "main/MusicManager.h"
 
 using namespace constants;
 using namespace common;

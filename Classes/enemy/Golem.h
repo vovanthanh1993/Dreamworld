@@ -9,6 +9,7 @@
 #include "item/Gem.h"
 #include "main/Constants.h"
 #include "main/Effect.h"
+#include "main/MusicManager.h"
 #include "base/BaseEnemy.h"
 
 using namespace constants;

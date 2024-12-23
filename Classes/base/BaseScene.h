@@ -35,7 +35,7 @@
 #include "main/Constants.h"
 #include <vector>
 #include "audio/include/AudioEngine.h"
-#include "cocos/audio/include/AudioEngine.h"
+#include "main/MusicManager.h"
 
 using namespace constants;
 using namespace common;

@@ -85,7 +85,7 @@ void Hedgehog::die() {
     body->SetLinearVelocity(velocity);
     sprite->stopAllActions();
     auto animate = Animate::create(Common::createAnimation("Hed_smoke_", 9, 0.05));
-    Effect::enemyDie();
+    MusicManager::getInstance()->enemyDie();
 
     // Lặp qua tất cả các fixture của body
     for (b2Fixture* fixture = body->GetFixtureList(); fixture; fixture = fixture->GetNext()) {
