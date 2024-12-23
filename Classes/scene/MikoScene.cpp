@@ -42,8 +42,9 @@ void MikoScene::update(float dt) {
         auto newScene = Boss4Scene::createScene("map/bg2.png", "enemy/Bossmap4/sound/bg.mp3", "boss4", false);
         if(player->isComplete) newScene = EndScene::createScene();
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
-        contactListener->isNext = false;
+        isEndMap = true;
     }
+    contactListener->isNext = false;
 }
 
 void MikoScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event) {

@@ -43,8 +43,9 @@ void Boss4Scene::update(float dt) {
         player->isComplete = true;
         auto newScene = EndScene::createScene();
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
-        isEnd = true;
+        isEndMap = true;
     }
+    contactListener->isNext = false;
     settingInit->loadSettingData();
 }
 

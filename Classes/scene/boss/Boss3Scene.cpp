@@ -41,7 +41,7 @@ void Boss3Scene::update(float dt) {
         player->savePlayerDataInit();
         auto newScene = MikoScene::createScene("map/bg2.png", "sound/bg3.mp3", "mikomap", false);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
-        
+        isEndMap = true;
     }
     contactListener->isNext = false;
     settingInit->loadSettingData();

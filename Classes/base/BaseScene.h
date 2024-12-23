@@ -64,7 +64,7 @@ protected:
     MapItem* item;
     bool isMoveCamera;
     unordered_map<b2Body*, Sprite*>* bodyToSpriteMap = new unordered_map<b2Body*, Sprite*>();
-    bool isEnd = false;
+    bool isEndMap = false;
 };
 
 #endif // __BASE_SCENE_H__

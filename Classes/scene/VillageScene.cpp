@@ -40,8 +40,9 @@ void VillageScene::update(float dt) {
         player->savePlayerDataInit();
         auto newScene = Map1Scene::createScene("map/bglv1.png", "sound/bg1.mp3", "map1", true);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
-        contactListener->isNext = false;
+        isEndMap = true;
     }
+    contactListener->isNext = false;
 }
 
 void VillageScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event) {

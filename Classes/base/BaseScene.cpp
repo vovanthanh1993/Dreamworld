@@ -76,7 +76,7 @@ bool BaseScene::init(string bg, string bgMusic, string mapName, bool isMoveCamer
 
 // update
 void BaseScene::update(float dt) {
-    if (!player->isAlive || isEnd) return;
+    if (!player->isAlive || isEndMap) return;
 
     world->Step(dt, 8, 3); // Cập nhật thế giới Box2D
     Common::updatePosition(world, bodyToSpriteMap);
@@ -97,7 +97,7 @@ void BaseScene::update(float dt) {
         if (camera && player->getSprite())
         {
             // Cập nhật vị trí của Camera để theo dõi nhân vật
-            if (player->getSprite()->getPositionX() > origin.x + screenWidth / 2 && player->getSprite()->getPositionX() < 14376 * Common::scaleSizeXY() - screenWidth / 2 + origin.x) {
+            if (player->getSprite()->getPositionX() > origin.x + screenWidth / 2 && player->getSprite()->getPositionX() < Constants::MAX_SIZE_MAP * Common::scaleSizeXY() - screenWidth / 2 + origin.x) {
                 Vec2 cameraPosition = player->getSprite()->getPosition();
                 camera->setPosition3D(Vec3(cameraPosition.x, camera->getPositionY(), camera->getPosition3D().z));
 

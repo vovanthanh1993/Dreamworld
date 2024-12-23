@@ -9,6 +9,7 @@ namespace constants {
 	class Constants
 	{
 	public:
+		static const int MAX_SIZE_MAP = 14376;
 		static const int PIXELS_PER_METER = 32;
 		static const int TITLE_SIZE = 24;
 		static inline const double PLAYER_SCALE = 0.6;

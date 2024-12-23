@@ -38,6 +38,7 @@ void Map1Scene::update(float dt) {
         player->savePlayerDataInit();
         auto newScene = Boss1Scene::createScene("map/bglv1.png", "Enemy/Bossmap1/sound/bg.mp3", "boss1", false);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
+        isEndMap = true;
     }
     contactListener->isNext = false;
 }
