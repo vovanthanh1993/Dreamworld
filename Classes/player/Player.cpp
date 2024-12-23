@@ -55,15 +55,13 @@ bool Player::init(bool isNew) {
     initMouseEvent();
 
     // Su dung pool
-    slashPool = new SlashPool(world, scene, 5);
-    stickPool = new StickPool(world, scene, bodyToSpriteMap, 5);
-    eaglePool = new EaglePool(world, scene, bodyToSpriteMap, 10);
+    slashPool->createPool(world, scene, bodyToSpriteMap, 5);
+    stickPool->createPool(world, scene, bodyToSpriteMap, 5);
+    eaglePool->createPool(world, scene, bodyToSpriteMap, 10);
 
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "player");
     scene->addChild(this);
-
-    
     return true;
 }
 void Player::idle() {

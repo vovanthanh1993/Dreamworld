@@ -52,8 +52,8 @@ bool BossMap2::init(Vec2 position) {
     createHealthBar();
     walk();
 
-    boneRainPool = new BoneRainPool(world, scene, bodyToSpriteMap, 10);
-    warriorPool = new WarriorPool(world, scene, bodyToSpriteMap, 10);
+    boneRainPool->createPool(world, scene, bodyToSpriteMap, 10);
+    warriorPool->createPool(world, scene, bodyToSpriteMap, 10);
     
 
     // Lên lịch gọi update mỗi frame

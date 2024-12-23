@@ -42,13 +42,13 @@ bool BossMap4::init(Vec2 position) {
 
     // Lên lịch gọi update mỗi frame
     // Schedule the spawnEnemies function every 5 seconds
-    wukongPool = new WukongPool(world, scene, bodyToSpriteMap, 6);
+    wukongPool->createPool(world, scene, bodyToSpriteMap, 6);
     this->schedule([this](float dt) {
         spawnWukong();
         }, 3, "spawn_wukong");
 
-    //// Pool for bat
-    wukongFlyPool = new WukongFlyPool(world, scene, bodyToSpriteMap, 10);
+    // Pool for bat
+    wukongFlyPool->createPool(world, scene, bodyToSpriteMap, 10);
     this->schedule([this](float dt) {
         spawnWukongFly();
         },5 , "spawn_wukong_fly");

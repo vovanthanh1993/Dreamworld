@@ -24,16 +24,6 @@ bool Boss4Scene::init(string bg, string bgMusic, string mapName, bool isMoveCame
     if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
         return false;
     }
-    
-    /*heartPool = new HeartPool(world, this, bodyToSpriteMap, 1);
-    this->schedule([this](float dt) {
-        spawnHeart();
-        }, 10, "spawn_heart");
-
-    backStickPool = new BackStickPool(world, this, bodyToSpriteMap, 1);
-    this->schedule([this](float dt) {
-        spawnBackStick();
-        }, 8, "spawn_back_stick");*/
     return true;
 }
 
@@ -98,51 +88,51 @@ void Boss4Scene::spawnObject() {
     boundaryBodyEnd = Common::createBoundary(world, false);
 }
 
-void Boss4Scene::spawnHeart() {
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    int i = Common::randomNum(1, 4);
-    int count = 0;
-    auto wukongLayer = map->getLayer("heart");
-    if (wukongLayer != nullptr) {
-        for (int x = 0; x < map->getMapSize().width; ++x) {
-            for (int y = 0; y < map->getMapSize().height; ++y) {
-                auto tile = wukongLayer->getTileAt(Vec2(x, y));
-                if (tile) {
-                    if (i == ++count) {
-                        Heart* w = heartPool->getFromPool();
-                        if (w != nullptr) {
-                            w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+//void Boss4Scene::spawnHeart() {
+//    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+//    int i = Common::randomNum(1, 4);
+//    int count = 0;
+//    auto wukongLayer = map->getLayer("heart");
+//    if (wukongLayer != nullptr) {
+//        for (int x = 0; x < map->getMapSize().width; ++x) {
+//            for (int y = 0; y < map->getMapSize().height; ++y) {
+//                auto tile = wukongLayer->getTileAt(Vec2(x, y));
+//                if (tile) {
+//                    if (i == ++count) {
+//                        Heart* w = heartPool->getFromPool();
+//                        if (w != nullptr) {
+//                            w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+//                            break;
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 
-void Boss4Scene::spawnBackStick() {
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    int i = Common::randomNum(1, 4);
-    int count = 0;
-    auto wukongLayer = map->getLayer("backstick");
-    if (wukongLayer != nullptr) {
-        for (int x = 0; x < map->getMapSize().width; ++x) {
-            for (int y = 0; y < map->getMapSize().height; ++y) {
-                auto tile = wukongLayer->getTileAt(Vec2(x, y));
-                if (tile) {
-                    if (i == ++count) {
-                        BackStick* w = backStickPool->getFromPool();
-                        if (w != nullptr) {
-                            w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+//void Boss4Scene::spawnBackStick() {
+//    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+//    int i = Common::randomNum(1, 4);
+//    int count = 0;
+//    auto wukongLayer = map->getLayer("backstick");
+//    if (wukongLayer != nullptr) {
+//        for (int x = 0; x < map->getMapSize().width; ++x) {
+//            for (int y = 0; y < map->getMapSize().height; ++y) {
+//                auto tile = wukongLayer->getTileAt(Vec2(x, y));
+//                if (tile) {
+//                    if (i == ++count) {
+//                        BackStick* w = backStickPool->getFromPool();
+//                        if (w != nullptr) {
+//                            w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+//                            break;
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 
 
 

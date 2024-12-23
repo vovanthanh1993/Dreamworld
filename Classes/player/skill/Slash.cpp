@@ -1,6 +1,6 @@
 ﻿#include "Slash.h"
 #include "main/Effect.h"
-Slash::Slash(b2World* world, Scene* scene) :BaseNode(world, scene) {};
+Slash::Slash(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {};
 
 bool Slash::init(Vec2 position) {
     scale = 0.3;

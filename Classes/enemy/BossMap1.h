@@ -12,7 +12,6 @@
 #include "main/Effect.h"
 #include "base/BaseEnemy.h"
 #include "skill/StoneBall.h"
-#include "skill/StoneBallPool.h"
 
 using namespace constants;
 using namespace common;
@@ -26,7 +25,7 @@ private:
 	Sprite* healthBarBg; // Sprite cho nền thanh máu
 	bool isHit = false;
 	vector<StoneBall*> stoneBallVector;
-	StoneBallPool* stoneBallPool;
+	BasePool<StoneBall>* stoneBallPool = new BasePool<StoneBall>();
 	vector<string> hugTextVector = {
 		"I want to hug you..",
 		"Roll with me! Roll with me!",

@@ -5,12 +5,13 @@
 #include <thread>
 #include <chrono>
 #include "player/skill/Slash.h"
-#include "player/skill/SlashPool.h"
-#include "player/skill/EaglePool.h"
-#include "player/skill/StickPool.h"
 #include "base/BaseNode.h"
 #include "main/Constants.h"
 #include "Inventory/charm.h"
+#include "base/BasePool.h"
+#include "skill/Stick.h"
+#include "skill/Eagle.h"
+#include "skill/Slash.h"
 
 
 using namespace constants;
@@ -39,9 +40,10 @@ private:
 	float lastAttackTimeStick = 0; // Thời điểm của lần tấn công cuối cùng
 	float attackCooldownEagle = 0.5f; // Khoảng thời gian chờ giữa các lần tấn công
 	float lastAttackTimeEagle = 0; // Thời điểm của lần tấn công cuối cùng
-	SlashPool* slashPool;
-	StickPool* stickPool;
-	EaglePool* eaglePool;
+	BasePool<Slash>* slashPool = new BasePool<Slash>();
+	BasePool<Eagle>* eaglePool = new BasePool<Eagle>();
+	BasePool<Stick>* stickPool = new BasePool<Stick>();
+
 	int direction = 1;
 	int bossmap4 = 0;
 

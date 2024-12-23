@@ -51,7 +51,7 @@ bool Acher::init(Vec2 position) {
     idle();
     (*bodyToSpriteMap)[body] = sprite;
 
-    arrowPool = new ArrowPool(world, scene, bodyToSpriteMap, 5);
+    arrowPool->createPool(world, scene, bodyToSpriteMap, 5);
 
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "acher");

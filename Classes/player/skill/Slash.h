@@ -13,7 +13,7 @@ private:
 	float duration = 0.01; // Thời gian tồn tại tính bằng giây
 	std::chrono::steady_clock::time_point startTime;
 public:
-	Slash(b2World* world, Scene* scene);
+	Slash(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init(Vec2 position);
 	void update(float dt);
 };

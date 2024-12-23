@@ -53,7 +53,7 @@ bool Golem::init(Vec2 position) {
     sprite->setScaleX(direction * scale * Common::scaleSizeXY());
     (*bodyToSpriteMap)[body] = sprite;
     walk();
-    slashEnemyPool = new SlashEnemyPool(world, scene, 5);
+    slashEnemyPool->createPool(world, scene, bodyToSpriteMap, 5);
 
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "Golem");

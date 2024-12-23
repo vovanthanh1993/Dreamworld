@@ -9,7 +9,6 @@
 #include "main/Constants.h"
 #include "main/Effect.h"
 #include "skill/PoisonRain.h"
-#include "skill/PoisonRainPool.h"
 #include "base/BaseEnemy.h"
 
 using namespace constants;
@@ -18,8 +17,7 @@ using namespace cocos2d;
 class Wraith: public BaseEnemy
 {
 private:
-	
-	PoisonRainPool* poisonRainPool;
+	BasePool<PoisonRain>* poisonRainPool = new BasePool<PoisonRain>();
 public:
 	Wraith(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init(Vec2 position);

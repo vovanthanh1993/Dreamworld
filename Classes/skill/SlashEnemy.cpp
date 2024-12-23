@@ -1,6 +1,6 @@
 ﻿#include "skill/SlashEnemy.h"
 #include "main/Effect.h"
-SlashEnemy::SlashEnemy(b2World* world, Scene* scene) :BaseNode(world, scene) {};
+SlashEnemy::SlashEnemy(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {};
 
 bool SlashEnemy::init(Vec2 position) {
     scale = 0.3;

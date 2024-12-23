@@ -3,7 +3,6 @@
 #include "main/Common.h"
 #include "player/Player.h"
 #include "skill/Arrow.h"
-#include "skill/ArrowPool.h"
 #include "item/Gem.h"
 #include "main/Constants.h"
 #include "main/Effect.h"
@@ -15,7 +14,7 @@ using namespace cocos2d;
 class Acher: public BaseEnemy
 {
 private:
-	ArrowPool* arrowPool;
+	BasePool<Arrow>* arrowPool = new BasePool<Arrow>();
 public:
 	Acher(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init(Vec2 position);

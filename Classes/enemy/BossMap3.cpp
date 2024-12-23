@@ -54,7 +54,7 @@ bool BossMap3::init(Vec2 position) {
     idle();
 
     // Pool for bat
-    batPool = new BatPool(world, scene, bodyToSpriteMap, 10);
+    batPool->createPool(world, scene, bodyToSpriteMap, 10);
 
     // Lên lịch gọi update mỗi frame
     this->schedule([this](float dt) { this->update(dt); }, "BossMap3");
@@ -286,7 +286,7 @@ void BossMap3::updateHealthBarPosition() {
 void BossMap3::castShadow() {
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     // Thêm một lớp phủ màu đen (LayerColor) lên toàn bộ màn hình
-    auto blackLayer = cocos2d::LayerColor::create(cocos2d::Color4B(0, 0, 0, 0), origin.x + Director::getInstance()->getVisibleSize().width, origin.y +Director::getInstance()->getVisibleSize().height);
+    auto blackLayer = LayerColor::create(cocos2d::Color4B(0, 0, 0, 0), origin.x + Director::getInstance()->getVisibleSize().width, origin.y +Director::getInstance()->getVisibleSize().height);
     scene->addChild(blackLayer, 200);  // Đặt lên trên các đối tượng khác
 
     // Tạo một hiệu ứng fade để lớp phủ này từ trong suốt (alpha = 0) đến đen hoàn toàn (alpha = 255) trong 2 giây

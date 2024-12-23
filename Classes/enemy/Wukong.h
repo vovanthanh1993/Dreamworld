@@ -6,7 +6,6 @@
 #include "main/Common.h"
 #include "player/Player.h"
 #include "skill/SlashEnemy.h"
-#include "skill/SlashEnemyPool.h"
 #include "item/Gem.h"
 #include "main/Constants.h"
 #include "main/Effect.h"
@@ -18,7 +17,7 @@ using namespace cocos2d;
 class Wukong:public BaseEnemy
 {
 protected:
-	SlashEnemyPool* slashEnemyPool;
+	BasePool<SlashEnemy>* slashEnemyPool = new BasePool<SlashEnemy>();
 public:
 	Wukong(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init(Vec2 position);

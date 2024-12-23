@@ -19,9 +19,6 @@
     <ClCompile Include="D:\DreamWorld\Classes\enemy\Bat.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\enemy\BatPool.cpp">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\enemy\BossMap1.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
@@ -43,9 +40,6 @@
     <ClCompile Include="D:\DreamWorld\Classes\enemy\Warrior.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\enemy\WarriorPool.cpp">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\enemy\Wraith.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
@@ -55,12 +49,6 @@
     <ClCompile Include="D:\DreamWorld\Classes\enemy\WukongFly.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\enemy\WukongFlyPool.cpp">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\enemy\WukongPool.cpp">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\gui\Setting.cpp">
       <Filter>Source Files\Classes\gui</Filter>
     </ClCompile>
@@ -68,9 +56,6 @@
       <Filter>Source Files\Classes\inventory</Filter>
     </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\item\BackStick.cpp">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\item\BackStickPool.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\item\Bridge.cpp">
@@ -85,13 +70,7 @@
     <ClCompile Include="D:\DreamWorld\Classes\item\Gem.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\item\GemPool.cpp">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\item\Heart.cpp">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\item\HeartPool.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\item\MapItem.cpp">
@@ -154,19 +133,10 @@
     <ClCompile Include="D:\DreamWorld\Classes\player\skill\Eagle.cpp">
       <Filter>Source Files\Classes\player\skill</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\player\skill\EaglePool.cpp">
-      <Filter>Source Files\Classes\player\skill</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\player\skill\Slash.cpp">
       <Filter>Source Files\Classes\player\skill</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\player\skill\SlashPool.cpp">
-      <Filter>Source Files\Classes\player\skill</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\player\skill\Stick.cpp">
-      <Filter>Source Files\Classes\player\skill</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\player\skill\StickPool.cpp">
       <Filter>Source Files\Classes\player\skill</Filter>
     </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\scene\GUIScene.cpp">
@@ -214,13 +184,7 @@
     <ClCompile Include="D:\DreamWorld\Classes\skill\Arrow.cpp">
       <Filter>Source Files\Classes\skill</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\skill\ArrowPool.cpp">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\skill\BoneRain.cpp">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\skill\BoneRainPool.cpp">
       <Filter>Source Files\Classes\skill</Filter>
     </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\skill\Fire.cpp">
@@ -232,22 +196,10 @@
     <ClCompile Include="D:\DreamWorld\Classes\skill\PoisonRain.cpp">
       <Filter>Source Files\Classes\skill</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\skill\PoisonRainPool.cpp">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\skill\Skull.cpp">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\skill\SlashEnemy.cpp">
       <Filter>Source Files\Classes\skill</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\skill\SlashEnemyPool.cpp">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\skill\StoneBall.cpp">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\skill\StoneBallPool.cpp">
       <Filter>Source Files\Classes\skill</Filter>
     </ClCompile>
     <ClCompile Include="D:\DreamWorld\proj.win32\main.cpp">
@@ -264,6 +216,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\scene\EndScene.cpp">
       <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\base\BasePool.cpp">
+      <Filter>Source Files\Classes\base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -283,9 +238,6 @@
       <Filter>Source Files\Classes\enemy</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\enemy\Bat.h">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\enemy\BatPool.h">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\enemy\BossMap1.h">
@@ -309,9 +261,6 @@
     <ClInclude Include="D:\DreamWorld\Classes\enemy\Warrior.h">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\enemy\WarriorPool.h">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\enemy\Wraith.h">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClInclude>
@@ -321,12 +270,6 @@
     <ClInclude Include="D:\DreamWorld\Classes\enemy\WukongFly.h">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\enemy\WukongFlyPool.h">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\enemy\WukongPool.h">
-      <Filter>Source Files\Classes\enemy</Filter>
-    </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\gui\Setting.h">
       <Filter>Source Files\Classes\gui</Filter>
     </ClInclude>
@@ -334,9 +277,6 @@
       <Filter>Source Files\Classes\inventory</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\item\BackStick.h">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\item\BackStickPool.h">
       <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\item\Bridge.h">
@@ -351,13 +291,7 @@
     <ClInclude Include="D:\DreamWorld\Classes\item\Gem.h">
       <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\item\GemPool.h">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\item\Heart.h">
-      <Filter>Source Files\Classes\item</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\item\HeartPool.h">
       <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\item\MapItem.h">
@@ -420,19 +354,10 @@
     <ClInclude Include="D:\DreamWorld\Classes\player\skill\Eagle.h">
       <Filter>Source Files\Classes\player\skill</Filter>
     </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\player\skill\EaglePool.h">
-      <Filter>Source Files\Classes\player\skill</Filter>
-    </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\player\skill\Slash.h">
       <Filter>Source Files\Classes\player\skill</Filter>
     </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\player\skill\SlashPool.h">
-      <Filter>Source Files\Classes\player\skill</Filter>
-    </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\player\skill\Stick.h">
-      <Filter>Source Files\Classes\player\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\player\skill\StickPool.h">
       <Filter>Source Files\Classes\player\skill</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\scene\GUIScene.h">
@@ -480,13 +405,7 @@
     <ClInclude Include="D:\DreamWorld\Classes\skill\Arrow.h">
       <Filter>Source Files\Classes\skill</Filter>
     </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\skill\ArrowPool.h">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\skill\BoneRain.h">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\skill\BoneRainPool.h">
       <Filter>Source Files\Classes\skill</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\skill\Fire.h">
@@ -498,22 +417,10 @@
     <ClInclude Include="D:\DreamWorld\Classes\skill\PoisonRain.h">
       <Filter>Source Files\Classes\skill</Filter>
     </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\skill\PoisonRainPool.h">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\skill\Skull.h">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\skill\SlashEnemy.h">
       <Filter>Source Files\Classes\skill</Filter>
     </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\skill\SlashEnemyPool.h">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\skill\StoneBall.h">
-      <Filter>Source Files\Classes\skill</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\skill\StoneBallPool.h">
       <Filter>Source Files\Classes\skill</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\proj.win32\main.h">
@@ -2702,6 +2609,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\scene\EndScene.h">
       <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\base\BasePool.h">
+      <Filter>Source Files\Classes\base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

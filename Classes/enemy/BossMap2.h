@@ -9,13 +9,11 @@
 #include "skill/PoisonRain.h"
 #include "item/Gem.h"
 #include "main/Constants.h"
-#include "skill/skull.h"
 #include "skill/BoneRain.h"
-#include "skill/BoneRainPool.h"
 #include "main/Effect.h"
 #include "base/BaseEnemy.h"
 #include "enemy/Warrior.h"
-#include "enemy/WarriorPool.h"
+#include "base/BasePool.h"
 #include <vector>
 
 using namespace constants;
@@ -27,12 +25,12 @@ private:
 	
 	int count = 1;
 	int maxHealth = 200;
-	cocos2d::Sprite* healthBar; // Sprite cho thanh máu
-	cocos2d::Sprite* healthBarBg; // Sprite cho nền thanh máu
+	Sprite* healthBar; // Sprite cho thanh máu
+	Sprite* healthBarBg; // Sprite cho nền thanh máu
 	bool isHit = false;
-	std::vector<Warrior*> warVector;
-	BoneRainPool* boneRainPool;
-	WarriorPool* warriorPool;
+	vector<Warrior*> warVector;
+	BasePool<BoneRain>* boneRainPool = new BasePool<BoneRain>();
+	BasePool<Warrior>* warriorPool = new BasePool<Warrior>();
 	int countPhase2 = 1;
 	vector<string> initTextVector = {
 		"No one can escape from me! No one can escape death!",

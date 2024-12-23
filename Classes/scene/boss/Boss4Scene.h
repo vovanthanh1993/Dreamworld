@@ -32,13 +32,7 @@
 #include "npc/Miko.h"
 #include "layer/InventoryLayer.h"
 #include "enemy/Wukong.h"
-#include "enemy/WukongPool.h"
-#include "enemy/WukongFlyPool.h"
 #include "enemy/WukongFly.h"
-#include "item/Heart.h"
-#include "item/HeartPool.h"
-#include "item/BackStick.h"
-#include "item/BackStickPool.h"
 #include "enemy/BossMap4.h"
 #include "scene/EndScene.h"
 
@@ -50,10 +44,6 @@ public:
 private:
         void update(float dt) override;
         void spawnObject();
-        HeartPool* heartPool;
-        BackStickPool* backStickPool;
-        void spawnHeart();
-        void spawnBackStick();
         BossMap4* bossmap4;
 };
 

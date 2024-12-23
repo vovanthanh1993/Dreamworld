@@ -6,9 +6,8 @@
 #include "main/Effect.h"
 #include "enemy/Wukong.h"
 #include "enemy/WukongFly.h"
-#include "enemy/WukongPool.h"
-#include "enemy/WukongFlyPool.h"
 #include "item/Port.h"
+#include "base/BasePool.h"
 
 using namespace constants;
 using namespace common;
@@ -22,8 +21,8 @@ public:
 	void hurt();
 	bool isHit = false;
 	void die();
-	WukongPool* wukongPool;
-	WukongFlyPool* wukongFlyPool;
+	BasePool<Wukong>* wukongPool = new BasePool<Wukong>();
+	BasePool<WukongFly>* wukongFlyPool = new BasePool<WukongFly>();
 	TMXTiledMap* map;
 	void spawnWukong();
 	void spawnWukongFly();

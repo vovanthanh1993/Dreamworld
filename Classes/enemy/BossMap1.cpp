@@ -52,7 +52,7 @@ bool BossMap1::init(Vec2 position) {
     sprite->setScaleX(direction* scale * Common::scaleSizeXY());
     (*bodyToSpriteMap)[body] = sprite;
     
-    stoneBallPool = new StoneBallPool(world, scene, bodyToSpriteMap, 5);
+    stoneBallPool->createPool(world, scene, bodyToSpriteMap, 5);
 
     createHealthBar();
     walk();

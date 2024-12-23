@@ -9,12 +9,11 @@
 #include "skill/PoisonRain.h"
 #include "item/Gem.h"
 #include "main/Constants.h"
-#include "skill/skull.h"
 #include "skill/BoneRain.h"
 #include "main/Effect.h"
 #include "base/BaseNode.h"
 #include "enemy/Bat.h"
-#include "enemy/BatPool.h"
+#include "base/BasePool.h"
 #include <vector>
 
 using namespace constants;
@@ -28,7 +27,9 @@ private:
 	Sprite* healthBarBg; // Sprite cho nền thanh máu
 	bool isHit = false;
 	void spawnBat();
-	BatPool* batPool;
+
+	BasePool<Bat>* batPool = new BasePool<Bat>();
+
 	int lastPoint = 3;
 	vector<string> textVector = {
 		"You cannot escape from the darkness...",
