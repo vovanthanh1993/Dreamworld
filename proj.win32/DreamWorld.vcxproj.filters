@@ -49,9 +49,6 @@
     <ClCompile Include="D:\DreamWorld\Classes\enemy\WukongFly.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\gui\Setting.cpp">
-      <Filter>Source Files\Classes\gui</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\inventory\Charm.cpp">
       <Filter>Source Files\Classes\inventory</Filter>
     </ClCompile>
@@ -223,6 +220,12 @@
     <ClCompile Include="..\Classes\main\MusicManager.cpp">
       <Filter>Source Files\Classes\main</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\main\SettingManager.cpp">
+      <Filter>Source Files\Classes\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\player\PlayerUI.cpp">
+      <Filter>Source Files\Classes\player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseEnemy.h">
@@ -272,9 +275,6 @@
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\enemy\WukongFly.h">
       <Filter>Source Files\Classes\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\gui\Setting.h">
-      <Filter>Source Files\Classes\gui</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\inventory\Charm.h">
       <Filter>Source Files\Classes\inventory</Filter>
@@ -2619,6 +2619,12 @@
     <ClInclude Include="..\Classes\main\MusicManager.h">
       <Filter>Source Files\Classes\main</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\main\SettingManager.h">
+      <Filter>Source Files\Classes\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\player\PlayerUI.h">
+      <Filter>Source Files\Classes\player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\DreamWorld\CMakeLists.txt" />
@@ -2907,9 +2913,6 @@
     </Filter>
     <Filter Include="Source Files\Classes\enemy">
       <UniqueIdentifier>{A3D0F379-7E87-3CDB-84EA-D88C3DA47AD7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\gui">
-      <UniqueIdentifier>{3760B874-A3E2-396D-8A64-807FC074B68E}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Classes\inventory">
       <UniqueIdentifier>{0067F708-F22D-3C04-8F3B-51C626579573}</UniqueIdentifier>

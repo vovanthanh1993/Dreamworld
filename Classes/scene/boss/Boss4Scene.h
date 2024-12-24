@@ -40,7 +40,6 @@ class Boss4Scene : public BaseScene
 {
 public:
     static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
-    bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
 private:
         void update(float dt) override;
         void spawnObject();

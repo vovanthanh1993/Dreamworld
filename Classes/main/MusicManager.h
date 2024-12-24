@@ -4,11 +4,14 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "gui/Setting.h"
+#include "main/SettingManager.h"
+#include <iostream>
+using namespace cocos2d;
+using namespace std;
 class MusicManager {
 private:
     static MusicManager* instance;            // Singleton instance
-    unordered_map<std::string, int> soundEffectIds; // Lưu các effect đang phát
+    unordered_map<string, int> soundEffectIds; // Lưu các effect đang phát
 
     // Constructor private để đảm bảo singleton
     MusicManager();
@@ -20,12 +23,12 @@ public:
     static MusicManager* getInstance();
 
     // Quản lý nhạc nền
-    void playBackgroundMusic(const std::string& filePath, bool loop = true);
+    void playBackgroundMusic(const string& filePath, bool loop = true);
     void stopBackgroundMusic();
     void setVolume(float volume);
 
     // Quản lý effect âm thanh
-    int playEffect(const std::string& filePath, bool loop = false);
+    int playEffect(const string& filePath, bool loop = false);
     void stopEffect(int soundId);
     void stopAllEffects();
     void setEffectVolume(int soundId, float volume);
@@ -48,4 +51,6 @@ public:
     static void soundBoss3Hurt();
     static void enemyHurt();
     static void playerHurt();
+    static void eagle();
+    static void getStick();
 };

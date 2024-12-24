@@ -1,4 +1,6 @@
 ﻿#pragma once
+#ifndef __Player_H__
+#define __Player_H__
 #include "cocos2d.h"
 #include "main/Common.h"
 #include <iostream>
@@ -11,13 +13,14 @@
 #include "base/BasePool.h"
 #include "skill/Stick.h"
 #include "skill/Eagle.h"
-#include "skill/Slash.h"
+
 
 
 using namespace constants;
 using namespace common;
 using namespace cocos2d;
 using namespace std;
+
 class Player : public BaseNode
 {
 private:
@@ -28,11 +31,6 @@ private:
 	int stickNum = 5;
 	int healthPotionNum = 1;
 	int manaPotionNum = 1;
-	Sprite* healthBar; // Sprite cho thanh máu
-	Sprite* healthBarBg; // Sprite cho nền thanh máu
-	Sprite* manaBar; // Sprite cho thanh máu
-	Sprite* manaBarBg; // Sprite cho nền thanh máu
-	Label* healthLabel;
 	map<EventKeyboard::KeyCode, bool> keys;
 	float attackCooldown = 0.5f; // Khoảng thời gian chờ giữa các lần tấn công
 	float lastAttackTime = 0; // Thời điểm của lần tấn công cuối cùng
@@ -43,19 +41,15 @@ private:
 	BasePool<Slash>* slashPool = new BasePool<Slash>();
 	BasePool<Eagle>* eaglePool = new BasePool<Eagle>();
 	BasePool<Stick>* stickPool = new BasePool<Stick>();
-
 	int direction = 1;
-	int bossmap4 = 0;
 
 public:
+	Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
+	int gem = 0;
+	int maxStickNum = 10;
 	Sprite* charmSprite = nullptr;
 	Vector<Charm*> charmVector;
 	bool isAlive = true;
-	Node* uiNode = Node::create();
-	Label* stickLabel;
-	Label* gemLabel;
-	Label* healthPotionLabel;
-	Label* manaPotionLabel;
 	void walk();
 	void die();
 	void idle();
@@ -68,16 +62,11 @@ public:
 	int getHealth();
 	void setStickNum(int h);
 	int getStickNum();
-	std::vector<Sprite*> healthVector;
-	void initHealth();
 	void getDamage(int damage);
 	void healing(int num);
 	void updateStickNum(int stick);
 	void initGUI();
-	int maxStickNum = 10;
-	int gem = 0;
 	void updateGem(int i);
-	Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool isEnable = true;
 	int nextLevel = 0;
 	void hurt();
@@ -88,12 +77,9 @@ public:
 	void addManaPotion(int i);
 	void useManaPotion();
 	void updateHealth(int damage);
-	void updateHealthBar(float health);
-	void createHealthBar();
 	void healing();
-	void createManaBar();
 	void useMana(int mana);
-	void updateManaBar(float mana);
+	
 	void update(float dt);
 	void actionKey(EventKeyboard::KeyCode keyCode);
 
@@ -128,9 +114,17 @@ public:
 	float slashDamage = 10;
 	float stickDamage = 10;
 	float eagleDamage = 10;
-
-	int getSoul();
-	void addSoul();
 	bool isComplete = false;
+
+	// Getter và Setter cho healthPotionNum
+	int getHealthPotionNum() const;
+	void setHealthPotionNum(int num);
+
+
+	// Getter và Setter cho manaPotionNum
+	int getManaPotionNum() const;
+	void setManaPotionNum(int num);
+	void getPlayeUI();
 };
 
+#endif // __Player_H__

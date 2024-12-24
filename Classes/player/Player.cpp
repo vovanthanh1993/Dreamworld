@@ -6,8 +6,9 @@
 #include <iostream>
 #include <fstream>
 #include "layer/PlayerStatsLayer.h"
+#include "player/PlayerUI.h"
 
-
+PlayerUI* playerUI;
 Player::Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, position, bodyToSpriteMap) {
 };
 bool Player::init(bool isNew) {
@@ -46,9 +47,11 @@ bool Player::init(bool isNew) {
     // Gán fixture cho body
     body->CreateFixture(&fixtureDef);
     (*bodyToSpriteMap)[body] = sprite;
+
     // load from file
     loadPlayerDataInit(isNew);
-    scene->addChild(uiNode, 10);
+    
+    //scene->addChild(uiNode, 10);
     idle();
 
     initKeyEvent();
@@ -163,7 +166,7 @@ void Player::throwEagle() {
     if ((currentTime - lastAttackTimeEagle >= attackCooldownEagle)) {
         lastAttackTimeEagle = currentTime;
         useMana(manaUse);
-        Effect::eagle();
+        MusicManager::getInstance()->eagle();
         sprite->stopAllActions();
         auto animate = Animate::create(Common::createAnimation("Wukong-Throw_", 20, 0.005));
 
@@ -197,10 +200,6 @@ void Player::setStickNum(int h) {
 int Player::getStickNum() {
     return stickNum;
 }
-void Player::initHealth() {
-    createHealthBar();
-    createManaBar();
-}
 
 void Player::getDamage(int damage) {
     if (!isAlive) return;
@@ -211,7 +210,7 @@ void Player::healing(int num) {
     MusicManager::getInstance()->soundHealth();
     health += num;
     health = health > maxHealth ? maxHealth : health;
-    updateHealthBar(health);
+    playerUI->updateHealthBar(health);
 }
 
 
@@ -219,88 +218,21 @@ void Player::updateStickNum(int stick) {
     stickNum += stick;
     stickNum = stickNum < 0 ? 0 : stickNum;
     stickNum = stickNum >= maxStickNum ? maxStickNum : stickNum;
-    stickLabel->setString("x" + to_string(stickNum));
+    playerUI->stickLabel->setString("x" + to_string(stickNum));
     if (stick > 0) {
-        Effect::getStick();
+        MusicManager::getInstance()->getStick();
     }
 }
 
-void Player::initGUI() {
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    Size screenSize = Director::getInstance()->getVisibleSize();
-    int y = screenSize.height;
-    Sprite* head = Sprite::create("ui/head2.png");
-    head->setPosition(origin.x, y);
-    head->setAnchorPoint(Vec2(0, 1));
-    head->setScale(0.8* Common::scaleSizeXY());
-    uiNode->addChild(head);
-
-    int xs = origin.x + 160* Common::scaleSizeXY();
-    //int xs = origin.x + head->getContentSize().width* head->getScale();
-    Sprite* backStick = Sprite::create("ui/BackStick.png");
-    backStick->setPosition(xs, y - 90 * Common::scaleSizeXY());
-    backStick->setAnchorPoint(Vec2(0, 1));
-    uiNode->addChild(backStick);
-    backStick->setScale(0.2* Common::scaleSizeXY());
-
-    xs += 50 * Common::scaleSizeXY();
-    //stickNum = maxStickNum;
-    stickLabel = Label::createWithTTF("x" + to_string(stickNum), "fonts/Marker Felt.ttf", 30);
-    stickLabel->setPosition(xs, y - 130 * Common::scaleSizeXY());
-    stickLabel->setScale(Common::scaleSizeXY());
-    uiNode->addChild(stickLabel);
-    
-    xs += 50* Common::scaleSizeXY();
-    Sprite* healthPotionSprite = Sprite::create("Item/potions/health.png");
-    healthPotionSprite->setAnchorPoint(Vec2(0, 0.5));
-    healthPotionSprite->setPosition(xs, y - 115 * Common::scaleSizeXY());
-    healthPotionSprite->setScale(0.11* Common::scaleSizeXY());
-    uiNode->addChild(healthPotionSprite);
-    xs += 40 * Common::scaleSizeXY();
-    healthPotionLabel = Label::createWithTTF("x" + to_string(healthPotionNum), "fonts/Marker Felt.ttf", 30);
-    healthPotionLabel->setAnchorPoint(Vec2(0,0.5));
-    healthPotionLabel->setPosition(xs, stickLabel->getPositionY());
-    healthPotionLabel->setScale(Common::scaleSizeXY());
-    uiNode->addChild(healthPotionLabel);
-
-    // mana
-    xs += 60 * Common::scaleSizeXY();
-    Sprite* manaPotionSprite = Sprite::create("Item/potions/mana.png");
-    manaPotionSprite->setAnchorPoint(Vec2(0, 0.5));
-    manaPotionSprite->setPosition(xs, y - 115 * Common::scaleSizeXY());
-    manaPotionSprite->setScale(0.11 * Common::scaleSizeXY());
-    uiNode->addChild(manaPotionSprite);
-    xs += 40 * Common::scaleSizeXY();
-    manaPotionLabel = Label::createWithTTF("x" + to_string(manaPotionNum), "fonts/Marker Felt.ttf", 30);
-    manaPotionLabel->setPosition(xs, stickLabel->getPositionY());
-    manaPotionLabel->setAnchorPoint(Vec2(0, 0.5));
-    manaPotionLabel->setScale(Common::scaleSizeXY());
-    uiNode->addChild(manaPotionLabel);
-
-    xs += 60 * Common::scaleSizeXY();
-    Sprite* gemSprite = Sprite::create("item/gem/gem.png");
-    gemSprite->setPosition(xs, y - 100 * Common::scaleSizeXY());
-    gemSprite->setAnchorPoint(Vec2(0, 1));
-    uiNode->addChild(gemSprite);
-    gemSprite->setScale(0.1* Common::scaleSizeXY());
-    xs += 40 * Common::scaleSizeXY();
-    gemLabel = Label::createWithTTF("x" + to_string(gem), "fonts/Marker Felt.ttf", 30);
-    gemLabel->setPosition(xs, stickLabel->getPositionY());
-    gemLabel->setAnchorPoint(Vec2(0, 0.5));
-    gemLabel->setScale(Common::scaleSizeXY());
-    uiNode->addChild(gemLabel);
-}
-
-
 void Player::updateGem(int i) {
     gem+=i;
-    gemLabel->setString("x" + to_string(gem));
+    playerUI->gemLabel->setString("x" + to_string(gem));
     MusicManager::getInstance()->soundTing();
 }
 
 void Player::addHealthPotion(int i) {
     healthPotionNum += i;
-    healthPotionLabel->setString("x" + to_string(healthPotionNum));
+    playerUI->healthPotionLabel->setString("x" + to_string(healthPotionNum));
 }
 void Player::useHealthPotion() {
     if (healthPotionNum > 0) {
@@ -315,7 +247,7 @@ void Player::useHealthPotion() {
 
 void Player::addManaPotion(int i) {
     manaPotionNum += i;
-    manaPotionLabel->setString("x" + to_string(manaPotionNum));
+    playerUI->manaPotionLabel->setString("x" + to_string(manaPotionNum));
 }
 void Player::useManaPotion() {
     if (manaPotionNum > 0) {
@@ -346,7 +278,7 @@ void Player::savePlayerDataInit() {
         outFile << slashDamage << "\n";
         outFile << stickDamage << "\n";
         outFile << eagleDamage << "\n";
-        outFile << bossmap4 << "\n";
+        //outFile << bossmap4 << "\n";
         outFile.close();
         std::cout << "Data saved successfully." << std::endl;
     }
@@ -372,10 +304,9 @@ void Player::loadPlayerDataInit(bool isNew) {
         inFile >> slashDamage;
         inFile >> stickDamage;
         inFile >> eagleDamage;
-        inFile >> bossmap4;
+        //inFile >> bossmap4;
         inFile.close();
-        healthVector.clear();
-        uiNode->removeAllChildrenWithCleanup(true);
+        //uiNode->removeAllChildrenWithCleanup(true);
         
         if (isNew) {
             health = maxHealth;
@@ -384,10 +315,11 @@ void Player::loadPlayerDataInit(bool isNew) {
             slashDamage = 10;
             stickDamage = 10;
             eagleDamage = 10;
-            bossmap4 = 0;
+            //bossmap4 = 0;
         }
-        initGUI();
-        initHealth();
+       if(playerUI != nullptr)
+            scene->removeChild(playerUI);
+        playerUI = PlayerUI::createLayer(this, scene);
 
         if (!isNew)
             readCharmFromFile();
@@ -424,89 +356,27 @@ void Player::updateHealth(int damage) {
     if (!isAlive) return;
 
     health -= damage;
-    updateHealthBar(health);
+    playerUI->updateHealthBar(health);
     if(damage >0) hurt();
     
     if (health <= 0) {
-        healthBar->removeFromParentAndCleanup(true);
+        playerUI->healthBar->removeFromParentAndCleanup(true);
         die();
         return;
     }
 }
 
-void Player::updateHealthBar(float health) {
-    // Tính toán tỷ lệ máu hiện tại
-    float healthRatio = health / maxHealth;
-    // Cập nhật kích thước của thanh máu
-    healthBar->setScaleX(health/ 15* Common::scaleSizeX()); // Điều chỉnh chiều rộng thanh máu
-    healthBarBg->setScaleX(maxHealth / 15* Common::scaleSizeX());
-}
-void Player::createHealthBar() {
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
-    int y = 1075 * Common::scaleSizeY();
-    int x = origin.x+140 * Common::scaleSizeXY();
-
-    // Tạo nền thanh máu
-    healthBarBg = Sprite::create("ui/health_bar_bg3.png");
-    healthBarBg->setPosition(Vec2(x,y)); // Đặt vị trí của nền thanh máu
-    uiNode->addChild(healthBarBg);
-    healthBarBg->setAnchorPoint(Vec2(0, 1));
-    healthBarBg->setScale(Constants::HEALTH_BAR_SCALE* Common::scaleSizeXY());
-    healthBarBg->setScaleX(maxHealth / 15* Common::scaleSizeX());
-
-    // Tạo thanh máu
-    healthBar = Sprite::create("ui/health_bar3.png");
-    healthBar->setPosition(healthBarBg->getPosition()); // Đặt cùng vị trí với nền
-    uiNode->addChild(healthBar);
-    healthBar->setAnchorPoint(Vec2(0, 1));
-    healthBar->setScale(Constants::HEALTH_BAR_SCALE* Common::scaleSizeXY());
-    healthBar->setScaleX(maxHealth/15* Common::scaleSizeX());
-    updateHealthBar(health);
-}
-
-// Mana
-void Player::createManaBar() {
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    int y = 1040 * Common::scaleSizeY();
-    int x = origin.x+140 * Common::scaleSizeXY();
-    // Tạo nền thanh máu
-    manaBarBg = Sprite::create("ui/health_bar_bg3.png");
-    manaBarBg->setPosition(Vec2(x, y)); // Đặt vị trí của nền thanh máu
-    uiNode->addChild(manaBarBg);
-    manaBarBg->setAnchorPoint(Vec2(0, 1));
-    manaBarBg->setScale(Constants::HEALTH_BAR_SCALE* Common::scaleSizeXY());
-    manaBarBg->setScaleX(maxMana / 15* Common::scaleSizeX());
-
-    // Tạo thanh máu
-    manaBar = Sprite::create("ui/mana_bar.png");
-    manaBar->setPosition(manaBarBg->getPosition()); // Đặt cùng vị trí với nền
-    uiNode->addChild(manaBar);
-    manaBar->setAnchorPoint(Vec2(0, 1));
-    manaBar->setScale(Constants::HEALTH_BAR_SCALE * Common::scaleSizeXY());
-    manaBar->setScaleX(maxMana/15 * Common::scaleSizeX());
-    updateManaBar(mana);
-}
-
 void Player::addMana(int num) {
     mana+=num;
     mana = mana > maxMana ? maxMana : mana;
-    updateManaBar(mana);
+    playerUI->updateManaBar(mana);
 }
 
 
 void Player::useMana(int num) {
     mana-= num;
     mana = mana <= 0 ? 0 : mana;
-    updateManaBar(mana);
-}
-
-void Player::updateManaBar(float mana) {
-    // Tính toán tỷ lệ máu hiện tại
-    float manaRatio = mana / maxMana;
-    // Cập nhật kích thước của thanh máu
-    manaBar->setScaleX(mana / 15 * Common::scaleSizeX()); // Điều chỉnh chiều rộng thanh máu
-    manaBarBg->setScaleX(maxMana / 15 * Common::scaleSizeX()); // Điều chỉnh chiều rộng thanh máu
+    playerUI->updateManaBar(mana);
 }
 
 // Getter cho maxMana
@@ -572,9 +442,7 @@ void Player::update(float dt) {
         if (!sprite->getActionByTag(4) && !sprite->getActionByTag(2)) { // Kiểm tra nếu hoạt ảnh chưa chạy
             idle();
         }
-    } 
-
-    
+    }
 }
 
 void Player::actionKey(EventKeyboard::KeyCode keyCode) {
@@ -715,8 +583,8 @@ void Player::changeCharm(Charm* charm) {
     }
     currentCharm = charm;
 
-    setSpriteCharm(charm);
-    slashDamage += charm->slashDamageBonus;
+    playerUI->setSpriteCharm(charm, sprite);
+    slashDamage += currentCharm->slashDamageBonus;
     stickDamage += currentCharm->stickDamageBonus;
     eagleDamage += currentCharm->eagleDamageBonus;
 }
@@ -769,7 +637,7 @@ void Player::readCharmFromFile() {
             if (temp == "1") {
                 charm->setIsActive(true);
                 currentCharm = charm;
-                setSpriteCharm(charm);
+                playerUI->setSpriteCharm(charm, charmSprite);
             }
             charmVector.pushBack(charm);
             // Thêm đối tượng vào vector
@@ -778,36 +646,24 @@ void Player::readCharmFromFile() {
     }
 }
 
-void Player::setSpriteCharm(Charm* charm) {
-    if (charmSprite != nullptr) {
-        charmSprite->removeFromParentAndCleanup(true);
+// Getter và Setter cho healthPotionNum
+int Player::getHealthPotionNum() const {
+    return healthPotionNum;
+}
+
+void Player::setHealthPotionNum(int num) {
+    if (num >= 0) { // Kiểm tra để tránh số lượng âm
+        healthPotionNum = num;
     }
-
-    charmSprite = Sprite::create(charm->spritePath);
-    charmSprite->setAnchorPoint(Vec2(0, 1));
-    charmSprite->setScale(0.3 * Common::scaleSizeXY());
-
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    Size screenSize = Director::getInstance()->getVisibleSize();
-    int y = screenSize.height;
-
-    //Charm
-    charmSprite->setPosition(origin.x+ 50 * Common::scaleSizeXY(), y - 150 * Common::scaleSizeXY());
-    uiNode->addChild(charmSprite);
 }
 
-int Player::getSoul() {
-    return bossmap4;
+// Getter và Setter cho manaPotionNum
+int Player::getManaPotionNum() const {
+    return manaPotionNum;
 }
-void Player::addSoul() {
-    bossmap4++;
-    /*if(soul == 1) Common::showText(scene, "This is Dream World, a place where the souls of the deceased are kept...", 1000);
-    else if(soul == 2) Common::showText(scene, "Hehehe", 1000);
-    else if (soul == 3) Common::showText(scene, "Hehehe", 1000);
-    else if (soul == 4) Common::showText(scene, "Hehehe", 1000);
-    else if (soul == 5) Common::showText(scene, "Hehehe", 1000);
-    else if (soul == 6) Common::showText(scene, "Hehehe", 1000);
-    else if (soul == 7) Common::showText(scene, "Hehehe", 1000);
-    else if (soul == 8) Common::showText(scene, "Hehehe", 1000);
-    else if (soul == 9) Common::showText(scene, "Hehehe", 1000);*/
+
+void Player::setManaPotionNum(int num) {
+    if (num >= 0) { // Kiểm tra để tránh số lượng âm
+        manaPotionNum = num;
+    }
 }

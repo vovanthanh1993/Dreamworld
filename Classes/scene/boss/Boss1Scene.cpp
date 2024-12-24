@@ -34,10 +34,10 @@ void Boss1Scene::update(float dt) {
 
     // Boss map 1
     if (bossmap1->isAlive) {
-        AudioEngine::setVolume(settingInit->getBgMusicId(), settingInit->getVolume());
+        MusicManager::getInstance()->setVolume(SettingManager::getInstance()->getVolume());
     }
     else {
-        AudioEngine::setVolume(settingInit->getBgMusicId(), settingInit->getVolume() * 0.2);
+        MusicManager::getInstance()->setVolume(SettingManager::getInstance()->getVolume()*0.2);
     }
     if (contactListener->isNext && !bossmap1->isAlive) {
         player->savePlayerDataInit();
@@ -46,7 +46,7 @@ void Boss1Scene::update(float dt) {
         isEndMap = true;
     }
     contactListener->isNext = false;
-    settingInit->loadSettingData();
+    SettingManager::getInstance()->loadSettingData();
     
 }
 

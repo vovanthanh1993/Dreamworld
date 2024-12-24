@@ -34,10 +34,9 @@ bool BaseScene::init(string bg, string bgMusic, string mapName, bool isMoveCamer
     this->isMoveCamera = isMoveCamera;
 
     // Phát nhạc nền
-    settingInit->loadSettingData();
-    //settingInit->setBgMusicId(Common::playBackgroundMusic(settingInit->getVolume(), bgMusic));
+    SettingManager::getInstance()->loadSettingData();
     MusicManager::getInstance()->playBackgroundMusic(bgMusic, true);
-    MusicManager::getInstance()->setVolume(settingInit->getVolume());
+    MusicManager::getInstance()->setVolume(SettingManager::getInstance()->getVolume());
 
     // Tạo một Camera
     auto camera = Camera::create();
@@ -85,25 +84,19 @@ void BaseScene::update(float dt) {
 
     if (isMoveCamera) {
         // Lấy Camera
+        Vec2 origin = Director::getInstance()->getVisibleOrigin();
         auto camera = this->getDefaultCamera();
         int x = camera->getPositionX();
         int y = camera->getPositionY();
-        x = player->uiNode->getPositionX();
-        y = player->uiNode->getPositionY();
         Size screenSize = Director::getInstance()->getVisibleSize();
-
         float screenWidth = screenSize.width;
         float screenHeight = screenSize.height;
-
-        Vec2 origin = Director::getInstance()->getVisibleOrigin();
         if (camera && player->getSprite())
         {
             // Cập nhật vị trí của Camera để theo dõi nhân vật
             if (player->getSprite()->getPositionX() > origin.x + screenWidth / 2 && player->getSprite()->getPositionX() < Constants::MAX_SIZE_MAP * Common::scaleSizeXY() - screenWidth / 2 + origin.x) {
                 Vec2 cameraPosition = player->getSprite()->getPosition();
                 camera->setPosition3D(Vec3(cameraPosition.x, camera->getPositionY(), camera->getPosition3D().z));
-
-                player->uiNode->setPositionX(cameraPosition.x - screenWidth / 2 - origin.x);
                 boundaryBodyStart->SetTransform(b2Vec2((cameraPosition.x - origin.x - screenWidth / 2 - 140 * Common::scaleSizeXY()) / Constants::PIXELS_PER_METER, camera->getPositionY()), 0.0f);
                 boundaryBodyEnd->SetTransform(b2Vec2((cameraPosition.x + origin.x + screenWidth / 2 + 140 * Common::scaleSizeXY()) / Constants::PIXELS_PER_METER, camera->getPositionY()), 0.0f);
             }
@@ -112,8 +105,8 @@ void BaseScene::update(float dt) {
     
     // xoa cac vat the duoc danh dau
     contactListener->removeObject();
-    settingInit->loadSettingData();
-    AudioEngine::setVolume(MusicManager::getInstance()->currentMusicId, settingInit->getVolume());
+    SettingManager::getInstance()->loadSettingData();
+    MusicManager::getInstance()->setVolume(SettingManager::getInstance()->getVolume());
 }
 
 void BaseScene::spawnObject() {

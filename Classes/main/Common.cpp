@@ -79,8 +79,7 @@ namespace common {
         else {
             Director::getInstance()->resume(); // Tiếp tục game
             // Nếu có menu pause, xóa nó
-            Setting setting;
-            setting.loadSettingData();
+            SettingManager::getInstance()->loadSettingData();
             //playBackgroundMusic(setting.getVolume(), "sound/background2.mp3");
             scene->removeChildByName("Menu"); // Xóa menu pause
             if (scene->getChildByName("popup") == nullptr) isEnable = true;

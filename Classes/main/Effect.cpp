@@ -141,16 +141,4 @@ namespace common {
         auto sequence = Sequence::create(animate, callFunc, nullptr);
         sprite->runAction(sequence);
     }
-
-    void Effect::eagle() {
-        Setting settingInit;
-        settingInit.loadSettingData();
-        AudioEngine::setVolume(AudioEngine::play2d("player/sound/eagle.mp3"), 0.2 * settingInit.getGameplayVol());
-    }
-
-    void Effect::getStick() {
-        Setting settingInit;
-        settingInit.loadSettingData();
-        AudioEngine::setVolume(AudioEngine::play2d("sound/get_stick.mp3"), 2 * settingInit.getGameplayVol());
-    }
 }

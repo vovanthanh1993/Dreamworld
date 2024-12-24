@@ -45,8 +45,7 @@ bool SettingScene::init()
     if (!Scene::init()) {
         return false;
     }
-    setting->loadSettingData();
-
+    SettingManager::getInstance()->loadSettingData();
     auto visibleSize = Director::getInstance()->getVisibleSize();
 
     // Background
@@ -76,7 +75,7 @@ bool SettingScene::init()
     this->addChild(musicLabel);
     // Tạo slider cho âm lượng
     auto volumeSlider = ui::Slider::create();
-    volumeSlider->setPercent(setting->getVolume()*100); // Khởi tạo
+    volumeSlider->setPercent(SettingManager::getInstance()->getVolume()*100); // Khởi tạo
     volumeSlider->loadBarTexture("UI/scale/bar_bg.png");
     volumeSlider->loadSlidBallTextures("UI/scale/button.png", "UI/scale/button.png", "");
     volumeSlider->loadProgressBarTexture("UI/scale/bar.png");
@@ -97,7 +96,7 @@ bool SettingScene::init()
 
     // Tạo slider cho âm lượng
     auto volumeSliderGameplay = ui::Slider::create();
-    volumeSliderGameplay->setPercent(setting->getGameplayVol() * 100); // Khởi tạo
+    volumeSliderGameplay->setPercent(SettingManager::getInstance()->getGameplayVol() * 100); // Khởi tạo
     volumeSliderGameplay->loadBarTexture("UI/scale/bar_bg.png");
     volumeSliderGameplay->loadSlidBallTextures("UI/scale/button.png", "UI/scale/button.png", "UI/scale/button.png");
     volumeSliderGameplay->loadProgressBarTexture("UI/scale/bar.png");
@@ -127,7 +126,7 @@ bool SettingScene::init()
         MenuItemSprite::create(volumeOn, volumeOn),
         nullptr
     );
-    toggleItem->setSelectedIndex(setting->getSub());
+    toggleItem->setSelectedIndex(SettingManager::getInstance()->getSub());
     toggleItem->setAnchorPoint(Vec2(0, 0));
     toggleItem->setPosition(Vec2(volumeSlider->getPositionX(), volumeLabel->getPositionY()));
     //toggleItem->setScale(Constants::scaleSprite());
@@ -149,7 +148,7 @@ bool SettingScene::init()
         MenuItemSprite::create(soundOn, soundOn),
         nullptr
     );
-    toggleItemSound->setSelectedIndex(setting->getVsyn());
+    toggleItemSound->setSelectedIndex(SettingManager::getInstance()->getVsyn());
     toggleItemSound->setAnchorPoint(Vec2(0, 0));
     toggleItemSound->setPosition(Vec2(volumeSlider->getPositionX(), soundLabel->getPositionY()));
     //toggleItemSound->setScale(Constants::scaleSprite());
@@ -177,7 +176,7 @@ bool SettingScene::init()
 void SettingScene::toggleSubCallback(Ref* sender) {
     auto toggleItem = dynamic_cast<MenuItemToggle*>(sender);
     int selectedIndex = toggleItem->getSelectedIndex();
-    setting->setSub(selectedIndex);
+    SettingManager::getInstance()->setSub(selectedIndex);
     if (selectedIndex == 0) {
         
     }
@@ -190,7 +189,7 @@ void SettingScene::toggleSubCallback(Ref* sender) {
 void SettingScene::toggleVsynCallback(Ref* sender) {
     auto toggleItem = dynamic_cast<MenuItemToggle*>(sender);
     int selectedIndex = toggleItem->getSelectedIndex();
-    setting->setVsyn(selectedIndex);
+    SettingManager::getInstance()->setVsyn(selectedIndex);
     if (selectedIndex == 0) {
         
     }
@@ -204,7 +203,7 @@ void SettingScene::toggleVsynCallback(Ref* sender) {
 void SettingScene::sliderEvent(Ref* sender, ui::Slider::EventType eventType) {
     if (eventType == ui::Slider::EventType::ON_PERCENTAGE_CHANGED) {
         auto slider = dynamic_cast<ui::Slider*>(sender);
-        setting->setVolume(slider->getPercent() / 100.0f); // Chuyển đổi sang khoảng 0-1
+        SettingManager::getInstance()->setVolume(slider->getPercent() / 100.0f); // Chuyển đổi sang khoảng 0-1
         setVolume(); // Gọi hàm để thiết lập âm lượng
     }
 }
@@ -212,7 +211,7 @@ void SettingScene::sliderEvent(Ref* sender, ui::Slider::EventType eventType) {
 void SettingScene::sliderEventGamePlay(Ref* sender, ui::Slider::EventType eventType) {
     if (eventType == ui::Slider::EventType::ON_PERCENTAGE_CHANGED) {
         auto slider = dynamic_cast<ui::Slider*>(sender);
-        setting->setGameplayVol(slider->getPercent() / 100.0f); // Chuyển đổi sang khoảng 0-1
+        SettingManager::getInstance()->setGameplayVol(slider->getPercent() / 100.0f); // Chuyển đổi sang khoảng 0-1
     }
 }
 
@@ -226,6 +225,6 @@ void SettingScene::goBack(Ref* sender) {
 }
 
 void SettingScene::save(Ref* sender) {
-    setting->saveSettingData();
+    SettingManager::getInstance()->saveSettingData();
     Director::getInstance()->popScene();
 }

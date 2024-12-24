@@ -26,7 +26,7 @@
 
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
-#include "gui/Setting.h"
+#include "main/SettingManager.h"
 #include <string>
 #include <thread>
 #include "scene/MenuScene.h"
@@ -46,7 +46,6 @@ public:
     void toggleSubCallback(Ref* sender);
     void toggleVsynCallback(Ref* sender);
     void save(Ref* sender);
-    Setting* setting = new Setting();
     void sliderEventGamePlay(Ref* sender, ui::Slider::EventType eventType);
 };
 #endif // __SettingScene_H__

@@ -16,22 +16,12 @@ Scene* Map1Scene::createScene(string bg, string bgMusic, string mapName, bool is
     }
 }
 
-////on "init" you need to initialize your instance
-//bool Map1Scene::init(string bg, string bgMusic, string mapName, bool isMoveCamera)
-//{
-//    if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
-//        return false;
-//    }
-//    return true;
-//}
-
 // update
 void Map1Scene::update(float dt) {
     
     BaseScene::update(dt);
 
     if (player->getSprite()->getPositionY() < 0) {
-        cocos2d::AudioEngine::stopAll();
         Director::getInstance()->replaceScene(Map1Scene::createScene("map/bglv1.png", "sound/bg1.mp3", "map1", true));
     }
     if (contactListener->isNext) {

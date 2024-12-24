@@ -17,25 +17,16 @@ Scene* Boss4Scene::createScene(string bg, string bgMusic, string mapName, bool i
 
     
 }
-//on "init" you need to initialize your instance
-bool Boss4Scene::init(string bg, string bgMusic, string mapName, bool isMoveCamera)
-{
-    
-    if (!BaseScene::init(bg, bgMusic, mapName, isMoveCamera)) {
-        return false;
-    }
-    return true;
-}
 
 // update
 void Boss4Scene::update(float dt) {
     BaseScene::update(dt);
 
     if (bossmap4->isAlive) {
-        AudioEngine::setVolume(settingInit->getBgMusicId(), settingInit->getVolume());
+        MusicManager::getInstance()->setVolume(SettingManager::getInstance()->getVolume());
     }
     else {
-        AudioEngine::setVolume(settingInit->getBgMusicId(), settingInit->getVolume() * 0.2);
+        MusicManager::getInstance()->setVolume(SettingManager::getInstance()->getVolume() * 0.2);
     }
 
     if (contactListener->isNext && !bossmap4->isAlive) {
@@ -46,7 +37,7 @@ void Boss4Scene::update(float dt) {
         isEndMap = true;
     }
     contactListener->isNext = false;
-    settingInit->loadSettingData();
+    SettingManager::getInstance()->loadSettingData();
 }
 
 void Boss4Scene::spawnObject() {

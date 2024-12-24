@@ -30,7 +30,7 @@
 #include "player/Player.h"
 #include "skill/SlashEnemy.h"
 #include "main/Common.h"
-#include "gui/Setting.h"
+#include "main/SettingManager.h"
 #include "item/MapItem.h"
 #include "main/Constants.h"
 #include <vector>
@@ -58,7 +58,6 @@ protected:
     float time = 1.0 / 60.0f;
     Player* player;
     virtual void spawnObject();
-    Setting* settingInit = new Setting();
     b2Body* boundaryBodyStart;
     b2Body* boundaryBodyEnd;
     MapItem* item;

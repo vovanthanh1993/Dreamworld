@@ -1,7 +1,4 @@
 ﻿#include "MusicManager.h"
-#include "audio/include/AudioEngine.h"
-
-using namespace cocos2d;
 
 MusicManager* MusicManager::instance = nullptr;
 
@@ -76,91 +73,86 @@ void MusicManager::release() {
 
 // Sound
 void MusicManager::soundTing() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("sound/ting.mp3"), settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("sound/ting.mp3"), SettingManager::getInstance()->getGameplayVol());
 
 }
 
 void MusicManager::enemyDie() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("Enemy/warrior/die.mp3"), settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("Enemy/warrior/die.mp3"), SettingManager::getInstance()->getGameplayVol());
 }
 
 void MusicManager::enemyHurt() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("sound/enemyhurt.mp3"), settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("sound/enemyhurt.mp3"), SettingManager::getInstance()->getGameplayVol());
 }
 
 void MusicManager::playerJump() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("player/sound/jump.mp3"), settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("player/sound/jump.mp3"), SettingManager::getInstance()->getGameplayVol());
 }
 
 void MusicManager::playerSlash() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("player/sound/slash.mp3"), settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("player/sound/slash.mp3"), SettingManager::getInstance()->getGameplayVol());
 }
 
 void MusicManager::chest() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("sound/chest.mp3"), settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("sound/chest.mp3"), SettingManager::getInstance()->getGameplayVol());
 
 }
 
 void MusicManager::soundHealth() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("sound/health.mp3"), 0.5 * settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("sound/health.mp3"), 0.5 * SettingManager::getInstance()->getGameplayVol());
 }
 void MusicManager::soundError() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("sound/error.mp3"), 0.5 * settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("sound/error.mp3"), 0.5 * SettingManager::getInstance()->getGameplayVol());
 }
 
 void MusicManager::soundLaughter() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap1/sound/laughter.mp3"), 0.08 * settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap1/sound/laughter.mp3"), 0.08 * SettingManager::getInstance()->getGameplayVol());
 }
 void MusicManager::soundCreepyLaughter() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap2/sound/creepy-laughter.mp3"), 2 * settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap2/sound/creepy-laughter.mp3"), 2 * SettingManager::getInstance()->getGameplayVol());
 }
 
 void MusicManager::soundBoss1Hurt() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap1/sound/boss1hurt.mp3"), 0.5 * settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap1/sound/boss1hurt.mp3"), 0.5 * SettingManager::getInstance()->getGameplayVol());
 }
 
 void MusicManager::soundBoss3Hurt() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap3/sound/hurt.mp3"), 0.5 * settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap3/sound/hurt.mp3"), 0.5 * SettingManager::getInstance()->getGameplayVol());
 }
 
 void MusicManager::soundMagicFire() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap1/sound/magic-fire.mp3"), 0.5 * settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap1/sound/magic-fire.mp3"), 0.5 * SettingManager::getInstance()->getGameplayVol());
 }
 
 void MusicManager::soundDarkMagic() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap2/sound/dark-magic.mp3"), 1 * settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("Enemy/Bossmap2/sound/dark-magic.mp3"), 1 * SettingManager::getInstance()->getGameplayVol());
 }
 
 void MusicManager::playerHurt() {
-    Setting settingInit;
-    settingInit.loadSettingData();
-    AudioEngine::setVolume(AudioEngine::play2d("player/sound/hurt.mp3"), 0.1 * settingInit.getGameplayVol());
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("player/sound/hurt.mp3"), 0.1 * SettingManager::getInstance()->getGameplayVol());
+}
+
+void MusicManager::eagle() {
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("player/sound/eagle.mp3"), 0.2 * SettingManager::getInstance()->getGameplayVol());
+}
+
+void MusicManager::getStick() {
+    SettingManager::getInstance()->loadSettingData();
+    AudioEngine::setVolume(AudioEngine::play2d("sound/get_stick.mp3"), 2 * SettingManager::getInstance()->getGameplayVol());
 }

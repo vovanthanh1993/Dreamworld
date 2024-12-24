@@ -26,7 +26,7 @@
 
 #include "cocos2d.h"
 #include "GUIScene.h"
-#include "gui/Setting.h"
+#include "main/SettingManager.h"
 #include <string>
 #include <thread>
 #include "ui\CocosGUI.h"
@@ -58,7 +58,6 @@ public:
     void setting(Ref* sender);
     void guide(Ref* sender);
     void shop(Ref* sender);
-    Setting* settingInit = new Setting();
     CREATE_FUNC(MenuScene);
 
 };

@@ -27,10 +27,9 @@ bool EndScene::init()
     }
 
     // Phát nhạc nền
-    settingInit->loadSettingData();
-    settingInit->setBgMusicId(Common::playBackgroundMusic(settingInit->getVolume(), "sound/endbg.mp3"));
-
-    
+    SettingManager::getInstance()->loadSettingData();
+    MusicManager::getInstance()->playBackgroundMusic("sound/endbg.mp3", true);
+    MusicManager::getInstance()->setVolume(SettingManager::getInstance()->getVolume());
 
     // Thêm lớp ảnh (hình nền)
     auto background = cocos2d::Sprite::create("map/endbg.png");

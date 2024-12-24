@@ -8,7 +8,6 @@
 #include "skill/SlashEnemy.h"
 #include "item/Gem.h"
 #include "audio/include/AudioEngine.h"
-#include "gui/Setting.h"
 #include "main/Constants.h"
 
 using namespace constants;
@@ -27,9 +26,6 @@ namespace common {
 		static void destroyFireRain(b2World* world, Scene* scene, Vec2 position);
 		
 		static void healing(b2World* world, Scene* scene, Vec2 position);
-		static void eagle();
-		static void getStick();
-		
 	};
 }
 

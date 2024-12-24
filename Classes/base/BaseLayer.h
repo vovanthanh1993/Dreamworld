@@ -30,7 +30,7 @@
 #include "player/Player.h"
 #include "skill/SlashEnemy.h"
 #include "main/Common.h"
-#include "gui/Setting.h"
+#include "main/SettingManager.h"
 #include "item/MapItem.h"
 #include "main/Constants.h"
 #include <vector>
