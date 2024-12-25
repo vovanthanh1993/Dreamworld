@@ -46,8 +46,7 @@ void Boss1Scene::update(float dt) {
         isEndMap = true;
     }
     contactListener->isNext = false;
-    SettingManager::getInstance()->loadSettingData();
-    
+    SettingManager::getInstance()->loadSettingData(); 
 }
 
 void Boss1Scene::spawnObject() {

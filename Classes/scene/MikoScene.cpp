@@ -62,14 +62,12 @@ void MikoScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::E
                     isHasGate = true;
                 }
                 index++;
-                
             }
         }
     }
 }
 
 void MikoScene::spawnObject() {
-
     item = new MapItem(world, this, bodyToSpriteMap, map);
     item->spawnWallAndLimit();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();

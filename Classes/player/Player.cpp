@@ -527,6 +527,8 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
         health = maxHealth;
         mana = maxMana;
         gem = 5000;
+        stickNum = maxStickNum;
+        updateStickNum(0);
         updateGem(0);
         updateHealth(0);
         addMana(0);
@@ -583,7 +585,7 @@ void Player::changeCharm(Charm* charm) {
     }
     currentCharm = charm;
 
-    playerUI->setSpriteCharm(charm, sprite);
+    playerUI->setSpriteCharm(currentCharm, charmSprite);
     slashDamage += currentCharm->slashDamageBonus;
     stickDamage += currentCharm->stickDamageBonus;
     eagleDamage += currentCharm->eagleDamageBonus;
@@ -667,3 +669,17 @@ void Player::setManaPotionNum(int num) {
         manaPotionNum = num;
     }
 }
+
+// Getters
+int Player::getGem() const { return gem; }
+int Player::getMaxStickNum() const { return maxStickNum; }
+float Player::getSlashDamage() const { return slashDamage; }
+float Player::getStickDamage() const { return stickDamage; }
+float Player::getEagleDamage() const { return eagleDamage; }
+
+// Setters
+void Player::setGem(int value) { gem = value; }
+void Player::setMaxStickNum(int value) { maxStickNum = value; }
+void Player::setSlashDamage(float value) { slashDamage = value; }
+void Player::setStickDamage(float value) { stickDamage = value; }
+void Player::setEagleDamage(float value) { eagleDamage = value; }

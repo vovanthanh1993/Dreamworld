@@ -38,7 +38,6 @@ void Boss2Scene::update(float dt) {
         MusicManager::getInstance()->setVolume(SettingManager::getInstance()->getVolume()*0.2);
     }
 
-    //-------------------CAP NHAT LAI SPRITE--------------------------
     if (contactListener->isNext && !bossmap2->isAlive) {
         player->savePlayerDataInit();
         auto newScene = Map3Scene::createScene("map/bg2.png", "sound/bg3.mp3", "map3", true);

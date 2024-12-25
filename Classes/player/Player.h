@@ -31,6 +31,12 @@ private:
 	int stickNum = 5;
 	int healthPotionNum = 1;
 	int manaPotionNum = 1;
+	int gem;
+	int maxStickNum;
+	float slashDamage;
+	float stickDamage;
+	float eagleDamage;
+
 	map<EventKeyboard::KeyCode, bool> keys;
 	float attackCooldown = 0.5f; // Khoảng thời gian chờ giữa các lần tấn công
 	float lastAttackTime = 0; // Thời điểm của lần tấn công cuối cùng
@@ -43,13 +49,18 @@ private:
 	BasePool<Stick>* stickPool = new BasePool<Stick>();
 	int direction = 1;
 
+	
 public:
 	Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
-	int gem = 0;
-	int maxStickNum = 10;
+	bool isEnable;
+	bool isComplete;
+	bool isAlive;
+	bool isInVillage = false;
+
+	Charm* currentCharm;
 	Sprite* charmSprite = nullptr;
 	Vector<Charm*> charmVector;
-	bool isAlive = true;
+	
 	void walk();
 	void die();
 	void idle();
@@ -67,8 +78,6 @@ public:
 	void updateStickNum(int stick);
 	void initGUI();
 	void updateGem(int i);
-	bool isEnable = true;
-	int nextLevel = 0;
 	void hurt();
 	void savePlayerDataInit();
 	void loadPlayerDataInit(bool isNew);
@@ -79,7 +88,6 @@ public:
 	void updateHealth(int damage);
 	void healing();
 	void useMana(int mana);
-	
 	void update(float dt);
 	void actionKey(EventKeyboard::KeyCode keyCode);
 
@@ -98,33 +106,34 @@ public:
 
 	void setMaxHealth(float health);
 	float getMaxHealth() const;
-	bool isInVillage = false;
+	
 	void initMouseEvent();
 	void initKeyEvent();
 	void addEquipment(Charm* eq);
-	
-
 	void changeCharm(Charm* charm);
-
-	Charm* currentCharm;
 	void readCharmFromFile();
 	void writeCharmToFile();
 	void setSpriteCharm(Charm* charm);
 
-	float slashDamage = 10;
-	float stickDamage = 10;
-	float eagleDamage = 10;
-	bool isComplete = false;
-
-	// Getter và Setter cho healthPotionNum
+	// Getters
 	int getHealthPotionNum() const;
-	void setHealthPotionNum(int num);
-
-
-	// Getter và Setter cho manaPotionNum
 	int getManaPotionNum() const;
+	int getGem() const;
+	int getMaxStickNum() const;
+	int getNextLevel() const;
+	float getSlashDamage() const;
+	float getStickDamage() const;
+	float getEagleDamage() const;
+
+	// Setters
+	void setHealthPotionNum(int num);
 	void setManaPotionNum(int num);
-	void getPlayeUI();
+	void setGem(int value);
+	void setMaxStickNum(int value);
+	void setNextLevel(int value);
+	void setSlashDamage(float value);
+	void setStickDamage(float value);
+	void setEagleDamage(float value);
 };
 
 #endif // __Player_H__

@@ -28,94 +28,94 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             if (tagA != Constants::TAG_WALL && tagA != Constants::TAG_BRIDGE_BREAK) {
                 player->addMana(1);
             }
-            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->getDamage(player->stickDamage);
-            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->getDamage(player->stickDamage);
-            else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->stickDamage);
-            else if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->stickDamage);
-            else if (tagA == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->stickDamage);
-            else if (tagA == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(player->stickDamage);
-            else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(player->stickDamage);
-            else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(player->stickDamage);
-            else if (tagA == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteA->getUserData())->getDamage(player->stickDamage);
-            else if (tagA == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteA->getUserData())->getDamage(player->stickDamage);
-            else if (tagA == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteA->getUserData())->getDamage(player->stickDamage);
+            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->getDamage(player->getStickDamage());
+            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->getDamage(player->getStickDamage());
+            else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->getStickDamage());
+            else if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->getStickDamage());
+            else if (tagA == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->getStickDamage());
+            else if (tagA == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(player->getStickDamage());
+            else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(player->getStickDamage());
+            else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(player->getStickDamage());
+            else if (tagA == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteA->getUserData())->getDamage(player->getStickDamage());
+            else if (tagA == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteA->getUserData())->getDamage(player->getStickDamage());
+            else if (tagA == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteA->getUserData())->getDamage(player->getStickDamage());
         }
         if (tagA == Constants::TAG_STICK) {
             bodiesToRemove.insert(bodyA);
             if (tagB != Constants::TAG_WALL && tagB != Constants::TAG_BRIDGE_BREAK) {
                 player->addMana(1);
             }
-            if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->getDamage(player->stickDamage);
-            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->getDamage(player->stickDamage);
-            else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->stickDamage);
-            else if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->stickDamage);
-            else if (tagB == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->stickDamage);
-            else if (tagB == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(player->stickDamage);
-            else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(player->stickDamage);
-            else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->stickDamage);
-            else if (tagB == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteB->getUserData())->getDamage(player->stickDamage);
-            else if (tagB == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteB->getUserData())->getDamage(player->stickDamage);
-            else if (tagB == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteB->getUserData())->getDamage(player->stickDamage);
+            if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->getDamage(player->getStickDamage());
+            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->getDamage(player->getStickDamage());
+            else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->getStickDamage());
+            else if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->getStickDamage());
+            else if (tagB == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->getStickDamage());
+            else if (tagB == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(player->getStickDamage());
+            else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(player->getStickDamage());
+            else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->getStickDamage());
+            else if (tagB == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteB->getUserData())->getDamage(player->getStickDamage());
+            else if (tagB == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteB->getUserData())->getDamage(player->getStickDamage());
+            else if (tagB == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteB->getUserData())->getDamage(player->getStickDamage());
         }
         
 
         // Tha qua trung ke dich
         if (tagB == Constants::TAG_EAGLE) {
             bodiesToRemove.insert(bodyB);
-            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->getDamage(player->eagleDamage);
-            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->getDamage(player->eagleDamage);
-            else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->eagleDamage);
-            else if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->eagleDamage);
-            else if (tagA == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->eagleDamage);
-            else if (tagA == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(player->eagleDamage);
-            else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(player->eagleDamage);
-            else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(player->eagleDamage);
-            else if (tagA == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteA->getUserData())->getDamage(player->eagleDamage);
-            else if (tagA == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteA->getUserData())->getDamage(player->eagleDamage);
-            else if (tagA == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteA->getUserData())->getDamage(player->eagleDamage);
+            if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagA == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->getEagleDamage());
+            else if (tagA == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->getEagleDamage());
+            else if (tagA == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->getEagleDamage());
+            else if (tagA == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagA == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteA->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagA == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteA->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagA == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteA->getUserData())->getDamage(player->getEagleDamage());
         }
         
         if (tagA == Constants::TAG_EAGLE) {
             bodiesToRemove.insert(bodyA);
 
-            if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->getDamage(player->eagleDamage);
-            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->getDamage(player->eagleDamage);
-            else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->eagleDamage);
-            else if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->eagleDamage);
-            else if (tagB == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->eagleDamage);
-            else if (tagB == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(player->eagleDamage);
-            else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(player->eagleDamage);
-            else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->eagleDamage);
-            else if (tagB == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteB->getUserData())->getDamage(player->eagleDamage);
-            else if (tagB == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteB->getUserData())->getDamage(player->eagleDamage);
-            else if (tagB == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteB->getUserData())->getDamage(player->eagleDamage);
+            if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagB == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->getEagleDamage());
+            else if (tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->getEagleDamage());
+            else if (tagB == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->getEagleDamage());
+            else if (tagB == Constants::TAG_HED)  static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagB == Constants::TAG_WUKONG)  static_cast<Wukong*>(spriteB->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagB == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteB->getUserData())->getDamage(player->getEagleDamage());
+            else if (tagB == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteB->getUserData())->getDamage(player->getEagleDamage());
         }
         
 
         // chem trung ke dich
         if (tagA == Constants::TAG_SLASH || tagB == Constants::TAG_SLASH) {
             player->addMana(1);
-            if (tagA == Constants::TAG_WUKONG) static_cast<Wukong*>(spriteA->getUserData())->getDamage(player->slashDamage);
-            else if (tagB == Constants::TAG_WUKONG) static_cast<Wukong*>(spriteB->getUserData())->getDamage(player->slashDamage);
-            else if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->getDamage(player->slashDamage);
-            else if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->getDamage(player->slashDamage);
-            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->getDamage(player->slashDamage);
-            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->getDamage(player->slashDamage);
-            else if (tagA == Constants::TAG_HED) static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(player->slashDamage);
-            else if (tagB == Constants::TAG_HED) static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(player->slashDamage);
-            else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(player->slashDamage);
-            else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(player->slashDamage);
-            else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(player->slashDamage);
-            else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->slashDamage);
-            else if (tagA == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteA->getUserData())->getDamage(player->slashDamage);
-            else if (tagB == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteB->getUserData())->getDamage(player->slashDamage);
-            else if (tagA == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteA->getUserData())->getDamage(player->slashDamage);
-            else if (tagB == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteB->getUserData())->getDamage(player->slashDamage);
+            if (tagA == Constants::TAG_WUKONG) static_cast<Wukong*>(spriteA->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagB == Constants::TAG_WUKONG) static_cast<Wukong*>(spriteB->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagA == Constants::TAG_WAR) static_cast<Warrior*>(spriteA->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagB == Constants::TAG_WAR) static_cast<Warrior*>(spriteB->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagA == Constants::TAG_ACHER) static_cast<Acher*>(spriteA->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagB == Constants::TAG_ACHER) static_cast<Acher*>(spriteB->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagA == Constants::TAG_HED) static_cast<Hedgehog*>(spriteA->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagB == Constants::TAG_HED) static_cast<Hedgehog*>(spriteB->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagA == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteA->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagB == Constants::TAG_GOLEM)  static_cast<Golem*>(spriteB->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagA == Constants::TAG_BAT)  static_cast<Bat*>(spriteA->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagB == Constants::TAG_BAT)  static_cast<Bat*>(spriteB->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagA == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteA->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagB == Constants::TAG_WUKONG_FLY)  static_cast<WukongFly*>(spriteB->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagA == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteA->getUserData())->getDamage(player->getSlashDamage());
+            else if (tagB == Constants::TAG_BOSSMAP4)  static_cast<BossMap4*>(spriteB->getUserData())->getDamage(player->getSlashDamage());
 
 
-            else if (tagA == Constants::TAG_BOSSMAP1 || tagB == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->slashDamage);
-            else if (tagA == Constants::TAG_BOSSMAP2 || tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->slashDamage);
-            else if (tagA == Constants::TAG_BOSSMAP3 || tagB == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->slashDamage);
+            else if (tagA == Constants::TAG_BOSSMAP1 || tagB == Constants::TAG_BOSSMAP1) bossmap1->getDamage(player->getSlashDamage());
+            else if (tagA == Constants::TAG_BOSSMAP2 || tagB == Constants::TAG_BOSSMAP2) bossmap2->updateHealth(player->getSlashDamage());
+            else if (tagA == Constants::TAG_BOSSMAP3 || tagB == Constants::TAG_BOSSMAP3) bossmap3->updateHealth(player->getSlashDamage());
         }
 
         // Huy arrow, xu ly phong trung player

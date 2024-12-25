@@ -49,15 +49,15 @@ bool PlayerStatsLayer::init(Player* player, Scene* scene) {
     );
     itemLabel2->setAnchorPoint(Vec2(0, 0.5));
     auto itemLabel3 = MenuItemLabel::create(
-        Label::createWithSystemFont("Slash damage: " + to_string((int)player->slashDamage), "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("Slash damage: " + to_string((int)player->getSlashDamage()), "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel3->setAnchorPoint(Vec2(0, 0.5));
     auto itemLabel4 = MenuItemLabel::create(
-        Label::createWithSystemFont("Stick damage: " + to_string((int)player->stickDamage), "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("Stick damage: " + to_string((int)player->getStickDamage()), "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel4->setAnchorPoint(Vec2(0, 0.5));
     auto itemLabel5 = MenuItemLabel::create(
-        Label::createWithSystemFont("Eagle damage: " + to_string((int)player->eagleDamage), "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("Eagle damage: " + to_string((int)player->getEagleDamage()), "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel5->setAnchorPoint(Vec2(0, 0.5));
     

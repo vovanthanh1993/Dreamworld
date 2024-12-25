@@ -153,11 +153,10 @@ void UpgradeShopLayer::upgradeStick(cocos2d::Ref* sender) {
     Common::zoomAction(item, 0.1, 1.1);
     int price = item->getTag(); // Lấy giá của vật phẩm
 
-    if (player->gem >= price) {
-        player->gem -= price;
-        player->maxStickNum += 1;
+    if (player->getGem() >= price) {
+        player->setMaxStickNum(player->getMaxStickNum() + 1);
         player->updateStickNum(1);
-        player->updateGem(0);
+        player->updateGem(-price);
         
     }
     else MusicManager::getInstance()->soundError();
@@ -169,7 +168,7 @@ void UpgradeShopLayer::upgradeHealth(cocos2d::Ref* sender) {
 
     int price = item->getTag(); // Lấy giá của vật phẩm
 
-    if (player->gem >= price) {
+    if (player->getGem() >= price) {
         player->setMaxHealth(player->getMaxHealth()+1);
         player->healing(1);
         player->updateGem(-price);
@@ -193,7 +192,7 @@ void UpgradeShopLayer::upgradeMana(cocos2d::Ref* Sender) {
 
     int price = item->getTag(); // Lấy giá của vật phẩm
 
-    if (player->gem >= price) {
+    if (player->getGem() >= price) {
         player->setMaxMana(player->getMaxMana() + 1);
         player->addMana(1);
         player->updateGem(-price);

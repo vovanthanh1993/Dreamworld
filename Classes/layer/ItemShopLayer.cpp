@@ -133,7 +133,7 @@ void ItemShopLayer::purchaseHealthPotion(cocos2d::Ref* sender) {
         item->runAction(acSq);
     }
 
-    if (player->gem >= price) {
+    if (player->getGem() >= price) {
         player->addHealthPotion(1);
         player->updateGem(-price);
     }
@@ -145,7 +145,7 @@ void ItemShopLayer::purchaseManaPotion(cocos2d::Ref* sender) {
     Common::zoomAction(item, 0.1, 1.1);
 
     int price = item->getTag(); // Lấy giá của vật phẩm
-    if (player->gem >= price) {
+    if (player->getGem() >= price) {
         player->addManaPotion(1);
         player->updateGem(-price);
     }

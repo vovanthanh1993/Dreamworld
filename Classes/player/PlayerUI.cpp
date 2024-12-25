@@ -78,7 +78,7 @@ bool PlayerUI::init(Player* player, Scene* scene) {
     this->addChild(gemSprite);
     gemSprite->setScale(0.1 * Common::scaleSizeXY());
     xs += 40 * Common::scaleSizeXY();
-    gemLabel = Label::createWithTTF("x" + to_string(player->gem), "fonts/Marker Felt.ttf", 30);
+    gemLabel = Label::createWithTTF("x" + to_string(player->getGem()), "fonts/Marker Felt.ttf", 30);
     gemLabel->setPosition(xs, stickLabel->getPositionY());
     gemLabel->setAnchorPoint(Vec2(0, 0.5));
     gemLabel->setScale(Common::scaleSizeXY());
