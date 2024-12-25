@@ -13,7 +13,6 @@ Player::Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body
 };
 bool Player::init(bool isNew) {
     currentCharm = nullptr;
-    charmSprite = nullptr;
 
     spriteNode = SpriteBatchNode::create("player/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("player/sprites.plist");
@@ -585,7 +584,7 @@ void Player::changeCharm(Charm* charm) {
     }
     currentCharm = charm;
 
-    playerUI->setSpriteCharm(currentCharm, charmSprite);
+    playerUI->setSpriteCharm(currentCharm);
     slashDamage += currentCharm->slashDamageBonus;
     stickDamage += currentCharm->stickDamageBonus;
     eagleDamage += currentCharm->eagleDamageBonus;
@@ -639,7 +638,7 @@ void Player::readCharmFromFile() {
             if (temp == "1") {
                 charm->setIsActive(true);
                 currentCharm = charm;
-                playerUI->setSpriteCharm(charm, charmSprite);
+                playerUI->setSpriteCharm(charm);
             }
             charmVector.pushBack(charm);
             // Thêm đối tượng vào vector

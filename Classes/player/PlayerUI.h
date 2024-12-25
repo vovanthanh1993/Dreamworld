@@ -23,7 +23,7 @@ public:
     void createManaBar();
     void updateHealthBar(float health);
     void updateManaBar(float mana);
-    void setSpriteCharm(Charm* charm, Sprite* charmSprite);
+    void setSpriteCharm(Charm* charm);
     void update(float dt);
     Scene* scene;
 };

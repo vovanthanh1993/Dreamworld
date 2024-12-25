@@ -152,12 +152,11 @@ void PlayerUI::updateManaBar(float mana) {
     manaBarBg->setScaleX(player->getMaxMana() / 15 * Common::scaleSizeX()); // Điều chỉnh chiều rộng thanh máu
 }
 
-void PlayerUI::setSpriteCharm(Charm* charm, Sprite* charmSprite) {
-    if (charmSprite != nullptr) {
-        charmSprite->removeFromParentAndCleanup(true);
-    }
+void PlayerUI::setSpriteCharm(Charm* charm) {
+    this->removeChildByName("charm");
 
-    charmSprite = Sprite::create(charm->spritePath);
+    auto charmSprite = Sprite::create(charm->spritePath);
+    charmSprite->setName("charm");
     charmSprite->setAnchorPoint(Vec2(0, 1));
     charmSprite->setScale(0.3 * Common::scaleSizeXY());
 

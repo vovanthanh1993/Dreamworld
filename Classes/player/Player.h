@@ -58,7 +58,6 @@ public:
 	bool isInVillage = false;
 
 	Charm* currentCharm;
-	Sprite* charmSprite = nullptr;
 	Vector<Charm*> charmVector;
 	
 	void walk();
@@ -120,7 +119,6 @@ public:
 	int getManaPotionNum() const;
 	int getGem() const;
 	int getMaxStickNum() const;
-	int getNextLevel() const;
 	float getSlashDamage() const;
 	float getStickDamage() const;
 	float getEagleDamage() const;
@@ -130,7 +128,6 @@ public:
 	void setManaPotionNum(int num);
 	void setGem(int value);
 	void setMaxStickNum(int value);
-	void setNextLevel(int value);
 	void setSlashDamage(float value);
 	void setStickDamage(float value);
 	void setEagleDamage(float value);
