@@ -9,7 +9,7 @@ bool Hedgehog::init(Vec2 position) {
     isAlive = true;
     scale = 0.4f;
     attackRange = 15;
-    health = 13;
+    health = 26;
     direction = -1;
     speed = 50;
 

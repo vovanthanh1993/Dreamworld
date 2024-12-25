@@ -6,7 +6,7 @@ bool NPCMonkey::init(Vec2 position) {
     spriteNode = SpriteBatchNode::create("npc/NPCMonkey/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("npc/NPCMonkey/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("MonkeyNPCRun_0.png");
-    Common::scaleAll(sprite, 0.03);
+    sprite->setScale(0.3* Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_NPC);
 
     sprite->setUserData(this);

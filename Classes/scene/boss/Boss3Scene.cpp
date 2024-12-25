@@ -61,7 +61,7 @@ void Boss3Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = playerLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                player = new Player(world, this, Vec2(origin.x / Common::scaleSizeXY()+x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE)* Common::scaleSizeXY(), bodyToSpriteMap);
+                player = new Player(world, this, Common::getPosition(x, map->getMapSize().height - y), bodyToSpriteMap);
                 player->init(false);
             }
         }
@@ -76,7 +76,7 @@ void Boss3Scene::spawnObject() {
                 bossmap3 = new BossMap3(world, this, bodyToSpriteMap);
                 bossmap3->map = map;
                 bossmap3->player = player;
-                bossmap3->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                bossmap3->init(Common::getPosition(x, map->getMapSize().height - y));
             }
         }
     }

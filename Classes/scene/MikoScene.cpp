@@ -78,7 +78,7 @@ void MikoScene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = playerLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
+                player = new Player(world, this, Common::getPosition(x, map->getMapSize().height - y), bodyToSpriteMap);
                 player->init(false);
                 player->isInVillage = true;
                 break;
@@ -93,7 +93,7 @@ void MikoScene::spawnObject() {
             auto tile = mikoLayer->getTileAt(Vec2(x, y));
             if (tile) {
                 miko = new Miko(world, this, bodyToSpriteMap);
-                miko->init(Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                miko->init(Common::getPosition(x, map->getMapSize().height - y));
 
                 break;
             }

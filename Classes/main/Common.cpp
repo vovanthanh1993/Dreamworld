@@ -334,6 +334,11 @@ namespace common {
             x += 30 * Common::scaleSizeXY();
         }
     }
+
+    Vec2 Common::getPosition(int x, int y) {
+        Vec2 origin = Director::getInstance()->getVisibleOrigin();
+        return Vec2(origin.x / scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, y * Constants::TITLE_SIZE) * scaleSizeXY();
+    }
 }
 
 

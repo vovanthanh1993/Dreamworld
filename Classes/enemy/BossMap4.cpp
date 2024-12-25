@@ -3,7 +3,7 @@ BossMap4::BossMap4(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>
 bool BossMap4::init(Vec2 position) {
     scale = 0.3;
     isActive = true;
-    health = 100;
+    health = 200;
     isAlive = true;
 
     sprite = Sprite::create("enemy/bossmap4/sprite.png");

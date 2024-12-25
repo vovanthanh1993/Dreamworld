@@ -53,7 +53,7 @@ private:
 public:
 	Player(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool isEnable;
-	bool isComplete;
+	bool isComplete = false;
 	bool isAlive;
 	bool isInVillage = false;
 

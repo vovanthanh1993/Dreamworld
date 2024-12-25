@@ -158,7 +158,7 @@ void Player::throwStick() {
 
 
 void Player::throwEagle() {
-    int manaUse = 5;
+    int manaUse = 7;
     if (!isAlive || mana < manaUse) return;
     float currentTime = Director::getInstance()->getTotalFrames() / 60.0f;
 
@@ -238,7 +238,7 @@ void Player::useHealthPotion() {
     if (healthPotionNum > 0) {
         Effect::healing(world, scene, sprite->getPosition());
         addHealthPotion(-1);
-        healing(1);
+        healing(2);
     }
     else {
         MusicManager::getInstance()->soundError();

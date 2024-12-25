@@ -122,62 +122,47 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         if (tagA == Constants::TAG_ARROW) {
             bodiesToRemove.insert(bodyA);
             if (tagB == Constants::TAG_PLAYER) {
-                player->getDamage(1);
+                player->getDamage(Constants::DAMAGE_ARROW);
                
             }
         }
         if (tagB == Constants::TAG_ARROW) {
             bodiesToRemove.insert(bodyB);
             if (tagA == Constants::TAG_PLAYER) {
-                player->getDamage(1);
+                player->getDamage(Constants::DAMAGE_ARROW);
                 
-            }
-        }
-
-        // Huy arrow, xu ly phong trung ke dich
-        if (tagA == Constants::TAG_SKULL) {
-            if (tagB == Constants::TAG_PLAYER) {
-                bodiesToRemove.insert(bodyA);
-                player->getDamage(3);
             }
         }
 
         // Player va cham voi Bat
         if (tagA == Constants::TAG_PLAYER && tagB == Constants::TAG_BAT) {
             static_cast<Bat*>(spriteB->getUserData())->getDamage(1);
-            player->getDamage(2);
+            player->getDamage(Constants::DAMAGE_BOOM);
         }
         else if (tagB == Constants::TAG_PLAYER && tagA == Constants::TAG_BAT) {
             static_cast<Bat*>(spriteA->getUserData())->getDamage(1);
-            player->getDamage(2);
+            player->getDamage(Constants::DAMAGE_BOOM);
         }
 
         // Player va cham voi Bat
         if (tagA == Constants::TAG_PLAYER && tagB == Constants::TAG_WUKONG_FLY) {
             static_cast<WukongFly*>(spriteB->getUserData())->getDamage(1);
-            player->getDamage(2);
+            player->getDamage(Constants::DAMAGE_BOOM);
         }
         else if (tagB == Constants::TAG_PLAYER && tagA == Constants::TAG_WUKONG_FLY) {
             static_cast<WukongFly*>(spriteA->getUserData())->getDamage(1);
-            player->getDamage(2);
-        }
-
-        if (tagB == Constants::TAG_SKULL) {
-            if (tagA == Constants::TAG_PLAYER) {
-                bodiesToRemove.insert(bodyB);
-                player->getDamage(3);
-            }
+            player->getDamage(Constants::DAMAGE_BOOM);
         }
         if (tagA == Constants::TAG_RAIN) {
             if (tagB == Constants::TAG_PLAYER) {
-                player->getDamage(2);
+                player->getDamage(Constants::DAMAGE_BOOM);
             }
             bodiesToRemove.insert(bodyA);
             static_cast<PoisonRain*>(spriteA->getUserData())->reset();
         }
         if (tagB == Constants::TAG_RAIN) {
             if (tagA == Constants::TAG_PLAYER) {
-                player->getDamage(2);
+                player->getDamage(Constants::DAMAGE_BOOM);
             }
             bodiesToRemove.insert(bodyB);
             static_cast<PoisonRain*>(spriteB->getUserData())->reset();
@@ -187,13 +172,13 @@ void MyContactListener::BeginContact(b2Contact* contact) {
         if (tagA == Constants::TAG_FIRE || tagA == Constants::Constants::TAG_BONE_RAIN || tagA == Constants::TAG_FIRE_RAIN) {
             bodiesToRemove.insert(bodyA);
             if (tagB == Constants::TAG_PLAYER) {
-                player->getDamage(2);
+                player->getDamage(Constants::DAMAGE_BOOM);
             }
         }
         if (tagB == Constants::TAG_FIRE|| tagB == Constants::Constants::TAG_BONE_RAIN || tagB == Constants::TAG_FIRE_RAIN) {
             bodiesToRemove.insert(bodyB);
             if (tagA == Constants::TAG_PLAYER) {
-                player->getDamage(2);  
+                player->getDamage(Constants::DAMAGE_BOOM);
             }
         }
 
@@ -314,15 +299,7 @@ void MyContactListener::BeginContact(b2Contact* contact) {
                 bodiesToRemove.insert(bodyA);
                 
             }
-           /* if (tagB == Constants::TAG_SOUL) {
-                player->addSoul();
-                bodiesToRemove.insert(bodyB);
-            }
-            if (tagA == Constants::TAG_SOUL) {
-                player->addSoul();
-                bodiesToRemove.insert(bodyA);
 
-            }*/
             if (tagB == Constants::TAG_HEART) {
                 player->healing(1);
                 bodiesToRemove.insert(bodyB);
@@ -338,12 +315,12 @@ void MyContactListener::BeginContact(b2Contact* contact) {
             }
 
             if (tagA == Constants::TAG_STONE_BALL) {
-                player->getDamage(1);
+                player->getDamage(Constants::DAMAGE_STONE_BALL);
                 bodiesToRemove.insert(bodyA);
                 static_cast<StoneBall*>(spriteA->getUserData())->reset();
             }
             if (tagB == Constants::TAG_STONE_BALL) {
-                player->getDamage(1);
+                player->getDamage(Constants::DAMAGE_STONE_BALL);
                 bodiesToRemove.insert(bodyB);
                 static_cast<StoneBall*>(spriteB->getUserData())->reset();
             }
@@ -351,22 +328,21 @@ void MyContactListener::BeginContact(b2Contact* contact) {
 
             // chem trung ke dich
             if (tagA == Constants::TAG_SLASH_ENEMY || tagB == Constants::TAG_SLASH_ENEMY) {
-                player->getDamage(1);
+                player->getDamage(Constants::DAMAGE_SLASH_ENEMY);
             }
             // chem trung ke dich
             if (tagA == Constants::TAG_HED || tagB == Constants::TAG_HED) {
-                player->getDamage(2);
+                player->getDamage(Constants::DAMAGE_BOOM);
             }
 
             // chem trung ke dich
             if (tagA == Constants::TAG_BOSSMAP1 || tagB == Constants::TAG_BOSSMAP1) {
-                player->getDamage(1);
+                player->getDamage(Constants::DAMAGE_BOOM);
             }
         }
 
-        // Qua man 2
+        // Qua man
         if (tagA == Constants::TAG_ENDGATE && tagB == Constants::TAG_PLAYER || tagA == Constants::TAG_PLAYER && tagB == Constants::TAG_ENDGATE) {
-            // Khởi tạo scene mới
             isNext = true;
         }
     }

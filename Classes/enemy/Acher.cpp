@@ -10,7 +10,7 @@ bool Acher::init(Vec2 position) {
     isAlive = true;
     attackRange = 15;
     direction = -1;
-    health = 11;
+    health = 12;
     scale = 0.3;
 
     if (!Node::init()) {

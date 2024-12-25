@@ -46,7 +46,7 @@ void Map1Scene::spawnObject() {
             if (tile) {
                 Acher* w = new Acher(world, this, bodyToSpriteMap);
                 w->player = player;
-                w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                w->init(Common::getPosition(x, map->getMapSize().height - y));
                 
             }
         }
@@ -60,7 +60,7 @@ void Map1Scene::spawnObject() {
             if (tile) {
                 Warrior* w = new Warrior(world, this, bodyToSpriteMap);
                 w->player = player;
-                w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                w->init(Common::getPosition(x, map->getMapSize().height - y));
             }
         }
     }

@@ -13,7 +13,7 @@ bool Warrior::init(Vec2 position) {
     canAttack = false;
     direction = -1;
     speed = 6;
-    health = 11;
+    health = 12;
 
     spriteNode = SpriteBatchNode::create("enemy/warrior/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/warrior/sprites.plist");

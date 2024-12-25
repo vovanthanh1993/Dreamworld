@@ -75,7 +75,7 @@ void VillageScene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = playerLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
+                player = new Player(world, this, Common::getPosition(x, map->getMapSize().height - y), bodyToSpriteMap);
                 player->init(true);
                 player->isInVillage = true;
                 break;
@@ -90,7 +90,7 @@ void VillageScene::spawnObject() {
             auto tile = npc1Layer->getTileAt(Vec2(x, y));
             if (tile) {
                 npc1 = new NPC1(world, this, bodyToSpriteMap);
-                npc1->init(Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                npc1->init(Common::getPosition(x, map->getMapSize().height - y));
             }
         }
     }
@@ -102,7 +102,7 @@ void VillageScene::spawnObject() {
             auto tile = npc3Layer->getTileAt(Vec2(x, y));
             if (tile) {
                 npc3 = new NPC3(world, this, bodyToSpriteMap);
-                npc3->init(Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                npc3->init(Common::getPosition(x, map->getMapSize().height - y));
             }
         }
     }
@@ -114,7 +114,7 @@ void VillageScene::spawnObject() {
             auto tile = npc2Layer->getTileAt(Vec2(x, y));
             if (tile) {
                 npc2 = new NPC2(world, this, bodyToSpriteMap);
-                npc2->init(Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                npc2->init(Common::getPosition(x, map->getMapSize().height - y));
             }
         }
     }
@@ -127,7 +127,7 @@ void VillageScene::spawnObject() {
             if (tile) {
 
                 NPCMonkey* npcMonkey = new NPCMonkey(world, this, bodyToSpriteMap);
-                npcMonkey->init(Vec2((origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2), (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                npcMonkey->init(Common::getPosition(x, map->getMapSize().height - y));
             }
         }
     }

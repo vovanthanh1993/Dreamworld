@@ -70,7 +70,6 @@ namespace constants {
 		static const int TAG_RAIN = 18;
 		static const int TAG_NPC = 19;
 		static const int TAG_BOSSMAP2 = 20;
-		static const int TAG_SKULL = 21;
 		static const int TAG_BONE_RAIN = 22;
 		static const int TAG_COPY = 23;
 		static const int TAG_EAGLE = 24;
@@ -89,8 +88,8 @@ namespace constants {
 		static const int TAG_BOSSMAP4 = 37;
 		
 
-		static const int MAX_HEALTH = 10;
-		static const int MAX_MANA = 10;
+		static const int MAX_HEALTH = 15;
+		static const int MAX_MANA = 15;
 		static const int GRAVITY = -250;
 		static const int SPEED_ENEMY = -6;
 		static const int SPEED_PLAYER = 15;
@@ -107,6 +106,11 @@ namespace constants {
 		static const int TALK_RANGE = 3;
 		static const int ATTACK_RANGE_BOSS_MAP2 = 50;
 		static const int COLLECT_RANGE = 2;
+
+		static const int DAMAGE_ARROW = 3;
+		static const int DAMAGE_BOOM = 3;
+		static const int DAMAGE_SLASH_ENEMY = 2;
+		static const int DAMAGE_STONE_BALL = 2;
 	};
 }
 

@@ -13,7 +13,7 @@ bool Wukong::init(Vec2 position) {
     canAttack = false;
     direction = -1;
     speed = 10;
-    health = 11;
+    health = 20;
 
     spriteNode = SpriteBatchNode::create("enemy/wukong/sprites.png");
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemy/wukong/sprites.plist");

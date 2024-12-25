@@ -10,7 +10,7 @@ bool Golem::init(Vec2 position) {
     isAlive = true;
     scale = 0.35;
     attackRange = 3;
-    health = 13;
+    health = 28;
     direction = -1;
     speed = 6;
 

@@ -23,7 +23,7 @@ void MapItem::spawnBackStick() {
                 auto tile = backStickLayer->getTileAt(Vec2(x, y));
                 if (tile) {
                     BackStick* item = new BackStick(world, scene, bodyToSpriteMap);
-                    item->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                    item->init(Common::getPosition(x, map->getMapSize().height - y));
                 }
             }
         }
@@ -39,7 +39,7 @@ void MapItem::spawnChest() {
                     auto tile = wallLayerChest->getTileAt(Vec2(x, y));
                     if (tile) {
                         Chest* item = new Chest(world, scene, bodyToSpriteMap);
-                        item->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                        item->init(Common::getPosition(x, map->getMapSize().height - y));
                     }
                 }
             }
@@ -56,7 +56,7 @@ void MapItem::spawnHeart() {
                 auto tile = wallLayerHeart->getTileAt(Vec2(x, y));
                 if (tile) {
                     Heart* item = new Heart(world, scene, bodyToSpriteMap);
-                    item->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                    item->init(Common::getPosition(x, map->getMapSize().height - y));
 
                 }
             }
@@ -74,7 +74,7 @@ void MapItem::spawnBridge(int type) {
                 if (tile) {
                     Bridge* item = new Bridge(world, scene, bodyToSpriteMap);
                     item->type = type;
-                    item->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                    item->init(Common::getPosition(x, map->getMapSize().height - y));
                 }
             }
         }
@@ -90,7 +90,7 @@ void MapItem::spawnBrokenBridge() {
                 auto tile = wallBridgeBreak->getTileAt(Vec2(x, y));
                 if (tile) {
                     BrokenBridge* item = new BrokenBridge(world, scene, bodyToSpriteMap);
-                    item->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                    item->init(Common::getPosition(x, map->getMapSize().height - y));
                 }
             }
         }
@@ -105,7 +105,7 @@ void MapItem::spawnStone() {
                 auto tile = stoneLayer->getTileAt(Vec2(x, y));
                 if (tile) {
                     Stone* item = new Stone(world, scene, bodyToSpriteMap);
-                    item->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                    item->init(Common::getPosition(x, map->getMapSize().height - y));
                 }
             }
         }

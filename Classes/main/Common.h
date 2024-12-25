@@ -44,6 +44,7 @@ namespace common {
 		static void zoomAction(MenuItemImage* item, float time, float scale);
 		static void addMapName(Scene* scene, string text);
 		static void showTextRandom(Scene* scene, vector<string> textVector, float fadeOutTime);
+		static Vec2 getPosition(int x, int y);
 
 		template <typename T>
 		static void scaleAll(T* node, float ratio) {

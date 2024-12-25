@@ -48,7 +48,7 @@ void Map3Scene::spawnObject() {
         for (int y = 0; y < map->getMapSize().height; ++y) {
             auto tile = playerLayer->getTileAt(Vec2(x, y));
             if (tile) {
-                player = new Player(world, this, Vec2(origin.x + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
+                player = new Player(world, this, Common::getPosition(x, map->getMapSize().height - y), bodyToSpriteMap);
                 player->init(false);
             }
         }
@@ -75,7 +75,7 @@ void Map3Scene::spawnObject() {
             if (tile) {
                 Hedgehog* w = new Hedgehog(world, this, bodyToSpriteMap);
                 w->player = player;
-                w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                w->init(Common::getPosition(x, map->getMapSize().height - y));
             }
         }
     }
@@ -88,7 +88,7 @@ void Map3Scene::spawnObject() {
             if (tile) {
                 Golem* w = new Golem(world, this, bodyToSpriteMap);
                 w->player = player;
-                w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                w->init(Common::getPosition(x, map->getMapSize().height - y));
             }
         }
     }
@@ -101,7 +101,7 @@ void Map3Scene::spawnObject() {
             if (tile) {
                 Bat* w = new Bat(world, this, bodyToSpriteMap);
                 w->player = player;
-                w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
+                w->init(Common::getPosition(x, map->getMapSize().height - y));
             }
         }
     }
