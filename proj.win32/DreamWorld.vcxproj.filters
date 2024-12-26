@@ -49,9 +49,6 @@
     <ClCompile Include="D:\DreamWorld\Classes\enemy\WukongFly.cpp">
       <Filter>Source Files\Classes\enemy</Filter>
     </ClCompile>
-    <ClCompile Include="D:\DreamWorld\Classes\inventory\Charm.cpp">
-      <Filter>Source Files\Classes\inventory</Filter>
-    </ClCompile>
     <ClCompile Include="D:\DreamWorld\Classes\item\BackStick.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
@@ -226,6 +223,9 @@
     <ClCompile Include="..\Classes\player\PlayerUI.cpp">
       <Filter>Source Files\Classes\player</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\item\Charm.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseEnemy.h">
@@ -275,9 +275,6 @@
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\enemy\WukongFly.h">
       <Filter>Source Files\Classes\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\DreamWorld\Classes\inventory\Charm.h">
-      <Filter>Source Files\Classes\inventory</Filter>
     </ClInclude>
     <ClInclude Include="D:\DreamWorld\Classes\item\BackStick.h">
       <Filter>Source Files\Classes\item</Filter>
@@ -2625,6 +2622,9 @@
     <ClInclude Include="..\Classes\player\PlayerUI.h">
       <Filter>Source Files\Classes\player</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\item\Charm.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\DreamWorld\CMakeLists.txt" />
@@ -2913,9 +2913,6 @@
     </Filter>
     <Filter Include="Source Files\Classes\enemy">
       <UniqueIdentifier>{A3D0F379-7E87-3CDB-84EA-D88C3DA47AD7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Classes\inventory">
-      <UniqueIdentifier>{0067F708-F22D-3C04-8F3B-51C626579573}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Classes\item">
       <UniqueIdentifier>{736098FE-3F78-3F0F-A1B7-0E88DFA6480C}</UniqueIdentifier>

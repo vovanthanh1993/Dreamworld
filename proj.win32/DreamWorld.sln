@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CMakePredefinedTargets", "CMakePredefinedTargets", "{250F8D1D-293F-368E-8699-CD2DFBDA7A7B}"
 EndProject
@@ -116,6 +116,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "external", "engine\external
 		{4AD2F70A-DDDB-3E11-B309-ABF113301210} = {4AD2F70A-DDDB-3E11-B309-ABF113301210}
 		{7B5A7DF1-6061-3028-8A62-D6E9743AB36E} = {7B5A7DF1-6061-3028-8A62-D6E9743AB36E}
 	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DreamWorldSetup", "..\DreamWorldSetup\DreamWorldSetup.vdproj", "{58FD41A0-7943-4C1D-AFAF-112478D8B2DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -245,6 +247,10 @@ Global
 		{81C6DF11-8FD6-3369-85D5-FF2247BB1CDD}.Release|Win32.Build.0 = Release|Win32
 		{81C6DF11-8FD6-3369-85D5-FF2247BB1CDD}.RelWithDebInfo|Win32.ActiveCfg = RelWithDebInfo|Win32
 		{81C6DF11-8FD6-3369-85D5-FF2247BB1CDD}.RelWithDebInfo|Win32.Build.0 = RelWithDebInfo|Win32
+		{58FD41A0-7943-4C1D-AFAF-112478D8B2DB}.Debug|Win32.ActiveCfg = Debug
+		{58FD41A0-7943-4C1D-AFAF-112478D8B2DB}.MinSizeRel|Win32.ActiveCfg = Debug
+		{58FD41A0-7943-4C1D-AFAF-112478D8B2DB}.Release|Win32.ActiveCfg = Release
+		{58FD41A0-7943-4C1D-AFAF-112478D8B2DB}.RelWithDebInfo|Win32.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

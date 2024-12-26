@@ -66,24 +66,32 @@ namespace common {
         return random_number;
     }
 
-    void Common::togglePause(bool& isEnable, Scene* scene) {
+    int Common::togglePause(bool& isEnable, Scene* scene) {
         if (scene->getChildByName("Menu") == nullptr) {
-            //AudioEngine::stopAll();
-            isEnable = false;
-            // Lấy Camera
-            auto camera = scene->getDefaultCamera();
-            Director::getInstance()->pause();
-            auto pauseMenu = new PauseMenu(camera->getPosition());
-            scene->addChild(pauseMenu->menu, 9999); // Đặt z-order cao hơn
+            if (scene->getChildByName("popup")) {
+                isEnable = true;
+                scene->removeChildByName("popup");
+            } else if (scene->getChildByName("shop")) {
+                isEnable = true;
+                scene->removeChildByName("shop");
+                return 1;
+            }
+            else {
+                isEnable = false;
+                // Lấy Camera
+                auto camera = scene->getDefaultCamera();
+                Director::getInstance()->pause();
+                auto pauseMenu = new PauseMenu(camera->getPosition());
+                scene->addChild(pauseMenu->menu, 9999); // Đặt z-order cao hơn
+            } 
         }
         else {
             Director::getInstance()->resume(); // Tiếp tục game
-            // Nếu có menu pause, xóa nó
             SettingManager::getInstance()->loadSettingData();
-            //playBackgroundMusic(setting.getVolume(), "sound/background2.mp3");
             scene->removeChildByName("Menu"); // Xóa menu pause
-            if (scene->getChildByName("popup") == nullptr) isEnable = true;
+            //if (scene->getChildByName("popup") == nullptr) isEnable = true;
         }
+        return 0;
     }
     void Common::zoomAction(MenuItemLabel* item) {
         auto zoomIn = ScaleBy::create(1.0f, 1.1f);

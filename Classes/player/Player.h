@@ -9,7 +9,7 @@
 #include "player/skill/Slash.h"
 #include "base/BaseNode.h"
 #include "main/Constants.h"
-#include "Inventory/charm.h"
+#include "item/charm.h"
 #include "base/BasePool.h"
 #include "skill/Stick.h"
 #include "skill/Eagle.h"

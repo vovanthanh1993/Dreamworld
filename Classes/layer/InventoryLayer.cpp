@@ -41,9 +41,9 @@ bool InventoryLayer::init(Player* player, Scene* scene)
     background->setScale(1.5 * Common::scaleSizeXY());
     layer->addChild(background, -1); // Thêm hình nền dưới các mục khác
 
-    auto header = Sprite::create("ui/header_upgrade.png");
+    auto header = Sprite::create("ui/header_charm.png");
     header->setPosition(Common::scalePos(150, 600));
-    header->setScale(Common::scaleSizeXY());
+    header->setScale(0.15*Common::scaleSizeXY());
     layer->addChild(header);
 
     int spaceY = 470 * Common::scaleSizeXY();
@@ -58,8 +58,9 @@ bool InventoryLayer::init(Player* player, Scene* scene)
         offItem->setScale(0.5 * Common::scaleSizeXY());
         offItem->setPosition(-150* Common::scaleSizeXY(), spaceY);
         offItem->setUserData(charm);
-        if (charm->getIsActive()) {
-            offItem->setColor(cocos2d::Color3B::RED);
+        if (!charm->getIsActive()) {
+           // offItem->setColor(cocos2d::Color3B::GREEN);
+            offItem->setOpacity(100);
         }
         offItem->setTag(charm->id);
         // Tạo các mục shop
@@ -69,6 +70,7 @@ bool InventoryLayer::init(Player* player, Scene* scene)
         itemLabel->setPosition(-80* Common::scaleSizeXY(), spaceY);
         itemLabel->setAnchorPoint(Vec2(0,1));
         itemLabel->setColor(cocos2d::Color3B(0, 0, 0));
+        
         layer->addChild(itemLabel);
 
         spaceY -= 100* Common::scaleSizeXY();
@@ -76,21 +78,21 @@ bool InventoryLayer::init(Player* player, Scene* scene)
         menuItems.pushBack(offItem);
     }
     
-    // Thêm nút trở về
-    auto closeItem = MenuItemLabel::create(
-        Label::createWithSystemFont("Cancel", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY()),
-        CC_CALLBACK_1(InventoryLayer::menuCloseCallback, this)
-    );
-    closeItem->setPosition(Vec2(80 * Common::scaleSizeX(), -130 * Common::scaleSizeY()));
-    closeItem->setColor(cocos2d::Color3B(180, 57, 67));
+    //// Thêm nút trở về
+    //auto closeItem = MenuItemLabel::create(
+    //    Label::createWithSystemFont("Cancel", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY()),
+    //    CC_CALLBACK_1(InventoryLayer::menuCloseCallback, this)
+    //);
+    //closeItem->setPosition(Vec2(80 * Common::scaleSizeX(), -130 * Common::scaleSizeY()));
+    //closeItem->setColor(cocos2d::Color3B(180, 57, 67));
     // Thêm nút trở về
     auto okItem = MenuItemLabel::create(
-        Label::createWithSystemFont("Accept", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY()),
+        Label::createWithSystemFont("OK", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY()),
         CC_CALLBACK_1(InventoryLayer::menuOKCallback, this)
     );
     okItem->setColor(cocos2d::Color3B(180, 57, 67));
-    okItem->setPosition(Vec2(200 * Common::scaleSizeX(), -130 * Common::scaleSizeY()));
-    Menu* menuButton = Menu::create(closeItem, okItem, nullptr);
+    okItem->setPosition(Vec2(150 * Common::scaleSizeX(), -130 * Common::scaleSizeY()));
+    Menu* menuButton = Menu::create(okItem, nullptr);
     menuButton->setPosition(Vec2::ZERO);  // Đặt vị trí menu gốc
     layer->addChild(menuButton); // Thêm menu vào scene
 
@@ -109,13 +111,15 @@ void InventoryLayer::selectCharm(cocos2d::Ref* sender) {
     auto item = static_cast<MenuItemImage*>(sender);
     Charm* charm = static_cast<Charm*>(item->getUserData());
     charm->setIsActive(true);
-    item->setColor(cocos2d::Color3B::RED);
+    //item->setColor(cocos2d::Color3B::GREEN);
+    item->setOpacity(255);
     MusicManager::getInstance()->soundTing();
     player->changeCharm(charm);
 
     for (const auto& menuItem : menuItems) {
         if (item != menuItem) {
-            menuItem->setColor(cocos2d::Color3B::WHITE);
+            //menuItem->setColor(cocos2d::Color3B::WHITE);
+            menuItem->setOpacity(100);
             static_cast<Charm*>(static_cast<MenuItemImage*>(menuItem)->getUserData())->setIsActive(false);
         }
     }

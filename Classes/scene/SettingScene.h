@@ -40,12 +40,11 @@ public:
 
     virtual bool init();
     CREATE_FUNC(SettingScene);
-    void sliderEvent(Ref* sender, ui::Slider::EventType eventType);
-    void setVolume();
-    void goBack(Ref* sender);
+    void changeMucsicVolume(Ref* sender, ui::Slider::EventType eventType);
+    void close(Ref* sender);
     void toggleSubCallback(Ref* sender);
     void toggleVsynCallback(Ref* sender);
     void save(Ref* sender);
-    void sliderEventGamePlay(Ref* sender, ui::Slider::EventType eventType);
+    void changeEffectVolume(Ref* sender, ui::Slider::EventType eventType);
 };
 #endif // __SettingScene_H__

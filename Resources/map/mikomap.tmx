@@ -12,12 +12,12 @@
   <object id="2" x="-1.33333" y="-5.33333" width="5.33333" height="1085.33"/>
   <object id="3" x="1913.33" y="-3.99833" width="5.33333" height="1085.33"/>
  </objectgroup>
- <layer id="5" name="player" width="80" height="45">
+ <layer id="5" name="player" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztzjERAAAIBKA/+y82toUOQgISAAAAAAAAAAAAAACAPV3XAwD4YQCAFgCU
   </data>
  </layer>
- <layer id="6" name="miko" width="80" height="45">
+ <layer id="6" name="miko" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztzkENAAAIBKBLYFb7v4yhbpCABAAAAAAAAAAAAAAA+KxrewAAXDQ6JgB/
   </data>
@@ -32,7 +32,7 @@
   <object id="4" x="1192" y="821" width="292" height="47"/>
   <object id="5" x="1622" y="723.5" width="292" height="47"/>
  </objectgroup>
- <layer id="8" name="port" width="80" height="45">
+ <layer id="8" name="port" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztzjEBAAAIA6Dd9rF/NVvoISQgAQAAAAAAAABgU9f1AAAAAACADwbF8QBA
   </data>

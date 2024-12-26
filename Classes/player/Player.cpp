@@ -414,7 +414,7 @@ float Player::getMaxHealth() const {
 
 void Player::update(float dt) {
 
-    if (scene->getChildByName("popup") == nullptr) {
+    if (!scene->getChildByName("popup") && !scene->getChildByName("shop")) {
         isEnable = true;
     }
     if (!isEnable||!isAlive) return;
@@ -451,38 +451,40 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
                 Common::isCollision(body, Constants::TAG_BRIDGE_BREAK)|| Common::isCollision(body, Constants::TAG_BOX))) {
             jump();
         }
-        if (keyCode == (EventKeyboard::KeyCode::KEY_J)) {
+        if (keyCode == (EventKeyboard::KeyCode::KEY_V)) {
             auto camera = scene->getDefaultCamera();
             auto playerStatsLayer = PlayerStatsLayer::createLayer(this, scene);
             Vec2 pos = camera->getPosition();
             playerStatsLayer->setPosition(Vec2(pos.x - 250 * Common::scaleSizeXY(), pos.y - 250 * Common::scaleSizeXY()));
         }
 
-        if (keyCode == (EventKeyboard::KeyCode::KEY_I)) {
-            auto camera = scene->getDefaultCamera();
-            auto inventoryLayer = InventoryLayer::createLayer(this, scene);
-            Vec2 pos = camera->getPosition();
-            inventoryLayer->setPosition(Vec2(pos.x - 250 * Common::scaleSizeXY(), pos.y - 250 * Common::scaleSizeXY()));
-        }
-
         if (!isInVillage) {
-            if (keyCode == (EventKeyboard::KeyCode::KEY_E)) {
+            if (keyCode == (EventKeyboard::KeyCode::KEY_O)) {
                 throwStick();
             }
-
             if (keyCode == (EventKeyboard::KeyCode::KEY_1)) {
                 useHealthPotion();
             }
             if (keyCode == (EventKeyboard::KeyCode::KEY_2)) {
                 useManaPotion();
             }
-            if (keyCode == (EventKeyboard::KeyCode::KEY_Q)) {
+            if (keyCode == (EventKeyboard::KeyCode::KEY_P)) {
                 throwEagle();
+            }
+            if (keyCode == (EventKeyboard::KeyCode::KEY_I)) {
+                hit();
+            }
+            if (keyCode == (EventKeyboard::KeyCode::KEY_C)) {
+                auto camera = scene->getDefaultCamera();
+                auto inventoryLayer = InventoryLayer::createLayer(this, scene);
+                Vec2 pos = camera->getPosition();
+                inventoryLayer->setPosition(Vec2(pos.x - 250 * Common::scaleSizeXY(), pos.y - 250 * Common::scaleSizeXY()));
             }
         } 
     }
+    
     if (keyCode == (EventKeyboard::KeyCode::KEY_ESCAPE)) {
-        Common::togglePause(isEnable, scene);
+        if(1 == Common::togglePause(isEnable, scene)) savePlayerDataInit();
     }
 
     // Cheat code

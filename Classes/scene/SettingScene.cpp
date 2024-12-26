@@ -74,18 +74,17 @@ bool SettingScene::init()
 
     this->addChild(musicLabel);
     // Tạo slider cho âm lượng
-    auto volumeSlider = ui::Slider::create();
-    volumeSlider->setPercent(SettingManager::getInstance()->getVolume()*100); // Khởi tạo
-    volumeSlider->loadBarTexture("UI/scale/bar_bg.png");
-    volumeSlider->loadSlidBallTextures("UI/scale/button.png", "UI/scale/button.png", "");
-    volumeSlider->loadProgressBarTexture("UI/scale/bar.png");
-    volumeSlider->addEventListener(CC_CALLBACK_2(SettingScene::sliderEvent, this));
-    volumeSlider->setPosition(Vec2(Common::getCenter().x-20 * Common::scaleSizeXY(), musicLabel->getPositionY()));
-    volumeSlider->getSlidBallRenderer()->setScaleX(0.35 * Common::scaleSizeX());
-    Common::scaleAll(volumeSlider, 0.03);
-    volumeSlider->setAnchorPoint(Vec2(0, 0));
-    this->addChild(volumeSlider);
-
+    auto volumeSliderMusic = ui::Slider::create();
+    volumeSliderMusic->setPercent(SettingManager::getInstance()->getVolume()*100); // Khởi tạo
+    volumeSliderMusic->loadBarTexture("UI/scale/bar_bg.png");
+    volumeSliderMusic->loadSlidBallTextures("UI/scale/button.png", "UI/scale/button.png", "");
+    volumeSliderMusic->loadProgressBarTexture("UI/scale/bar.png");
+    volumeSliderMusic->addEventListener(CC_CALLBACK_2(SettingScene::changeMucsicVolume, this));
+    volumeSliderMusic->setPosition(Vec2(Common::getCenter().x-20 * Common::scaleSizeXY(), musicLabel->getPositionY()));
+    volumeSliderMusic->getSlidBallRenderer()->setScaleX(0.35 * Common::scaleSizeX());
+    Common::scaleAll(volumeSliderMusic, 0.03);
+    volumeSliderMusic->setAnchorPoint(Vec2(0, 0));
+    this->addChild(volumeSliderMusic);
 
     // Tạo tiêu đề
     auto gameplayVolume = Label::createWithTTF("Effect", "fonts/Marker Felt.ttf", 35);
@@ -95,63 +94,58 @@ bool SettingScene::init()
     this->addChild(gameplayVolume);
 
     // Tạo slider cho âm lượng
-    auto volumeSliderGameplay = ui::Slider::create();
-    volumeSliderGameplay->setPercent(SettingManager::getInstance()->getGameplayVol() * 100); // Khởi tạo
-    volumeSliderGameplay->loadBarTexture("UI/scale/bar_bg.png");
-    volumeSliderGameplay->loadSlidBallTextures("UI/scale/button.png", "UI/scale/button.png", "UI/scale/button.png");
-    volumeSliderGameplay->loadProgressBarTexture("UI/scale/bar.png");
-    volumeSliderGameplay->addEventListener(CC_CALLBACK_2(SettingScene::sliderEventGamePlay, this));
-    volumeSliderGameplay->setPosition(Vec2(volumeSlider->getPositionX(), gameplayVolume->getPositionY()));
-    volumeSliderGameplay->getSlidBallRenderer()->setScaleX(0.35* Common::scaleSizeX());
-    Common::scaleAll(volumeSliderGameplay, 0.03);
-    //volumeSliderGameplay->setScale(Constants::scaleSprite());
+    auto volumeSliderEffect = ui::Slider::create();
+    volumeSliderEffect->setPercent(SettingManager::getInstance()->getGameplayVol() * 100); // Khởi tạo
+    volumeSliderEffect->loadBarTexture("UI/scale/bar_bg.png");
+    volumeSliderEffect->loadSlidBallTextures("UI/scale/button.png", "UI/scale/button.png", "UI/scale/button.png");
+    volumeSliderEffect->loadProgressBarTexture("UI/scale/bar.png");
+    volumeSliderEffect->addEventListener(CC_CALLBACK_2(SettingScene::changeEffectVolume, this));
+    volumeSliderEffect->setPosition(Vec2(volumeSliderMusic->getPositionX(), gameplayVolume->getPositionY()));
+    volumeSliderEffect->getSlidBallRenderer()->setScaleX(0.35* Common::scaleSizeX());
+    Common::scaleAll(volumeSliderEffect, 0.03);
     
-    volumeSliderGameplay->setAnchorPoint(Vec2(0, 0));
-    this->addChild(volumeSliderGameplay);
+    volumeSliderEffect->setAnchorPoint(Vec2(0, 0));
+    this->addChild(volumeSliderEffect);
 
-    // Volume
-    // Tạo tiêu đề
-    auto volumeLabel = Label::createWithTTF("Sub", "fonts/Marker Felt.ttf", 35 * Common::scaleSizeXY());
-    volumeLabel->setAnchorPoint(Vec2(0, 0));
-    volumeLabel->setPosition(Vec2(musicLabel->getPositionX(), musicLabel->getPositionY() - space*2));
-    this->addChild(volumeLabel);
+    // Sub
+    auto subLabel = Label::createWithTTF("Sub", "fonts/Marker Felt.ttf", 35 * Common::scaleSizeXY());
+    subLabel->setAnchorPoint(Vec2(0, 0));
+    subLabel->setPosition(Vec2(musicLabel->getPositionX(), musicLabel->getPositionY() - space*2));
+    this->addChild(subLabel);
     // Tạo hình ảnh cho các trạng thái của nút toggle
-    auto volumeOn = Sprite::create("UI/scale/button_on.png");
-    auto volumeOff = Sprite::create("UI/scale/button_off.png");
+    auto subOn = Sprite::create("UI/scale/button_on.png");
+    auto subOff = Sprite::create("UI/scale/button_off.png");
 
     // Tạo MenuItemToggle
     auto toggleItem = MenuItemToggle::createWithCallback(
         CC_CALLBACK_1(SettingScene::toggleSubCallback, this),
-        MenuItemSprite::create(volumeOff, volumeOff),
-        MenuItemSprite::create(volumeOn, volumeOn),
+        MenuItemSprite::create(subOff, subOff),
+        MenuItemSprite::create(subOn, subOn),
         nullptr
     );
     toggleItem->setSelectedIndex(SettingManager::getInstance()->getSub());
     toggleItem->setAnchorPoint(Vec2(0, 0));
-    toggleItem->setPosition(Vec2(volumeSlider->getPositionX(), volumeLabel->getPositionY()));
-    //toggleItem->setScale(Constants::scaleSprite());
+    toggleItem->setPosition(Vec2(volumeSliderMusic->getPositionX(), subLabel->getPositionY()));
     Common::scaleAll(toggleItem, 0.04);
 
-    // Sound
-    // Tạo tiêu đề
-    auto soundLabel = Label::createWithTTF("V Sync", "fonts/Marker Felt.ttf", 35 * Common::scaleSizeXY());
-    soundLabel->setAnchorPoint(Vec2(0, 0));
-    soundLabel->setPosition(Vec2(musicLabel->getPositionX(), musicLabel->getPositionY() - space*3));
-    this->addChild(soundLabel);
+    // V Sync
+    auto vsyncLabel = Label::createWithTTF("V Sync", "fonts/Marker Felt.ttf", 35 * Common::scaleSizeXY());
+    vsyncLabel->setAnchorPoint(Vec2(0, 0));
+    vsyncLabel->setPosition(Vec2(musicLabel->getPositionX(), musicLabel->getPositionY() - space*3));
+    this->addChild(vsyncLabel);
     // Tạo hình ảnh cho các trạng thái của nút toggle
-    auto soundOn = Sprite::create("UI/scale/button_on.png");
-    auto soundOff = Sprite::create("UI/scale/button_off.png");
+    auto vsyncOn = Sprite::create("UI/scale/button_on.png");
+    auto vsyncOff = Sprite::create("UI/scale/button_off.png");
     // Tạo MenuItemToggle
     auto toggleItemSound = MenuItemToggle::createWithCallback(
         CC_CALLBACK_1(SettingScene::toggleVsynCallback, this),
-        MenuItemSprite::create(soundOff, soundOff),
-        MenuItemSprite::create(soundOn, soundOn),
+        MenuItemSprite::create(vsyncOff, vsyncOff),
+        MenuItemSprite::create(vsyncOn, vsyncOn),
         nullptr
     );
     toggleItemSound->setSelectedIndex(SettingManager::getInstance()->getVsyn());
     toggleItemSound->setAnchorPoint(Vec2(0, 0));
-    toggleItemSound->setPosition(Vec2(volumeSlider->getPositionX(), soundLabel->getPositionY()));
-    //toggleItemSound->setScale(Constants::scaleSprite());
+    toggleItemSound->setPosition(Vec2(volumeSliderMusic->getPositionX(), vsyncLabel->getPositionY()));
     Common::scaleAll(toggleItemSound, 0.04);
 
     // Ok
@@ -161,7 +155,7 @@ bool SettingScene::init()
     Common::scaleAll(menuImages1, 0.05);
     // Cancel
     auto menuImages2 = MenuItemImage::create("UI/scale/cancel.png", "UI/scale/cancel.png",
-        CC_CALLBACK_1(SettingScene::goBack, this));
+        CC_CALLBACK_1(SettingScene::close, this));
     menuImages2->setPosition(Common::getCenter().x + 250 * Common::scaleSizeXY(), headerLabel->getPositionY());
     Common::scaleAll(menuImages2, 0.04);
 
@@ -177,50 +171,31 @@ void SettingScene::toggleSubCallback(Ref* sender) {
     auto toggleItem = dynamic_cast<MenuItemToggle*>(sender);
     int selectedIndex = toggleItem->getSelectedIndex();
     SettingManager::getInstance()->setSub(selectedIndex);
-    if (selectedIndex == 0) {
-        
-    }
-    else {
-        CCLOG("Sound ON");
-        // Bật âm thanh
-    }
 }
 
 void SettingScene::toggleVsynCallback(Ref* sender) {
     auto toggleItem = dynamic_cast<MenuItemToggle*>(sender);
     int selectedIndex = toggleItem->getSelectedIndex();
     SettingManager::getInstance()->setVsyn(selectedIndex);
-    if (selectedIndex == 0) {
-        
-    }
-    else {
-        CCLOG("Sound ON");
-        // Bật âm thanh
-    }
 }
 
 
-void SettingScene::sliderEvent(Ref* sender, ui::Slider::EventType eventType) {
+void SettingScene::changeMucsicVolume(Ref* sender, ui::Slider::EventType eventType) {
     if (eventType == ui::Slider::EventType::ON_PERCENTAGE_CHANGED) {
         auto slider = dynamic_cast<ui::Slider*>(sender);
-        SettingManager::getInstance()->setVolume(slider->getPercent() / 100.0f); // Chuyển đổi sang khoảng 0-1
-        setVolume(); // Gọi hàm để thiết lập âm lượng
+        SettingManager::getInstance()->setVolume(slider->getPercent() / 100.0f); // To save to file
+        MusicManager::getInstance()->setVolume(slider->getPercent() / 100.0f);
     }
 }
 
-void SettingScene::sliderEventGamePlay(Ref* sender, ui::Slider::EventType eventType) {
+void SettingScene::changeEffectVolume(Ref* sender, ui::Slider::EventType eventType) {
     if (eventType == ui::Slider::EventType::ON_PERCENTAGE_CHANGED) {
         auto slider = dynamic_cast<ui::Slider*>(sender);
-        SettingManager::getInstance()->setGameplayVol(slider->getPercent() / 100.0f); // Chuyển đổi sang khoảng 0-1
+        SettingManager::getInstance()->setGameplayVol(slider->getPercent() / 100.0f); // // To save to file
     }
 }
 
-void SettingScene::setVolume() {
-    //setting->saveSettingData();
-}
-
-void SettingScene::goBack(Ref* sender) {
-    // Quay lại scene trước đó
+void SettingScene::close(Ref* sender) {
     Director::getInstance()->popScene();
 }
 

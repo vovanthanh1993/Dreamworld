@@ -26,7 +26,7 @@ namespace common {
 		static void destroyObject(b2World* world, b2Body* body, unordered_map<b2Body*, Sprite*>& _bodyToSpriteMap);
 				
 		static int randomNum(int from, int to);
-		static void togglePause(bool& isPaused, Scene* scene);
+		static int togglePause(bool& isEnable, Scene* scene);
 		static void zoomAction(MenuItemImage* item);
 		static int playBackgroundMusic(float volume, string path);
 		static void changeSpriteColor(Sprite* sprite, bool& isHit);

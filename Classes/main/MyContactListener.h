@@ -21,7 +21,7 @@
 #include "enemy/BossMap4.h"
 #include "main/Constants.h"
 #include "skill/StoneBall.h"
-#include "inventory/Charm.h"
+#include "item/charm.h"
 #include "npc/NPCMonkey.h"
 #include "item/Bridge.h"
 #include "item/Heart.h"

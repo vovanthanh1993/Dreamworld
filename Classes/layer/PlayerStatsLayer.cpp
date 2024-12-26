@@ -33,10 +33,10 @@ bool PlayerStatsLayer::init(Player* player, Scene* scene) {
     background->setScale(0.8 * Common::scaleSizeXY());
     layer->addChild(background, -1); // Thêm hình nền dưới các mục khác
 
-    auto header = Sprite::create("ui/header_fight.png");
+    auto header = Sprite::create("ui/header_stats.png");
     //auto header = Sprite::create("ui/head2.png"); 
     header->setPosition(Common::scalePos(150, 370));
-    header->setScale(Common::scaleSizeXY());
+    header->setScale(0.17* Common::scaleSizeXY());
     layer->addChild(header);
     
     // Tạo các mục shop

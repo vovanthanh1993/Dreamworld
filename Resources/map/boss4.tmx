@@ -3,32 +3,32 @@
  <tileset firstgid="1" name="Cave - Platforms" tilewidth="24" tileheight="24" tilecount="37107" columns="217">
   <image source="Cave - Platforms.png" width="5222" height="4111"/>
  </tileset>
- <layer id="3" name="soul" width="80" height="45" opacity="0.48">
+ <layer id="3" name="soul" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztzkENAAAIBKBLYF/bOzu4+YEEJAAAAKyu7wEAAAAAAAAAAAAA3Bn3XACI
   </data>
  </layer>
- <layer id="15" name="port" width="80" height="45">
+ <layer id="15" name="port" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztzgEJAAAIA7CDke0PxlBhS7Dktq7tAQAAAAAAAAAAAAAAAAD8M910AHc=
   </data>
  </layer>
- <layer id="16" name="miko" width="80" height="45">
+ <layer id="16" name="miko" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztziEBAAAIA7AbUtC/JxaPwGwJlgAAAAAAAAAAAAAA3HV9DwAAgG0ArMoAIQ==
   </data>
  </layer>
- <layer id="4" name="wukong" width="80" height="45" opacity="0.42">
+ <layer id="4" name="wukong" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztzgENAAAIA6B3sH9BUxjjm4MEJAAAAEDbTnsAAAAAAAAAAAAAfHNgpQD+
   </data>
  </layer>
- <layer id="11" name="wukongfly" width="80" height="45">
+ <layer id="11" name="wukongfly" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJzt2EEJAAAIBEF/ZrB/UTsIIsJMhOVeVxkMlXYAAAAA63wwXLE9AAAAAAAAAAC+azJ9AIE=
   </data>
  </layer>
- <layer id="5" name="limit" width="80" height="45" opacity="0.34">
+ <layer id="5" name="limit" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJzt0qENAEAIwEAcFvf7b/ojkGAQ3E1Q0QgAAAAAAAAAAAAAAKDzcruAq8p7AAx9zt0ANg==
   </data>
@@ -46,7 +46,7 @@
   <object id="13" x="1400.83" y="676.667" width="129" height="52"/>
   <object id="14" x="1544.83" y="750" width="129" height="52"/>
  </objectgroup>
- <layer id="12" name="player" width="80" height="45">
+ <layer id="12" name="player" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztziEBAAAIA7ALmtG/ExXuMFuCJUBj53sAAAAAAAAAAAAAAAAA0DvxmgBI
   </data>

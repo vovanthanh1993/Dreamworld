@@ -86,7 +86,7 @@ bool GameOver::init()
 
 void GameOver::restartCallback(Ref* sender) {
 
-    auto scene = VillageScene::createScene("map/bglv1.png", "sound/background2.mp3", "village", false);
+    auto scene = VillageScene::createScene("map/bglv1.png", "sound/bg1.mp3", "village", false);
     Director::getInstance()->replaceScene(TransitionFade::create(0.5, scene));
 }
 

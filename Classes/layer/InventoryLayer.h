@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "player/Player.h"
 #include "base/BaseLayer.h"
-#include "Inventory/charm.h"
+#include "item/charm.h"
 
 class InventoryLayer : public BaseLayer {
 public:

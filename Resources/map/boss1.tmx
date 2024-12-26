@@ -16,12 +16,12 @@
  <objectgroup id="8" name="limitmap">
   <object id="6" x="-4.66667" y="-1.33333" width="7.3333" height="1000"/>
  </objectgroup>
- <layer id="3" name="boss" width="80" height="45" opacity="0.63">
+ <layer id="3" name="boss" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztzkEJAAAIBLAD+3cxog8rCH62BEsAAAAAAAAAAAAAAAC40vU9AIA10fUAtA==
   </data>
  </layer>
- <layer id="4" name="limit" width="80" height="45" opacity="0.41">
+ <layer id="4" name="limit" width="80" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJzt0DENAEAIwEDCgM337+KDCMLAnYKmEQAAAAAAAAAAAAAAQHu5XXBHeQ0A4z7PRQBq
   </data>
