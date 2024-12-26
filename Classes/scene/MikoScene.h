@@ -1,4 +1,4 @@
-/****************************************************************************
+﻿/****************************************************************************
  Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
  http://www.cocos2d-x.org
@@ -47,11 +47,13 @@ private:
     int index = 0;
     vector<string> welcomeChatVector = {
         "Finally, you have arrived here...",
-        "This place is Dreamworld, the forest that hides your fears...",
-        "I am Miko, the guardian of this place...",
-        "If you want to escape this forest, you must face the fears of your own self...",
-        "Otherwise, it will consume everything you remember about this world...",
-        "This door will lead you to your greatest fear. Be careful!"};
+        "This place is Dreamworld, it's created by your subconscious now...",
+        "Before, it was a beautiful world...",
+        "But since your mother passed away, it has been overshadowed by your fears...",
+        "A stone of loneliness, a ghost of death, a deep darkness in your mind...",
+        "You've been trapped here for a long time, you've been here many times... ",
+        "But you still can't free yourself, forgetting everything once again...",
+        "If you want to try once more, this is the gate leading to your bondage. Be careful!"};
     vector<string> completeChatVector = {
         "Originally, both you and I had already died and become trapped in this forest...",
         "We have made many mistakes in the past...",
