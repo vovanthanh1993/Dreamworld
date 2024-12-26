@@ -48,25 +48,25 @@ bool GUILayer::init(Player* player, Scene* scene) {
         Label::createWithSystemFont("Space to Jump", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     auto itemLabel3 = MenuItemLabel::create(
-        Label::createWithSystemFont("E to throw Stick", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("I to Slash", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     auto itemLabel4 = MenuItemLabel::create(
-        Label::createWithSystemFont("Q to throw Eagle", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("O to throw Stick", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     auto itemLabel5 = MenuItemLabel::create(
-        Label::createWithSystemFont("1 to use Mana Potion", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("P to throw Eagle", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     auto itemLabel6 = MenuItemLabel::create(
-        Label::createWithSystemFont("2 to use Health Potion", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("1 to use Mana Potion", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     auto itemLabel7 = MenuItemLabel::create(
-        Label::createWithSystemFont("Left mouse to Slash", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("2 to use Health Potion", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     auto itemLabel8 = MenuItemLabel::create(
-        Label::createWithSystemFont("I to open Charm", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("C to open Charm", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     auto itemLabel9 = MenuItemLabel::create(
-        Label::createWithSystemFont("J to show Attributes", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("V to show Attributes", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     
     // Vị trí các mục nằm trong khung

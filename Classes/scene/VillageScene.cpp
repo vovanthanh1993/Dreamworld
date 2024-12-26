@@ -46,32 +46,19 @@ void VillageScene::update(float dt) {
 }
 
 void VillageScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event) {
-    /*if (player->isEnable) {*/
+    if (player->isEnable) {
         if (keyCode == (EventKeyboard::KeyCode::KEY_E)) {
             if (b2Distance(player->getBody()->GetPosition(), npc1->getBody()->GetPosition()) <= Constants::TALK_RANGE* Common::scaleSizeXY()) {
-                if (this->getChildByName("popup")) {
-                    this->removeChildByName("popup");
-                    player->savePlayerDataInit();
-                }
-                else upgradeShopLayer = UpgradeShopLayer::createLayer(player, this);
+                upgradeShopLayer = UpgradeShopLayer::createLayer(player, this);
             }
 
             if (b2Distance(player->getBody()->GetPosition(), npc2->getBody()->GetPosition()) <= Constants::TALK_RANGE * Common::scaleSizeXY()) {
-                if (this->getChildByName("popup")) {
-                    this->removeChildByName("popup");
-                }
-                else
-                    guiLayer = GUILayer::createLayer(player, this);
+                guiLayer = GUILayer::createLayer(player, this);
             }
             if (b2Distance(player->getBody()->GetPosition(), npc3->getBody()->GetPosition()) <= Constants::TALK_RANGE * Common::scaleSizeXY()) {
-                if (this->getChildByName("popup")) {
-                    this->removeChildByName("popup");
-                    player->savePlayerDataInit();
-                }
-                else
-                    itemShopLayer = ItemShopLayer::createLayer(player, this);
+                itemShopLayer = ItemShopLayer::createLayer(player, this);
             }
-        //}
+        }
     }
 }
 

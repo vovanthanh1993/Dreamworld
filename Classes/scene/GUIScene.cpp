@@ -60,7 +60,7 @@ bool GUIScene::init()
     headerLabel->setPosition(Vec2(Common::getCenter().x, visibleSize.height - (headerLabel->getContentSize().height+150) * Common::scaleSizeY()));
     this->addChild(headerLabel);
 
-    int space = 70 * Common::scaleSizeY();
+    int space = 60 * Common::scaleSizeY();
 
     // Tạo các mục shop
     auto itemLabel0 = MenuItemLabel::create(
@@ -80,36 +80,44 @@ bool GUIScene::init()
     itemLabel2->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 2));
 
     auto itemLabel3 = MenuItemLabel::create(
-        Label::createWithSystemFont("E to throw Stick", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("I to Slash", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel3->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 3));
 
     auto itemLabel4 = MenuItemLabel::create(
-        Label::createWithSystemFont("Q to throw Eagle", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("O to throw Stick", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     
     itemLabel4->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 4));
 
     auto itemLabel5 = MenuItemLabel::create(
-        Label::createWithSystemFont("1 to use Health Potion", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("P to throw Eagle", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel5->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 5));
     auto itemLabel6 = MenuItemLabel::create(
-        Label::createWithSystemFont("2 to use Mana Potion", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("1 to use Health Potion", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel6->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 6));
 
     auto itemLabel7 = MenuItemLabel::create(
-        Label::createWithSystemFont("Left mouse to Slash", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+        Label::createWithSystemFont("2 to use Mana Potion", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
     );
     itemLabel7->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 7));
 
+    auto itemLabel8 = MenuItemLabel::create(
+        Label::createWithSystemFont("C to open Charm", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+    );
+    itemLabel8->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 8));
 
-    // Ok
-    auto menuImages1 = MenuItemImage::create("UI/scale/ok.png", "UI/scale/ok.png",
-        CC_CALLBACK_1(GUIScene::goBack, this));
-    menuImages1->setPosition(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 8);
-    Common::scaleAll(menuImages1, 0.05);
+    auto itemLabel9 = MenuItemLabel::create(
+        Label::createWithSystemFont("V to show Attributes", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+    );
+    itemLabel9->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 9));
+
+    auto itemLabel10 = MenuItemLabel::create(
+        Label::createWithSystemFont("E to speak with NPC", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY())
+    );
+    itemLabel10->setPosition(Vec2(itemLabel1->getPositionX(), itemLabel0->getPositionY() - space * 10));
 
     // Cancel
     auto menuImages2 = MenuItemImage::create("UI/scale/cancel.png", "UI/scale/cancel.png",
@@ -118,12 +126,10 @@ bool GUIScene::init()
     Common::scaleAll(menuImages2, 0.04);
 
     // Tạo menu
-    auto menu = Menu::create(itemLabel0, itemLabel1, itemLabel2, itemLabel3, itemLabel4, itemLabel5, itemLabel6, itemLabel7, menuImages1, menuImages2, nullptr);
+    auto menu = Menu::create(itemLabel0, itemLabel1, itemLabel2, itemLabel3, itemLabel4, itemLabel5, itemLabel6, itemLabel7, itemLabel8, itemLabel9, itemLabel10, menuImages2, nullptr);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu);
     Common::zoomAction(menuImages2);
-    Common::zoomAction(menuImages1);
-
     return true;
 }
 
