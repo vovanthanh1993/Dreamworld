@@ -91,10 +91,12 @@ void BaseScene::update(float dt) {
         Size screenSize = Director::getInstance()->getVisibleSize();
         float screenWidth = screenSize.width;
         float screenHeight = screenSize.height;
+        float mapSize = map->getMapSize().width * Constants::TITLE_SIZE;
+
         if (camera && player->getSprite())
         {
             // Cập nhật vị trí của Camera để theo dõi nhân vật
-            if (player->getSprite()->getPositionX() > origin.x + screenWidth / 2 && player->getSprite()->getPositionX() < Constants::MAX_SIZE_MAP * Common::scaleSizeXY() - screenWidth / 2 + origin.x) {
+            if (player->getSprite()->getPositionX() > origin.x + screenWidth / 2 && player->getSprite()->getPositionX() < mapSize * Common::scaleSizeXY() - screenWidth / 2 + origin.x) {
                 Vec2 cameraPosition = player->getSprite()->getPosition();
                 camera->setPosition3D(Vec3(cameraPosition.x, camera->getPositionY(), camera->getPosition3D().z));
                 boundaryBodyStart->SetTransform(b2Vec2((cameraPosition.x - origin.x - screenWidth / 2 - 140 * Common::scaleSizeXY()) / Constants::PIXELS_PER_METER, camera->getPositionY()), 0.0f);

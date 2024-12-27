@@ -524,6 +524,10 @@ void Player::actionKey(EventKeyboard::KeyCode keyCode) {
         auto villageScene = Boss4Scene::createScene("map/bg2.png", "enemy/Bossmap4/sound/bg.mp3", "boss4", false);
         Director::getInstance()->replaceScene(villageScene);
     }
+    if (keyCode == (EventKeyboard::KeyCode::KEY_F10)) {
+        auto villageScene = MemoryScene::createScene("map/bglv1.png", "sound/endbg.mp3", "memory", true);
+        Director::getInstance()->replaceScene(villageScene);
+    }
     if (keyCode == (EventKeyboard::KeyCode::KEY_TAB)) {
         health = maxHealth;
         mana = maxMana;

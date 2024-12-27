@@ -40,7 +40,6 @@ void MikoScene::update(float dt) {
     if (contactListener->isNext) {
         player->savePlayerDataInit();
         auto newScene = Boss4Scene::createScene("map/bg2.png", "enemy/Bossmap4/sound/bg.mp3", "boss4", false);
-        if(player->isComplete) newScene = EndScene::createScene();
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
         isEndMap = true;
     }
@@ -70,7 +69,6 @@ void MikoScene::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::E
 void MikoScene::spawnObject() {
     item = new MapItem(world, this, bodyToSpriteMap, map);
     item->spawnWallAndLimit();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     // Spawn player
     auto playerLayer = map->getLayer("player");

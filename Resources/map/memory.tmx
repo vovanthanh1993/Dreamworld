@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="160" height="45" tilewidth="24" tileheight="24" infinite="0" nextlayerid="16" nextobjectid="6">
+ <tileset firstgid="1" name="JumpPlant_00000" tilewidth="24" tileheight="24" tilecount="441" columns="21">
+  <image source="PlantJump/JumpPlant_00000.png" width="512" height="512"/>
+ </tileset>
+ <layer id="3" name="player" width="160" height="45" opacity="0">
+  <data encoding="base64" compression="zlib">
+   eJztzjEBAAAIA6B52b+xMdwBCUgAAAAAAAAAAAAAAAAAAIBmO98DAAAAAAAAAAAAAAAAoMEBE/0ACQ==
+  </data>
+ </layer>
+ <objectgroup id="5" name="wall">
+  <object id="3" x="-1" y="905" width="3840" height="175"/>
+ </objectgroup>
+ <objectgroup id="10" name="limitmap">
+  <object id="4" x="-12" y="-16" width="17.3333" height="1101.33"/>
+  <object id="5" x="3828" y="-10.6667" width="34.6667" height="1088"/>
+ </objectgroup>
+ <layer id="11" name="memory" width="160" height="45" opacity="0">
+  <data encoding="base64" compression="zlib">
+   eJztzDENADAIADB4mH/HM8FBoBXQCAAAAAAAAAAuqez9nm/UBwAAAAAAAAAAAAAAAAAAAAAAAADs9QFqAwAw
+  </data>
+ </layer>
+ <layer id="12" name="bg1" width="160" height="45">
+  <data encoding="base64" compression="zlib">
+   eJztzLVWnWEUBuFzcO+QAEHvlOCEhA536LDgSYcmQKTDIViHO3TMBfzN17Jm1n6aXbyxmJmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmb3nqvAJ1ahBLepQjwY0ogmf0Ywv+IoWd9wJ3ImqFW1oRwc60YVu9KAXfejHAAYxhGF33AnciWoEoxjDOCbwDZOYwjRmMIs5zOM7frjjTuBOVAtYxBKWsYJV/MQvrGEdG/iNP/iLf+64E7gT1Sa2sI0d7GIP+zjAIf7jCMc4wSnO3HEncCeqc1zgEle4xg1ucYd7POART3jGC17dcSdwJ7I4hwQkIgnJSEEq0pCODGQiC9nIibvjTthOVLn885CPAnxAIYpQjI8oQSnKUI4KVMbdcSds5w3++1gx
+  </data>
+ </layer>
+ <layer id="14" name="port" width="160" height="45" opacity="0">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6Dbw/45baFzgwQkAAAAAAAAAAAAAAAAAAAAAAAAAAB81nU9AAAAAAAAAGDDANpMAB4=
+  </data>
+ </layer>
+ <layer id="13" name="bg2" width="160" height="45">
+  <data encoding="base64" compression="zlib">
+   eJztzDdTEFEYRuFdESV3iOT0T5EgSuoIksFORDLYESXTkQRUoCMoGTpP4TbbbeucZ+YU9858bxBIkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJ+l/UUh29pXp6R++pgRqpiZqpJXZXRW+ommrccSfhTuQDdVIXdVMP9VIf9dMADdLH2F0rtVE7dbjjTsKdyBcaoVEao3GaoEmaommaoa+xu080RJ9p2B13Eu5EFmmJvtEyrdAqrdE6bdAmbcXuZmmO5mnBHXcS7kT26Tsd0CEd0Q/6Sb/omE7oNHa3TTu0S3vuuJNwJ/Kb/tAVXdMN3dId3dMDPdJT7O6MzumCLt1xJ+FO5HkYBKn0gl5SGqVTBmVSFmVTThg75B3SM0oJ3XEn4c4/+fwXUCEVUTGVUCmVUTlVUGXsPpf3K8qj16E77iTbifwF0w1ZkQ==
+  </data>
+ </layer>
+ <layer id="15" name="bg3" width="160" height="45">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAdwNwgAAB
+  </data>
+ </layer>
+</map>

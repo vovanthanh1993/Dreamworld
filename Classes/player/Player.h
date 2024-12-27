@@ -15,7 +15,6 @@
 #include "skill/Eagle.h"
 
 
-
 using namespace constants;
 using namespace common;
 using namespace cocos2d;

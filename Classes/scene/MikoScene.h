@@ -47,7 +47,7 @@ private:
     int index = 0;
     vector<string> welcomeChatVector = {
         "Finally, you have arrived here...",
-        "This place is Dreamworld, it's created by your subconscious now...",
+        "This place is Dreamworld, the world created by your imagination...",
         "Before, it was a beautiful world...",
         "But since your mother passed away, it has been overshadowed by your fears...",
         "A stone of loneliness, a ghost of death, a deep darkness in your mind...",

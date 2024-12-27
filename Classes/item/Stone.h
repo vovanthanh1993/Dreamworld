@@ -12,6 +12,5 @@ class Stone :public BaseNode
 public:
 	Stone(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init(Vec2 position);
-	int type;
 };
 

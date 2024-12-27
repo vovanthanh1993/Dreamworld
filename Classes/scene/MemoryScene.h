@@ -21,29 +21,28 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-
-#ifndef __Boss4Scene_H__
-#define __Boss4Scene_H__
-
-#include <string>
+#ifndef __MemoryScene_H__
+#define __MemoryScene_H__
+#include "enemy/Warrior.h"
+#include "skill/SlashEnemy.h"
+#include "enemy/Acher.h"
 #include "base/BaseScene.h"
-#include "layer/UpgradeShopLayer.h"
-#include "scene/Map1Scene.h"
-#include "npc/Miko.h"
-#include "layer/InventoryLayer.h"
-#include "enemy/Wukong.h"
-#include "enemy/WukongFly.h"
-#include "enemy/BossMap4.h"
-#include "scene/MemoryScene.h"
+#include "item/Memory.h"
+#include "scene/EndScene.h"
 
-class Boss4Scene : public BaseScene
+
+using namespace constants;
+using namespace common;
+using namespace cocos2d;
+using namespace std;
+class MemoryScene : public BaseScene
 {
-public:
+public: 
     static Scene* createScene(string bg, string bgMusic, string mapName, bool isMoveCamera);
+    //bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
 private:
-        void update(float dt) override;
-        void spawnObject();
-        BossMap4* bossmap4;
+    void spawnObject();
+    void update(float dt);
 };
 
-#endif // __Boss4Scene_H__
+#endif // __MemoryScene_H__

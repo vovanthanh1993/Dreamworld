@@ -226,6 +226,12 @@
     <ClCompile Include="..\Classes\item\Charm.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\scene\MemoryScene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\item\Memory.cpp">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseEnemy.h">
@@ -2623,6 +2629,12 @@
       <Filter>Source Files\Classes\player</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\item\Charm.h">
+      <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\MemoryScene.h">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\item\Memory.h">
       <Filter>Source Files\Classes\item</Filter>
     </ClInclude>
   </ItemGroup>
