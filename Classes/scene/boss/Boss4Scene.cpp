@@ -32,7 +32,7 @@ void Boss4Scene::update(float dt) {
     if (contactListener->isNext && !bossmap4->isAlive) {
         player->savePlayerDataInit();
         player->isComplete = true;
-        auto newScene = MemoryScene::createScene("map/bglv1.png", "enemy/Bossmap4/sound/bg.mp3", "memory", false);
+        auto newScene = MemoryScene::createScene("map/bglv1.png", "enemy/Bossmap4/sound/bg.mp3", "memory", true);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
         isEndMap = true;
     }
