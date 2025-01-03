@@ -80,16 +80,16 @@ bool PlayerStatsLayer::init(Player* player, Scene* scene) {
     menuItem->setPosition(Vec2::ZERO);
     layer->addChild(menuItem); // Thêm menu vào layer
 
-    // Thêm nút trở về
-    auto okItem = MenuItemLabel::create(
-        Label::createWithSystemFont("Ok", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY()),
-        CC_CALLBACK_1(PlayerStatsLayer::menuOKCallback, this)
-    );
-    okItem->setPosition(Common::scalePos(150, 35));
-    okItem->setColor(cocos2d::Color3B(180, 57, 67));
-    auto menu = Menu::create(okItem, nullptr);
-    menu->setPosition(Vec2::ZERO);
-    layer->addChild(menu); // Thêm menu vào khung
+    //// Thêm nút trở về
+    //auto okItem = MenuItemLabel::create(
+    //    Label::createWithSystemFont("Ok", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY()),
+    //    CC_CALLBACK_1(PlayerStatsLayer::menuOKCallback, this)
+    //);
+    //okItem->setPosition(Common::scalePos(150, 35));
+    //okItem->setColor(cocos2d::Color3B(180, 57, 67));
+    //auto menu = Menu::create(okItem, nullptr);
+    //menu->setPosition(Vec2::ZERO);
+    //layer->addChild(menu); // Thêm menu vào khung
 
     this->setName("popup");
     this->addChild(layer);

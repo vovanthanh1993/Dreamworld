@@ -47,21 +47,21 @@ private:
     int index = 0;
     vector<string> welcomeChatVector = {
         "Finally, you have arrived here...",
-        "This place is Dreamworld, the world created by your imagination...",
+        "This place is Dream World, the world created by your imagination...",
         "Before, it was a beautiful world...",
         "But since your mother passed away, it has been overshadowed by your fears...",
         "A stone of loneliness, a ghost of death, a deep darkness in your mind...",
         "You've been trapped here for a long time, you've been here many times... ",
         "But you still can't free yourself, forgetting everything once again...",
         "If you want to try once more, this is the gate leading to your bondage. Be careful!"};
-    vector<string> completeChatVector = {
+    /*vector<string> completeChatVector = {
         "Originally, both you and I had already died and become trapped in this forest...",
         "We have made many mistakes in the past...",
         "I have been imprisoned here for over 1,000 years to guide people like you...",
         "If I want to leave, someone must accept to take my place..",
         "If you step into the gate on your right, you will be freed from here...",
         "If you step into the gate on your left, you will become me, waiting here for the next one...",
-        "The choice is yours..." };
+        "The choice is yours..." };*/
 };
 
 #endif // __MikoScene_H__

@@ -50,12 +50,3 @@ void NPC1::idle() {
     } 
     
 }
-void NPC1::startConversation(Scene* scene) {
-    displayMessage("Xin chào! Bạn có cần giúp đỡ không?", scene);
-}
-void NPC1::displayMessage(const std::string& message, Scene* scene) {
-    // Khởi tạo NPC
-    _nameLabel = Label::createWithTTF("Master", "fonts/Marker Felt.ttf", 30* Common::scaleSizeXY());
-    _nameLabel->setPosition(sprite->getPositionX(), sprite->getPositionY()+ sprite->getContentSize().height/2* sprite->getScale() + 15 * Common::scaleSizeXY()); // Vị trí có thể thay đổi
-    scene->addChild(_nameLabel);
-}

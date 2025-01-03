@@ -15,14 +15,6 @@ class BasePool
 private:
 	vector<T*> pool;
 public:
-	//BasePool(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap, int poolSize);
-	//~BasePool();
-	//T* getFromPool();
-	//const vector<T*>& getPool() const;        // Getter
-	//void setPool(vector<T*>& newPool);  // Setter
-
-    // Định nghĩa lớp template
-
     void createPool(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap, int poolSize) {
         // Tạo một danh sách các Slash trống
         for (int i = 0; i < poolSize; ++i) {

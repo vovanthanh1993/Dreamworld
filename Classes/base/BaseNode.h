@@ -27,7 +27,6 @@ public:
 	b2Body* getBody();
 	SpriteBatchNode* getSpriteNode();
 	BaseNode(b2World* world, Scene* scene, Vec2 position, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
-	BaseNode(b2World* world, Scene* scene);
 	BaseNode(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	void destroyNode();
 

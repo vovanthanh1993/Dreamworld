@@ -3,8 +3,6 @@ Charm::Charm(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* body
 bool Charm::init(Vec2 position) {
     scale = 0.3;
     id = Common::randomNum(1, 6);
-    manaBonus = Common::randomNum(-3, 3);
-    healthBonus = Common::randomNum(-3, 3);
     slashDamageBonus = Common::randomNum(-5 , 5);
     stickDamageBonus = Common::randomNum(-5, 5);
     eagleDamageBonus = Common::randomNum(-5, 5);
@@ -53,9 +51,9 @@ void Charm::saveToFile(ofstream& out) {
     
 }
 
-void Charm::getEffectString() {
+string Charm::getEffectString() {
     string slashDamageBonusS = slashDamageBonus >= 0 ? "+" + to_string(slashDamageBonus) : to_string(slashDamageBonus);
     string stickDamageBonusS = stickDamageBonus >= 0 ? "+" + to_string(stickDamageBonus) : to_string(stickDamageBonus);
     string eagleDamageBonusS = eagleDamageBonus >= 0 ? "+" + to_string(eagleDamageBonus) : to_string(eagleDamageBonus);
-    effect = slashDamageBonusS + " slash damage, " + stickDamageBonusS + " stick damage, " + eagleDamageBonusS + " eagle damage";
+    return slashDamageBonusS + " slash dmg, " + stickDamageBonusS + " stick dmg, " + eagleDamageBonusS + " eagle dmg";
 }

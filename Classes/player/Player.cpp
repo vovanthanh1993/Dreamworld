@@ -602,7 +602,7 @@ void Player::writeCharmToFile() {
     if (outFile.is_open()) {
         // Ghi mỗi đối tượng vào file
         for (auto& charm : charmVector) {
-            outFile << charm->id << "," << charm->healthBonus << "," << charm->manaBonus  << "," << charm->slashDamageBonus << "," << charm->stickDamageBonus << "," << charm->eagleDamageBonus << "," << charm->getIsActive() << endl;
+            outFile << charm->id << "," << charm->slashDamageBonus << "," << charm->stickDamageBonus << "," << charm->eagleDamageBonus << "," << charm->getIsActive() << endl;
         }
         outFile.close();
     }
@@ -621,12 +621,6 @@ void Player::readCharmFromFile() {
             std::getline(ss, temp, ',');  // Get id
             charm->id = std::stoi(temp);   // Convert the string to an integer
             charm->spritePath = "inventory/charm" + to_string(charm->id) + ".png";
-
-            std::getline(ss, temp, ',');  // Get healthBonus
-            charm->healthBonus = std::stoi(temp);
-
-            std::getline(ss, temp, ',');  // Get manaBonus
-            charm->manaBonus = std::stoi(temp);
 
             std::getline(ss, temp, ',');  // Get damageBonus
             charm->slashDamageBonus = std::stoi(temp);

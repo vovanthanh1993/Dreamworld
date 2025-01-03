@@ -48,15 +48,5 @@ void Miko::idle() {
         auto animateW = Animate::create(Common::createAnimation("miko_Idle Blinking_", 17, 0.1));
         animateW->retain();
         sprite->runAction(RepeatForever::create(animateW));
-    } 
-    
-}
-void Miko::startConversation(Scene* scene) {
-    displayMessage("Xin chào! Bạn có cần giúp đỡ không?", scene);
-}
-void Miko::displayMessage(const std::string& message, Scene* scene) {
-    // Khởi tạo NPC
-    _nameLabel = Label::createWithTTF("Master", "fonts/Marker Felt.ttf", 30* Common::scaleSizeXY());
-    _nameLabel->setPosition(sprite->getPositionX(), sprite->getPositionY()+ sprite->getContentSize().height/2* sprite->getScale() + 15 * Common::scaleSizeXY()); // Vị trí có thể thay đổi
-    scene->addChild(_nameLabel);
+    }  
 }

@@ -15,14 +15,9 @@ using namespace common;
 using namespace cocos2d;
 class NPC2:public BaseNode
 {
-private:
-	void displayMessage(const std::string& message, Scene* scene);
-	std::string _characterName; // Tên nhân vật
-	cocos2d::Label* _nameLabel; // Label hiển thị tên
 public:
 	void idle();
 	NPC2(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap);
 	bool init(Vec2 position);
-	void startConversation(Scene* scene);
 };
 #endif // __NPC2_H__

@@ -23,7 +23,6 @@ public:
 	bool init(Vec2 position);
 	void walk();
 	void idle();
-	void hit();
 	void die();
 	void hurt();
 	void update(float dt);
