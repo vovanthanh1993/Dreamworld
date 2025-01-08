@@ -107,7 +107,7 @@ public:
 	
 	void initMouseEvent();
 	void initKeyEvent();
-	void addEquipment(Charm* eq);
+	void addCharm(Charm* eq);
 	void changeCharm(Charm* charm);
 	void readCharmFromFile();
 	void writeCharmToFile();

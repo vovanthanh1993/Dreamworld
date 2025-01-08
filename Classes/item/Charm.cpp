@@ -8,7 +8,7 @@ bool Charm::init(Vec2 position) {
     eagleDamageBonus = Common::randomNum(-5, 5);
     getEffectString();
 
-    spritePath = "inventory/charm" + to_string(id) + ".png";
+    spritePath = "charm/charm" + to_string(id) + ".png";
     sprite = Sprite::create(spritePath);
     sprite->setPosition(position);
     sprite->setScale(scale * Common::scaleSizeXY());

@@ -15,7 +15,7 @@
   <object id="4" x="-12" y="-16" width="17.3333" height="1101.33"/>
   <object id="5" x="3828" y="-10.6667" width="34.6667" height="1088"/>
  </objectgroup>
- <layer id="11" name="memory" width="160" height="45" opacity="0.7">
+ <layer id="11" name="memory" width="160" height="45" opacity="0">
   <data encoding="base64" compression="zlib">
    eJztzDENADAIADB4mIn514kJDhJaAY0AAAAAAAAA4JLK2e/5Vn1/+AMAAAAAAAAAAAAAAAAAAAAAAAAA9miIIQBN
   </data>

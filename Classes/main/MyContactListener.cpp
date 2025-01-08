@@ -287,11 +287,11 @@ void MyContactListener::BeginContact(b2Contact* contact) {
                 bodiesToRemove.insert(bodyB);
             }
             if (tagA == Constants::TAG_EQUIPMENT) {
-                player->addEquipment(static_cast<Charm*>(spriteA->getUserData()));
+                player->addCharm(static_cast<Charm*>(spriteA->getUserData()));
                 bodiesToRemove.insert(bodyA);
             }
             if (tagB == Constants::TAG_EQUIPMENT) {
-                player->addEquipment(static_cast<Charm*>(spriteB->getUserData()));
+                player->addCharm(static_cast<Charm*>(spriteB->getUserData()));
                 bodiesToRemove.insert(bodyB);
             }
             if (tagA == Constants::TAG_HEART) {
@@ -390,14 +390,6 @@ void MyContactListener::removeObject() {
                 type = 2;
             }
             
-            /*else if (Constants::TAG_FIRE_RAIN == tag) {
-                Effect::destroyFireRain(world, scene, pos);
-            }
-            else if (Constants::TAG_SKULL == tag) {
-                Effect::smoke(world, scene, pos);
-            }else if (Constants::TAG_FIRE == tag) {
-                Effect::destroyFireRain(world, scene, Vec2(sprite->getPositionX() + sprite->getScaleX() * sprite->getContentSize().width / 2, sprite->getPositionY()));
-            }*/
             if (type == 2) {
                 static_cast<BaseNode*>(sprite->getUserData())->reset();
             }

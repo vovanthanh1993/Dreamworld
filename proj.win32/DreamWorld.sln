@@ -117,8 +117,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "external", "engine\external
 		{7B5A7DF1-6061-3028-8A62-D6E9743AB36E} = {7B5A7DF1-6061-3028-8A62-D6E9743AB36E}
 	EndProjectSection
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DreamWorld", "..\DreamWorld\DreamWorld.vdproj", "{82005420-57DC-4B10-B7B3-6DF11200B811}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -247,10 +245,6 @@ Global
 		{81C6DF11-8FD6-3369-85D5-FF2247BB1CDD}.Release|Win32.Build.0 = Release|Win32
 		{81C6DF11-8FD6-3369-85D5-FF2247BB1CDD}.RelWithDebInfo|Win32.ActiveCfg = RelWithDebInfo|Win32
 		{81C6DF11-8FD6-3369-85D5-FF2247BB1CDD}.RelWithDebInfo|Win32.Build.0 = RelWithDebInfo|Win32
-		{82005420-57DC-4B10-B7B3-6DF11200B811}.Debug|Win32.ActiveCfg = Debug
-		{82005420-57DC-4B10-B7B3-6DF11200B811}.MinSizeRel|Win32.ActiveCfg = Debug
-		{82005420-57DC-4B10-B7B3-6DF11200B811}.Release|Win32.ActiveCfg = Release
-		{82005420-57DC-4B10-B7B3-6DF11200B811}.RelWithDebInfo|Win32.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -68,7 +68,6 @@ bool BaseScene::init(string bg, string bgMusic, string mapName, bool isMoveCamer
     contactListener->bodyToSpriteMap = bodyToSpriteMap;
     world->SetContactListener(contactListener);
 
-
     // Schedule the update method
     this->scheduleUpdate();
 

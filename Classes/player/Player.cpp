@@ -567,7 +567,8 @@ void Player::initKeyEvent() {
     scene->getEventDispatcher()->addEventListenerWithSceneGraphPriority(eventListener, scene);
 }
 
-void Player::addEquipment(Charm* charmInput) {
+void Player::addCharm(Charm* charmInput) {
+    MusicManager::getInstance()->soundTing();
     for (auto& charm : charmVector) {
         if (charmInput->id == charm->id) {
             if (currentCharm != nullptr && currentCharm->id == charm->id) {

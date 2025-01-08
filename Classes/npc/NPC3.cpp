@@ -38,6 +38,11 @@ bool NPC3::init(Vec2 position) {
     sprite->setScaleX(-scale* Common::scaleSizeXY());
     idle();
 
+    // Tạo nhãn tên
+    auto nameLabel = Label::createWithTTF("Shop", "fonts/Marker Felt.ttf", 30);
+    nameLabel->setColor(Color3B::WHITE);
+    nameLabel->setPosition(Vec2(sprite->getPositionX(), sprite->getPositionY() + (sprite->getContentSize().height / 2* scale + 15)*Common::scaleSizeY())); // Đặt tên trên đầu nhân vật
+    scene->addChild(nameLabel);
     return true;
 }
 void NPC3::idle() {
