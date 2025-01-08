@@ -14,8 +14,6 @@ Scene* Boss4Scene::createScene(string bg, string bgMusic, string mapName, bool i
         delete ret;
         return nullptr;
     }
-
-    
 }
 
 // update
@@ -32,7 +30,7 @@ void Boss4Scene::update(float dt) {
     if (contactListener->isNext && !bossmap4->isAlive) {
         player->savePlayerDataInit();
         player->isComplete = true;
-        auto newScene = MemoryScene::createScene("map/bglv1.png", "enemy/Bossmap4/sound/bg.mp3", "memory", true);
+        auto newScene = MemoryScene::createScene("map/bglv1.png", "sound/endbg.mp3", "memory", true);
         Director::getInstance()->replaceScene(TransitionFade::create(0.5, newScene));
         isEndMap = true;
     }
@@ -41,6 +39,7 @@ void Boss4Scene::update(float dt) {
 }
 
 void Boss4Scene::spawnObject() {
+    Common::addMapName(this, "Chainbreaker");
 
     item = new MapItem(world, this, bodyToSpriteMap, map);
     item->spawnWallAndLimit();
@@ -79,52 +78,6 @@ void Boss4Scene::spawnObject() {
     boundaryBodyStart = Common::createBoundary(world, true);
     boundaryBodyEnd = Common::createBoundary(world, false);
 }
-
-//void Boss4Scene::spawnHeart() {
-//    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-//    int i = Common::randomNum(1, 4);
-//    int count = 0;
-//    auto wukongLayer = map->getLayer("heart");
-//    if (wukongLayer != nullptr) {
-//        for (int x = 0; x < map->getMapSize().width; ++x) {
-//            for (int y = 0; y < map->getMapSize().height; ++y) {
-//                auto tile = wukongLayer->getTileAt(Vec2(x, y));
-//                if (tile) {
-//                    if (i == ++count) {
-//                        Heart* w = heartPool->getFromPool();
-//                        if (w != nullptr) {
-//                            w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-//                            break;
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
-
-//void Boss4Scene::spawnBackStick() {
-//    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-//    int i = Common::randomNum(1, 4);
-//    int count = 0;
-//    auto wukongLayer = map->getLayer("backstick");
-//    if (wukongLayer != nullptr) {
-//        for (int x = 0; x < map->getMapSize().width; ++x) {
-//            for (int y = 0; y < map->getMapSize().height; ++y) {
-//                auto tile = wukongLayer->getTileAt(Vec2(x, y));
-//                if (tile) {
-//                    if (i == ++count) {
-//                        BackStick* w = backStickPool->getFromPool();
-//                        if (w != nullptr) {
-//                            w->init(Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY());
-//                            break;
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
 
 
 

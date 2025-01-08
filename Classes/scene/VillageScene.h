@@ -53,8 +53,8 @@ private:
         ItemShopLayer* itemShopLayer;
         void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
         vector<string> callTextVector = {
-        "Find me if you can...",
-        "Overcome your fear, and you will meet me...",
+            "Find me if you can...",
+            "Overcome your fear, and you will meet me...",
         };
 };
 

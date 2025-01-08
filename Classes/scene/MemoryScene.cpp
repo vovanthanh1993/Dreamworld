@@ -34,6 +34,8 @@ void MemoryScene::update(float dt) {
 }
 
 void MemoryScene::spawnObject() {
+    Common::showText(this, "Goodbye, Mom.", 3);
+
     item = new MapItem(world, this, bodyToSpriteMap, map);
     item->spawnWallAndLimit();
 

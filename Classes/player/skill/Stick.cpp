@@ -7,7 +7,7 @@ bool Stick::init(Vec2 position) {
     isActive = true;
 
     MusicManager::getInstance()->playerSlash();
-    sprite = Sprite::create("Stick.png");
+    sprite = Sprite::create("skill/Stick.png");
     sprite->setPosition(position);
     Common::scaleAll(sprite, 0.017);
     sprite->setTag(Constants::TAG_STICK);

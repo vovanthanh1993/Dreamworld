@@ -7,7 +7,7 @@ bool SlashEnemy::init(Vec2 position) {
     isActive = true;
 
     MusicManager::getInstance()->playerSlash();
-    sprite = Sprite::create("Slash.png");
+    sprite = Sprite::create("skill/Slash.png");
     sprite->setPosition(position);
     sprite->setScale(scale * Common::scaleSizeXY());
     sprite->setTag(Constants::TAG_SLASH_ENEMY);

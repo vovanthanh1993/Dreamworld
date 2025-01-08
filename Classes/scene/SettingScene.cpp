@@ -62,7 +62,7 @@ bool SettingScene::init()
 
     // Tạo tiêu đề
     auto headerLabel = Label::createWithTTF("SETTING", "fonts/Marker Felt.ttf", 60 * Common::scaleSizeXY());
-    headerLabel->setPosition(Vec2(Common::getCenter().x, visibleSize.height - headerLabel->getContentSize().height - 150* Common::scaleSizeXY()));
+    headerLabel->setPosition(Vec2(Common::getCenter().x, visibleSize.height - headerLabel->getContentSize().height - 160* Common::scaleSizeY()));
     this->addChild(headerLabel);
     
     int space = 80 * Common::scaleSizeX();

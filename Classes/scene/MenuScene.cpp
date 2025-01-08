@@ -136,7 +136,7 @@ void MenuScene::zoomAction(Menu* item) {
 }
 void MenuScene::loadingbar() {
     // loading bar
-    auto loadingBar = ui::LoadingBar::create("stick.png");
+    auto loadingBar = ui::LoadingBar::create("skill/stick.png");
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     loadingBar->setPosition(Vec2(Common::getCenter().x, 100 * Common::scaleSizeY()));

@@ -290,7 +290,7 @@ void BossMap3::castShadow() {
     scene->addChild(blackLayer, 200);  // Đặt lên trên các đối tượng khác
 
     // Tạo một hiệu ứng fade để lớp phủ này từ trong suốt (alpha = 0) đến đen hoàn toàn (alpha = 255) trong 2 giây
-    auto whiteToDark = FadeTo::create(3.0f, 255);
+    auto whiteToDark = FadeTo::create(3.0f, 251);
     auto darkToWhite = FadeTo::create(3.0f, 0);
     auto delay = DelayTime::create(.6f);
     auto sequence = Sequence::create(whiteToDark, delay, darkToWhite, nullptr);

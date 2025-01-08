@@ -6,8 +6,8 @@ bool Eagle::init(Vec2 position) {
     scale = 0.3;
     isActive = true;
 
-    auto spriteNode = SpriteBatchNode::create("player/skill/bear/sprites.png");
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("player/skill/bear/sprites.plist");
+    auto spriteNode = SpriteBatchNode::create("player/skill/eagle/sprites.png");
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("player/skill/eagle/sprites.plist");
     sprite = Sprite::createWithSpriteFrameName("Animal_02__FLY_0.png");
     sprite->setPosition(position);
     sprite->setScale(scale * Common::scaleSizeXY());
