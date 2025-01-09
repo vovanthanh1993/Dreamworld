@@ -621,7 +621,7 @@ void Player::readCharmFromFile() {
             std::string temp;
             std::getline(ss, temp, ',');  // Get id
             charm->id = std::stoi(temp);   // Convert the string to an integer
-            charm->spritePath = "inventory/charm" + to_string(charm->id) + ".png";
+            charm->spritePath = "charm/charm" + to_string(charm->id) + ".png";
 
             std::getline(ss, temp, ',');  // Get damageBonus
             charm->slashDamageBonus = std::stoi(temp);

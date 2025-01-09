@@ -54,19 +54,6 @@ void Map3Scene::spawnObject() {
         }
     }
 
-    //// spawn acher
-    //auto elementalLayer = map->getLayer("elemental");
-    //for (int x = 0; x < map->getMapSize().width; ++x) {
-    //    for (int y = 0; y < map->getMapSize().height; ++y) {
-    //        auto tile = elementalLayer->getTileAt(Vec2(x, y));
-    //        if (tile) {
-    //            Elemental* w = new Elemental(world, this, Vec2(origin.x / Common::scaleSizeXY() + x * Constants::TITLE_SIZE + Constants::TITLE_SIZE / 2, (map->getMapSize().height - y) * Constants::TITLE_SIZE) * Common::scaleSizeXY(), bodyToSpriteMap);
-    //            w->player = player;
-    //            w->init();
-    //        }
-    //    }
-    //}
-
     // spawn hedgehog
     auto hedgehogLayer = map->getLayer("hedgehog");
     for (int x = 0; x < map->getMapSize().width; ++x) {
