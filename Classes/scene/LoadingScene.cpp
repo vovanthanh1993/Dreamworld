@@ -32,14 +32,14 @@ bool LoadingScene::init()
     // Background
     auto backgroundAll = Sprite::create("UI/backgroundwk.png");
     backgroundAll->setPosition(Common::getCenter());
-    backgroundAll->setOpacity(120);
+    backgroundAll->setOpacity(150);
     Common::scaleAll(backgroundAll, 1);
     addChild(backgroundAll, 0);
 
     // Thêm background
     auto background = cocos2d::Sprite::create("ui/loadingbackdround1.png");
-    background->setScale(0.2);
-    background->setScaleX(0.3);
+    background->setScale(0.2* Common::scaleSizeXY());
+    background->setScaleX(0.3 * Common::scaleSizeXY());
     //background->setAnchorPoint(Vec2(1,0));
     background->setPosition(origin.x + visibleSize.width/2, 20 * Common::scaleSizeY());
     this->addChild(background);
@@ -51,8 +51,8 @@ bool LoadingScene::init()
     auto progressBar = cocos2d::ProgressTimer::create(cocos2d::Sprite::create("ui/loadingprocess1.png"));
     progressBar->setOpacity(170);
     //progressBar->setAnchorPoint(Vec2(1, 0));
-    progressBar->setScale(0.2);
-    progressBar->setScaleX(0.3);
+    progressBar->setScale(0.2 * Common::scaleSizeXY());
+    progressBar->setScaleX(0.3 * Common::scaleSizeXY());
     progressBar->setType(cocos2d::ProgressTimer::Type::BAR);
     progressBar->setMidpoint(cocos2d::Vec2(0, 0));
     progressBar->setBarChangeRate(cocos2d::Vec2(1, 0));

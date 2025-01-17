@@ -2,7 +2,7 @@
 BoneRain::BoneRain(b2World* world, Scene* scene, unordered_map<b2Body*, Sprite*>* bodyToSpriteMap) :BaseNode(world, scene, bodyToSpriteMap) {};
 
 bool BoneRain::init(Vec2 position) {
-    scale = 0.4;
+    scale = 0.4 * Common::scaleSizeXY();
     isActive = true;
 
     sprite = Sprite::create("Enemy/Bossmap2/BoneRain/bonerain.png");

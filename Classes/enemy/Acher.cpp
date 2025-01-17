@@ -192,11 +192,11 @@ void Acher::followPlayer() {
     direction.Normalize();
 
     if (direction.x < 0) {
-        sprite->setScaleX(-scale);
+        sprite->setScaleX(-scale *Common::scaleSizeXY());
         this->direction = -1;
     }
     else {
-        sprite->setScaleX(scale);
+        sprite->setScaleX(scale * Common::scaleSizeXY());
         this->direction = 1;
     }
 }

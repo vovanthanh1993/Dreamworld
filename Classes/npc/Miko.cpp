@@ -41,7 +41,7 @@ bool Miko::init(Vec2 position) {
     idle();
 
     // Tạo nhãn tên
-    auto nameLabel = Label::createWithTTF("Miko", "fonts/Marker Felt.ttf", 30);
+    auto nameLabel = Label::createWithTTF("Miko", "fonts/Marker Felt.ttf", 30 * Common::scaleSizeXY());
     nameLabel->setColor(Color3B::WHITE);
     nameLabel->setPosition(Vec2(sprite->getPositionX(), sprite->getPositionY() + (sprite->getContentSize().height / 2 * scale + 5) * Common::scaleSizeY())); // Đặt tên trên đầu nhân vật
     scene->addChild(nameLabel);

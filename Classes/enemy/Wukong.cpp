@@ -169,12 +169,12 @@ void Wukong::followPlayer() {
     direction.Normalize();
 
     if (direction.x < 0) {
-        sprite->setScaleX(-scale);
+        sprite->setScaleX(-scale * Common::scaleSizeXY());
         this->direction = -1;
         direction = b2Vec2(-1, -10);
     }
     else {
-        sprite->setScaleX(scale);
+        sprite->setScaleX(scale * Common::scaleSizeXY());
         this->direction = 1;
         direction = b2Vec2(1, -10);
     }

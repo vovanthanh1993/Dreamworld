@@ -253,11 +253,11 @@ void BossMap1::followPlayer() {
 
     if (direction.x < 0) {
         this->direction = -1;
-        sprite->setScaleX(-scale);
+        sprite->setScaleX(-scale * Common::scaleSizeXY());
     }
     else {
         this->direction = 1;
-        sprite->setScaleX(scale);
+        sprite->setScaleX(scale * Common::scaleSizeXY());
     }
 }
 

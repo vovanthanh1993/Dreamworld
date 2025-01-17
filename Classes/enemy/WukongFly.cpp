@@ -124,8 +124,8 @@ void WukongFly::followPlayer() {
     b2Vec2 direction = playerPos - enemyPos;
     direction.Normalize();
 
-    if (direction.x < 0) sprite->setScaleX(-scale);
-    else sprite->setScaleX(scale);
+    if (direction.x < 0) sprite->setScaleX(-scale * Common::scaleSizeXY());
+    else sprite->setScaleX(scale * Common::scaleSizeXY());
     float speedAttack = 8.0f;  // Tốc độ di chuyển của enemy
     b2Vec2 velocity = Common::scaleSizeXY() * speedAttack * direction;
     body->SetLinearVelocity(velocity);
