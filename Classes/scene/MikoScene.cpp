@@ -92,7 +92,6 @@ void MikoScene::spawnObject() {
             if (tile) {
                 miko = new Miko(world, this, bodyToSpriteMap);
                 miko->init(Common::getPosition(x, map->getMapSize().height - y));
-
                 break;
             }
         }

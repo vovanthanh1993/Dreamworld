@@ -48,7 +48,7 @@ public:
     bool init(string bg, string bgMusic, string mapName, bool isMoveCamera);
     BaseScene();  // Constructor
     ~BaseScene(); // Destructor
-
+    cocos2d::Sprite* _cursor;
 protected:
     bool isEnable = true;
     b2World* world;

@@ -22,7 +22,7 @@
  THE SOFTWARE.
  ****************************************************************************/
 #include "MenuScene.h"
-
+#include <windows.h>
 Scene* MenuScene::createScene()
 {
     return MenuScene::create();
@@ -38,6 +38,56 @@ static void problemLoading(const char* filename)
 // on "init" you need to initialize your instance
 bool MenuScene::init()
 {
+    std::string cursorFilePath = "D:\\cur1163.ani";
+
+    //// Chuyển đổi std::string sang std::wstring (vì LoadCursorFromFileW yêu cầu LPCWSTR)
+    //std::wstring wCursorFilePath(cursorFilePath.begin(), cursorFilePath.end());
+
+    //// Tải con trỏ từ file .cur
+    //HCURSOR hCursor = LoadCursorFromFileW(wCursorFilePath.c_str());
+    //if (!hCursor) {
+    //    std::cerr << "Failed to load cursor from file: " << cursorFilePath << std::endl;
+    //    return true;
+    //}
+
+    //// Thay thế con trỏ hệ thống
+    //if (!SetSystemCursor(hCursor, 32512)) {
+    //    std::cerr << "Failed to set system cursor." << std::endl;
+    //    DestroyCursor(hCursor); // Giải phóng con trỏ nếu không thành công
+    //}
+    //else {
+    //    std::cout << "Cursor replaced successfully." << std::endl;
+    //}
+
+    //auto cursor = Director::getInstance()->getTextureCache()->addImage(cursorFilePath);
+
+    // Ẩn con trỏ hệ thống
+    //cocos2d::Director::getInstance()->getOpenGLView()->setCursorVisible(false);
+
+
+    //// Ẩn con trỏ hệ thống
+    //cocos2d::Director::getInstance()->getOpenGLView()->setCursorVisible(false);
+
+    //// Tạo sprite làm con trỏ tùy chỉnh
+    //auto cursorSprite = cocos2d::Sprite::create("res/cursor.png");
+    //if (cursorSprite) {
+    //    cursorSprite->setAnchorPoint(cocos2d::Vec2(0, 1)); // Đặt điểm neo ở góc trên bên trái
+    //    cursorSprite->setPosition(cocos2d::Vec2(100, 100)); // Vị trí ban đầu
+    //    this->addChild(cursorSprite);
+    //}
+
+    //// Lắng nghe sự kiện chuột
+    //auto mouseListener = cocos2d::EventListenerMouse::create();
+    //mouseListener->onMouseMove = [cursorSprite](cocos2d::EventMouse* event) {
+    //    if (cursorSprite) {
+    //        // Cập nhật vị trí con trỏ tùy chỉnh
+    //        cursorSprite->setPosition(event->getLocationInView());
+    //    }
+    //    };
+
+    //// Đăng ký listener
+    //_eventDispatcher->addEventListenerWithSceneGraphPriority(mouseListener, this);
+
     //////////////////////////////
     // 1. super init first
     if ( !Scene::init() )

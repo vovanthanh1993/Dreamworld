@@ -59,6 +59,7 @@ public:
     void guide(Ref* sender);
     void shop(Ref* sender);
     CREATE_FUNC(MenuScene);
+    cocos2d::Sprite* _cursor;
 
 };
 #endif // __MenuScene_H__
