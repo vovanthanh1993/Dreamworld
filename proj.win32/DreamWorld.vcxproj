@@ -842,6 +842,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="..\Classes\player\PlayerUI.h" />
     <ClInclude Include="..\Classes\scene\boss\Boss4Scene.h" />
     <ClInclude Include="..\Classes\scene\EndScene.h" />
+    <ClInclude Include="..\Classes\scene\LoadingScene.h" />
     <ClInclude Include="..\Classes\scene\MemoryScene.h" />
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseEnemy.h" />
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseLayer.h" />
@@ -919,6 +920,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="..\Classes\player\PlayerUI.cpp" />
     <ClCompile Include="..\Classes\scene\boss\Boss4Scene.cpp" />
     <ClCompile Include="..\Classes\scene\EndScene.cpp" />
+    <ClCompile Include="..\Classes\scene\LoadingScene.cpp" />
     <ClCompile Include="..\Classes\scene\MemoryScene.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\base\BaseEnemy.cpp" />
     <ClCompile Include="D:\DreamWorld\Classes\base\BaseLayer.cpp" />

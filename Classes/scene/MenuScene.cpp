@@ -114,7 +114,8 @@ void MenuScene::update(float dt) {
     AudioEngine::setVolume(MusicManager::getInstance()->currentMusicId, SettingManager::getInstance()->getVolume());
 }
 void MenuScene::onClickMenuItem(Ref* sender) {
-    loadingbar();
+    auto villageScene = LoadingScene::create();
+    Director::getInstance()->replaceScene(TransitionFade::create(0.5, villageScene));
 }
 void MenuScene::shop(Ref* sender) {
     Director::getInstance()->pushScene(ShopScene::createScene());
@@ -133,31 +134,6 @@ void MenuScene::zoomAction(Menu* item) {
     auto actionRepeat = RepeatForever::create(acSq);
     item->runAction(actionRepeat);
 
-}
-void MenuScene::loadingbar() {
-    // loading bar
-    auto loadingBar = ui::LoadingBar::create("skill/stick.png");
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
-    loadingBar->setPosition(Vec2(Common::getCenter().x, 100 * Common::scaleSizeY()));
-    Common::scaleAll(loadingBar, 0.07);
-    loadingBar->setDirection(ui::LoadingBar::Direction::LEFT);// set huong chay
-    loadingBar->setPercent(0);
-    addChild(loadingBar);
-
-    // chay loading bar theo thoi gian
-    this->schedule([=](float delta) {
-        float percent = loadingBar->getPercent();// 0 khi bat dau
-        percent++;//tang dan 1 don vi
-        loadingBar->setPercent(percent);// cap nhat lai vi tri
-        if (percent >= 100.0f) {
-            this->unschedule("updateLoadingBar");// ngung lai
-            std::this_thread::sleep_for(std::chrono::milliseconds(30));
-           
-            auto villageScene = VillageScene::createScene("map/bglv1.png", "sound/bg1.mp3", "village", false);
-            Director::getInstance()->replaceScene(villageScene);
-        }
-        }, 0.01f, "updateLoadingBar");// thoi gian chay 1% la 0,01s, ten cua schedule la "updateLoadingBar"
 }
 
 void MenuScene::menuCloseCallback(Ref* pSender)

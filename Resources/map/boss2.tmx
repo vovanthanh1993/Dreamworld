@@ -8,7 +8,7 @@
  </tileset>
  <layer id="1" name="bg" width="80" height="45">
   <data encoding="base64" compression="zlib">
-   eJzt0lcKwgAUBVFj7HV59r49e1+eIyioGIzxQ5Q5MH+5vBhMpSRJkiRJkiRJkiRJkiRJkiRJkqT/laaQMpSlHOWpQEUqUZkqVKUa1S/PJ90GP7iN+r0NalKL2tShLvWoTwMa0ojGl+due2c7+WD7rbuvtlOa0ZwWtKQVrWlDW9rRng50PO/C++JuH3ffunst6fb2bsCfOk0hZShLOcpTgYpUojJVguh3ibOtPtnHuRt1M+47J737bPv4rU4E+lms
+   eJzt0lcKwgAUBdHE2DW6PHvfnr0vzxEUVBSjfgRkDsxfLi+EBIEkSZIkSZIkSZIkSZIkSZIkSZL0vzIUUZZylKcCFalEZapQlWKqUf3yvNsgaFCTWtSmDnWpR30a0JBGNL48d9sn28kP27TuvttOaUZzWtCSVrSmDW1pR3s60PG8i+5Lun3cpXX32rfb27thyH9JEWUpR3kqUJFKVKYKVcPX75JkGz/ZJ7n76mbSd/727rPt47c6ASvKWbU=
   </data>
  </layer>
  <layer id="2" name="limit" width="80" height="45" opacity="0">

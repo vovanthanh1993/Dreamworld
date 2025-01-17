@@ -30,7 +30,7 @@
 #include <string>
 #include <thread>
 #include "ui\CocosGUI.h"
-#include "VillageScene.h"
+#include "LoadingScene.h"
 #include "scene/Map2Scene.h"
 #include "scene/Map1Scene.h"
 #include "SettingScene.h"

@@ -232,6 +232,9 @@
     <ClCompile Include="..\Classes\item\Memory.cpp">
       <Filter>Source Files\Classes\item</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\scene\LoadingScene.cpp">
+      <Filter>Source Files\Classes\scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\DreamWorld\Classes\base\BaseEnemy.h">
@@ -2636,6 +2639,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\item\Memory.h">
       <Filter>Source Files\Classes\item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\scene\LoadingScene.h">
+      <Filter>Source Files\Classes\scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
